@@ -16,131 +16,129 @@ export default function Hero() {
   useEffect(() => {
     const current = roles[roleIndex]
     let i = typing ? 0 : current.length
-
     const interval = setInterval(() => {
       if (typing) {
-        setDisplayed(current.slice(0, i + 1))
-        i++
-        if (i === current.length) {
-          clearInterval(interval)
-          setTimeout(() => setTyping(false), 1800)
-        }
+        setDisplayed(current.slice(0, i + 1)); i++
+        if (i === current.length) { clearInterval(interval); setTimeout(() => setTyping(false), 2000) }
       } else {
-        setDisplayed(current.slice(0, i - 1))
-        i--
-        if (i === 0) {
-          clearInterval(interval)
-          setRoleIndex((prev) => (prev + 1) % roles.length)
-          setTyping(true)
-        }
+        setDisplayed(current.slice(0, i - 1)); i--
+        if (i === 0) { clearInterval(interval); setRoleIndex(p => (p + 1) % roles.length); setTyping(true) }
       }
-    }, typing ? 60 : 35)
-
+    }, typing ? 55 : 30)
     return () => clearInterval(interval)
   }, [roleIndex, typing])
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen bg-[#0a0a0a] flex flex-col justify-center overflow-hidden"
-    >
+    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: 'var(--a-bg)' }}>
+
       {/* Grid background */}
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            'linear-gradient(#f5f5f0 1px, transparent 1px), linear-gradient(90deg, #f5f5f0 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
+      <div className="absolute inset-0 grid-bg" />
 
-      {/* Accent block top-right */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-[#e8e800] opacity-90" />
-      <div className="absolute top-32 right-32 w-16 h-16 border-2 border-[#f5f5f0] opacity-20" />
+      {/* Top accent bar */}
+      <div className="absolute top-0 left-0 w-full h-px" style={{ backgroundColor: 'var(--a-border)' }} />
 
-      {/* Bottom left decoration */}
-      <div className="absolute bottom-0 left-0 w-48 h-1 bg-[#e8e800]" />
-      <div className="absolute bottom-0 left-0 w-1 h-48 bg-[#e8e800]" />
+      {/* Decorative corner — top right */}
+      <div className="absolute top-0 right-0 w-28 h-28" style={{ backgroundColor: 'var(--accent)', opacity: 0.08 }} />
+      <div className="absolute top-0 right-0 w-28 h-28 border-b-2 border-l-2" style={{ borderColor: 'var(--a-border)' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16 grid md:grid-cols-2 gap-12 items-center">
-        {/* Left: Text */}
+      {/* Decorative corner — bottom left */}
+      <div className="absolute bottom-0 left-0 w-48 h-px" style={{ backgroundColor: 'var(--accent)', opacity: 0.3 }} />
+      <div className="absolute bottom-0 left-0 w-px h-48" style={{ backgroundColor: 'var(--accent)', opacity: 0.3 }} />
+
+      <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 grid md:grid-cols-2 gap-12 items-center">
+
+        {/* ── LEFT: TEXT ── */}
         <div>
-          <p className="font-mono text-xs tracking-[0.3em] text-[#e8e800] mb-4 fade-up-delay-1">
-            ▶ AVAILABLE FOR PROJECTS
-          </p>
+          <div className="fade-up-1 flex items-center gap-2 mb-6">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent)' }} />
+            <p className="font-mono text-[10px] tracking-[0.35em]" style={{ color: 'var(--a-muted)' }}>
+              AVAILABLE FOR PROJECTS
+            </p>
+          </div>
 
-          <h1 className="font-bebas text-[clamp(4rem,10vw,8rem)] leading-none text-[#f5f5f0] fade-up-delay-2">
+          <h1 className="font-bebas leading-none fade-up-2" style={{ fontSize: 'clamp(4rem,11vw,8.5rem)', color: 'var(--a-text)' }}>
             MUHAMMAD
             <br />
-            <span className="text-[#e8e800]">KASHIF</span>
+            <span style={{ color: 'var(--accent)', WebkitTextStroke: '1px var(--a-border)' }}>KASHIF</span>
           </h1>
 
-          <div className="mt-4 h-12 flex items-center fade-up-delay-3">
-            <span className="font-mono text-sm md:text-base text-[#f5f5f0] tracking-widest">
-              {displayed}
-              <span className="cursor-blink text-[#e8e800]">|</span>
+          <div className="mt-5 h-10 flex items-center fade-up-3">
+            <span className="font-mono tracking-widest" style={{ fontSize: 'clamp(0.65rem,1.5vw,0.8rem)', color: 'var(--a-text)' }}>
+              {displayed}<span className="cursor-blink" style={{ color: 'var(--accent)' }}>|</span>
             </span>
           </div>
 
-          <p className="mt-6 font-mono text-sm text-[#f5f5f0]/60 leading-relaxed max-w-md fade-up-delay-4">
+          <p className="mt-6 font-mono text-sm leading-relaxed max-w-md fade-up-4" style={{ color: 'var(--a-muted)' }}>
             I turn Amazon Private Label products into Premium Brands using
             advanced AI-Powered Design & Strategic A+ Content.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4 fade-up-delay-4">
+          <div className="mt-10 flex flex-wrap gap-4 fade-up-4">
             <a
               href="#portfolio"
-              className="font-bebas text-lg tracking-widest px-8 py-3 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] shadow-[4px_4px_0px_#f5f5f0] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[7px_7px_0px_#f5f5f0] transition-all"
+              className="font-bebas text-lg tracking-widest px-8 py-3 border-2 transition-all hover:-translate-x-0.5 hover:-translate-y-0.5"
+              style={{
+                backgroundColor: 'var(--accent)',
+                color: 'var(--accent-inv)',
+                borderColor: 'var(--accent)',
+                boxShadow: '4px 4px 0px var(--a-muted)',
+              }}
             >
               VIEW PORTFOLIO
             </a>
             <a
               href="#contact"
-              className="font-bebas text-lg tracking-widest px-8 py-3 bg-transparent text-[#f5f5f0] border-2 border-[#f5f5f0] shadow-[4px_4px_0px_#e8e800] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[7px_7px_0px_#e8e800] transition-all"
+              className="font-bebas text-lg tracking-widest px-8 py-3 border-2 transition-all hover:-translate-x-0.5 hover:-translate-y-0.5"
+              style={{
+                backgroundColor: 'transparent',
+                color: 'var(--a-text)',
+                borderColor: 'var(--a-border)',
+                boxShadow: '4px 4px 0px var(--a-subtle)',
+              }}
             >
               HIRE ME
             </a>
           </div>
 
           {/* Stats */}
-          <div className="mt-12 flex gap-8 fade-up-delay-4">
+          <div className="mt-14 flex gap-10 fade-up-5">
             {[
-              { num: '8+', label: 'YEARS EXP' },
+              { num: '8+',   label: 'YEARS EXP' },
               { num: '200+', label: 'PROJECTS' },
-              { num: '7+', label: 'BRANDS' },
+              { num: '7+',   label: 'BRANDS' },
             ].map((s) => (
               <div key={s.label}>
-                <div className="font-bebas text-4xl text-[#e8e800]">{s.num}</div>
-                <div className="font-mono text-[10px] tracking-widest text-[#f5f5f0]/50 mt-1">{s.label}</div>
+                <div className="font-bebas leading-none" style={{ fontSize: 'clamp(2rem,5vw,3.5rem)', color: 'var(--a-text)' }}>{s.num}</div>
+                <div className="font-mono text-[9px] tracking-[0.25em] mt-1" style={{ color: 'var(--a-muted)' }}>{s.label}</div>
               </div>
             ))}
+            {/* Dividers */}
+            <div className="hidden sm:flex items-center gap-10 pl-0">
+            </div>
           </div>
         </div>
 
-        {/* Right: Photo block */}
-        <div className="relative flex justify-center md:justify-end">
-          <div className="relative w-72 h-96 md:w-80 md:h-[28rem]">
-            {/* Shadow block */}
-            <div className="absolute inset-0 translate-x-4 translate-y-4 bg-[#e8e800]" />
-            {/* Border frame */}
-            <div className="absolute inset-0 border-2 border-[#f5f5f0] bg-[#1a1a1a] overflow-hidden">
+        {/* ── RIGHT: PHOTO ── */}
+        <div className="relative flex justify-center md:justify-end fade-up-3">
+          <div className="relative w-72 h-96 md:w-80 md:h-[30rem]">
+            {/* Offset shadow block */}
+            <div className="absolute inset-0 translate-x-4 translate-y-4" style={{ backgroundColor: 'var(--a-subtle)', border: '1px solid var(--a-border)' }} />
+
+            {/* Photo frame */}
+            <div className="absolute inset-0 overflow-hidden border-2" style={{ borderColor: 'var(--a-border)', backgroundColor: 'var(--a-subtle)' }}>
               <img
                 src="/images/profile.avif"
                 alt="Muhammad Kashif"
-                className="w-full h-full object-cover object-top grayscale contrast-125"
-                onError={(e) => {
-                  e.target.style.display = 'none'
-                  e.target.parentElement.classList.add('flex', 'items-center', 'justify-center')
-                  const placeholder = document.createElement('span')
-                  placeholder.className = 'font-bebas text-6xl text-[#f5f5f0]/20'
-                  placeholder.textContent = 'MK'
-                  e.target.parentElement.appendChild(placeholder)
-                }}
+                className="w-full h-full object-cover object-top"
+                style={{ filter: 'grayscale(30%) contrast(1.1)' }}
               />
+              {/* Gradient overlay bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: 'linear-gradient(to top, var(--a-bg), transparent)' }} />
             </div>
+
             {/* Label tag */}
-            <div className="absolute -bottom-4 -left-4 bg-[#e8e800] border-2 border-[#0a0a0a] px-4 py-2">
-              <span className="font-bebas text-sm tracking-widest text-[#0a0a0a]">
+            <div className="absolute -bottom-4 -left-4 px-4 py-2 border-2" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
+              <span className="font-bebas text-xs tracking-widest" style={{ color: 'var(--a-text)' }}>
                 AMAZON BRAND DESIGNER
               </span>
             </div>
@@ -149,14 +147,18 @@ export default function Hero() {
       </div>
 
       {/* Marquee strip */}
-      <div className="absolute bottom-0 left-0 w-full border-t-2 border-[#f5f5f0]/10 overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t" style={{ borderColor: 'var(--a-border)' }}>
         <div className="marquee-track py-2">
-          {Array(8).fill('AMAZON A+ CONTENT — BRAND IDENTITY — AI DESIGN — INFOGRAPHICS — PRODUCT PHOTOGRAPHY — LISTING OPTIMIZATION — ').map((t, i) => (
-            <span key={i} className="font-bebas text-sm tracking-widest text-[#f5f5f0]/20 mx-4">
-              {t}
-            </span>
+          {Array(10).fill('AMAZON A+ CONTENT — BRAND IDENTITY — AI DESIGN — INFOGRAPHICS — LISTING OPTIMIZATION — ').map((t, i) => (
+            <span key={i} className="font-bebas text-sm tracking-widest mx-4" style={{ color: 'var(--a-subtle)' }}>{t}</span>
           ))}
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-12 right-8 hidden md:flex flex-col items-center gap-2 scroll-bounce">
+        <div className="font-mono text-[9px] tracking-[0.3em] rotate-90 origin-center mb-4" style={{ color: 'var(--a-muted)' }}>SCROLL</div>
+        <div className="w-px h-12" style={{ backgroundColor: 'var(--a-border)' }} />
       </div>
     </section>
   )
