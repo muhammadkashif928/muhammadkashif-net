@@ -59,14 +59,6 @@ export default function Portfolio() {
                   src={p.img}
                   alt={p.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                  onError={(e) => {
-                    e.target.parentElement.classList.add('flex', 'items-center', 'justify-center')
-                    e.target.style.display = 'none'
-                    const el = document.createElement('span')
-                    el.className = 'font-bebas text-5xl text-[#0a0a0a]/20'
-                    el.textContent = p.id.toString().padStart(2, '0')
-                    e.target.parentElement.appendChild(el)
-                  }}
                 />
                 <div className="absolute top-3 left-3">
                   <span className="font-mono text-[10px] tracking-widest bg-[#e8e800] text-[#0a0a0a] px-2 py-1 border border-[#0a0a0a]">
