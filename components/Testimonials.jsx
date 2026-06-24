@@ -1,81 +1,89 @@
 const testimonials = [
-  {
-    name: 'Neoray Azour',
-    platform: 'UPWORK CLIENT',
-    project: 'Amazon Product',
-    quote:
-      'He completed the work in a professional and quick manner! Thank you so much, I will be working with you on future projects.',
-  },
-  {
-    name: 'Neoray Azour',
-    platform: 'UPWORK CLIENT',
-    project: 'Product Design',
-    quote:
-      'Excellent work, very straightforward and to the point, gets the job done extremely fast and very well. I would 100% recommend working with him.',
-  },
-  {
-    name: 'Adrian Jallad',
-    platform: 'UPWORK CLIENT',
-    project: 'Amazon Listing',
-    quote:
-      'This is now my second time working with this guy. He went past my expectations and beyond!',
-  },
-  {
-    name: 'Ciro Rossi',
-    platform: 'FIVERR CLIENT',
-    project: 'Design Quality',
-    quote:
-      'Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!',
-  },
-  {
-    name: 'John Bie',
-    platform: 'UPWORK CLIENT',
-    project: 'Amazon Product',
-    quote: 'Timely done! Clean execution, no back-and-forth needed. Will return for next batch.',
-  },
+  { name: 'Neoray Azour',  platform: 'Upwork',  project: 'Amazon Product',  stars: 5,
+    quote: 'He completed the work in a professional and quick manner! Thank you so much, I will be working with you on future projects.' },
+  { name: 'Neoray Azour',  platform: 'Upwork',  project: 'Product Design',  stars: 5,
+    quote: 'Excellent work, very straightforward and to the point, gets the job done extremely fast and very well. I would 100% recommend working with him.' },
+  { name: 'Adrian Jallad', platform: 'Upwork',  project: 'Amazon Listing',  stars: 5,
+    quote: 'This is now my second time working with this guy. He went past my expectations and beyond!' },
+  { name: 'Ciro Rossi',    platform: 'Fiverr',  project: 'Design Quality',  stars: 5,
+    quote: 'Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!' },
+  { name: 'John Bie',      platform: 'Upwork',  project: 'Amazon Product',  stars: 5,
+    quote: 'Timely done! Clean execution, no back-and-forth needed. Will return for next batch.' },
 ]
+
+function Stars({ count }) {
+  return (
+    <div className="flex gap-0.5 mb-4">
+      {Array(count).fill(0).map((_, i) => (
+        <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--accent)' }}>
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      ))}
+    </div>
+  )
+}
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-[#0a0a0a] py-24 border-t-2 border-[#f5f5f0]">
+    <section id="testimonials" className="py-28 border-t" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <p className="font-mono text-xs tracking-[0.3em] text-[#e8e800] mb-2">
-          ▶ SOCIAL PROOF
-        </p>
-        <h2 className="font-bebas text-[clamp(3rem,7vw,5rem)] leading-none text-[#f5f5f0] mb-16">
-          TRUSTED BY
-          <br />
-          SELLERS
-        </h2>
+        <p className="font-mono text-[10px] tracking-[0.35em] mb-3" style={{ color: 'var(--a-muted)' }}>▶ SOCIAL PROOF</p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(3rem,7vw,5rem)', color: 'var(--a-text)' }}>
+            TRUSTED BY
+            <br />
+            GLOBAL SELLERS
+          </h2>
+          {/* Rating summary */}
+          <div className="flex items-center gap-4 border px-5 py-3" style={{ borderColor: 'var(--a-border)' }}>
+            <div>
+              <div className="font-bebas text-4xl leading-none" style={{ color: 'var(--a-text)' }}>5.0</div>
+              <Stars count={5} />
+              <div className="font-mono text-[9px] tracking-widest" style={{ color: 'var(--a-muted)' }}>AVERAGE RATING</div>
+            </div>
+            <div className="w-px h-12" style={{ backgroundColor: 'var(--a-border)' }} />
+            <div>
+              <div className="font-bebas text-4xl leading-none" style={{ color: 'var(--a-text)' }}>200+</div>
+              <div className="font-mono text-[9px] tracking-widest mt-1" style={{ color: 'var(--a-muted)' }}>HAPPY CLIENTS</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className={`border-2 p-6 card-3d-inv
-                ${i === 0 ? 'border-[#e8e800] bg-[#e8e800]' : 'border-[#f5f5f0]/20 bg-transparent hover:border-[#f5f5f0]/60'}
-              `}
+              className="p-7 border flex flex-col card-lift-inv transition-all"
+              style={{
+                borderColor: i === 0 ? 'var(--accent)' : 'var(--a-border)',
+                backgroundColor: i === 0 ? 'var(--accent)' : 'transparent',
+              }}
             >
-              {/* Quote marks */}
-              <div className={`font-bebas text-6xl leading-none mb-4 ${i === 0 ? 'text-[#0a0a0a]/30' : 'text-[#f5f5f0]/10'}`}>
-                "
-              </div>
+              <Stars count={t.stars} />
 
-              <p className={`font-mono text-sm leading-relaxed mb-6 ${i === 0 ? 'text-[#0a0a0a]' : 'text-[#f5f5f0]/70'}`}>
-                {t.quote}
+              <p
+                className="font-mono text-xs leading-[1.9] flex-1"
+                style={{ color: i === 0 ? 'var(--accent-inv)' : 'var(--a-muted)' }}
+              >
+                "{t.quote}"
               </p>
 
-              <div className="flex items-center gap-3 mt-auto border-t border-current/10 pt-4">
-                {/* Avatar placeholder */}
-                <div className={`w-10 h-10 border-2 flex items-center justify-center font-bebas text-lg
-                  ${i === 0 ? 'border-[#0a0a0a] text-[#0a0a0a]' : 'border-[#f5f5f0]/30 text-[#f5f5f0]/50'}`}>
+              <div className="flex items-center gap-3 mt-6 pt-5 border-t" style={{ borderColor: i === 0 ? 'rgba(8,8,8,0.15)' : 'var(--a-border)' }}>
+                <div
+                  className="w-9 h-9 border-2 flex items-center justify-center font-bebas text-lg shrink-0"
+                  style={{
+                    borderColor: i === 0 ? 'var(--accent-inv)' : 'var(--a-muted)',
+                    color: i === 0 ? 'var(--accent-inv)' : 'var(--a-muted)',
+                  }}
+                >
                   {t.name[0]}
                 </div>
                 <div>
-                  <p className={`font-bebas text-sm tracking-widest ${i === 0 ? 'text-[#0a0a0a]' : 'text-[#f5f5f0]'}`}>
+                  <p className="font-bebas text-sm tracking-widest leading-none" style={{ color: i === 0 ? 'var(--accent-inv)' : 'var(--a-text)' }}>
                     {t.name}
                   </p>
-                  <p className={`font-mono text-[10px] tracking-widest ${i === 0 ? 'text-[#0a0a0a]/60' : 'text-[#f5f5f0]/40'}`}>
+                  <p className="font-mono text-[9px] tracking-widest mt-1" style={{ color: i === 0 ? 'rgba(8,8,8,0.55)' : 'var(--a-muted)' }}>
                     {t.platform} · {t.project}
                   </p>
                 </div>
