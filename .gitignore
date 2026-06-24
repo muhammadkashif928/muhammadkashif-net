@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+
+# Vercel
+.vercel
+
+# WordPress junk (not needed in git)
+public/uploads/fw-backup/
+public/uploads/wc-logs/
+public/uploads/rank-math/
+public/uploads/wpcf7_uploads/
+public/uploads/wpr-addons/
+public/uploads/redux/
+public/uploads/essential-addons-elementor/
+public/uploads/elementor/
+public/uploads/woocommerce_uploads/
