@@ -34,7 +34,7 @@ export default function Navbar() {
           href="#home"
           className="font-bebas text-2xl tracking-widest text-[#f5f5f0] hover:text-[#e8e800] transition-colors"
         >
-          MK<span className="text-[#e8e800]">.</span>
+          MUHAMMAD KASHIF<span className="text-[#e8e800]">.</span>
         </a>
 
         {/* Desktop links */}
