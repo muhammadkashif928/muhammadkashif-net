@@ -1,3 +1,4 @@
+'use client'
 const socials = [
   { label: 'UPWORK',    href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
   { label: 'LINKEDIN',  href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
