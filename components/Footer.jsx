@@ -8,13 +8,13 @@ const socials = [
 ]
 
 const navLinks = [
-  { label: 'Home',        href: '/' },
-  { label: 'About',       href: '/about/' },
-  { label: 'Services',    href: '/services/' },
-  { label: 'Portfolio',   href: '/my-portfolio/' },
-  { label: 'Blog',        href: '/blog/' },
-  { label: 'Resume',      href: '/resume/' },
-  { label: 'Contact',     href: '/contact-me/' },
+  { label: 'Home',      href: '/' },
+  { label: 'About',     href: '/about/' },
+  { label: 'Services',  href: '/services/' },
+  { label: 'Portfolio', href: '/my-portfolio/' },
+  { label: 'Blog',      href: '/blog/' },
+  { label: 'Resume',    href: '/resume/' },
+  { label: 'Contact',   href: '/contact-me/' },
 ]
 
 const legalLinks = [
@@ -23,44 +23,45 @@ const legalLinks = [
   { label: 'Disclaimer', href: '/disclaimer/' },
 ]
 
+const linkStyle = { color: 'var(--a-muted)' }
+
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
 
-      {/* Marquee strip */}
-      <div className="overflow-hidden py-4 border-b" style={{ borderColor: 'var(--a-border)' }}>
+      {/* Marquee */}
+      <div className="overflow-hidden py-3 sm:py-4 border-b" style={{ borderColor: 'var(--a-border)' }}>
         <div className="marquee-track">
           {Array(12).fill('AMAZON BRAND DESIGNER — A+ CONTENT — PRODUCT PHOTOGRAPHY — AI DESIGN — ').map((t, i) => (
-            <span key={i} className="font-bebas text-3xl tracking-widest mx-6" style={{ color: 'var(--a-subtle)' }}>{t}</span>
+            <span key={i} className="font-bebas text-2xl sm:text-3xl tracking-widest mx-5 sm:mx-6" style={{ color: 'var(--a-subtle)' }}>{t}</span>
           ))}
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        {/* Main grid — 1 col mobile, 2 col sm, 4 col lg */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
 
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="font-bebas tracking-[0.1em] leading-tight mb-4" style={{ fontSize: '1.4rem', color: 'var(--a-text)' }}>
+          {/* Brand — spans 2 cols on mobile */}
+          <div className="col-span-2 sm:col-span-2 lg:col-span-1">
+            <div className="font-bebas tracking-[0.08em] leading-tight mb-4" style={{ fontSize: '1.35rem', color: 'var(--a-text)' }}>
               MUHAMMAD KASHIF<span style={{ color: 'var(--accent)' }}>.</span>
             </div>
-            <p className="font-mono text-xs leading-relaxed max-w-xs mb-4" style={{ color: 'var(--a-muted)' }}>
+            <p className="font-mono text-sm leading-relaxed mb-4" style={{ color: 'var(--a-muted)' }}>
               Turning Amazon Private Label products into Premium Brands using
               advanced AI-Powered Design & Strategic A+ Content.
             </p>
-            <p className="font-mono text-[10px] tracking-widest" style={{ color: 'var(--a-subtle)' }}>
-              Kuching, Sarawak, Malaysia
-            </p>
+            <p className="font-mono text-xs tracking-widest" style={{ color: 'var(--a-subtle)' }}>📍 Kuching, Sarawak, Malaysia</p>
+            <p className="font-mono text-xs tracking-widest mt-1" style={{ color: 'var(--a-subtle)' }}>✈ Malaysian Approved Digital Nomad</p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-bebas text-sm tracking-widest mb-5" style={{ color: 'var(--accent)' }}>NAVIGATION</h4>
+            <h4 className="font-bebas text-base tracking-widest mb-4 sm:mb-5" style={{ color: 'var(--accent)' }}>NAVIGATION</h4>
             <ul className="flex flex-col gap-2.5">
               {navLinks.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="font-mono text-[10px] tracking-widest transition-colors"
-                    style={{ color: 'var(--a-muted)' }}
+                  <a href={l.href} className="font-mono text-xs sm:text-sm tracking-widest transition-colors" style={linkStyle}
                     onMouseEnter={e => e.target.style.color = 'var(--a-text)'}
                     onMouseLeave={e => e.target.style.color = 'var(--a-muted)'}
                   >
@@ -73,12 +74,12 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="font-bebas text-sm tracking-widest mb-5" style={{ color: 'var(--accent)' }}>CONNECT</h4>
+            <h4 className="font-bebas text-base tracking-widest mb-4 sm:mb-5" style={{ color: 'var(--accent)' }}>CONNECT</h4>
             <ul className="flex flex-col gap-2.5">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a href={s.href} target="_blank" rel="noopener noreferrer"
-                    className="font-mono text-[10px] tracking-widest transition-colors" style={{ color: 'var(--a-muted)' }}
+                    className="font-mono text-xs sm:text-sm tracking-widest transition-colors" style={linkStyle}
                     onMouseEnter={e => e.target.style.color = 'var(--a-text)'}
                     onMouseLeave={e => e.target.style.color = 'var(--a-muted)'}
                   >
@@ -91,11 +92,11 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-bebas text-sm tracking-widest mb-5" style={{ color: 'var(--accent)' }}>LEGAL</h4>
+            <h4 className="font-bebas text-base tracking-widest mb-4 sm:mb-5" style={{ color: 'var(--accent)' }}>LEGAL</h4>
             <ul className="flex flex-col gap-2.5">
               {legalLinks.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="font-mono text-[10px] tracking-widest transition-colors" style={{ color: 'var(--a-muted)' }}
+                  <a href={l.href} className="font-mono text-xs sm:text-sm tracking-widest transition-colors" style={linkStyle}
                     onMouseEnter={e => e.target.style.color = 'var(--a-text)'}
                     onMouseLeave={e => e.target.style.color = 'var(--a-muted)'}
                   >
@@ -104,26 +105,23 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 p-4 border" style={{ borderColor: 'var(--a-border)' }}>
-              <p className="font-mono text-[9px] leading-relaxed" style={{ color: 'var(--a-muted)' }}>
-                This site uses cookies and may display ads via Google AdSense.
-                See our <a href="/privacy-policy/" style={{ color: 'var(--a-text)' }}>Privacy Policy</a> for details.
+            <div className="mt-5 p-4 border" style={{ borderColor: 'var(--a-border)' }}>
+              <p className="font-mono text-xs leading-relaxed" style={{ color: 'var(--a-muted)' }}>
+                This site uses cookies and may display ads. See our{' '}
+                <a href="/privacy-policy/" style={{ color: 'var(--a-text)' }}>Privacy Policy</a>.
               </p>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 border-t" style={{ borderColor: 'var(--a-border)' }}>
-          <p className="font-mono text-[9px] tracking-widest" style={{ color: 'var(--a-subtle)' }}>
+        <div className="mt-10 sm:mt-14 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 border-t" style={{ borderColor: 'var(--a-border)' }}>
+          <p className="font-mono text-xs tracking-widest text-center sm:text-left" style={{ color: 'var(--a-subtle)' }}>
             © {new Date().getFullYear()} MUHAMMAD KASHIF. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
             {legalLinks.map((l) => (
-              <a key={l.label} href={l.href} className="font-mono text-[9px] tracking-widest transition-colors" style={{ color: 'var(--a-subtle)' }}
-                onMouseEnter={e => e.target.style.color = 'var(--a-muted)'}
-                onMouseLeave={e => e.target.style.color = 'var(--a-subtle)'}
-              >
+              <a key={l.label} href={l.href} className="font-mono text-xs tracking-widest transition-colors" style={{ color: 'var(--a-subtle)' }}>
                 {l.label}
               </a>
             ))}
