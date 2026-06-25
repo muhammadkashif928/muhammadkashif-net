@@ -1,29 +1,17 @@
 const projects = [
-  {
-    id: 1, tag: 'A+ CONTENT',    title: 'PREMIUM A+ CONTENT',
-    desc: 'Full Amazon listing optimization including side images, A+ content modules, and conversion-focused layout strategy.',
-    img: '/images/portfolio-1.webp',
-  },
-  {
-    id: 2, tag: 'RETOUCHING',    title: 'AI & CREATIVE RETOUCHING',
-    desc: '3D product visualization using Blender & Photoshop. Photorealistic rendering with lifestyle integration.',
-    img: '/images/portfolio-2.jpg',
-  },
-  {
-    id: 3, tag: 'BRAND IDENTITY', title: 'BRAND IDENTITY & PACKAGING',
-    desc: 'End-to-end packaging design and brand identity system for a private label brand entering a competitive market.',
-    img: '/images/portfolio-3.webp',
-  },
+  { id: 1, tag: 'A+ CONTENT',    title: 'PREMIUM A+ CONTENT',         slug: 'premium-a-content',         desc: 'Full Amazon listing optimization including side images, A+ content modules, and conversion-focused layout strategy.', img: '/images/portfolio-1.webp' },
+  { id: 2, tag: 'RETOUCHING',    title: 'AI & CREATIVE RETOUCHING',    slug: 'ai-creative-retouching',    desc: '3D product visualization using Blender & Photoshop. Photorealistic rendering with lifestyle integration.', img: '/images/portfolio-2.jpg' },
+  { id: 3, tag: 'BRAND IDENTITY', title: 'BRAND IDENTITY & PACKAGING', slug: 'brand-identity-packaging',  desc: 'End-to-end packaging design and brand identity system for a private label brand entering a competitive market.', img: '/images/portfolio-3.webp' },
 ]
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-28 border-t" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <p className="font-mono text-[10px] tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ CASE STUDIES</p>
+    <section id="portfolio" className="border-t" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+        <p className="font-mono text-xs tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ CASE STUDIES</p>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-          <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(3rem,7vw,5rem)', color: 'var(--b-text)' }}>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 gap-5">
+          <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--b-text)' }}>
             HIGH-CONVERTING
             <br />
             VISUALS THAT
@@ -32,34 +20,29 @@ export default function Portfolio() {
           </h2>
           <a
             href="/my-portfolio/"
-            className="font-mono text-xs tracking-widest pb-1 transition-all self-start md:self-auto"
+            className="font-mono text-sm tracking-widest pb-1 transition-all self-start"
             style={{ color: 'var(--b-text)', borderBottom: '1px solid var(--b-text)' }}
           >
             VIEW ALL WORK →
           </a>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* 1-col mobile, 3-col md */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
           {projects.map((p) => (
             <a
               key={p.id}
-              href={`/blackdsn-portfolio/${['premium-a-content','ai-creative-retouching','brand-identity-packaging'][p.id-1]}/`}
+              href={`/blackdsn-portfolio/${p.slug}/`}
               className="group border-2 overflow-hidden block card-lift"
-              style={{
-                borderColor: 'var(--b-border)',
-                backgroundColor: 'var(--b-bg)',
-                boxShadow: '4px 4px 0px var(--b-border)',
-              }}
+              style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-bg)', boxShadow: '4px 4px 0px var(--b-border)' }}
             >
-              {/* Image with overlay */}
-              <div className="h-56 overflow-hidden relative" style={{ backgroundColor: 'var(--b-subtle)' }}>
+              <div className="h-48 sm:h-56 overflow-hidden relative" style={{ backgroundColor: 'var(--b-subtle)' }}>
                 <img
                   src={p.img}
                   alt={p.title}
                   className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                   style={{ filter: 'grayscale(20%)' }}
                 />
-                {/* Hover overlay */}
                 <div
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ backgroundColor: 'rgba(8,8,8,0.75)' }}
@@ -68,19 +51,16 @@ export default function Portfolio() {
                     VIEW CASE STUDY →
                   </span>
                 </div>
-                {/* Tag */}
                 <div className="absolute top-3 left-3">
-                  <span className="font-mono text-[9px] tracking-widest px-2 py-1 border" style={{ backgroundColor: 'var(--b-bg)', color: 'var(--b-text)', borderColor: 'var(--b-border)' }}>
+                  <span className="font-mono text-xs px-2 py-1 border" style={{ backgroundColor: 'var(--b-bg)', color: 'var(--b-text)', borderColor: 'var(--b-border)' }}>
                     {p.tag}
                   </span>
                 </div>
               </div>
-
-              {/* Content */}
-              <div className="p-6 border-t" style={{ borderColor: 'var(--b-border)' }}>
-                <h3 className="font-bebas text-xl tracking-widest mb-2" style={{ color: 'var(--b-text)' }}>{p.title}</h3>
-                <p className="font-mono text-xs leading-relaxed" style={{ color: 'var(--b-muted)' }}>{p.desc}</p>
-                <div className="mt-5 flex items-center gap-2 font-mono text-[10px] tracking-widest font-bold" style={{ color: 'var(--b-text)' }}>
+              <div className="p-5 sm:p-6 border-t" style={{ borderColor: 'var(--b-border)' }}>
+                <h3 className="font-bebas text-lg sm:text-xl tracking-widest mb-2" style={{ color: 'var(--b-text)' }}>{p.title}</h3>
+                <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--b-muted)' }}>{p.desc}</p>
+                <div className="mt-4 flex items-center gap-2 font-mono text-xs tracking-widest font-bold" style={{ color: 'var(--b-text)' }}>
                   VIEW CASE <span className="group-hover:translate-x-1.5 transition-transform inline-block">→</span>
                 </div>
               </div>
