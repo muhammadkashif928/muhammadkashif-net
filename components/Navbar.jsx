@@ -25,6 +25,9 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Close menu on route change
+  useEffect(() => { setMenuOpen(false) }, [pathname])
+
   const isActive = (href) => {
     if (href === '/') return pathname === '/'
     return pathname.startsWith(href.replace(/\/$/, ''))
@@ -34,28 +37,28 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? 'var(--a-bg)' : 'transparent',
+        backgroundColor: scrolled || menuOpen ? 'var(--a-bg)' : 'transparent',
         borderBottom: scrolled ? '1px solid var(--a-border)' : 'none',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[4.5rem]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-[4.5rem]">
 
         {/* Logo */}
         <a
           href="/"
-          className="font-bebas tracking-[0.1em] transition-colors shrink-0"
-          style={{ color: 'var(--a-text)', fontSize: 'clamp(1rem, 2.2vw, 1.25rem)' }}
+          className="font-bebas tracking-[0.08em] transition-colors shrink-0 leading-none"
+          style={{ color: 'var(--a-text)', fontSize: 'clamp(0.9rem, 2.5vw, 1.2rem)' }}
         >
           MUHAMMAD KASHIF<span style={{ color: 'var(--accent)' }}>.</span>
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-6">
+        {/* Desktop links — only xl screens get all 7 */}
+        <ul className="hidden xl:flex items-center gap-5">
           {links.map((l) => (
             <li key={l.label}>
               <a
                 href={l.href}
-                className="font-mono text-[9px] tracking-widest transition-colors relative"
+                className="font-mono text-xs tracking-widest transition-colors relative inline-block py-1"
                 style={{ color: isActive(l.href) ? 'var(--a-text)' : 'var(--a-muted)' }}
               >
                 {l.label}
@@ -67,13 +70,13 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right: Theme toggle + CTA */}
-        <div className="flex items-center gap-3">
+        {/* Right controls */}
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Theme toggle */}
           <button
             onClick={toggle}
             aria-label="Toggle theme"
-            className="w-9 h-9 flex items-center justify-center border transition-all duration-200 shrink-0"
+            className="w-9 h-9 flex items-center justify-center border shrink-0 transition-all"
             style={{ borderColor: 'var(--a-border)', color: 'var(--a-text)' }}
           >
             {theme === 'dark' ? (
@@ -91,18 +94,18 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* CTA */}
+          {/* CTA — sm+ */}
           <a
             href="/contact-me/"
-            className="hidden md:block font-bebas text-sm tracking-widest px-5 py-2 border-2 transition-all shrink-0"
+            className="hidden sm:block font-bebas text-sm tracking-widest px-4 sm:px-5 py-2 border-2 shrink-0 transition-all"
             style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)' }}
           >
             HIRE ME
           </a>
 
-          {/* Hamburger */}
+          {/* Hamburger — xl hides */}
           <button
-            className="lg:hidden flex flex-col gap-1.5 p-2 shrink-0"
+            className="xl:hidden flex flex-col gap-1.5 p-2 shrink-0"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -113,16 +116,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile/Tablet menu */}
       {menuOpen && (
-        <div className="lg:hidden px-6 py-6 flex flex-col gap-3" style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
+        <div className="xl:hidden px-4 sm:px-6 py-6 flex flex-col gap-2" style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="font-bebas text-xl tracking-widest transition-colors"
-              style={{ color: isActive(l.href) ? 'var(--accent)' : 'var(--a-text)' }}
+              className="font-bebas text-2xl sm:text-3xl tracking-widest py-2 transition-colors block"
+              style={{ color: isActive(l.href) ? 'var(--accent)' : 'var(--a-text)', borderBottom: '1px solid var(--a-border)' }}
             >
               {l.label}
             </a>
@@ -130,10 +133,10 @@ export default function Navbar() {
           <a
             href="/contact-me/"
             onClick={() => setMenuOpen(false)}
-            className="mt-3 font-bebas text-lg tracking-widest px-5 py-3 text-center border-2"
+            className="mt-4 font-bebas text-lg tracking-widest px-5 py-3 text-center border-2"
             style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)' }}
           >
-            HIRE ME
+            HIRE ME →
           </a>
         </div>
       )}
