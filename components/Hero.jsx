@@ -2,10 +2,10 @@
 import { useEffect, useState } from 'react'
 
 const roles = [
-  'AMAZON BRAND DESIGNER',
+  'AI-POWERED BRAND DESIGNER',
+  'AMAZON CREATIVE SPECIALIST',
   'A+ CONTENT STRATEGIST',
-  'AI VISUAL SPECIALIST',
-  'LISTING OPTIMIZER',
+  '8K AI RETOUCHING EXPERT',
 ]
 
 export default function Hero() {
