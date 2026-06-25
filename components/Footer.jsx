@@ -8,12 +8,19 @@ const socials = [
 ]
 
 const navLinks = [
-  { label: 'Home',          href: '#home' },
-  { label: 'About',         href: '#about' },
-  { label: 'Services',      href: '#services' },
-  { label: 'Portfolio',     href: '#portfolio' },
-  { label: 'Blog',          href: '/blog/' },
-  { label: 'Contact',       href: '#contact' },
+  { label: 'Home',        href: '/' },
+  { label: 'About',       href: '/about/' },
+  { label: 'Services',    href: '/services/' },
+  { label: 'Portfolio',   href: '/my-portfolio/' },
+  { label: 'Blog',        href: '/blog/' },
+  { label: 'Resume',      href: '/resume/' },
+  { label: 'Contact',     href: '/contact-me/' },
+]
+
+const legalLinks = [
+  { label: 'Privacy Policy', href: '/privacy-policy/' },
+  { label: 'Terms of Service', href: '/terms/' },
+  { label: 'Disclaimer', href: '/disclaimer/' },
 ]
 
 export default function Footer() {
@@ -30,29 +37,30 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-4 gap-10">
 
           {/* Brand */}
-          <div>
-            <div className="font-bebas leading-none mb-4" style={{ fontSize: '3.5rem', color: 'var(--a-text)' }}>
-              MK<span style={{ color: 'var(--accent)' }}>.</span>
+          <div className="md:col-span-1">
+            <div className="font-bebas tracking-[0.1em] leading-tight mb-4" style={{ fontSize: '1.4rem', color: 'var(--a-text)' }}>
+              MUHAMMAD KASHIF<span style={{ color: 'var(--accent)' }}>.</span>
             </div>
-            <p className="font-mono text-xs leading-relaxed max-w-xs" style={{ color: 'var(--a-muted)' }}>
+            <p className="font-mono text-xs leading-relaxed max-w-xs mb-4" style={{ color: 'var(--a-muted)' }}>
               Turning Amazon Private Label products into Premium Brands using
               advanced AI-Powered Design & Strategic A+ Content.
             </p>
-            <p className="font-mono text-[10px] mt-4 tracking-widest" style={{ color: 'var(--a-subtle)' }}>
-              Burewala, Vehari, Pakistan
+            <p className="font-mono text-[10px] tracking-widest" style={{ color: 'var(--a-subtle)' }}>
+              Kuching, Sarawak, Malaysia
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-bebas text-sm tracking-widest mb-6" style={{ color: 'var(--accent)' }}>NAVIGATION</h4>
-            <ul className="flex flex-col gap-3">
+            <h4 className="font-bebas text-sm tracking-widest mb-5" style={{ color: 'var(--accent)' }}>NAVIGATION</h4>
+            <ul className="flex flex-col gap-2.5">
               {navLinks.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="font-mono text-[10px] tracking-widest transition-colors" style={{ color: 'var(--a-muted)' }}
+                  <a href={l.href} className="font-mono text-[10px] tracking-widest transition-colors"
+                    style={{ color: 'var(--a-muted)' }}
                     onMouseEnter={e => e.target.style.color = 'var(--a-text)'}
                     onMouseLeave={e => e.target.style.color = 'var(--a-muted)'}
                   >
@@ -65,8 +73,8 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="font-bebas text-sm tracking-widest mb-6" style={{ color: 'var(--accent)' }}>CONNECT</h4>
-            <ul className="flex flex-col gap-3">
+            <h4 className="font-bebas text-sm tracking-widest mb-5" style={{ color: 'var(--accent)' }}>CONNECT</h4>
+            <ul className="flex flex-col gap-2.5">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a href={s.href} target="_blank" rel="noopener noreferrer"
@@ -80,16 +88,44 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="font-bebas text-sm tracking-widest mb-5" style={{ color: 'var(--accent)' }}>LEGAL</h4>
+            <ul className="flex flex-col gap-2.5">
+              {legalLinks.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="font-mono text-[10px] tracking-widest transition-colors" style={{ color: 'var(--a-muted)' }}
+                    onMouseEnter={e => e.target.style.color = 'var(--a-text)'}
+                    onMouseLeave={e => e.target.style.color = 'var(--a-muted)'}
+                  >
+                    {l.label.toUpperCase()} →
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 p-4 border" style={{ borderColor: 'var(--a-border)' }}>
+              <p className="font-mono text-[9px] leading-relaxed" style={{ color: 'var(--a-muted)' }}>
+                This site uses cookies and may display ads via Google AdSense.
+                See our <a href="/privacy-policy/" style={{ color: 'var(--a-text)' }}>Privacy Policy</a> for details.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 border-t" style={{ borderColor: 'var(--a-border)' }}>
+        <div className="mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 border-t" style={{ borderColor: 'var(--a-border)' }}>
           <p className="font-mono text-[9px] tracking-widest" style={{ color: 'var(--a-subtle)' }}>
             © {new Date().getFullYear()} MUHAMMAD KASHIF. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex gap-6">
-            {['DISCLAIMER', 'PRIVACY POLICY', 'TERMS'].map((l) => (
-              <span key={l} className="font-mono text-[9px] tracking-widest cursor-default" style={{ color: 'var(--a-subtle)' }}>{l}</span>
+          <div className="flex gap-5">
+            {legalLinks.map((l) => (
+              <a key={l.label} href={l.href} className="font-mono text-[9px] tracking-widest transition-colors" style={{ color: 'var(--a-subtle)' }}
+                onMouseEnter={e => e.target.style.color = 'var(--a-muted)'}
+                onMouseLeave={e => e.target.style.color = 'var(--a-subtle)'}
+              >
+                {l.label}
+              </a>
             ))}
           </div>
         </div>
