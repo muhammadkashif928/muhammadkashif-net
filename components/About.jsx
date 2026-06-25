@@ -2,15 +2,15 @@
 import { useEffect, useRef } from 'react'
 
 const skills = [
-  { label: 'Competitor Analysis',  pct: 95 },
-  { label: 'High-End Retouching',  pct: 85 },
-  { label: 'A+ Content Strategy',  pct: 90 },
-  { label: 'Brand Identity',       pct: 91 },
-  { label: 'AI Concept Art',       pct: 90 },
-  { label: 'Infographic Design',   pct: 70 },
+  { label: 'AI Concept Art',        pct: 91 },
+  { label: 'Brand Identity',        pct: 80 },
+  { label: 'High-End Retouching',   pct: 79 },
+  { label: 'Competitor Analysis',   pct: 59 },
+  { label: 'Infographic Design',    pct: 58 },
+  { label: 'A+ Content Strategy',   pct: 51 },
 ]
 
-const brands = ['Angelus', 'Tarrago', 'Eagle Shoe Care', 'Leather Hero', 'And More']
+const brands = ['Angelus', 'Tarrago', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln', 'Silver', 'Fiamme']
 
 export default function About() {
   const barsRef = useRef(null)
