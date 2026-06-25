@@ -4,7 +4,7 @@ const socials = [
   { label: 'LINKEDIN',  href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
   { label: 'FACEBOOK',  href: 'https://www.facebook.com/profile.php?id=100011667847244' },
   { label: 'INSTAGRAM', href: 'https://instagram.com/muhamadkashif928' },
-  { label: 'WHATSAPP',  href: 'https://wa.me/923424625844' },
+  { label: 'WHATSAPP',  href: 'https://wa.me/60179152084' },
 ]
 
 const navLinks = [
