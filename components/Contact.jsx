@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const contactLinks = [
   { label: 'EMAIL',    value: 'info@muhammadkashif.net',                    href: 'mailto:info@muhammadkashif.net' },
-  { label: 'WHATSAPP', value: '+92 342 4625 844',                            href: 'https://wa.me/923424625844' },
+  { label: 'WHATSAPP', value: '+60 179152084',                              href: 'https://wa.me/60179152084' },
   { label: 'UPWORK',   value: 'View Profile →',                             href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
 ]
 
