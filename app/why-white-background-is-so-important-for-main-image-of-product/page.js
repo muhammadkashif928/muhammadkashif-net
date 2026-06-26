@@ -1,19 +1,35 @@
 import BlogLayout from '@/components/BlogLayout'
+import BlogStructuredData from '@/components/BlogStructuredData'
+import { getBlogPost } from '@/data/blog'
+import { createMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Why white background is so important for main image of product? | Muhammad Kashif',
-  description: 'The white background is basically preferred for product images which highlights the product, it helps the product stand out without any distractions.',
-}
+const post = getBlogPost('why-white-background-is-so-important-for-main-image-of-product')
+
+export const metadata = createMetadata({
+  title: `${post.title} | Muhammad Kashif`,
+  description: post.excerpt,
+  path: `/${post.slug}/`,
+  image: post.image,
+  imageAlt: post.imageAlt,
+  keywords: post.tags,
+  type: 'article',
+  publishedTime: post.publishedAt,
+  modifiedTime: post.updatedAt,
+})
 
 export default function WhyWhiteBackground() {
   return (
-    <BlogLayout
-      title="Why white background is so important for main image of product?"
-      category="Amazon FBA Wholesale"
-      date="March 19, 2024"
-      image="/images/blog-white-bg.jpg"
-      tags={['white background', 'Amazon', 'product']}
-    >
+    <>
+      <BlogStructuredData post={post} />
+      <BlogLayout
+        title={post.title}
+        category={post.category}
+        date={post.date}
+        image={post.image}
+        imageAlt={post.imageAlt}
+        tags={post.tags}
+        slug={post.slug}
+      >
       <p>
         The white background is basically preferred for product images which highlights the product. It helps the product stand out without any distractions or blur. It provides a clean, visible, professional look, making it easier for customers to focus on the product itself.
       </p>
@@ -42,6 +58,7 @@ export default function WhyWhiteBackground() {
       <p>
         Overall, using a white background for the main image of a product is a common practice in e-commerce because it helps to enhance the product's appeal, maintains consistency, and creates a professional look that connects with customers.
       </p>
-    </BlogLayout>
+      </BlogLayout>
+    </>
   )
 }

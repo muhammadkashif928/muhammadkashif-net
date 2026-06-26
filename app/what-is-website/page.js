@@ -1,19 +1,35 @@
 import BlogLayout from '@/components/BlogLayout'
+import BlogStructuredData from '@/components/BlogStructuredData'
+import { getBlogPost } from '@/data/blog'
+import { createMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'What is website? | Muhammad Kashif',
-  description: 'A website is a collection of files that are used to access the Internet to the related content. Websites and web pages can serve various purposes.',
-}
+const post = getBlogPost('what-is-website')
+
+export const metadata = createMetadata({
+  title: `${post.title} | Muhammad Kashif`,
+  description: post.excerpt,
+  path: `/${post.slug}/`,
+  image: post.image,
+  imageAlt: post.imageAlt,
+  keywords: post.tags,
+  type: 'article',
+  publishedTime: post.publishedAt,
+  modifiedTime: post.updatedAt,
+})
 
 export default function WhatIsWebsite() {
   return (
-    <BlogLayout
-      title="What is website?"
-      category="Amazon FBA Wholesale"
-      date="March 19, 2024"
-      image="/images/blog-website.jpg"
-      tags={['website', 'seo']}
-    >
+    <>
+      <BlogStructuredData post={post} />
+      <BlogLayout
+        title={post.title}
+        category={post.category}
+        date={post.date}
+        image={post.image}
+        imageAlt={post.imageAlt}
+        tags={post.tags}
+        slug={post.slug}
+      >
       <p>
         A website is a collection of files that are used to access the Internet to the related content. Websites and web pages can serve various purposes, including providing information, selling products or services, detailed information about something, sharing multimedia content, and much more regarding any topic.
       </p>
@@ -52,6 +68,7 @@ export default function WhatIsWebsite() {
       <p>
         <strong>8. E-commerce Developer:</strong> E-commerce developers specialize in building online stores and shopping websites, working with platforms like Shopify, WooCommerce, and Amazon.
       </p>
-    </BlogLayout>
+      </BlogLayout>
+    </>
   )
 }

@@ -1,11 +1,23 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { createMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'My Portfolio | Muhammad Kashif — Amazon Brand Designer',
-  description: 'Case studies and portfolio of Amazon listing optimization, A+ content, brand identity, and product photography work.',
-}
+export const metadata = createMetadata({
+  title: 'Amazon Design Portfolio — Case Studies | Muhammad Kashif',
+  description: 'Portfolio and case studies by Muhammad Kashif: Amazon A+ Content, product image optimization, brand identity, packaging design, AI retouching, and leather product photography — all built to convert browsers into buyers.',
+  path: '/my-portfolio/',
+  image: '/images/portfolio-1.webp',
+  imageAlt: 'Amazon design portfolio — A+ Content, product photography, and brand identity case studies',
+  keywords: [
+    'Amazon design portfolio',
+    'A+ Content portfolio case study',
+    'Amazon listing design case studies',
+    'leather product image optimization portfolio',
+    'brand identity packaging portfolio',
+    'AI product retouching portfolio',
+  ],
+})
 
 const projects = [
   {
@@ -29,6 +41,13 @@ const projects = [
     desc: 'End-to-end packaging design and brand identity system for a private label brand entering a competitive market.',
     img: '/images/portfolio-3.webp',
   },
+  {
+    slug: 'leather-items-optimized',
+    tag: 'IMAGE OPTIMIZATION',
+    title: 'Leather Items Optimized',
+    desc: '12 leather products — jackets, bags & biker costumes — transformed from raw photos into 8K ultra-high-definition e-commerce images with before & after showcase.',
+    img: encodeURI('/portfolio/Leather Products/Product 3 (Leather Jacket)/Leather Jacket img 1.png'),
+  },
 ]
 
 export default function MyPortfolio() {
@@ -51,7 +70,7 @@ export default function MyPortfolio() {
 
         {/* Projects grid */}
         <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             {projects.map((p) => (
               <Link
                 key={p.slug}
@@ -62,6 +81,9 @@ export default function MyPortfolio() {
                   <img
                     src={p.img}
                     alt={p.title}
+                    width="1200"
+                    height="900"
+                    loading="lazy"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   />
                   <div className="absolute top-3 left-3">

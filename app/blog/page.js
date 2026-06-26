@@ -2,11 +2,15 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { blogPosts } from '@/data/blog'
+import { createMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Blog | Muhammad Kashif — Amazon Brand Designer',
-  description: 'Articles on Amazon A+ content, product infographics, brand strategy, and listing optimization by Muhammad Kashif.',
-}
+export const metadata = createMetadata({
+  title: 'Amazon Design Blog | A+ Content, Product Images & Listing SEO',
+  description: 'Articles on Amazon A+ Content, product infographics, brand strategy, product photography, AI lifestyle images, and listing SEO by Muhammad Kashif.',
+  path: '/blog/',
+  image: '/images/blog-amazon-a-plus-strategy.jpg',
+  keywords: ['Amazon design blog', 'Amazon A+ Content blog', 'Amazon listing SEO articles'],
+})
 
 export default function Blog() {
   return (
@@ -40,7 +44,10 @@ export default function Blog() {
                   <div className="h-48 bg-[#0a0a0a]/10 overflow-hidden">
                     <img
                       src={post.image}
-                      alt={post.title}
+                      alt={post.imageAlt || post.title}
+                      width="1600"
+                      height="900"
+                      loading="lazy"
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                     />
                   </div>

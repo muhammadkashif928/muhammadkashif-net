@@ -36,7 +36,14 @@ export default function PortfolioLayout({ title, tag, service, industry, publish
           {coverImage && (
             <div className="max-w-5xl mx-auto px-6">
               <div className="h-80 md:h-[500px] overflow-hidden border-2 border-[#f5f5f0]/10">
-                <img src={coverImage} alt={title} className="w-full h-full object-cover grayscale contrast-110" />
+                <img
+                  src={coverImage}
+                  alt={`${title} portfolio case study cover`}
+                  width="1600"
+                  height="900"
+                  fetchPriority="high"
+                  className="w-full h-full object-cover grayscale contrast-110"
+                />
               </div>
             </div>
           )}
@@ -53,7 +60,14 @@ export default function PortfolioLayout({ title, tag, service, industry, publish
                 <div className="mt-12 grid gap-6">
                   {images.map((img, i) => (
                     <div key={i} className="border-2 border-[#0a0a0a] shadow-brutal overflow-hidden">
-                      <img src={img} alt={`${title} ${i + 1}`} className="w-full object-cover" />
+                      <img
+                        src={img}
+                        alt={`${title} portfolio image ${i + 1}`}
+                        width="1600"
+                        height="1200"
+                        loading="lazy"
+                        className="w-full object-cover"
+                      />
                     </div>
                   ))}
                 </div>
@@ -82,6 +96,7 @@ export default function PortfolioLayout({ title, tag, service, industry, publish
                     { title: 'Premium A+ Content', slug: 'premium-a-content' },
                     { title: 'AI & Creative Retouching', slug: 'ai-creative-retouching' },
                     { title: 'Brand Identity & Packaging', slug: 'brand-identity-packaging' },
+                    { title: 'Leather Items Optimized', slug: 'leather-items-optimized' },
                   ].map(p => (
                     <Link
                       key={p.slug}

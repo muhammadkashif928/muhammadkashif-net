@@ -1,10 +1,143 @@
 export const blogPosts = [
   {
+    slug: 'amazon-a-plus-content-strategy',
+    title: 'Amazon A+ Content Strategy: How to Build Modules That Convert',
+    category: 'Amazon Listing Optimization',
+    date: 'June 26, 2026',
+    publishedAt: '2026-06-26T09:00:00+08:00',
+    updatedAt: '2026-06-26T09:00:00+08:00',
+    image: '/images/blog-amazon-a-plus-strategy.jpg',
+    imageAlt: 'Premium Amazon A+ Content module boards and product storytelling layout',
+    excerpt: 'A practical Amazon A+ Content strategy guide for building modules that answer objections, explain value, and help shoppers feel confident before buying.',
+    tags: ['A+ Content', 'Amazon SEO', 'Conversion Design'],
+    faqs: [
+      {
+        q: 'How many A+ Content modules should an Amazon listing use?',
+        a: 'Use enough modules to explain the product clearly without repeating the same benefit. Most strong listings need a brand intro, feature highlights, lifestyle context, objection handling, and a comparison or trust module.',
+      },
+      {
+        q: 'Does A+ Content directly improve Amazon keyword ranking?',
+        a: 'A+ Content is mainly a conversion and trust asset, but stronger engagement and conversion can support listing performance. Keywords still belong in titles, bullets, backend terms, and relevant page copy.',
+      },
+      {
+        q: 'What makes A+ Content convert better?',
+        a: 'Clear hierarchy, benefit-led visuals, objection handling, proof points, readable copy, mobile-friendly modules, and consistent brand styling usually improve shopper confidence.',
+      },
+    ],
+  },
+  {
+    slug: 'amazon-product-photography-checklist',
+    title: 'Amazon Product Photography Checklist for Main Images and Infographics',
+    category: 'Amazon Product Images',
+    date: 'June 26, 2026',
+    publishedAt: '2026-06-26T09:10:00+08:00',
+    updatedAt: '2026-06-26T09:10:00+08:00',
+    image: '/images/blog-amazon-product-photography-checklist.jpg',
+    imageAlt: 'Clean Amazon product photography studio with camera, lighting, white backdrop, and checklist',
+    excerpt: 'Use this product photography checklist to plan Amazon main images, side images, infographics, and lifestyle shots before design work begins.',
+    tags: ['Product Photography', 'Main Image', 'Infographics'],
+    faqs: [
+      {
+        q: 'What is the most important Amazon product photo?',
+        a: 'The main image is usually the most important because it drives click-through from search results. It should be clear, compliant, high-resolution, and instantly understandable.',
+      },
+      {
+        q: 'Do all Amazon images need a white background?',
+        a: 'The main product image typically needs a clean white background, while side images can use infographics, lifestyle scenes, comparison graphics, and benefit-led layouts.',
+      },
+      {
+        q: 'How many product images should I prepare for Amazon?',
+        a: 'Prepare enough assets to cover the main image, feature callouts, scale, use cases, contents, trust signals, and brand story. A complete listing often uses six to eight image slots plus A+ Content.',
+      },
+    ],
+  },
+  {
+    slug: 'amazon-listing-seo-keywords-images-copy',
+    title: 'Amazon Listing SEO: Keywords, Images, and Copy That Help Buyers Choose',
+    category: 'Amazon SEO',
+    date: 'June 26, 2026',
+    publishedAt: '2026-06-26T09:20:00+08:00',
+    updatedAt: '2026-06-26T09:20:00+08:00',
+    image: '/images/blog-amazon-listing-seo.jpg',
+    imageAlt: 'Amazon listing SEO workflow with keyword cards, product images, analytics, and marketplace panels',
+    excerpt: 'Amazon listing SEO works best when search terms, images, bullets, and buyer objections are planned together instead of treated as separate tasks.',
+    tags: ['Amazon SEO', 'Keywords', 'Listing Optimization'],
+    faqs: [
+      {
+        q: 'Where should Amazon keywords be placed?',
+        a: 'Place the most important relevant keywords in the product title, bullets, description or A+ text where allowed, and backend search terms. Avoid repetition that hurts readability.',
+      },
+      {
+        q: 'Can images help Amazon SEO?',
+        a: 'Images do not replace keyword research, but they can improve click-through, conversion, and shopper engagement. Those signals can support overall listing performance.',
+      },
+      {
+        q: 'How often should an Amazon listing be optimized?',
+        a: 'Review listings after launches, advertising tests, seasonal changes, competitor shifts, and review feedback. Do not change everything at once unless the current listing is clearly underperforming.',
+      },
+    ],
+  },
+  {
+    slug: 'ai-product-lifestyle-images-amazon',
+    title: 'AI Product Lifestyle Images for Amazon Listings',
+    category: 'AI Product Design',
+    date: 'June 26, 2026',
+    publishedAt: '2026-06-26T09:30:00+08:00',
+    updatedAt: '2026-06-26T09:30:00+08:00',
+    image: '/images/blog-ai-product-lifestyle-images.jpg',
+    imageAlt: 'AI product lifestyle image workflow from studio product shot to realistic home scene',
+    excerpt: 'AI product lifestyle images can reduce production friction, but they need realism, brand control, and careful quality checks to work on Amazon.',
+    tags: ['AI Design', 'Lifestyle Images', 'Amazon Creative'],
+    faqs: [
+      {
+        q: 'Are AI lifestyle images good for Amazon listings?',
+        a: 'They can be useful when they accurately represent the product, respect platform guidelines, and are refined by a designer. They should never mislead shoppers about size, material, contents, or use.',
+      },
+      {
+        q: 'What should I provide before creating AI lifestyle images?',
+        a: 'Provide clean product photos, dimensions, brand colors, target customer details, use cases, competitor references, and any claims that must or must not appear visually.',
+      },
+      {
+        q: 'Can AI replace product photography?',
+        a: 'AI can support lifestyle concepts and composites, but core product accuracy still depends on strong product photos, retouching, and quality control.',
+      },
+    ],
+  },
+  {
+    slug: 'private-label-brand-identity-packaging',
+    title: 'Private Label Brand Identity: Packaging, Visual Systems, and Trust Signals',
+    category: 'Brand Identity',
+    date: 'June 26, 2026',
+    publishedAt: '2026-06-26T09:40:00+08:00',
+    updatedAt: '2026-06-26T09:40:00+08:00',
+    image: '/images/blog-private-label-brand-identity.jpg',
+    imageAlt: 'Private label brand identity system with packaging, labels, boxes, color swatches, and dielines',
+    excerpt: 'A strong private label brand identity makes your Amazon product feel more trustworthy, more memorable, and easier to scale across listings and packaging.',
+    tags: ['Brand Identity', 'Packaging', 'Private Label'],
+    faqs: [
+      {
+        q: 'Why does brand identity matter for private label sellers?',
+        a: 'Brand identity builds trust, makes products easier to recognize, supports higher perceived value, and keeps packaging, listings, A+ Content, and storefront visuals consistent.',
+      },
+      {
+        q: 'What should a private label brand system include?',
+        a: 'At minimum, include logo usage, colors, typography, packaging rules, image direction, icon style, copy tone, and marketplace layout standards.',
+      },
+      {
+        q: 'Should packaging design happen before Amazon images?',
+        a: 'Ideally yes. Packaging defines the visual system that Amazon images, infographics, A+ Content, and storefront assets can build from.',
+      },
+    ],
+  },
+  {
     slug: 'what-is-a-content',
     title: 'What is A+ content?',
     category: 'Amazon FBA Wholesale',
     date: 'March 19, 2024',
+    publishedAt: '2024-03-19T09:00:00+08:00',
+    updatedAt: '2026-06-26T10:00:00+08:00',
     image: '/images/blog-a-content.png',
+    imageAlt: 'Amazon A+ Content design example with product visuals and enhanced brand content modules',
     excerpt: 'An A+ content on Amazon refers to enhancing the marketing content, which sellers use to create more visual things to attract customers to their product pages.',
     content: `
 A+ content on Amazon refers to enhancing the marketing content, which sellers use to create more visual things to attract customers to their product pages. It includes visual things whether adding images, video templates, additional images, comparison charts, as well as adding a sky touch description to catch the attention of customers by giving more information. A+ content can help sellers stand out and attract more customers on the Amazon platform.
@@ -44,7 +177,10 @@ Creating effective A+ content means a strategic approach of adding visuals and t
     title: 'What is website?',
     category: 'Amazon FBA Wholesale',
     date: 'March 19, 2024',
+    publishedAt: '2024-03-19T09:00:00+08:00',
+    updatedAt: '2026-06-26T10:00:00+08:00',
     image: '/images/blog-website.jpg',
+    imageAlt: 'Website design and development workspace for online business presence',
     excerpt: 'A website is a collection of files that are used to access the Internet to the related content. Websites and web pages can serve various purposes.',
     content: `
 A website is a collection of files that are used to access the Internet to the related content. Websites and web pages can serve various purposes, including providing information, selling products or services, detailed information about something, sharing multimedia content, and much more regarding any topic.
@@ -80,7 +216,10 @@ There are multiple types of website developers:
     title: 'What is product infographics?',
     category: 'Amazon FBA Wholesale',
     date: 'March 19, 2024',
+    publishedAt: '2024-03-19T09:00:00+08:00',
+    updatedAt: '2026-06-26T10:00:00+08:00',
     image: '/images/blog-infographics.jpg',
+    imageAlt: 'Product infographic design showing feature callouts and Amazon product benefits',
     excerpt: 'Product infographics are visual representations that combine images and text to communicate key product features, benefits, and information in a clear and engaging way.',
     content: `
 Product infographics are visual representations that combine images and text to communicate key product features, benefits, and information in a clear and engaging way. On Amazon, product infographics are one of the most powerful tools for converting browsers into buyers.
@@ -124,7 +263,10 @@ I use a combination of Photoshop, Illustrator, and AI tools to create infographi
     title: 'Why white background is so important for main image of product?',
     category: 'Amazon FBA Wholesale',
     date: 'March 19, 2024',
+    publishedAt: '2024-03-19T09:00:00+08:00',
+    updatedAt: '2026-06-26T10:00:00+08:00',
     image: '/images/blog-white-bg.jpg',
+    imageAlt: 'Amazon product main image on a clean white background',
     excerpt: 'The white background is basically preferred for product images which highlights the product, it helps the product stand out without any distractions.',
     content: `
 The white background is basically preferred for product images which highlights the product. It helps the product stand out without any distractions or blur. It provides a clean, visible, professional look, making it easier for customers to focus on the product itself.
@@ -150,3 +292,7 @@ Overall, using a white background for the main image of a product is a common pr
     tags: ['white background', 'Amazon', 'product'],
   },
 ]
+
+export function getBlogPost(slug) {
+  return blogPosts.find((post) => post.slug === slug)
+}

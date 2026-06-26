@@ -1,19 +1,35 @@
 import BlogLayout from '@/components/BlogLayout'
+import BlogStructuredData from '@/components/BlogStructuredData'
+import { getBlogPost } from '@/data/blog'
+import { createMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'What is A+ content? | Muhammad Kashif',
-  description: 'An A+ content on Amazon refers to enhancing the marketing content, which sellers use to create more visual things to attract customers to their product pages.',
-}
+const post = getBlogPost('what-is-a-content')
+
+export const metadata = createMetadata({
+  title: `${post.title} | Muhammad Kashif`,
+  description: post.excerpt,
+  path: `/${post.slug}/`,
+  image: post.image,
+  imageAlt: post.imageAlt,
+  keywords: post.tags,
+  type: 'article',
+  publishedTime: post.publishedAt,
+  modifiedTime: post.updatedAt,
+})
 
 export default function WhatIsAContent() {
   return (
-    <BlogLayout
-      title="What is A+ content?"
-      category="Amazon FBA Wholesale"
-      date="March 19, 2024"
-      image="/images/blog-a-content.png"
-      tags={['A+', 'A+ Content', 'Amazon']}
-    >
+    <>
+      <BlogStructuredData post={post} />
+      <BlogLayout
+        title={post.title}
+        category={post.category}
+        date={post.date}
+        image={post.image}
+        imageAlt={post.imageAlt}
+        tags={post.tags}
+        slug={post.slug}
+      >
       <p>
         An A+ content on Amazon refers to enhancing the marketing content, which sellers use to create more visual things to attract customers to their product pages. It includes visual things whether adding images, video templates, additional images, comparison charts, as well as adding a sky touch description to catch the attention of customers by giving more information. A+ content can help sellers stand out and attract more customers on the Amazon platform.
       </p>
@@ -57,6 +73,7 @@ export default function WhatIsAContent() {
       <p>
         <strong>4. Comparison Charts:</strong> If you offer different products or variations, include a comparison chart that helps customers understand the differences and decide which is best for their needs.
       </p>
-    </BlogLayout>
+      </BlogLayout>
+    </>
   )
 }

@@ -1,19 +1,35 @@
 import BlogLayout from '@/components/BlogLayout'
+import BlogStructuredData from '@/components/BlogStructuredData'
+import { getBlogPost } from '@/data/blog'
+import { createMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'What is product infographics? | Muhammad Kashif',
-  description: 'Product infographics are visual representations that combine images and text to communicate key product features and benefits in a clear and engaging way.',
-}
+const post = getBlogPost('what-is-product-infographics')
+
+export const metadata = createMetadata({
+  title: `${post.title} | Muhammad Kashif`,
+  description: post.excerpt,
+  path: `/${post.slug}/`,
+  image: post.image,
+  imageAlt: post.imageAlt,
+  keywords: post.tags,
+  type: 'article',
+  publishedTime: post.publishedAt,
+  modifiedTime: post.updatedAt,
+})
 
 export default function WhatIsProductInfographics() {
   return (
-    <BlogLayout
-      title="What is product infographics?"
-      category="Amazon FBA Wholesale"
-      date="March 19, 2024"
-      image="/images/blog-infographics.jpg"
-      tags={['Product Infographics', 'product', 'Amazon']}
-    >
+    <>
+      <BlogStructuredData post={post} />
+      <BlogLayout
+        title={post.title}
+        category={post.category}
+        date={post.date}
+        image={post.image}
+        imageAlt={post.imageAlt}
+        tags={post.tags}
+        slug={post.slug}
+      >
       <p>
         Product infographics are visual representations that combine images and text to communicate key product features, benefits, and information in a clear and engaging way. On Amazon, product infographics are one of the most powerful tools for converting browsers into buyers.
       </p>
@@ -62,6 +78,7 @@ export default function WhatIsProductInfographics() {
       <p>
         I use a combination of Photoshop, Illustrator, and AI tools to create infographics that are both visually stunning and strategically designed to drive sales. Every element — from font choice to color palette to icon style — is intentional and aligned with your brand identity.
       </p>
-    </BlogLayout>
+      </BlogLayout>
+    </>
   )
 }

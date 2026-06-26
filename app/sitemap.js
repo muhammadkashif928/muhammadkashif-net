@@ -1,19 +1,49 @@
-export default function sitemap() {
-  const baseUrl = 'https://muhammadkashif.net'
+import { blogPosts } from '@/data/blog'
 
-  return [
-    { url: `${baseUrl}/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
-    { url: `${baseUrl}/my-portfolio/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/blog/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
-    { url: `${baseUrl}/contact-me/`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
-    // Portfolio
-    { url: `${baseUrl}/blackdsn-portfolio/premium-a-content/`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
-    { url: `${baseUrl}/blackdsn-portfolio/ai-creative-retouching/`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
-    { url: `${baseUrl}/blackdsn-portfolio/brand-identity-packaging/`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
-    // Blog posts — exact URLs matching WordPress
-    { url: `${baseUrl}/what-is-a-content/`, lastModified: new Date('2024-03-19'), changeFrequency: 'yearly', priority: 0.7 },
-    { url: `${baseUrl}/what-is-website/`, lastModified: new Date('2024-03-19'), changeFrequency: 'yearly', priority: 0.7 },
-    { url: `${baseUrl}/what-is-product-infographics/`, lastModified: new Date('2024-03-19'), changeFrequency: 'yearly', priority: 0.7 },
-    { url: `${baseUrl}/why-white-background-is-so-important-for-main-image-of-product/`, lastModified: new Date('2024-03-19'), changeFrequency: 'yearly', priority: 0.7 },
+const baseUrl = 'https://muhammadkashif.net'
+const siteUpdated = '2026-06-26T10:00:00+08:00'
+
+function route(path, changeFrequency, priority, lastModified = siteUpdated) {
+  return {
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(lastModified),
+    changeFrequency,
+    priority,
+  }
+}
+
+export default function sitemap() {
+  const coreRoutes = [
+    route('/', 'monthly', 1),
+    route('/about/', 'monthly', 0.9),
+    route('/services/', 'monthly', 0.95),
+    route('/my-portfolio/', 'monthly', 0.9),
+    route('/blog/', 'weekly', 0.9),
+    route('/resume/', 'monthly', 0.75),
+    route('/contact-me/', 'yearly', 0.85),
   ]
+
+  const portfolioRoutes = [
+    route('/blackdsn-portfolio/premium-a-content/', 'yearly', 0.75),
+    route('/blackdsn-portfolio/ai-creative-retouching/', 'yearly', 0.75),
+    route('/blackdsn-portfolio/brand-identity-packaging/', 'yearly', 0.75),
+    route('/blackdsn-portfolio/leather-items-optimized/', 'monthly', 0.8),
+  ]
+
+  const blogRoutes = blogPosts.map((post) =>
+    route(
+      `/${post.slug}/`,
+      post.publishedAt?.startsWith('2026') ? 'monthly' : 'yearly',
+      post.publishedAt?.startsWith('2026') ? 0.8 : 0.7,
+      post.updatedAt || post.publishedAt || siteUpdated
+    )
+  )
+
+  const legalRoutes = [
+    route('/privacy-policy/', 'yearly', 0.35),
+    route('/terms/', 'yearly', 0.35),
+    route('/disclaimer/', 'yearly', 0.35),
+  ]
+
+  return [...coreRoutes, ...portfolioRoutes, ...blogRoutes, ...legalRoutes]
 }

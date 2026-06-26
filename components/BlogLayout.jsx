@@ -2,8 +2,11 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { blogPosts } from '@/data/blog'
 
-export default function BlogLayout({ children, title, category, date, image, tags }) {
+export default function BlogLayout({ children, title, category, date, image, imageAlt, tags, slug }) {
+  const relatedPosts = blogPosts.filter((post) => post.slug !== slug).slice(0, 5)
+
   return (
     <>
       <Navbar />
@@ -12,7 +15,7 @@ export default function BlogLayout({ children, title, category, date, image, tag
         <div className="bg-[#0a0a0a] pt-24 pb-0">
           <div className="max-w-4xl mx-auto px-6 py-16">
             <div className="flex items-center gap-3 mb-6">
-              <Link href="/category/amazon-fba/" className="font-mono text-xs tracking-widest text-[#e8e800] hover:underline">
+              <Link href="/blog/" className="font-mono text-xs tracking-widest text-[#e8e800] hover:underline">
                 {category}
               </Link>
             </div>
@@ -24,7 +27,14 @@ export default function BlogLayout({ children, title, category, date, image, tag
           {image && (
             <div className="max-w-4xl mx-auto px-6">
               <div className="h-72 md:h-96 overflow-hidden border-2 border-[#f5f5f0]/10">
-                <img src={image} alt={title} className="w-full h-full object-cover grayscale contrast-110" />
+                <img
+                  src={image}
+                  alt={imageAlt || `${title} article hero image`}
+                  width="1600"
+                  height="900"
+                  fetchPriority="high"
+                  className="w-full h-full object-cover grayscale contrast-110"
+                />
               </div>
             </div>
           )}
@@ -72,12 +82,7 @@ export default function BlogLayout({ children, title, category, date, image, tag
               <div className="border-2 border-[#0a0a0a] p-6 shadow-brutal">
                 <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE POSTS</h3>
                 <div className="flex flex-col gap-3">
-                  {[
-                    { title: 'What is A+ content?', slug: 'what-is-a-content' },
-                    { title: 'What is product infographics?', slug: 'what-is-product-infographics' },
-                    { title: 'Why white background matters', slug: 'why-white-background-is-so-important-for-main-image-of-product' },
-                    { title: 'What is website?', slug: 'what-is-website' },
-                  ].map(p => (
+                  {relatedPosts.map(p => (
                     <Link
                       key={p.slug}
                       href={`/${p.slug}/`}
@@ -103,6 +108,14 @@ export default function BlogLayout({ children, title, category, date, image, tag
           margin-top: 2.5rem;
           margin-bottom: 1rem;
         }
+        .prose-custom h3 {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 1.35rem;
+          letter-spacing: 0.05em;
+          color: #0a0a0a;
+          margin-top: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
         .prose-custom p {
           font-family: 'Space Mono', monospace;
           font-size: 0.8rem;
@@ -124,6 +137,13 @@ export default function BlogLayout({ children, title, category, date, image, tag
           line-height: 1.9;
           color: rgba(10,10,10,0.7);
           margin-bottom: 0.5rem;
+        }
+        .prose-custom a {
+          color: #0a0a0a;
+          font-weight: 700;
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+          text-underline-offset: 3px;
         }
       `}</style>
     </>
