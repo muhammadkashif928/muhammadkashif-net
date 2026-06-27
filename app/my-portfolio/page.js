@@ -26,6 +26,8 @@ const projects = [
     title: 'Premium A+ Content',
     desc: 'Full Amazon listing optimization including side images, A+ content modules, and conversion-focused layout strategy.',
     img: '/images/portfolio-1.webp',
+    date: 'Jan 8, 2022',
+    software: ['Photoshop', 'Illustrator'],
   },
   {
     slug: 'ai-creative-retouching',
@@ -33,6 +35,8 @@ const projects = [
     title: 'AI & Creative Retouching',
     desc: '3D product visualization created using Blender & Photoshop. Photorealistic rendering with lifestyle integration.',
     img: '/images/portfolio-2.jpg',
+    date: 'Jan 8, 2022',
+    software: ['Blender', 'Photoshop'],
   },
   {
     slug: 'brand-identity-packaging',
@@ -40,13 +44,17 @@ const projects = [
     title: 'Brand Identity & Packaging',
     desc: 'End-to-end packaging design and brand identity system for a private label brand entering a competitive market.',
     img: '/images/portfolio-3.webp',
+    date: 'Jan 8, 2022',
+    software: ['Illustrator', 'Photoshop'],
   },
   {
     slug: 'leather-items-optimized',
     tag: 'IMAGE OPTIMIZATION',
     title: 'Leather Items Optimized',
-    desc: '12 leather products — jackets, bags & biker costumes — transformed from raw photos into 8K ultra-high-definition e-commerce images with before & after showcase.',
+    desc: '12 leather products — jackets, bags & biker costumes — transformed from raw photos into 8K ultra-high-definition e-commerce images with full before & after showcase.',
     img: encodeURI('/portfolio/Leather Products/Product 3 (Leather Jacket)/Leather Jacket img 1.png'),
+    date: 'Jun 24, 2026',
+    software: ['ChatGPT AI', 'Photoshop'],
   },
 ]
 
@@ -93,9 +101,23 @@ export default function MyPortfolio() {
                   </div>
                 </div>
                 <div className="p-6 border-t-2 border-[#0a0a0a]">
-                  <h2 className="font-bebas text-xl tracking-widest text-[#0a0a0a] mb-3">{p.title}</h2>
-                  <p className="font-mono text-xs text-[#0a0a0a]/60 leading-relaxed">{p.desc}</p>
-                  <div className="mt-5 flex items-center gap-2 font-mono text-xs tracking-widest text-[#0a0a0a] font-bold">
+                  <h2 className="font-bebas text-xl tracking-widest text-[#0a0a0a] mb-2">{p.title}</h2>
+                  <p className="font-mono text-xs text-[#0a0a0a]/60 leading-relaxed mb-4">{p.desc}</p>
+                  {/* Date + Software */}
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4 pt-3 border-t border-[#0a0a0a]/10">
+                    <span className="font-mono text-[9px] text-[#0a0a0a]/40">
+                      <span className="text-[#0a0a0a]/25 mr-1">DATE</span>{p.date}
+                    </span>
+                    <span className="text-[#0a0a0a]/20 text-[9px]">·</span>
+                    <div className="flex gap-1.5">
+                      {p.software.map(sw => (
+                        <span key={sw} className="font-mono text-[8px] tracking-widest px-2 py-0.5 border border-[#0a0a0a]/20 text-[#0a0a0a]/50 bg-[#f5f5f0]">
+                          {sw}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono text-xs tracking-widest text-[#0a0a0a] font-bold">
                     VIEW CASE
                     <span className="group-hover:translate-x-2 transition-transform">→</span>
                   </div>

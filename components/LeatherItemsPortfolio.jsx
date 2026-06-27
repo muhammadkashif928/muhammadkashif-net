@@ -15,6 +15,9 @@ const PRODUCTS = [
     name: 'Crocodile Leather Bag for Ladies',
     category: 'Leather Bag',
     folder: 'Product 1 (Crocodile Leather Bag for Ladies)',
+    date: 'Jun 24, 2026',
+    time: '12:24 AM',
+    software: ['ChatGPT AI', 'Photoshop'],
     before: ['rough original image.jpeg'],
     after: [
       'ChatGPT Image Jun 24, 2026, 12_24_55 AM.png',
@@ -26,6 +29,9 @@ const PRODUCTS = [
     name: 'Leather Cow Bag for Ladies',
     category: 'Leather Bag',
     folder: 'Product 2 (Leather Cow Bag for Ladies)',
+    date: 'Jun 24, 2026',
+    time: '12:40 AM',
+    software: ['Photoshop', 'AI Retouching'],
     before: ['rough original image.jpeg'],
     after: ['Leather Cow Bag img 1.png'],
   },
@@ -34,6 +40,9 @@ const PRODUCTS = [
     name: 'Leather Jacket',
     category: 'Leather Jacket',
     folder: 'Product 3 (Leather Jacket)',
+    date: 'Jun 24, 2026',
+    time: '12:55 AM',
+    software: ['Photoshop', 'AI Retouching'],
     before: ['rough original image.jpeg'],
     after: [
       'Leather Jacket img 1.png',
@@ -46,6 +55,9 @@ const PRODUCTS = [
     name: 'Suede Biker Jacket — Long Design',
     category: 'Biker Jacket',
     folder: 'Product 4 (Suede Biker Jacket with long design)',
+    date: 'Jun 24, 2026',
+    time: '01:10 AM',
+    software: ['ChatGPT AI', 'Photoshop'],
     before: ['rough original image.jpeg', 'rough original image 2.jpeg'],
     after: [
       'ChatGPT Image Jun 24, 2026, 01_10_01 AM.png',
@@ -58,6 +70,9 @@ const PRODUCTS = [
     name: "Women's Leather Jacket",
     category: 'Female Jacket',
     folder: 'Product 5 (Female Jacket)',
+    date: 'Jun 24, 2026',
+    time: '01:26 AM',
+    software: ['ChatGPT AI', 'Photoshop'],
     before: ['rough original image 1.jpeg', 'rough original image 2.jpeg'],
     after: [
       'ChatGPT Image Jun 24, 2026, 01_26_15 AM.png',
@@ -70,6 +85,9 @@ const PRODUCTS = [
     name: 'Motorcycle Leather Jacket',
     category: 'Motorcycle Jacket',
     folder: 'Product 6 (Motorcycle Jacket) ',
+    date: 'Jun 24, 2026',
+    time: '01:42 AM',
+    software: ['Photoshop', 'AI Retouching'],
     before: ['rough original image 1.jpeg', 'rough original image  2.jpeg'],
     after: [
       'Motorcycle Jacket img 1.png',
@@ -82,6 +100,9 @@ const PRODUCTS = [
     name: 'Classic Leather Jacket',
     category: 'Leather Jacket',
     folder: 'Product 7 (Leather Jacket)',
+    date: 'Jun 24, 2026',
+    time: '01:55 AM',
+    software: ['Photoshop', 'AI Retouching'],
     before: ['rough original image 1.jpeg', 'rough original image 2.jpeg'],
     after: [
       'Leather Jacket img 1.png',
@@ -94,6 +115,9 @@ const PRODUCTS = [
     name: 'Premium Leather Jacket',
     category: 'Leather Jacket',
     folder: 'Product 8 (Leather Jacket )',
+    date: 'Jun 24, 2026',
+    time: '02:07 AM',
+    software: ['ChatGPT AI', 'Photoshop'],
     before: ['rough original image  1.jpeg', 'rough original image  2.jpeg'],
     after: [
       'ChatGPT Image Jun 24, 2026, 02_07_29 AM.png',
@@ -106,6 +130,9 @@ const PRODUCTS = [
     name: "Biker's Leather Costume",
     category: 'Biker Costume',
     folder: "Product 9 (Biker's Leather Costume)",
+    date: 'Jun 24, 2026',
+    time: '02:30 AM',
+    software: ['Photoshop', 'AI Retouching'],
     before: [
       'rough original image 1.jpeg',
       'rough original image 2.jpeg',
@@ -125,6 +152,9 @@ const PRODUCTS = [
     name: 'Urban Leather Jacket',
     category: 'Leather Jacket',
     folder: 'Product 10 (Leather Jacket)',
+    date: 'Jun 24, 2026',
+    time: '03:10 AM',
+    software: ['Photoshop', 'AI Retouching'],
     before: ['rough original image 1.jpeg', 'rough original image 2.jpeg'],
     after: ['Leather Jacket img 1.png', 'Leather Jacket img 2.png'],
   },
@@ -133,6 +163,9 @@ const PRODUCTS = [
     name: "Biker's Leather Costume II",
     category: 'Biker Costume',
     folder: "Product 11 (BIker's Leather Costume 2)",
+    date: 'Jun 24, 2026',
+    time: '03:45 AM',
+    software: ['Photoshop', 'AI Retouching'],
     before: [
       'rough original image 1.jpeg',
       'rough original image 2.jpeg',
@@ -152,6 +185,9 @@ const PRODUCTS = [
     name: "Suede Biker's Jacket",
     category: 'Suede Jacket',
     folder: "Product 12 (Suede Biker's Jacket)",
+    date: 'Jun 24, 2026',
+    time: '04:18 AM',
+    software: ['ChatGPT AI', 'Photoshop'],
     before: ['rough original image 1.jpeg', 'rough original image 2.jpeg'],
     after: [
       'ChatGPT Image Jun 24, 2026, 04_18_36 AM.png',
@@ -371,22 +407,48 @@ export default function LeatherItemsPortfolio() {
                   </div>
 
                   {/* Card footer */}
-                  <div className="border-t-2 border-[#0a0a0a] px-4 sm:px-5 py-4 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <span className="font-mono text-[9px] tracking-[0.2em] text-[#0a0a0a]/40 uppercase block mb-0.5">
+                  <div className="border-t-2 border-[#0a0a0a] px-4 sm:px-5 pt-4 pb-3">
+                    {/* Category + number */}
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-mono text-[9px] tracking-[0.2em] text-[#0a0a0a]/40 uppercase">
                         {product.category}
                       </span>
-                      <h3 className="font-bebas text-base sm:text-lg tracking-wider text-[#0a0a0a] leading-tight truncate">
-                        {product.name}
-                      </h3>
+                      <span className="font-mono text-[9px] text-[#0a0a0a]/25">#{String(product.id).padStart(2,'0')}</span>
                     </div>
-                    <button
-                      onClick={() => openLightbox(pi, product.before.length)}
-                      className="shrink-0 font-mono text-[9px] tracking-widest text-[#0a0a0a] border-2 border-[#0a0a0a] px-3 py-2 hover:bg-[#e8e800] hover:border-[#e8e800] transition-all whitespace-nowrap"
-                      aria-label={`View all ${gallery.length} images for ${product.name}`}
-                    >
-                      VIEW ALL {gallery.length} →
-                    </button>
+                    {/* Product name */}
+                    <h3 className="font-bebas text-base sm:text-lg tracking-wider text-[#0a0a0a] leading-tight mb-3">
+                      {product.name}
+                    </h3>
+                    {/* Date · Time row */}
+                    <div className="flex items-center gap-3 mb-2.5">
+                      <span className="font-mono text-[9px] text-[#0a0a0a]/50 flex items-center gap-1">
+                        <span className="text-[#0a0a0a]/30">DATE</span> {product.date}
+                      </span>
+                      <span className="text-[#0a0a0a]/20">·</span>
+                      <span className="font-mono text-[9px] text-[#0a0a0a]/50 flex items-center gap-1">
+                        <span className="text-[#0a0a0a]/30">TIME</span> {product.time}
+                      </span>
+                    </div>
+                    {/* Software chips + button */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex flex-wrap gap-1.5">
+                        {product.software.map(sw => (
+                          <span
+                            key={sw}
+                            className="font-mono text-[8px] tracking-widest px-2 py-1 border border-[#0a0a0a]/20 text-[#0a0a0a]/60 bg-[#f5f5f0]"
+                          >
+                            {sw}
+                          </span>
+                        ))}
+                      </div>
+                      <button
+                        onClick={() => openLightbox(pi, product.before.length)}
+                        className="shrink-0 font-mono text-[9px] tracking-widest text-[#0a0a0a] border-2 border-[#0a0a0a] px-3 py-2 hover:bg-[#e8e800] hover:border-[#e8e800] transition-all whitespace-nowrap"
+                        aria-label={`View all ${gallery.length} images for ${product.name}`}
+                      >
+                        VIEW ALL {gallery.length} →
+                      </button>
+                    </div>
                   </div>
                 </article>
               )
@@ -543,10 +605,27 @@ export default function LeatherItemsPortfolio() {
           onTouchEnd={handleTouchEnd}
         >
           {/* Top bar */}
-          <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-[#f5f5f0]/10 shrink-0">
-            <div className="min-w-0">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-[#f5f5f0]/10 shrink-0">
+            <div className="min-w-0 flex-1">
               <p className="font-mono text-[9px] tracking-[0.25em] text-[#e8e800] truncate">{currentProduct.category}</p>
               <p className="font-bebas text-base sm:text-xl tracking-wider text-[#f5f5f0] leading-tight truncate">{currentProduct.name}</p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
+                <span className="font-mono text-[9px] text-[#f5f5f0]/40">
+                  <span className="text-[#f5f5f0]/20">DATE</span> {currentProduct.date}
+                </span>
+                <span className="text-[#f5f5f0]/20 text-[9px]">·</span>
+                <span className="font-mono text-[9px] text-[#f5f5f0]/40">
+                  <span className="text-[#f5f5f0]/20">TIME</span> {currentProduct.time}
+                </span>
+                <span className="text-[#f5f5f0]/20 text-[9px] hidden sm:inline">·</span>
+                <div className="hidden sm:flex gap-1.5">
+                  {currentProduct.software.map(sw => (
+                    <span key={sw} className="font-mono text-[8px] px-1.5 py-0.5 border border-[#f5f5f0]/15 text-[#f5f5f0]/40">
+                      {sw}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
             <div className="flex items-center gap-3 sm:gap-4 shrink-0 ml-3">
               <span className="font-mono text-xs text-[#f5f5f0]/40 hidden sm:block">
