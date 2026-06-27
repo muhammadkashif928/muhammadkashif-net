@@ -9,6 +9,7 @@
     "export": "next build"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.10.0",
     "next": "^16.2.9",
     "nodemailer": "^6.9.0",
     "react": "^18",
