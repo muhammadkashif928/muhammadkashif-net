@@ -15,10 +15,16 @@ export const metadata = {
   authors: [{ name: siteConfig.author, url: siteConfig.url }],
   creator: siteConfig.author,
   publisher: siteConfig.name,
+  referrer: 'origin-when-cross-origin',
+  classification: 'Amazon Brand Design, Freelance Design Services',
+  category: 'Amazon brand design',
+  subject: 'Amazon A+ Content Design, Product Infographics, Brand Identity',
   alternates: {
     canonical: '/',
+    types: {
+      'text/plain': '/llms.txt',
+    },
   },
-  category: 'Amazon brand design',
   manifest: '/manifest.webmanifest',
   robots: {
     index: true,
@@ -37,13 +43,17 @@ export const metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
-    type: 'website',
+    type: 'profile',
+    firstName: 'Muhammad',
+    lastName: 'Kashif',
+    username: 'muhammadkashif928',
+    gender: 'male',
     images: [
       {
         url: '/images/profile.avif',
         width: 1200,
         height: 1200,
-        alt: 'Muhammad Kashif, Amazon Brand Designer',
+        alt: 'Muhammad Kashif — Amazon Brand Designer and A+ Content Specialist in Kuching, Malaysia',
       },
     ],
   },
@@ -52,9 +62,17 @@ export const metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: ['/images/profile.avif'],
+    creator: '@muhamadkashif928',
   },
   icons: {
     icon: '/icon.svg',
+    shortcut: '/icon.svg',
+  },
+  other: {
+    'geo.region': 'MY-13',
+    'geo.placename': 'Kuching, Sarawak, Malaysia',
+    'geo.position': '1.5535;110.3593',
+    'ICBM': '1.5535, 110.3593',
   },
 }
 

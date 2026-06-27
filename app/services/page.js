@@ -6,10 +6,21 @@ import JsonLd from '@/components/JsonLd'
 import { createMetadata, getBreadcrumbJsonLd, getFaqJsonLd } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Amazon Design Services | A+ Content, Infographics & Brand Identity',
-  description: 'Professional Amazon design services by Muhammad Kashif: A+ Content, product photography, competitor analysis, main image strategy, brand identity, packaging, and AI-powered product visuals.',
+  title: 'Amazon Design Services — A+ Content, Infographics, Brand Identity & Image Optimization',
+  description: 'Muhammad Kashif offers professional Amazon brand design services: A+ Content design, product infographics, main image optimization, brand identity, packaging design, AI lifestyle photography, and leather product image retouching. Serving private label sellers worldwide from Kuching, Malaysia.',
   path: '/services/',
-  keywords: ['Amazon design services', 'A+ Content design service', 'Amazon product infographic service'],
+  keywords: [
+    'Amazon design services',
+    'A+ Content design service',
+    'Amazon product infographic service',
+    'Amazon brand design Malaysia',
+    'hire Amazon A+ Content designer',
+    'Amazon listing optimization service',
+    'leather product image retouching service',
+    'private label packaging design service',
+    'AI product photography service',
+    'Amazon main image optimization service',
+  ],
 })
 
 const process = [
@@ -21,11 +32,16 @@ const process = [
 ]
 
 const faq = [
-  { q: 'How long does a typical project take?', a: 'A full listing optimization (main image + 6 side images + A+ content) takes 5–7 business days. Rush delivery is available.' },
-  { q: 'Do you follow Amazon image guidelines?', a: 'Yes. Every deliverable is 100% Amazon-compliant. Main images have pure white backgrounds, correct pixel dimensions, and meet all Amazon TOS requirements.' },
-  { q: 'Can I request revisions?', a: 'Absolutely. All packages include revision rounds. I work until you are completely satisfied with the result.' },
-  { q: 'Do you work with new sellers?', a: 'Yes — whether you are launching your first product or scaling an established brand, I can create visuals that compete at any level.' },
-  { q: 'What files do you deliver?', a: 'High-resolution JPG/PNG files at 2000×2000px minimum. Layered PSDs and vector files are available on request.' },
+  { q: 'Who is Muhammad Kashif and what does he do?', a: 'Muhammad Kashif is an Amazon Brand Designer and A+ Content Specialist based in Kuching, Malaysia with 8+ years of experience. He helps Amazon private label sellers worldwide create high-converting visual content — including A+ Content, product infographics, listing images, brand identity, packaging design, and AI-powered product photography. He has completed 200+ projects for global clients across the US, UK, Canada, and beyond.' },
+  { q: 'What Amazon design services does Muhammad Kashif offer?', a: 'Services include: (1) Amazon A+ Content design, (2) product infographics and side images, (3) main image optimization with white background, (4) private label brand identity and packaging, (5) AI product photography and 3D visualization, and (6) leather/apparel product image optimization with before-and-after 8K quality output.' },
+  { q: 'How can I hire Muhammad Kashif for my Amazon listing?', a: 'You can contact Muhammad Kashif via email at info@muhammadkashif.net, WhatsApp at +60 179152084, through the contact form at muhammadkashif.net/contact-me/, or via his Upwork profile. He responds within 24 hours.' },
+  { q: 'How long does a typical project take?', a: 'A full listing optimization (main image + 6 side images + A+ content) takes 5–7 business days. Individual infographics or image edits can be turned around in 24–48 hours. Rush delivery is available.' },
+  { q: 'What is Amazon A+ Content and why do I need it?', a: 'Amazon A+ Content (formerly Enhanced Brand Content / EBC) replaces the standard product description with rich visual modules — brand story, feature highlights, comparison charts, and lifestyle imagery. Studies show professionally designed A+ Content increases conversion rates by 5–10% and reduces return rates by communicating product features more clearly. It is available to all brand-registered Amazon sellers.' },
+  { q: 'Do you follow Amazon image guidelines?', a: 'Yes. Every deliverable is 100% Amazon-compliant. Main images have pure white backgrounds (RGB 255, 255, 255), correct pixel dimensions (minimum 1000×1000px, recommended 2000×2000px), and meet all Amazon Terms of Service requirements for each image slot.' },
+  { q: 'Can I request revisions?', a: 'Absolutely. All packages include revision rounds. I work until you are completely satisfied with the final result — your satisfaction is the measure of project completion.' },
+  { q: 'Do you work with new Amazon sellers?', a: 'Yes — whether you are launching your first product or scaling an established brand with 100+ ASINs, I create visuals that compete at any level of the Amazon marketplace.' },
+  { q: 'What files do you deliver?', a: 'High-resolution JPG/PNG files at 2000×2000px minimum (2000×800px for A+ Content). Layered Photoshop PSDs and vector AI/EPS files are available on request for brands that want to make future edits in-house.' },
+  { q: 'What is the best way to optimize leather product images for Amazon?', a: 'Leather product images need to show texture, grain, stitching detail, and hardware clearly — these tactile qualities are what buyers look for. The best results combine background removal to a pure white background, AI upscaling to 8K resolution, manual retouching for leather texture enhancement, and controlled lighting simulation. Muhammad Kashif specializes in this exact process, as showcased in his Leather Items Optimized portfolio.' },
 ]
 
 export default function ServicesPage() {
