@@ -83,6 +83,15 @@ const projects = [
     date: 'Jun 27, 2026',
     software: ['AI Generation', 'Photoshop'],
   },
+  {
+    slug: 'yara-lattafa-amazon-main-image',
+    tag: 'AMAZON MAIN IMAGE',
+    title: 'Yara by Lattafa — Amazon Main Image',
+    desc: 'Raw casual shots of the Yara Lattafa EDP redesigned into a scroll-stopping Amazon main image in minutes — no studio, no complex setup. AI + Photoshop workflow covering shape clarity, lighting, and CTR optimisation.',
+    img: '/1776985426943.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['AI', 'Photoshop'],
+  },
 ]
 
 export default function MyPortfolio() {

@@ -100,6 +100,7 @@ export default function PortfolioLayout({ title, tag, service, industry, publish
                     { title: 'Closetlux Image Restoration', slug: 'closetlux-image-restoration' },
                     { title: 'Perfume Oil Bottle Retouching', slug: 'perfume-oil-bottle-retouching' },
                     { title: 'Jason Markk Lifestyle Composite', slug: 'jason-markk-lifestyle-composite' },
+                    { title: 'Yara Lattafa Amazon Main Image', slug: 'yara-lattafa-amazon-main-image' },
                   ].map(p => (
                     <Link
                       key={p.slug}
