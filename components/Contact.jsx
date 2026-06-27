@@ -15,31 +15,18 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // Honeypot check — bots fill the hidden field
-    if (form.honeypot) return
-
     setStatus('sending')
     setErrorMsg('')
 
     try {
-      const apiKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
-      if (!apiKey) {
-        setStatus('error')
-        setErrorMsg('Contact form is not configured yet. Please email me directly.')
-        return
-      }
-
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: apiKey,
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          subject: `Project inquiry from ${form.name}`,
-          from_name: 'muhammadkashif.net',
-          botcheck: '',
+          name:     form.name,
+          email:    form.email,
+          message:  form.message,
+          honeypot: form.honeypot, // bot trap
         }),
       })
 
@@ -49,7 +36,7 @@ export default function Contact() {
         setForm({ name: '', email: '', message: '', honeypot: '' })
       } else {
         setStatus('error')
-        setErrorMsg(data.message || 'Something went wrong. Please try again.')
+        setErrorMsg(data.error || 'Something went wrong. Please try again.')
       }
     } catch {
       setStatus('error')
