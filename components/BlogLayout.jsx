@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { blogPosts } from '@/data/blog'
+import CommentSection from '@/components/CommentSection'
 
 export default function BlogLayout({ children, title, category, date, image, imageAlt, tags, slug }) {
   const relatedPosts = blogPosts.filter((post) => post.slug !== slug).slice(0, 5)
@@ -43,10 +44,13 @@ export default function BlogLayout({ children, title, category, date, image, ima
         {/* Content */}
         <div className="max-w-4xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-[1fr_280px] gap-12">
-            {/* Article */}
-            <article className="prose-custom">
-              {children}
-            </article>
+            {/* Article + Comments */}
+            <div>
+              <article className="prose-custom">
+                {children}
+              </article>
+              <CommentSection postSlug={slug} />
+            </div>
 
             {/* Sidebar */}
             <aside className="space-y-8">
