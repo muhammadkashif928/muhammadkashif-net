@@ -28,6 +28,7 @@ export default function sitemap() {
     route('/blackdsn-portfolio/ai-creative-retouching/', 'yearly', 0.75),
     route('/blackdsn-portfolio/brand-identity-packaging/', 'yearly', 0.75),
     route('/blackdsn-portfolio/leather-items-optimized/', 'monthly', 0.8),
+    route('/blackdsn-portfolio/closetlux-image-restoration/', 'monthly', 0.8),
   ]
 
   const blogRoutes = blogPosts.map((post) =>

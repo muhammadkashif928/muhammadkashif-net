@@ -97,6 +97,7 @@ export default function PortfolioLayout({ title, tag, service, industry, publish
                     { title: 'AI & Creative Retouching', slug: 'ai-creative-retouching' },
                     { title: 'Brand Identity & Packaging', slug: 'brand-identity-packaging' },
                     { title: 'Leather Items Optimized', slug: 'leather-items-optimized' },
+                    { title: 'Closetlux Image Restoration', slug: 'closetlux-image-restoration' },
                   ].map(p => (
                     <Link
                       key={p.slug}

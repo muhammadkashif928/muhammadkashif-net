@@ -56,6 +56,15 @@ const projects = [
     date: 'Jun 24, 2026',
     software: ['ChatGPT AI', 'Photoshop'],
   },
+  {
+    slug: 'closetlux-image-restoration',
+    tag: 'IMAGE RESTORATION',
+    title: 'Closetlux Image Restoration',
+    desc: 'Luxury product render elevated from flat grey background to premium white-background commercial visual — Closetlux Oud Faizi Extrait de Parfum, restored for Amazon, Shopify & high-end brand marketing.',
+    img: '/1779399082204.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['Photoshop'],
+  },
 ]
 
 export default function MyPortfolio() {
