@@ -307,17 +307,17 @@ export default function LeatherItemsPortfolio() {
                   <div className="grid grid-cols-2">
                     {/* BEFORE */}
                     <div
-                      className="relative cursor-zoom-in group overflow-hidden"
-                      style={{ aspectRatio: '4/3' }}
+                      className="relative cursor-zoom-in group overflow-hidden bg-[#e8e8e0]"
+                      style={{ aspectRatio: '1/1' }}
                       onClick={() => openLightbox(pi, 0)}
                     >
                       <img
                         src={imgUrl(product.folder, firstBefore)}
                         alt={`${product.name} — original raw photo before optimization`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         width="600"
-                        height="450"
+                        height="600"
                       />
                       <div className="absolute inset-0 bg-[#0a0a0a]/0 group-hover:bg-[#0a0a0a]/30 transition-colors duration-300" />
                       <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-2 pt-2">
@@ -339,17 +339,17 @@ export default function LeatherItemsPortfolio() {
 
                     {/* AFTER */}
                     <div
-                      className="relative cursor-zoom-in group overflow-hidden border-l-2 border-[#0a0a0a]"
-                      style={{ aspectRatio: '4/3' }}
+                      className="relative cursor-zoom-in group overflow-hidden border-l-2 border-[#0a0a0a] bg-white"
+                      style={{ aspectRatio: '1/1' }}
                       onClick={() => openLightbox(pi, product.before.length)}
                     >
                       <img
                         src={imgUrl(product.folder, firstAfter)}
                         alt={`${product.name} — 8K optimized product image after retouching`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         width="600"
-                        height="450"
+                        height="600"
                       />
                       <div className="absolute inset-0 bg-[#0a0a0a]/0 group-hover:bg-[#0a0a0a]/20 transition-colors duration-300" />
                       <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-2 pt-2">
