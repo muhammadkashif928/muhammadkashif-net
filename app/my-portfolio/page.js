@@ -65,6 +65,15 @@ const projects = [
     date: 'Jun 27, 2026',
     software: ['Photoshop'],
   },
+  {
+    slug: 'perfume-oil-bottle-retouching',
+    tag: 'PRODUCT RETOUCHING',
+    title: 'Perfume Oil Bottle Retouching',
+    desc: 'UAE ornate brass & ruby perfume oil bottle transformed from casual uneven photo into a clean, marketplace-ready e-commerce image — white background, straightened perspective, enhanced metalwork detail.',
+    img: '/1775606072952.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['Photoshop'],
+  },
 ]
 
 export default function MyPortfolio() {
