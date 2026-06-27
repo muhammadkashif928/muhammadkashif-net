@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 const contactLinks = [
   { label: 'EMAIL',    value: 'info@muhammadkashif.net', href: 'mailto:info@muhammadkashif.net' },
@@ -7,13 +7,33 @@ const contactLinks = [
   { label: 'UPWORK',   value: 'View Profile →',          href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
 ]
 
+function genCaptcha() {
+  return { a: Math.floor(Math.random() * 15) + 1, b: Math.floor(Math.random() * 15) + 1 }
+}
+
 export default function Contact() {
   const [form, setForm]         = useState({ name: '', email: '', message: '', honeypot: '' })
   const [status, setStatus]     = useState('idle') // idle | sending | success | error
   const [errorMsg, setErrorMsg] = useState('')
+  const [captcha, setCaptcha]   = useState({ a: 6, b: 9 })
+  const [captchaVal, setCaptchaVal] = useState('')
+
+  useEffect(() => { setCaptcha(genCaptcha()) }, [])
+
+  const refreshCaptcha = useCallback(() => {
+    setCaptcha(genCaptcha())
+    setCaptchaVal('')
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    // Client-side CAPTCHA check (fast fail before network call)
+    if (parseInt(captchaVal, 10) !== captcha.a + captcha.b) {
+      setErrorMsg(`Incorrect answer — ${captcha.a} + ${captcha.b} = ?`)
+      refreshCaptcha()
+      return
+    }
 
     setStatus('sending')
     setErrorMsg('')
@@ -23,10 +43,13 @@ export default function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:     form.name,
-          email:    form.email,
-          message:  form.message,
-          honeypot: form.honeypot, // bot trap
+          name:       form.name,
+          email:      form.email,
+          message:    form.message,
+          honeypot:   form.honeypot,
+          captchaA:   captcha.a,
+          captchaB:   captcha.b,
+          captchaAns: parseInt(captchaVal, 10),
         }),
       })
 
@@ -34,9 +57,11 @@ export default function Contact() {
       if (data.success) {
         setStatus('success')
         setForm({ name: '', email: '', message: '', honeypot: '' })
+        refreshCaptcha()
       } else {
         setStatus('error')
         setErrorMsg(data.error || 'Something went wrong. Please try again.')
+        refreshCaptcha()
       }
     } catch {
       setStatus('error')
@@ -158,7 +183,50 @@ export default function Contact() {
                   />
                 </div>
 
-                {status === 'error' && (
+                {/* ── Math CAPTCHA ── */}
+                <div className="border-2 p-4" style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-subtle)' }}>
+                  <p className="font-mono text-[9px] tracking-[0.25em] mb-3" style={{ color: 'var(--b-muted)' }}>
+                    CAPTCHA — PROVE YOU'RE HUMAN
+                  </p>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    {/* Question display */}
+                    <div className="flex items-center gap-2 border-2 px-4 py-2" style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-bg)' }}>
+                      <span className="font-bebas text-2xl" style={{ color: 'var(--b-text)' }}>{captcha.a}</span>
+                      <span className="font-bebas text-2xl" style={{ color: 'var(--b-muted)' }}>+</span>
+                      <span className="font-bebas text-2xl" style={{ color: 'var(--b-text)' }}>{captcha.b}</span>
+                      <span className="font-bebas text-2xl" style={{ color: 'var(--b-muted)' }}>=</span>
+                      <span className="font-bebas text-2xl" style={{ color: 'var(--b-muted)' }}>?</span>
+                    </div>
+                    {/* Answer input */}
+                    <input
+                      type="number"
+                      value={captchaVal}
+                      onChange={e => setCaptchaVal(e.target.value)}
+                      placeholder="Answer"
+                      min={0}
+                      max={99}
+                      required
+                      className="w-24 border-2 px-3 py-2 font-bebas text-xl text-center outline-none transition-all"
+                      style={{ ...inputStyle, letterSpacing: '0.1em' }}
+                      onFocus={e => e.target.style.borderColor = 'var(--b-text)'}
+                      onBlur={e => e.target.style.borderColor = 'var(--b-border)'}
+                    />
+                    {/* Refresh button */}
+                    <button
+                      type="button"
+                      onClick={refreshCaptcha}
+                      title="New question"
+                      className="font-mono text-[9px] tracking-widest border px-2 py-2 transition-all"
+                      style={{ borderColor: 'var(--b-border)', color: 'var(--b-muted)' }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--b-text)'; e.currentTarget.style.color = 'var(--b-text)' }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--b-border)'; e.currentTarget.style.color = 'var(--b-muted)' }}
+                    >
+                      ↻ NEW
+                    </button>
+                  </div>
+                </div>
+
+                {(status === 'error' || errorMsg) && (
                   <div className="border px-4 py-3" style={{ borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)' }}>
                     <p className="font-mono text-sm" style={{ color: '#ef4444' }}>{errorMsg}</p>
                   </div>
@@ -166,7 +234,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  disabled={status === 'sending'}
+                  disabled={status === 'sending' || !captchaVal}
                   className="font-bebas text-lg sm:text-xl tracking-widest px-8 py-4 border-2 transition-all disabled:opacity-50"
                   style={{ backgroundColor: 'var(--b-text)', color: 'var(--b-bg)', borderColor: 'var(--b-text)', boxShadow: '4px 4px 0px var(--b-border)' }}
                 >
