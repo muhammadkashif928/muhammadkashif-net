@@ -1,11 +1,7 @@
-const leatherImg = encodeURI('/portfolio/Leather Products/Product 3 (Leather Jacket)/Leather Jacket img 1.png')
+import { portfolioProjects } from '@/data/portfolio'
 
-const projects = [
-  { id: 1, tag: 'A+ CONTENT',         title: 'PREMIUM A+ CONTENT',         slug: 'premium-a-content',          desc: 'Full Amazon listing optimization including side images, A+ content modules, and conversion-focused layout strategy.', img: '/images/portfolio-1.webp' },
-  { id: 2, tag: 'RETOUCHING',         title: 'AI & CREATIVE RETOUCHING',   slug: 'ai-creative-retouching',     desc: '3D product visualization using Blender & Photoshop. Photorealistic rendering with lifestyle integration.', img: '/images/portfolio-2.jpg' },
-  { id: 3, tag: 'BRAND IDENTITY',     title: 'BRAND IDENTITY & PACKAGING', slug: 'brand-identity-packaging',   desc: 'End-to-end packaging design and brand identity system for a private label brand entering a competitive market.', img: '/images/portfolio-3.webp' },
-  { id: 4, tag: 'IMAGE OPTIMIZATION', title: 'LEATHER ITEMS OPTIMIZED',    slug: 'leather-items-optimized',    desc: '12 leather products transformed from raw photos into 8K ultra-high-definition e-commerce images — full before & after showcase.', img: leatherImg },
-]
+// Always shows the 3 newest projects (first 3 in portfolioProjects array)
+const projects = portfolioProjects.slice(0, 3)
 
 export default function Portfolio() {
   return (
@@ -30,11 +26,11 @@ export default function Portfolio() {
           </a>
         </div>
 
-        {/* 1-col mobile, 3-col md */}
+        {/* 3 latest projects — 1 col mobile, 3 col desktop */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
           {projects.map((p) => (
             <a
-              key={p.id}
+              key={p.slug}
               href={`/blackdsn-portfolio/${p.slug}/`}
               className="group border-2 overflow-hidden block card-lift"
               style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-bg)', boxShadow: '4px 4px 0px var(--b-border)' }}

@@ -1,87 +1,81 @@
-export const portfolioItems = [
+// Ordered NEWEST → OLDEST.
+// Portfolio.jsx (homepage) automatically shows the first 3.
+// my-portfolio/page.js shows all of them.
+// To feature a new project on the homepage, add it to the TOP of this array.
+
+const leatherImg = encodeURI('/portfolio/Leather Products/Product 3 (Leather Jacket)/Leather Jacket img 1.png')
+
+export const portfolioProjects = [
   {
-    slug: 'premium-a-content',
-    title: 'Premium A+ Content',
-    tag: 'A+ CONTENT',
-    service: 'Product Infographics',
-    industry: 'Ecommerce',
-    published: 'January 8th 2022',
-    excerpt: 'Amazon Listing Optimization — the main and important things are Side Images, Optimized product title, bullet points with high search volume keywords.',
-    coverImage: '/images/portfolio-1.webp',
-    images: [
-      '/images/portfolio-report.jpg',
-      '/images/portfolio-leather-report.jpg',
-    ],
-    content: `
-At Amazon, there are various things that are needed to take care of. The main and important things are Side Images, Optimized product title, bullet points with high search volume keywords. Other than that there are some other things that are also needed to make a perfect listing.
-
-A+ content with attractive style is essential. Once we are done with this, we are ready to do advertising and run campaigns.
-
-## What was delivered
-
-For this project, I created a complete Amazon listing optimization package including:
-
-- High-converting main hero image with white background
-- 6 side images with feature callouts and lifestyle shots
-- Full A+ Content module with brand story and comparison chart
-- Optimized title and bullet points with high-volume keywords
-- Premium infographics highlighting key product features
-
-## Results
-
-The optimized listing saw a significant improvement in click-through rate and conversion rate within the first 30 days of going live.
-    `,
+    slug: 'yara-lattafa-amazon-main-image',
+    tag: 'AMAZON MAIN IMAGE',
+    title: 'Yara by Lattafa — Amazon Main Image',
+    desc: 'Raw casual shots of the Yara Lattafa EDP redesigned into a scroll-stopping Amazon main image — no studio, no complex setup. AI + Photoshop workflow covering shape clarity, lighting, and CTR optimisation.',
+    img: '/1776985426943.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['AI', 'Photoshop'],
   },
   {
-    slug: 'ai-creative-retouching',
-    title: 'AI & Creative Retouching',
-    tag: 'RETOUCHING',
-    service: 'Product Infographics',
-    industry: 'Ecommerce',
-    published: 'January 8th 2022',
-    excerpt: 'This project was done using Blender & Photoshop by Muhammad Kashif. Advanced 3D product visualization with photorealistic rendering.',
-    coverImage: '/images/portfolio-2.jpg',
-    images: [],
-    content: `
-This project was done using Blender & Photoshop. The goal was to create photorealistic 3D product renders that could be used across Amazon listings and marketing materials without the need for an expensive studio photoshoot.
-
-## What was delivered
-
-- Full 3D product model created in Blender
-- Photorealistic rendering with studio lighting setup
-- Multiple angles and color variants
-- Lifestyle composite images created in Photoshop
-- High-resolution files ready for Amazon and print
-
-## Process
-
-The process began with creating a detailed 3D model of the product, matching exact dimensions and materials. Lighting was carefully set up to mimic natural studio conditions. Final compositing was done in Photoshop to add lifestyle backgrounds and finishing touches.
-    `,
+    slug: 'jason-markk-lifestyle-composite',
+    tag: 'LIFESTYLE COMPOSITE',
+    title: 'Jason Markk Repel — Lifestyle Composite',
+    desc: 'Jason Markk Shoe & Sneaker Protector Repel Spray transformed with AI prop generation + Photoshop compositing. A HOKA sneaker added as contextual prop — context creates desire.',
+    img: '/1768694867521.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['AI Generation', 'Photoshop'],
+  },
+  {
+    slug: 'perfume-oil-bottle-retouching',
+    tag: 'PRODUCT RETOUCHING',
+    title: 'Perfume Oil Bottle Retouching',
+    desc: 'UAE ornate brass & ruby perfume oil bottle transformed from casual uneven photo into a clean, marketplace-ready e-commerce image — white background, straightened perspective, enhanced metalwork detail.',
+    img: '/1775606072952.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['Photoshop'],
+  },
+  {
+    slug: 'closetlux-image-restoration',
+    tag: 'IMAGE RESTORATION',
+    title: 'Closetlux Image Restoration',
+    desc: 'Luxury product render elevated from flat grey background to premium white-background commercial visual — Closetlux Oud Faizi Extrait de Parfum, restored for Amazon, Shopify & high-end brand marketing.',
+    img: '/1779399082204.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['Photoshop'],
+  },
+  {
+    slug: 'leather-items-optimized',
+    tag: 'IMAGE OPTIMIZATION',
+    title: 'Leather Items Optimized',
+    desc: '12 leather products — jackets, bags & biker costumes — transformed from raw photos into 8K ultra-high-definition e-commerce images with full before & after showcase.',
+    img: leatherImg,
+    date: 'Jun 24, 2026',
+    software: ['ChatGPT AI', 'Photoshop'],
   },
   {
     slug: 'brand-identity-packaging',
-    title: 'Brand Identity & Packaging',
     tag: 'BRAND IDENTITY',
-    service: 'Brand Identity',
-    industry: 'Ecommerce',
-    published: 'January 8th 2022',
-    excerpt: 'End-to-end brand identity and packaging design for a private label brand entering a competitive Amazon market.',
-    coverImage: '/images/portfolio-3.webp',
-    images: [],
-    content: `
-This project involved creating a complete brand identity system and packaging design for a private label product launching on Amazon. The goal was to make the brand feel established, trustworthy, and premium from day one.
-
-## What was delivered
-
-- Logo design with primary and secondary variations
-- Brand color palette and typography system
-- Product packaging design (box, label, insert card)
-- Amazon storefront banner and brand imagery
-- Brand guidelines document
-
-## Approach
-
-The design direction was informed by a thorough competitor analysis to identify visual gaps in the market. By understanding what competitors were doing, we were able to position this brand distinctly and create packaging that stands out on Amazon search results pages.
-    `,
+    title: 'Brand Identity & Packaging',
+    desc: 'End-to-end packaging design and brand identity system for a private label brand entering a competitive market.',
+    img: '/images/portfolio-3.webp',
+    date: 'Jan 8, 2022',
+    software: ['Illustrator', 'Photoshop'],
+  },
+  {
+    slug: 'ai-creative-retouching',
+    tag: 'RETOUCHING',
+    title: 'AI & Creative Retouching',
+    desc: '3D product visualization created using Blender & Photoshop. Photorealistic rendering with lifestyle integration.',
+    img: '/images/portfolio-2.jpg',
+    date: 'Jan 8, 2022',
+    software: ['Blender', 'Photoshop'],
+  },
+  {
+    slug: 'premium-a-content',
+    tag: 'A+ CONTENT',
+    title: 'Premium A+ Content',
+    desc: 'Full Amazon listing optimization including side images, A+ content modules, and conversion-focused layout strategy.',
+    img: '/images/portfolio-1.webp',
+    date: 'Jan 8, 2022',
+    software: ['Photoshop', 'Illustrator'],
   },
 ]
