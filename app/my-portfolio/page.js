@@ -74,6 +74,15 @@ const projects = [
     date: 'Jun 27, 2026',
     software: ['Photoshop'],
   },
+  {
+    slug: 'jason-markk-lifestyle-composite',
+    tag: 'LIFESTYLE COMPOSITE',
+    title: 'Jason Markk Repel — Lifestyle Composite',
+    desc: 'Jason Markk Shoe & Sneaker Protector Repel Spray transformed with AI prop generation + Photoshop compositing. A HOKA sneaker added as contextual prop — context creates desire.',
+    img: '/1768694867521.jpeg',
+    date: 'Jun 27, 2026',
+    software: ['AI Generation', 'Photoshop'],
+  },
 ]
 
 export default function MyPortfolio() {

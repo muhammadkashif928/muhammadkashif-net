@@ -30,6 +30,7 @@ export default function sitemap() {
     route('/blackdsn-portfolio/leather-items-optimized/', 'monthly', 0.8),
     route('/blackdsn-portfolio/closetlux-image-restoration/', 'monthly', 0.8),
     route('/blackdsn-portfolio/perfume-oil-bottle-retouching/', 'monthly', 0.8),
+    route('/blackdsn-portfolio/jason-markk-lifestyle-composite/', 'monthly', 0.8),
   ]
 
   const blogRoutes = blogPosts.map((post) =>
