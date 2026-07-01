@@ -26,3 +26,4 @@ yarn-debug.log*
 
 # WordPress uploads folder (images moved to /public/images/)
 public/uploads/
+.env*

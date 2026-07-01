@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 
-const SESSION_SECRET = process.env.ADMIN_SESSION_SECRET || 'mk-session-secret-v1-change-in-vercel'
+// No fallback secret: if ADMIN_SESSION_SECRET is unset, isValidSession()
+// below fails closed rather than verifying against a value that's sitting
+// in this (public) source repo.
+const SESSION_SECRET = process.env.ADMIN_SESSION_SECRET
 
 // Web Crypto API (Edge-compatible) HMAC-SHA256 verify
 async function verifyHmac(payload, sigB64url) {
@@ -14,6 +17,7 @@ async function verifyHmac(payload, sigB64url) {
 }
 
 async function isValidSession(token) {
+  if (!SESSION_SECRET) return false
   try {
     const [payloadB64, sig] = (token || '').split('.')
     if (!payloadB64 || !sig) return false

@@ -1,9 +1,14 @@
 import { sql } from '@vercel/postgres'
+import { getSessionUsername } from '@/lib/adminSession'
 
 // GET /api/admin/comments — fetch all comments for the admin dashboard
-// Protected by middleware (only /admin/* routes are checked, but this is
-// an API route so we do a quick session cookie check here too)
+// middleware.js only guards /admin/dashboard, not /api/admin/*, so this
+// route must verify the session cookie itself.
 export async function GET(request) {
+  if (!getSessionUsername(request)) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   const { searchParams } = new URL(request.url)
   const limit = Math.min(parseInt(searchParams.get('limit') || '200', 10), 500)
 

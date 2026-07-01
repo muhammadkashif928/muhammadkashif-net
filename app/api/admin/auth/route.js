@@ -1,42 +1,17 @@
 import crypto from 'crypto'
 import { NextResponse } from 'next/server'
+import { createToken, verifyToken, isSessionConfigured } from '@/lib/adminSession'
 
 // ── Credentials (password is salted + SHA-256 hashed — never stored in plain text) ──
-const VALID_USERNAME = 'muhammadkashif'
-const PASSWORD_SALT  = 'MK_ADMIN_SALT_2026'
-// SHA-256("MK_ADMIN_SALT_2026" + "Oneisone@213")
-const PASSWORD_HASH  = '221cad2daa3f55d48b538f95d7b16e5f5fb333279eb66e32e87177dcfc083947'
+// Username, salt and hash all come from env vars so the real credentials never
+// live in source. Set ADMIN_USERNAME, ADMIN_PASSWORD_SALT and ADMIN_PASSWORD_HASH
+// in Vercel → Settings → Environment Variables.
+const VALID_USERNAME = process.env.ADMIN_USERNAME
+const PASSWORD_SALT  = process.env.ADMIN_PASSWORD_SALT
+const PASSWORD_HASH  = process.env.ADMIN_PASSWORD_HASH
 
 // ── Session config ──
-const SESSION_SECRET  = process.env.ADMIN_SESSION_SECRET || 'mk-session-secret-v1-change-in-vercel'
 const SESSION_EXPIRY  = 8 * 60 * 60 * 1000 // 8 hours
-
-// ── Token helpers ──
-function createToken(username) {
-  const expiry  = Date.now() + SESSION_EXPIRY
-  const payload = `${expiry}:${username}`
-  const sig     = crypto.createHmac('sha256', SESSION_SECRET).update(payload).digest('base64url')
-  return `${Buffer.from(payload).toString('base64url')}.${sig}`
-}
-
-function verifyToken(token) {
-  try {
-    const [payloadB64, sig] = (token || '').split('.')
-    if (!payloadB64 || !sig) return null
-    const payload = Buffer.from(payloadB64, 'base64url').toString()
-    const [expiryStr, username] = payload.split(':')
-    if (!username || Date.now() > parseInt(expiryStr, 10)) return null
-    const expected = crypto.createHmac('sha256', SESSION_SECRET).update(payload).digest('base64url')
-    // Timing-safe compare
-    const a = Buffer.from(sig)
-    const b = Buffer.from(expected)
-    if (a.length !== b.length) return null
-    if (!crypto.timingSafeEqual(a, b)) return null
-    return username
-  } catch {
-    return null
-  }
-}
 
 function hashInput(password) {
   return crypto.createHash('sha256').update(PASSWORD_SALT + password).digest('hex')
@@ -55,11 +30,16 @@ export async function POST(request) {
   // Generic error — never reveal which field failed
   const fail = NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
 
+  if (!isSessionConfigured() || !VALID_USERNAME || !PASSWORD_SALT || !PASSWORD_HASH) {
+    return NextResponse.json({ error: 'Admin login is not configured' }, { status: 500 })
+  }
+
   if (!username || !password || typeof username !== 'string' || typeof password !== 'string') return fail
   if (username.length > 80 || password.length > 120) return fail
 
-  const usernameMatch = crypto.timingSafeEqual(
-    Buffer.from(username.toLowerCase().trim()),
+  const normalizedUsername = username.toLowerCase().trim()
+  const usernameMatch = normalizedUsername.length === VALID_USERNAME.length && crypto.timingSafeEqual(
+    Buffer.from(normalizedUsername),
     Buffer.from(VALID_USERNAME)
   )
   const passwordMatch = crypto.timingSafeEqual(
@@ -69,7 +49,7 @@ export async function POST(request) {
 
   if (!usernameMatch || !passwordMatch) return fail
 
-  const token = createToken(VALID_USERNAME)
+  const token = createToken(VALID_USERNAME, SESSION_EXPIRY)
 
   const res = NextResponse.json({ success: true })
   res.cookies.set('mk-admin-session', token, {

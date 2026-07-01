@@ -15,7 +15,6 @@ function createTransport() {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
-    tls: { rejectUnauthorized: false },
   })
 }
 
@@ -72,9 +71,16 @@ export async function POST(request) {
     return Response.json({ error: 'Email service not configured. Please contact me directly at info@muhammadkashif.net' }, { status: 503 })
   }
 
-  const cleanName    = name.trim()
-  const cleanEmail   = email.trim().toLowerCase()
-  const cleanMessage = message.trim()
+  // Strip CR/LF so submitted values can't inject extra email headers
+  // (nodemailer CVE-class SMTP/header injection — see GHSA-268h-hp4c-crq3)
+  const stripCrlf = (s) => s.replace(/[\r\n]+/g, ' ').trim()
+
+  const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+  const cleanName    = stripCrlf(name.trim())
+  const cleanEmail    = stripCrlf(email.trim().toLowerCase())
+  const cleanMessage  = message.trim()
+  const safeName      = escapeHtml(cleanName)
 
   try {
     const transporter = createTransport()
@@ -109,7 +115,7 @@ export async function POST(request) {
             <table style="width:100%;border-collapse:collapse;">
               <tr>
                 <td style="font-size:10px;letter-spacing:2px;color:#888;padding:8px 0 4px;text-transform:uppercase;">Name</td>
-                <td style="font-size:15px;font-weight:700;color:#0a0a0a;padding:8px 0 4px;">${cleanName}</td>
+                <td style="font-size:15px;font-weight:700;color:#0a0a0a;padding:8px 0 4px;">${safeName}</td>
               </tr>
               <tr>
                 <td style="font-size:10px;letter-spacing:2px;color:#888;padding:4px 0 12px;text-transform:uppercase;">Email</td>
@@ -125,7 +131,7 @@ export async function POST(request) {
             <div style="margin-top:24px;padding-top:16px;border-top:1px solid #eee;">
               <a href="mailto:${cleanEmail}?subject=Re: Your enquiry — Muhammad Kashif"
                  style="display:inline-block;background:#0a0a0a;color:#e8e800;text-decoration:none;padding:12px 24px;font-size:12px;letter-spacing:2px;font-weight:700;">
-                REPLY TO ${cleanName.toUpperCase()} →
+                REPLY TO ${safeName.toUpperCase()} →
               </a>
             </div>
           </div>
