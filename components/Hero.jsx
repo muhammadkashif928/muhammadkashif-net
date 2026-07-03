@@ -74,14 +74,14 @@ export default function Hero() {
           <div className="mt-8 sm:mt-10 flex flex-wrap gap-3 sm:gap-4 fade-up-4">
             <a
               href="/my-portfolio/"
-              className="font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2 transition-all"
+              className="btn-brutal font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2"
               style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)', boxShadow: '4px 4px 0px var(--a-muted)' }}
             >
               VIEW PORTFOLIO
             </a>
             <a
               href="/contact-me/"
-              className="font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2 transition-all"
+              className="btn-brutal font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2"
               style={{ backgroundColor: 'transparent', color: 'var(--a-text)', borderColor: 'var(--a-border)', boxShadow: '4px 4px 0px var(--a-subtle)' }}
             >
               HIRE ME
@@ -138,11 +138,6 @@ export default function Hero() {
               <div className="hero-bracket bl" aria-hidden="true" />
               <div className="hero-bracket br" aria-hidden="true" />
 
-              {/* 8K badge */}
-              <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-1 border" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
-                <span className="hero-chip-dot w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--accent)' }} />
-                <span className="font-mono text-[9px] tracking-[0.25em]" style={{ color: 'var(--a-text)' }}>8K ULTRA-HD</span>
-              </div>
             </div>
 
             {/* Name plate */}

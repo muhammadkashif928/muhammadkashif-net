@@ -15,13 +15,19 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [progress, setProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const { theme, toggle } = useTheme()
   const pathname = usePathname()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40)
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      setProgress(max > 0 ? Math.min(window.scrollY / max, 1) : 0)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -35,9 +41,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled && !menuOpen ? 'nav-glass' : ''}`}
       style={{
-        backgroundColor: scrolled || menuOpen ? 'var(--a-bg)' : 'transparent',
+        backgroundColor: menuOpen ? 'var(--a-bg)' : scrolled ? undefined : 'transparent',
         borderBottom: scrolled ? '1px solid var(--a-border)' : 'none',
       }}
     >
@@ -58,7 +64,7 @@ export default function Navbar() {
             <li key={l.label}>
               <a
                 href={l.href}
-                className="font-mono text-xs tracking-widest transition-colors relative inline-block py-1"
+                className={`font-mono text-xs tracking-widest transition-colors relative inline-block py-1 ${isActive(l.href) ? '' : 'underline-anim'}`}
                 style={{ color: isActive(l.href) ? 'var(--a-text)' : 'var(--a-muted)' }}
               >
                 {l.label}
@@ -97,7 +103,7 @@ export default function Navbar() {
           {/* CTA — sm+ */}
           <a
             href="/contact-me/"
-            className="hidden sm:block font-bebas text-sm tracking-widest px-4 sm:px-5 py-2 border-2 shrink-0 transition-all"
+            className="btn-brutal hidden sm:block font-bebas text-sm tracking-widest px-4 sm:px-5 py-2 border-2 shrink-0"
             style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)' }}
           >
             HIRE ME
@@ -116,9 +122,14 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Reading progress bar */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 h-[2px] pointer-events-none" style={{ width: `${progress * 100}%`, backgroundColor: 'var(--accent)', opacity: 0.8, transition: 'width 0.1s linear' }} />
+      )}
+
       {/* Mobile/Tablet menu */}
       {menuOpen && (
-        <div className="xl:hidden px-4 sm:px-6 py-6 flex flex-col gap-2" style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
+        <div className="menu-slide xl:hidden px-4 sm:px-6 py-6 flex flex-col gap-2" style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
           {links.map((l) => (
             <a
               key={l.label}

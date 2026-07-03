@@ -1,4 +1,6 @@
 'use client'
+import { useState, useEffect } from 'react'
+
 const socials = [
   { label: 'UPWORK',    href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
   { label: 'LINKEDIN',  href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
@@ -26,8 +28,26 @@ const legalLinks = [
 const linkStyle = { color: 'var(--a-muted)' }
 
 export default function Footer() {
+  const [showTop, setShowTop] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 600)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <footer style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
+
+      {/* Back to top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={`back-to-top ${showTop ? '' : 'hidden-btn'}`}
+        aria-label="Back to top"
+      >
+        ↑
+      </button>
 
       {/* Marquee */}
       <div className="overflow-hidden py-3 sm:py-4 border-b" style={{ borderColor: 'var(--a-border)' }}>

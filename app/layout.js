@@ -1,6 +1,7 @@
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import JsonLd from '@/components/JsonLd'
+import ScrollReveal from '@/components/ScrollReveal'
 import { getGlobalJsonLd, seoKeywords, siteConfig } from '@/lib/seo'
 
 export const metadata = {
@@ -91,6 +92,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="noise">
         <JsonLd data={getGlobalJsonLd()} />
+        <ScrollReveal />
         <ThemeProvider>
           {children}
         </ThemeProvider>

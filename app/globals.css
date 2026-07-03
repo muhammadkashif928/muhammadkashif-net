@@ -21,6 +21,7 @@
   --accent:      #f0f0eb;
   --accent-inv:  #080808;
   --noise-opacity: 0.025;
+  --a-bg-glass:  rgba(8,8,8,0.82);
 }
 
 /* ─── THEME: LIGHT ───────────────────────────────────────────── */
@@ -40,6 +41,7 @@ html.theme-light {
   --accent:      #080808;
   --accent-inv:  #f0f0eb;
   --noise-opacity: 0.015;
+  --a-bg-glass:  rgba(240,240,235,0.85);
 }
 
 /* ─── BASE ───────────────────────────────────────────────────── */
@@ -178,6 +180,87 @@ body, #__next { max-width: 100vw; overflow-x: hidden; }
     linear-gradient(var(--a-subtle) 1px, transparent 1px),
     linear-gradient(90deg, var(--a-subtle) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+/* ─── UI/UX: FOCUS STATES ────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── UI/UX: TACTILE BUTTONS ─────────────────────────────────── */
+.btn-brutal {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+@media (hover: hover) {
+  .btn-brutal:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px var(--a-muted) !important;
+  }
+}
+.btn-brutal:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px var(--a-muted) !important;
+}
+
+/* ─── UI/UX: GLASS NAVBAR ────────────────────────────────────── */
+.nav-glass {
+  background-color: var(--a-bg-glass) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── UI/UX: MOBILE MENU SLIDE ───────────────────────────────── */
+@keyframes menuSlide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.menu-slide { animation: menuSlide 0.25s ease forwards; }
+
+/* ─── UI/UX: SCROLL REVEAL ───────────────────────────────────── */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.reveal-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── UI/UX: BACK TO TOP ─────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 40;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--a-border);
+  background-color: var(--a-bg);
+  color: var(--a-text);
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.back-to-top:hover {
+  background-color: var(--accent);
+  color: var(--accent-inv);
+  border-color: var(--accent);
+}
+.back-to-top.hidden-btn {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init { opacity: 1; transform: none; }
+  .menu-slide { animation: none; }
 }
 
 /* ─── HERO PHOTO: PREMIUM 8K FRAME ───────────────────────────── */
