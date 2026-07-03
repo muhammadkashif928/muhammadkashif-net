@@ -301,6 +301,41 @@ export const blogPosts = [
       { q: 'What should I check before hiring an Amazon listing designer?', a: 'Ask for before/after case studies in your product category, confirm they understand Amazon\'s image policy (not just general design skill), check turnaround time and revision policy in writing, and start with a single listing before committing to a full catalog.' },
     ],
   },
+  // ── 2 New SEO Blog Posts (July 3, 2026) ─────────────────────────────────
+  {
+    slug: 'amazon-premium-a-plus-content-vs-standard',
+    title: 'Amazon Premium A+ Content vs Standard A+ Content: Which One Is Worth It?',
+    category: 'Amazon Listing Optimization',
+    date: 'July 3, 2026',
+    publishedAt: '2026-07-03T09:00:00+08:00',
+    updatedAt: '2026-07-03T09:00:00+08:00',
+    image: '/images/blog-amazon-a-plus-strategy.jpg',
+    imageAlt: 'Amazon Premium A+ Content module comparison with standard A+ Content layout',
+    excerpt: 'Premium A+ Content (A++) gives you interactive modules, video, and full-width layouts — but it is not automatically better. Here is how the two tiers differ, what Premium actually requires, and when the upgrade pays for itself.',
+    tags: ['Premium A+ Content', 'A++ Content', 'A+ Content', 'Amazon Listing Optimization'],
+    faqs: [
+      { q: 'What is the difference between Amazon A+ Content and Premium A+ Content?', a: 'Standard A+ Content offers basic image and text modules at 970px width. Premium A+ Content (A++) unlocks larger 1464px full-width modules, video, interactive hotspot modules, carousels, and Q&A modules — roughly double the visual real estate with richer interaction.' },
+      { q: 'How do I qualify for Premium A+ Content?', a: 'Amazon currently requires a brand story published on all ASINs in your catalog and a minimum number of approved A+ Content submissions within the past 12 months. When eligible, the Premium tier appears in your A+ Content Manager without extra Amazon fees.' },
+      { q: 'Does Premium A+ Content increase sales?', a: 'Amazon states Premium A+ can raise sales up to 20% versus standard A+ when executed well. Results depend on design quality — video and comparison modules answer objections that static images cannot, which typically lifts conversion on considered purchases.' },
+    ],
+  },
+  {
+    slug: 'perfume-beauty-product-photography-retouching',
+    title: 'Perfume & Beauty Product Photography Retouching: Glass, Liquid, and Light',
+    category: 'Product Retouching',
+    date: 'July 3, 2026',
+    publishedAt: '2026-07-03T09:10:00+08:00',
+    updatedAt: '2026-07-03T09:10:00+08:00',
+    image: '/1775606072952.jpeg',
+    imageAlt: 'Perfume oil bottle product photo before and after professional retouching for Amazon',
+    excerpt: 'Glass bottles, metallic caps, and liquid are the hardest products to photograph and retouch. This guide covers the exact workflow for turning raw perfume and cosmetics shots into premium Amazon-ready images.',
+    tags: ['Perfume Photography', 'Beauty Product Retouching', 'Glass Retouching', 'Amazon Images'],
+    faqs: [
+      { q: 'Why are perfume bottles so hard to photograph?', a: 'Glass is transparent and reflective at the same time — it picks up the entire room, the camera, and the light sources in its surface. Professional results come from controlled gradient lighting on set, then retouching to rebuild clean reflections, remove distracting artifacts, and restore liquid color accuracy.' },
+      { q: 'Can bad perfume product photos be fixed in retouching?', a: 'Usually yes. As long as the bottle is sharp and reasonably lit, a retoucher can remove dust and fingerprints, rebuild glass reflections, correct liquid color, replace the background with pure white, and recreate studio-quality shadows — often making a phone photo look like a studio shoot.' },
+      { q: 'What does Amazon require for beauty product main images?', a: 'The same rules as every category: pure white background (RGB 255,255,255), the product filling around 85% of the frame, no props or text, and at least 1000px on the longest side. Fragrance listings additionally benefit from accurate liquid color, since shoppers use it to judge the scent family.' },
+    ],
+  },
   // ── Existing older posts ─────────────────────────────────────────────────
   {
     slug: 'what-is-a-content',
