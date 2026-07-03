@@ -103,10 +103,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── PHOTO ── */}
+        {/* ── PHOTO: PREMIUM 8K FRAME ── */}
         <div className="relative flex justify-center md:justify-end fade-up-3 order-first md:order-last">
           <div className="relative w-60 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[30rem]">
+
+            {/* Rotating glow halo */}
+            <div className="hero-glow" aria-hidden="true" />
+
+            {/* Offset backing plate */}
             <div className="absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4" style={{ backgroundColor: 'var(--a-subtle)', border: '1px solid var(--a-border)' }} />
+
+            {/* Photo frame */}
             <div className="absolute inset-0 overflow-hidden border-2" style={{ borderColor: 'var(--a-border)', backgroundColor: 'var(--a-subtle)' }}>
               <img
                 src="/images/profile.avif"
@@ -114,11 +121,31 @@ export default function Hero() {
                 width="640"
                 height="960"
                 fetchPriority="high"
-                className="w-full h-full object-cover object-top"
-                style={{ filter: 'grayscale(30%) contrast(1.1)' }}
+                className="hero-photo-img w-full h-full object-cover object-top"
+                style={{ filter: 'grayscale(20%) contrast(1.12) saturate(1.05)' }}
               />
+
+              {/* Bottom fade */}
               <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: 'linear-gradient(to top, var(--a-bg), transparent)' }} />
+
+              {/* Light sweep + scanline */}
+              <div className="hero-shine" aria-hidden="true" />
+              <div className="hero-scanline" aria-hidden="true" />
+
+              {/* HUD corner brackets */}
+              <div className="hero-bracket tl" aria-hidden="true" />
+              <div className="hero-bracket tr" aria-hidden="true" />
+              <div className="hero-bracket bl" aria-hidden="true" />
+              <div className="hero-bracket br" aria-hidden="true" />
+
+              {/* 8K badge */}
+              <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-1 border" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
+                <span className="hero-chip-dot w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--accent)' }} />
+                <span className="font-mono text-[9px] tracking-[0.25em]" style={{ color: 'var(--a-text)' }}>8K ULTRA-HD</span>
+              </div>
             </div>
+
+            {/* Name plate */}
             <div className="absolute -bottom-4 -left-3 sm:-left-4 px-3 sm:px-4 py-2 border-2" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
               <span className="font-bebas text-xs sm:text-sm tracking-widest" style={{ color: 'var(--a-text)' }}>
                 AMAZON BRAND DESIGNER
