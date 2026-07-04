@@ -2,6 +2,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import JsonLd from '@/components/JsonLd'
 import ScrollReveal from '@/components/ScrollReveal'
+import SocialDock from '@/components/SocialDock'
 import { getGlobalJsonLd, seoKeywords, siteConfig } from '@/lib/seo'
 
 export const metadata = {
@@ -96,6 +97,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           {children}
         </ThemeProvider>
+        <SocialDock />
       </body>
     </html>
   )
