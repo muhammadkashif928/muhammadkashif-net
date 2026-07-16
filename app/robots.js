@@ -1,8 +1,8 @@
 export default function robots() {
   return {
     rules: [
-      // All crawlers allowed by default
-      { userAgent: '*', allow: '/' },
+      // All crawlers allowed by default; keep admin and API out of the index
+      { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/'] },
       // ChatGPT / OpenAI
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },

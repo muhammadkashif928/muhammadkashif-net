@@ -1,7 +1,7 @@
 import { blogPosts } from '@/data/blog'
 
 const baseUrl = 'https://muhammadkashif.net'
-const siteUpdated = '2026-07-03T10:00:00+08:00'
+const siteUpdated = '2026-07-17T10:00:00+08:00'
 
 function route(path, changeFrequency, priority, lastModified = siteUpdated) {
   return {
