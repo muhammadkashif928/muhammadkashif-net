@@ -568,6 +568,84 @@ Overall, using a white background for the main image of a product is a common pr
     `,
     tags: ['white background', 'Amazon', 'product'],
   },
+  {
+    slug: 'amazon-infographic-design-best-practices',
+    title: 'Amazon Infographic Design: 7 Best Practices for Side Images That Convert',
+    category: 'Amazon Product Images',
+    date: 'July 18, 2026',
+    publishedAt: '2026-07-18T09:00:00+08:00',
+    updatedAt: '2026-07-18T09:00:00+08:00',
+    image: '/images/blog-infographics.jpg',
+    imageAlt: 'Amazon product infographic side image with feature callouts, benefit icons, and clear hierarchy',
+    excerpt: 'Seven practical Amazon infographic design best practices for side images that communicate value at thumbnail size, answer buyer objections, and lift conversion.',
+    tags: ['Product Infographics', 'Amazon Product Images', 'Conversion Design'],
+    faqs: [
+      {
+        q: 'How many infographic images should an Amazon listing have?',
+        a: 'Most strong listings use four to six infographic side images: a hero benefit shot, a feature callout, a size or scale visual, a use-case or lifestyle scene, and a trust or comparison graphic. The goal is coverage of every major buying question, not a fixed number.',
+      },
+      {
+        q: 'What is the biggest mistake in Amazon infographic design?',
+        a: 'Cramming too much text onto one image. Shoppers scan at thumbnail size on mobile, so each infographic should carry one clear idea with a short headline and readable supporting text, not a paragraph they will never read.',
+      },
+      {
+        q: 'Do infographics need to follow Amazon image rules?',
+        a: 'The main image must stay a clean product shot on pure white, but side images allow text, icons, backgrounds, and lifestyle scenes. They still must represent the product honestly and avoid prohibited claims or competitor logos.',
+      },
+    ],
+  },
+  {
+    slug: 'amazon-listing-audit-checklist',
+    title: 'Amazon Listing Audit: A Pre-Redesign Checklist for Private Label Sellers',
+    category: 'Amazon Listing Optimization',
+    date: 'July 18, 2026',
+    publishedAt: '2026-07-18T09:10:00+08:00',
+    updatedAt: '2026-07-18T09:10:00+08:00',
+    image: '/images/blog-amazon-listing-seo.jpg',
+    imageAlt: 'Amazon listing audit reviewing main image, infographics, A+ Content, and keywords before a redesign',
+    excerpt: 'A practical Amazon listing audit checklist to run before you redesign — covering the main image, infographics, A+ Content, keywords, and mobile view.',
+    tags: ['Listing Audit', 'Amazon Listing Optimization', 'Conversion Design'],
+    faqs: [
+      {
+        q: 'What is an Amazon listing audit?',
+        a: 'A listing audit is a structured review of every asset on a product page — main image, side images, A+ Content, title, bullets, and backend keywords — measured against how competitors present the same product. It shows where you are losing clicks and conversions before you spend on a redesign.',
+      },
+      {
+        q: 'How often should I audit my Amazon listing?',
+        a: 'Audit before any redesign, after a major traffic or conversion drop, and at least once a quarter for your top ASINs. A quick check before Q4 is especially valuable because fixing weak images before peak traffic compounds across every keyword you rank for.',
+      },
+      {
+        q: 'Can I audit my own listing or should I hire a designer?',
+        a: 'You can run the checklist yourself to spot obvious gaps. Hiring an Amazon listing designer helps when you need an outside eye on competitor benchmarking and a production plan, since it is hard to judge your own images the way a first-time shopper does.',
+      },
+    ],
+  },
+  {
+    slug: 'amazon-brand-story-module-guide',
+    title: 'Amazon Brand Story Module: Design the Cross-Sell Carousel That Builds Trust',
+    category: 'Amazon Listing Optimization',
+    date: 'July 18, 2026',
+    publishedAt: '2026-07-18T09:20:00+08:00',
+    updatedAt: '2026-07-18T09:20:00+08:00',
+    image: '/images/blog-amazon-a-plus-strategy.jpg',
+    imageAlt: 'Amazon Brand Story module carousel with brand background band and cross-sell product cards',
+    excerpt: 'How to design the Amazon Brand Story module — the cross-sell carousel above A+ Content — to build trust, link your catalog, and keep shoppers on your brand.',
+    tags: ['Brand Story', 'A+ Content', 'Brand Identity'],
+    faqs: [
+      {
+        q: 'What is the Amazon Brand Story module?',
+        a: 'The Brand Story is a horizontally scrolling carousel that appears above regular A+ Content on brand-registered listings. It shows a brand background band, an ASK-style Q&A card, and clickable cards that cross-sell other products from your catalog.',
+      },
+      {
+        q: 'Is Brand Story different from A+ Content?',
+        a: 'Yes. A+ Content sells the specific product on the page, while Brand Story sells the brand and links the rest of your catalog. Brand Story is added once and appears across your listings, so it is worth designing carefully as a reusable brand asset.',
+      },
+      {
+        q: 'Does the Brand Story module help conversions?',
+        a: 'It mainly builds trust and increases catalog exposure by keeping shoppers inside your brand instead of clicking away to competitors. Stronger brand perception and internal cross-selling support conversion and average order value over time.',
+      },
+    ],
+  },
 ]
 
 export function getBlogPost(slug) {

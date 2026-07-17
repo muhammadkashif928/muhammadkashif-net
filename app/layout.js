@@ -90,7 +90,15 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Apply saved theme before paint (default: light) to avoid flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'light';if(t!=='dark')document.documentElement.classList.add('theme-light');}catch(e){document.documentElement.classList.add('theme-light');}})();`,
+          }}
+        />
+      </head>
       <body className="noise">
         <JsonLd data={getGlobalJsonLd()} />
         <ScrollReveal />

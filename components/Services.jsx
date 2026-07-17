@@ -20,7 +20,7 @@ export default function Services() {
             VISUAL STRATEGIES
           </h2>
           <p className="font-mono text-sm max-w-xs" style={{ color: 'var(--a-muted)' }}>
-            Every deliverable is designed to increase your Amazon click-through rate, conversion rate, and brand authority.
+            Hire an Amazon A+ Content and listing image designer whose every deliverable is built to increase your click-through rate, conversion rate, and brand authority.
           </p>
         </div>
 

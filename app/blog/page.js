@@ -13,6 +13,11 @@ export const metadata = createMetadata({
 })
 
 export default function Blog() {
+  // Newest posts first (by publish date)
+  const sortedPosts = [...blogPosts].sort(
+    (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+  )
+
   return (
     <>
       <Navbar />
@@ -33,7 +38,7 @@ export default function Blog() {
         {/* Posts grid */}
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-2 gap-8">
-            {blogPosts.map((post) => (
+            {sortedPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/${post.slug}/`}

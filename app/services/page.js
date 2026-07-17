@@ -61,7 +61,7 @@ export default function ServicesPage() {
         <PageHeader
           label="WHAT I DELIVER"
           title={<>MY<br />SERVICES</>}
-          subtitle="Every service is built around one goal: making your Amazon listing more profitable than your competitors'."
+          subtitle="Hire a professional Amazon listing designer for US, UK, and Canada private label brands. Every service is built around one goal: making your Amazon listing more profitable than your competitors'."
         />
 
         <Services />

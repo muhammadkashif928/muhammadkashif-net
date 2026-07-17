@@ -66,8 +66,10 @@ export default function Hero() {
           </div>
 
           <p className="mt-5 sm:mt-6 font-mono text-sm sm:text-base leading-relaxed max-w-md fade-up-4" style={{ color: 'var(--a-muted)' }}>
-            I turn Amazon Private Label products into Premium Brands using
-            advanced AI-Powered Design & Strategic A+ Content.
+            Hire an Amazon brand &amp; listing designer who turns private label
+            products into premium brands for US, UK &amp; Canada sellers — with
+            high-converting listing images, product infographics, and strategic
+            A+ Content.
           </p>
 
           {/* Buttons */}
