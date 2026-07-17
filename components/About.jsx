@@ -2,12 +2,12 @@
 import { useEffect, useRef } from 'react'
 
 const skills = [
-  { label: 'AI Concept Art',        pct: 91 },
-  { label: 'Brand Identity',        pct: 80 },
-  { label: 'High-End Retouching',   pct: 79 },
-  { label: 'Competitor Analysis',   pct: 59 },
-  { label: 'Infographic Design',    pct: 58 },
-  { label: 'A+ Content Strategy',   pct: 51 },
+  { label: 'Main Image Optimization', pct: 95 },
+  { label: 'A+ Content',              pct: 92 },
+  { label: 'Product Infographics',    pct: 90 },
+  { label: 'Amazon Brand Story',      pct: 87 },
+  { label: 'Amazon Brand Store',      pct: 84 },
+  { label: 'Listing Optimization',    pct: 80 },
 ]
 
 const brands = ['Angelus', 'Tarrago', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln', 'Silver', 'Fiamme']
