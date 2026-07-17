@@ -7,19 +7,19 @@ import { createMetadata, getBreadcrumbJsonLd, getFaqJsonLd } from '@/lib/seo'
 
 export const metadata = createMetadata({
   title: 'Amazon Design Services — A+ Content, Infographics, Brand Identity & Image Optimization',
-  description: 'Muhammad Kashif offers professional Amazon brand design services: A+ Content design, product infographics, main image optimization, brand identity, packaging design, AI lifestyle photography, and leather product image retouching. Serving private label sellers worldwide from Kuching, Malaysia.',
+  description: 'Professional Amazon brand design services by Muhammad Kashif: main image optimization, product infographics, A+ Content, Amazon Brand Story, and Amazon Brand Store (Storefront) design. Serving US, UK, and Canada private label sellers worldwide from Kuching, Malaysia.',
   path: '/services/',
   keywords: [
     'Amazon design services',
-    'A+ Content design service',
+    'Amazon main image optimization service',
     'Amazon product infographic service',
-    'Amazon brand design Malaysia',
+    'A+ Content design service',
+    'Amazon Brand Story design service',
+    'Amazon Brand Store design service',
+    'Amazon Storefront design service',
     'hire Amazon A+ Content designer',
     'Amazon listing optimization service',
-    'leather product image retouching service',
-    'private label packaging design service',
-    'AI product photography service',
-    'Amazon main image optimization service',
+    'Amazon brand design Malaysia',
   ],
 })
 
@@ -33,7 +33,7 @@ const process = [
 
 const faq = [
   { q: 'Who is Muhammad Kashif and what does he do?', a: 'Muhammad Kashif is an Amazon Brand Designer and A+ Content Specialist based in Kuching, Malaysia with 8+ years of experience. He helps Amazon private label sellers worldwide create high-converting visual content — including A+ Content, product infographics, listing images, brand identity, packaging design, and AI-powered product photography. He has completed 200+ projects for global clients across the US, UK, Canada, and beyond.' },
-  { q: 'What Amazon design services does Muhammad Kashif offer?', a: 'Services include: (1) Amazon A+ Content design, (2) product infographics and side images, (3) main image optimization with white background, (4) private label brand identity and packaging, (5) AI product photography and 3D visualization, and (6) leather/apparel product image optimization with before-and-after 8K quality output.' },
+  { q: 'What Amazon design services does Muhammad Kashif offer?', a: 'The core services are: (1) product and main image optimization with clean, compliant white backgrounds, (2) product infographics and side images, (3) A+ Content (Enhanced Brand Content) design, (4) Amazon Brand Story carousel design, and (5) Amazon Brand Store (Storefront) design. These can be booked individually or as a complete listing design package.' },
   { q: 'How can I hire Muhammad Kashif for my Amazon listing?', a: 'You can contact Muhammad Kashif via email at info@muhammadkashif.net, WhatsApp at +60 179152084, through the contact form at muhammadkashif.net/contact-me/, or via his Upwork profile. He responds within 24 hours.' },
   { q: 'How long does a typical project take?', a: 'A full listing optimization (main image + 6 side images + A+ content) takes 5–7 business days. Individual infographics or image edits can be turned around in 24–48 hours. Rush delivery is available.' },
   { q: 'What is Amazon A+ Content and why do I need it?', a: 'Amazon A+ Content (formerly Enhanced Brand Content / EBC) replaces the standard product description with rich visual modules — brand story, feature highlights, comparison charts, and lifestyle imagery. Studies show professionally designed A+ Content increases conversion rates by 5–10% and reduces return rates by communicating product features more clearly. It is available to all brand-registered Amazon sellers.' },

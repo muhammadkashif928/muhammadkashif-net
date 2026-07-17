@@ -1,10 +1,10 @@
 const services = [
-  { num: '01', title: 'HIGH-END RETOUCHING',     desc: 'Transform raw product photos into polished, commercial-grade assets. Using Photoshop and AI, I fix lighting, enhance textures, and create stunning 8K lifestyle composites.' },
-  { num: '02', title: 'COMPETITOR ANALYSIS',     desc: 'I audit your top 10 competitors to identify visual weaknesses, then design listing images scientifically engineered to grab more attention and market share.' },
-  { num: '03', title: 'MAIN IMAGE STRATEGY',     desc: 'The most important image on Amazon. I design Hero Shots that strictly follow guidelines while using psychological triggers to skyrocket your Click-Through Rate.' },
-  { num: '04', title: 'PREMIUM A+ CONTENT',      desc: 'Design immersive Enhanced Brand Content that tells your brand story, handles customer objections visually, and cross-sells your products to increase AOV.' },
-  { num: '05', title: 'BRAND IDENTITY & PKG',    desc: 'Vector-based packaging, box art, and logos that make your private label feel like an established, trustworthy global brand from day one.' },
-  { num: '06', title: 'GENERATIVE AI DESIGN',    desc: 'Use advanced generative AI to create unlimited lifestyle concepts, props, and backgrounds that would be impossible or too expensive to shoot traditionally.' },
+  { num: '01', title: 'MAIN IMAGE OPTIMIZATION', desc: 'Your most important asset. I design and optimize Amazon main images with clean, compliant white backgrounds that maximize click-through rate from search results.' },
+  { num: '02', title: 'PRODUCT INFOGRAPHICS',    desc: 'Benefit-led side images that communicate features, scale, and value at a glance. Each infographic answers a buying question and handles an objection before it costs you the sale.' },
+  { num: '03', title: 'A+ CONTENT',             desc: 'Immersive A+ Content (Enhanced Brand Content) that tells your brand story, explains value, and handles objections visually to lift conversion and reduce returns.' },
+  { num: '04', title: 'AMAZON BRAND STORY',     desc: 'The cross-sell carousel above your A+ Content. I design a Brand Story that builds trust, links your catalog, and keeps shoppers inside your brand instead of clicking to competitors.' },
+  { num: '05', title: 'AMAZON BRAND STORE',     desc: 'A custom multi-page Amazon Brand Store (Storefront) that showcases your full catalog, strengthens brand identity, and gives your ads and shoppers a premium destination.' },
+  { num: '06', title: 'FULL LISTING DESIGN',    desc: 'The complete package — main images, infographics, A+ Content, Brand Story, and Brand Store designed as one cohesive, high-converting system from a single designer.' },
 ]
 
 export default function Services() {
