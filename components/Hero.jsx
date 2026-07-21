@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import BookingButton from '@/components/BookingButton'
 
 const roles = [
   'AI-POWERED BRAND DESIGNER',
@@ -81,13 +82,11 @@ export default function Hero() {
             >
               VIEW PORTFOLIO
             </a>
-            <a
-              href="/contact-me/"
-              className="btn-brutal font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2"
+            <BookingButton
+              source="hero"
+              label="BOOK A DISCOVERY CALL"
               style={{ backgroundColor: 'transparent', color: 'var(--a-text)', borderColor: 'var(--a-border)', boxShadow: '4px 4px 0px var(--a-subtle)' }}
-            >
-              HIRE ME
-            </a>
+            />
           </div>
 
           {/* Stats */}
