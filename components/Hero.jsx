@@ -117,10 +117,10 @@ export default function Hero() {
             {/* Photo frame */}
             <div className="absolute inset-0 overflow-hidden border-2" style={{ borderColor: 'var(--a-border)', backgroundColor: 'var(--a-subtle)' }}>
               <img
-                src="/images/profile.avif"
+                src="/images/profile-2026.jpg"
                 alt="Muhammad Kashif, Amazon Brand Designer"
-                width="640"
-                height="960"
+                width="800"
+                height="999"
                 fetchPriority="high"
                 className="hero-photo-img w-full h-full object-cover object-top"
                 style={{ filter: 'grayscale(20%) contrast(1.12) saturate(1.05)' }}
