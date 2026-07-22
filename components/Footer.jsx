@@ -147,18 +147,6 @@ export default function Footer() {
             ))}
           </div>
         </div>
-
-        {/* Admin portal — subtle, bottom of footer */}
-        <div className="mt-6 pt-4 border-t flex justify-center" style={{ borderColor: 'var(--a-border)' }}>
-          <a
-            href="/admin/login"
-            className="font-mono text-[8px] tracking-[0.3em] opacity-20 hover:opacity-60 transition-opacity"
-            style={{ color: 'var(--a-subtle)' }}
-            aria-label="Admin portal"
-          >
-            ⚙ ADMIN LOGIN
-          </a>
-        </div>
       </div>
     </footer>
   )
