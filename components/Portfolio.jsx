@@ -62,9 +62,6 @@ export default function Portfolio() {
               <div className="p-5 sm:p-6 border-t" style={{ borderColor: 'var(--b-border)' }}>
                 <h3 className="font-bebas text-lg sm:text-xl tracking-widest mb-2" style={{ color: 'var(--b-text)' }}>{p.title}</h3>
                 <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--b-muted)' }}>{p.desc}</p>
-                <div className="mt-4 flex items-center gap-2 font-mono text-xs tracking-widest font-bold" style={{ color: 'var(--b-text)' }}>
-                  VIEW CASE <span className="group-hover:translate-x-1.5 transition-transform inline-block">→</span>
-                </div>
               </div>
             </a>
           ))}

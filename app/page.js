@@ -15,15 +15,6 @@ export const metadata = createMetadata({
   path: '/',
   image: '/images/profile.avif',
   imageAlt: 'Muhammad Kashif — Amazon Brand Designer and A+ Content Specialist in Kuching, Malaysia',
-  keywords: [
-    'Amazon Brand Designer',
-    'A+ Content Specialist',
-    'Amazon product infographic designer',
-    'Muhammad Kashif Amazon designer',
-    'Amazon listing designer Malaysia',
-    'hire Amazon designer Kuching',
-    'best Amazon A+ Content designer',
-  ],
 })
 
 export default function Home() {

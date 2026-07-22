@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import BookingButton from '@/components/BookingButton'
 
 const contactLinks = [
   { label: 'EMAIL',    value: 'info@muhammadkashif.net', href: 'mailto:info@muhammadkashif.net' },
@@ -97,17 +96,15 @@ export default function Contact() {
               </span>
             </div>
 
-            {/* ── BOOK A CALL (primary action in this band) ── */}
+            {/* ── START A PROJECT ── */}
             <div className="mt-8 sm:mt-10">
-              <BookingButton
-                source="contact"
-                label="BOOK A DISCOVERY CALL →"
-                className="w-full sm:w-auto text-lg sm:text-xl px-8 py-4"
+              <a
+                href="/contact-me/"
+                className="btn-brutal font-bebas tracking-widest border-2 inline-block w-full sm:w-auto text-center text-lg sm:text-xl px-8 py-4"
                 style={{ backgroundColor: 'var(--b-text)', color: 'var(--b-bg)', borderColor: 'var(--b-text)', boxShadow: '4px 4px 0px var(--b-border)' }}
-              />
-              <p className="font-mono text-xs mt-3" style={{ color: 'var(--b-muted)' }}>
-                Prefer async? Use the form instead →
-              </p>
+              >
+                START A PROJECT →
+              </a>
             </div>
           </div>
 

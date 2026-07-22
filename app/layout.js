@@ -1,6 +1,5 @@
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { BookingProvider } from '@/components/BookingProvider'
 import JsonLd from '@/components/JsonLd'
 import ScrollReveal from '@/components/ScrollReveal'
 import SocialDock from '@/components/SocialDock'
@@ -104,9 +103,7 @@ export default function RootLayout({ children }) {
         <JsonLd data={getGlobalJsonLd()} />
         <ScrollReveal />
         <ThemeProvider>
-          <BookingProvider>
-            {children}
-          </BookingProvider>
+          {children}
         </ThemeProvider>
         <SocialDock />
       </body>

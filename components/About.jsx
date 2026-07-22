@@ -7,8 +7,6 @@ const skills = [
   'Leather & Footwear Listing Design',
 ]
 
-const brands = ['Angelus', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln']
-
 export default function About() {
   return (
     <section id="about" className="border-t" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)', padding: '4rem 0' }}>
@@ -47,11 +45,6 @@ export default function About() {
             <div className="mt-8 sm:mt-10 p-5 sm:p-6 border-2 card-lift inline-block w-full sm:w-auto" style={{ borderColor: 'var(--b-border)', boxShadow: '4px 4px 0px var(--b-border)' }}>
               <p className="font-bebas text-xl sm:text-2xl tracking-widest" style={{ color: 'var(--b-text)' }}>Designer Trends INC</p>
               <p className="font-mono text-xs tracking-widest mt-1" style={{ color: 'var(--b-muted)' }}>Creative Designer Specialist · 2018 – Present</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {brands.map(b => (
-                  <span key={b} className="font-mono text-xs px-2 py-1 border" style={{ borderColor: 'var(--b-border)', color: 'var(--b-muted)' }}>{b}</span>
-                ))}
-              </div>
             </div>
 
             {/* Stats */}

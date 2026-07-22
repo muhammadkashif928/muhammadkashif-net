@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import BookingButton from '@/components/BookingButton'
 
 const roles = [
   'LEATHER & FOOTWEAR BRAND SPECIALIST',
@@ -81,11 +80,13 @@ export default function Hero() {
             >
               VIEW PORTFOLIO
             </a>
-            <BookingButton
-              source="hero"
-              label="BOOK A DISCOVERY CALL"
+            <a
+              href="/contact-me/"
+              className="btn-brutal font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2"
               style={{ backgroundColor: 'transparent', color: 'var(--a-text)', borderColor: 'var(--a-border)', boxShadow: '4px 4px 0px var(--a-subtle)' }}
-            />
+            >
+              START A PROJECT
+            </a>
           </div>
 
           {/* Stats */}
