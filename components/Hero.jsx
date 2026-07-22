@@ -106,7 +106,7 @@ export default function Hero() {
 
         {/* ── PHOTO: PREMIUM 8K FRAME ── */}
         <div className="relative flex justify-center md:justify-end fade-up-3 order-first md:order-last">
-          <div className="relative w-60 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[30rem]">
+          <div className="relative w-64 h-[22rem] sm:w-80 sm:h-[26rem] md:w-96 md:h-[32rem] lg:w-[27rem] lg:h-[36rem]">
 
             {/* Rotating glow halo */}
             <div className="hero-glow" aria-hidden="true" />
