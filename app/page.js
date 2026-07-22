@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import ClientStrip from '@/components/ClientStrip'
 import About from '@/components/About'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
@@ -9,8 +10,8 @@ import Footer from '@/components/Footer'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Muhammad Kashif — Amazon Brand Designer & A+ Content Specialist | Kuching, Malaysia',
-  description: 'Muhammad Kashif is an Amazon Brand Designer based in Kuching, Malaysia with 8+ years of experience. He designs A+ Content, product infographics, listing images, brand identity, packaging, and AI-powered lifestyle visuals for private label sellers worldwide. 200+ projects completed.',
+  title: 'Muhammad Kashif — Amazon Designer for Leather, Shoe Care & Footwear Brands',
+  description: 'Amazon brand designer specializing in leather care, shoe care, and footwear brands — trusted by Angelus, Eagle Shoe Care, Leather Hero, and Lincoln. 8+ years and 200+ products: high-converting main images, infographics, A+ Content, and Brand Stores for US, UK, and Canada private label sellers.',
   path: '/',
   image: '/images/profile.avif',
   imageAlt: 'Muhammad Kashif — Amazon Brand Designer and A+ Content Specialist in Kuching, Malaysia',
@@ -30,6 +31,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <ClientStrip />
       <About />
       <Services />
       <Portfolio />

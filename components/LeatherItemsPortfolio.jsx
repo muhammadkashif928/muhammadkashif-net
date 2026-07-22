@@ -521,19 +521,6 @@ export default function LeatherItemsPortfolio() {
 
             {/* Sidebar */}
             <aside className="space-y-5">
-              <div className="border-2 border-[#0a0a0a] p-5 bg-[#0a0a0a]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
-                <h3 className="font-bebas text-xl tracking-widest text-[#e8e800] mb-3">NEED YOUR PRODUCTS OPTIMIZED?</h3>
-                <p className="font-mono text-xs text-[#f5f5f0]/60 leading-relaxed mb-4">
-                  Send your raw product photos and receive 8K-quality, e-commerce-ready images that convert browsers into buyers.
-                </p>
-                <Link
-                  href="/contact-me/"
-                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all"
-                >
-                  START YOUR PROJECT →
-                </Link>
-              </div>
-
               <div className="border-2 border-[#0a0a0a] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
                 <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE PROJECTS</h3>
                 <div className="flex flex-col gap-3">

@@ -20,7 +20,7 @@ export default function Services() {
             VISUAL STRATEGIES
           </h2>
           <p className="font-mono text-sm max-w-xs" style={{ color: 'var(--a-muted)' }}>
-            Hire an Amazon A+ Content and listing image designer whose every deliverable is built to increase your click-through rate, conversion rate, and brand authority.
+            The Amazon design specialist for leather care, shoe care and footwear brands — every deliverable built to increase your click-through rate, conversion rate, and brand authority.
           </p>
         </div>
 

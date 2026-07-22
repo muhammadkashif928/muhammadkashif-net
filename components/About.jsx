@@ -1,34 +1,15 @@
-'use client'
-import { useEffect, useRef } from 'react'
-
 const skills = [
-  { label: 'Main Image Optimization', pct: 95 },
-  { label: 'A+ Content',              pct: 92 },
-  { label: 'Product Infographics',    pct: 90 },
-  { label: 'Amazon Brand Story',      pct: 87 },
-  { label: 'Amazon Brand Store',      pct: 84 },
-  { label: 'Listing Optimization',    pct: 80 },
+  'Main Image Optimization',
+  'A+ Content & Enhanced Brand Content',
+  'Product Infographics',
+  'Amazon Brand Story',
+  'Amazon Brand Store',
+  'Leather & Footwear Listing Design',
 ]
 
-const brands = ['Angelus', 'Tarrago', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln', 'Silver', 'Fiamme']
+const brands = ['Angelus', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln']
 
 export default function About() {
-  const barsRef = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => bar.classList.add('animate'))
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 }
-    )
-    if (barsRef.current) observer.observe(barsRef.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="about" className="border-t" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)', padding: '4rem 0' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
@@ -45,19 +26,21 @@ export default function About() {
             </h2>
 
             <p className="font-mono text-sm sm:text-base leading-relaxed mb-5" style={{ color: 'var(--b-muted)' }}>
-              I am Muhammad Kashif, a Strategic Brand Developer for Amazon Sellers.
-              With over <strong style={{ color: 'var(--b-text)' }}>8 years of experience</strong>, I go beyond simple
-              design to manage the entire visual lifecycle of U.S.-based brands.
+              I am Muhammad Kashif, an Amazon brand designer with a specialty most
+              designers can&apos;t claim: <strong style={{ color: 'var(--b-text)' }}>leather care, shoe care,
+              and footwear brands</strong>. Over <strong style={{ color: 'var(--b-text)' }}>8+ years</strong> I&apos;ve
+              handled the full visual lifecycle for names like Angelus, Eagle Shoe
+              Care, Leather Hero, and Lincoln.
             </p>
             <p className="font-mono text-sm sm:text-base leading-relaxed mb-5" style={{ color: 'var(--b-muted)' }}>
-              I have successfully optimized main images and infographics for
-              hundreds of products and crafted high-converting A+ Content
-              strategies that dominate their categories.
+              From main images and infographics to full A+ Content, I&apos;ve optimized
+              listings for hundreds of products — built to win the click in search
+              and convert browsers into buyers.
             </p>
             <p className="font-mono text-sm sm:text-base leading-relaxed" style={{ color: 'var(--b-muted)' }}>
-              My approach blends traditional design mastery with cutting-edge AI,
-              transforming standard product photography into stunning 8K assets
-              that establish instant trust and drive sales.
+              My process pairs hands-on design craft with AI-assisted retouching to
+              turn ordinary product photos into premium listing visuals that earn
+              trust at a glance.
             </p>
 
             {/* Company badge */}
@@ -86,25 +69,15 @@ export default function About() {
             </div>
           </div>
 
-          {/* ── SKILLS ── */}
-          <div ref={barsRef}>
-            <h3 className="font-bebas text-2xl sm:text-3xl tracking-widest mb-8 sm:mb-10" style={{ color: 'var(--b-text)' }}>SPECIALIZED SKILLS</h3>
+          {/* ── SPECIALIZATIONS ── */}
+          <div>
+            <h3 className="font-bebas text-2xl sm:text-3xl tracking-widest mb-8 sm:mb-10" style={{ color: 'var(--b-text)' }}>WHAT I SPECIALIZE IN</h3>
 
-            <div className="flex flex-col gap-6 sm:gap-7">
+            <div className="flex flex-col border-t" style={{ borderColor: 'var(--b-border)' }}>
               {skills.map((s, i) => (
-                <div key={s.label}>
-                  <div className="flex justify-between items-baseline mb-2 sm:mb-3">
-                    <span className="font-mono text-xs sm:text-sm tracking-widest" style={{ color: 'var(--b-text)' }}>
-                      {s.label.toUpperCase()}
-                    </span>
-                    <span className="font-bebas text-lg sm:text-xl" style={{ color: 'var(--b-muted)' }}>{s.pct}%</span>
-                  </div>
-                  <div className="h-2 relative overflow-hidden" style={{ backgroundColor: 'var(--b-subtle)', border: '1px solid var(--b-border)' }}>
-                    <div
-                      className="h-full skill-bar-fill"
-                      style={{ '--pct': `${s.pct}%`, backgroundColor: 'var(--b-text)', animationDelay: `${i * 0.12}s`, width: 0 }}
-                    />
-                  </div>
+                <div key={s} className="flex items-center gap-4 py-4 border-b" style={{ borderColor: 'var(--b-border)' }}>
+                  <span className="font-bebas text-lg shrink-0" style={{ color: 'var(--b-muted)', minWidth: '2.5rem' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-xs sm:text-sm tracking-widest" style={{ color: 'var(--b-text)' }}>{s.toUpperCase()}</span>
                 </div>
               ))}
             </div>
@@ -112,9 +85,9 @@ export default function About() {
             {/* Quote */}
             <div className="mt-10 sm:mt-12 p-5 sm:p-6 border-l-2" style={{ borderColor: 'var(--b-text)', backgroundColor: 'var(--b-subtle)' }}>
               <p className="font-mono text-sm sm:text-base leading-relaxed" style={{ color: 'var(--b-muted)' }}>
-                "My approach blends data-driven competitor analysis with AI-enhanced
-                visuals — every image I create is engineered to dominate search
-                results and convert browsers into buyers."
+                &quot;Sellers in leather and footwear don&apos;t need louder graphics — they
+                need visuals that signal quality and answer the buyer&apos;s doubts.
+                That&apos;s what I design, image by image.&quot;
               </p>
               <p className="font-mono text-xs tracking-widest mt-4" style={{ color: 'var(--b-text)' }}>— MUHAMMAD KASHIF</p>
             </div>

@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 import BookingButton from '@/components/BookingButton'
 
 const roles = [
-  'AI-POWERED BRAND DESIGNER',
-  'AMAZON CREATIVE SPECIALIST',
+  'LEATHER & FOOTWEAR BRAND SPECIALIST',
+  'AMAZON LISTING DESIGNER',
   'A+ CONTENT STRATEGIST',
-  '8K AI RETOUCHING EXPERT',
+  'SHOE CARE BRAND DESIGNER',
 ]
 
 export default function Hero() {
@@ -67,10 +67,9 @@ export default function Hero() {
           </div>
 
           <p className="mt-5 sm:mt-6 font-mono text-sm sm:text-base leading-relaxed max-w-md fade-up-4" style={{ color: 'var(--a-muted)' }}>
-            Hire an Amazon brand &amp; listing designer who turns private label
-            products into premium brands for US, UK &amp; Canada sellers — with
-            high-converting listing images, product infographics, and strategic
-            A+ Content.
+            The Amazon design specialist for leather care, shoe care &amp; footwear
+            brands. I turn private-label products into premium listings that win the
+            click and convert — for US, UK &amp; Canada sellers.
           </p>
 
           {/* Buttons */}
@@ -154,7 +153,7 @@ export default function Hero() {
       {/* Marquee */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t" style={{ borderColor: 'var(--a-border)' }}>
         <div className="marquee-track py-2">
-          {Array(10).fill('AMAZON A+ CONTENT — BRAND IDENTITY — AI DESIGN — INFOGRAPHICS — LISTING OPTIMIZATION — ').map((t, i) => (
+          {Array(10).fill('AMAZON A+ CONTENT — BRAND IDENTITY — LEATHER & FOOTWEAR BRANDS — INFOGRAPHICS — LISTING OPTIMIZATION — ').map((t, i) => (
             <span key={i} className="font-bebas text-xs sm:text-sm tracking-widest mx-4" style={{ color: 'var(--a-subtle)' }}>{t}</span>
           ))}
         </div>

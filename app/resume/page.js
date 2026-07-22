@@ -4,8 +4,8 @@ import PageHeader from '@/components/PageHeader'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Resume & CV | Muhammad Kashif, AI-Powered Amazon Brand Designer',
-  description: 'Professional resume and CV of Muhammad Kashif, AI-Powered Amazon Brand Designer and Creative Specialist with 8+ years of experience. Based in Kuching, Sarawak, Malaysia.',
+  title: 'Resume & CV | Muhammad Kashif — Amazon Designer for Leather & Footwear Brands',
+  description: 'Professional resume and CV of Muhammad Kashif, Amazon brand designer specializing in leather care, shoe care, and footwear brands, with 8+ years of experience. Based in Kuching, Sarawak, Malaysia.',
   path: '/resume/',
   keywords: ['Muhammad Kashif resume', 'Amazon brand designer CV', 'AI-powered creative specialist'],
 })

@@ -41,21 +41,10 @@ export async function POST(request) {
     return Response.json({ error: 'Invalid request' }, { status: 400 })
   }
 
-  const { name, email, message, honeypot, captchaA, captchaB, captchaAns } = body || {}
+  const { name, email, message, honeypot } = body || {}
 
   // Honeypot — silent reject if bot filled hidden field
   if (honeypot) return Response.json({ success: true })
-
-  // Server-side CAPTCHA validation
-  const a = parseInt(captchaA, 10)
-  const b = parseInt(captchaB, 10)
-  const ans = parseInt(captchaAns, 10)
-  if (isNaN(a) || isNaN(b) || isNaN(ans) || a < 1 || a > 15 || b < 1 || b > 15) {
-    return Response.json({ error: 'CAPTCHA verification failed. Please refresh and try again.' }, { status: 400 })
-  }
-  if (ans !== a + b) {
-    return Response.json({ error: `Incorrect CAPTCHA answer. ${a} + ${b} = ${a + b}` }, { status: 400 })
-  }
 
   // Validate fields
   if (!name?.trim() || name.trim().length < 2 || name.trim().length > 100)

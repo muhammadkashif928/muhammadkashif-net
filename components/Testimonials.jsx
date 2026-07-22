@@ -1,6 +1,5 @@
 const testimonials = [
   { name: 'Neoray Azour',  platform: 'Upwork',  project: 'Amazon Product',  stars: 5, quote: 'He completed the work in a professional and quick manner! Thank you so much, I will be working with you on future projects.' },
-  { name: 'Neoray Azour',  platform: 'Upwork',  project: 'Product Design',  stars: 5, quote: 'Excellent work, very straightforward and to the point, gets the job done extremely fast and very well. I would 100% recommend working with him.' },
   { name: 'Adrian Jallad', platform: 'Upwork',  project: 'Amazon Listing',  stars: 5, quote: 'This is now my second time working with this guy. He went past my expectations and beyond!' },
   { name: 'Ciro Rossi',    platform: 'Fiverr',  project: 'Design Quality',  stars: 5, quote: 'Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!' },
   { name: 'John Bie',      platform: 'Upwork',  project: 'Amazon Product',  stars: 5, quote: 'Timely done! Clean execution, no back-and-forth needed. Will return for next batch.' },
