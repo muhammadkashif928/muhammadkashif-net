@@ -1,4 +1,4 @@
-import { portfolioProjects } from '@/data/portfolio'
+import { portfolioProjects, projectHref } from '@/data/portfolio'
 
 // Always shows the 3 newest projects (first 3 in portfolioProjects array)
 const projects = portfolioProjects.slice(0, 3)
@@ -31,7 +31,7 @@ export default function Portfolio() {
           {projects.map((p) => (
             <a
               key={p.slug}
-              href={`/blackdsn-portfolio/${p.slug}/`}
+              href={projectHref(p)}
               className="group border-2 overflow-hidden block card-lift"
               style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-bg)', boxShadow: '4px 4px 0px var(--b-border)' }}
             >

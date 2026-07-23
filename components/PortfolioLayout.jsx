@@ -93,7 +93,7 @@ export default function PortfolioLayout({ title, tag, service, industry, publish
                 <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE PROJECTS</h3>
                 <div className="flex flex-col gap-3">
                   {[
-                    { title: 'Leather Hero — Furniture Salve', slug: 'leather-hero-furniture-salve' },
+                    { title: 'Leather Hero — Furniture Salve', slug: 'leather-hero-furniture-salve', path: '/portfolio/leather-hero-furniture-salve/' },
                     { title: 'Premium A+ Content', slug: 'premium-a-content' },
                     { title: 'AI & Creative Retouching', slug: 'ai-creative-retouching' },
                     { title: 'Brand Identity & Packaging', slug: 'brand-identity-packaging' },
@@ -105,7 +105,7 @@ export default function PortfolioLayout({ title, tag, service, industry, publish
                   ].map(p => (
                     <Link
                       key={p.slug}
-                      href={`/blackdsn-portfolio/${p.slug}/`}
+                      href={p.path ?? `/blackdsn-portfolio/${p.slug}/`}
                       className="font-mono text-xs text-[#0a0a0a] hover:text-[#0a0a0a]/60 border-b border-[#0a0a0a]/10 pb-2 transition-colors"
                     >
                       {p.title} →

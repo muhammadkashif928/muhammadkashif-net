@@ -7,6 +7,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // ── Leather Hero case study moved off the /blackdsn-portfolio/ prefix
+      {
+        source: '/blackdsn-portfolio/leather-hero-furniture-salve',
+        destination: '/portfolio/leather-hero-furniture-salve/',
+        permanent: true,
+      },
+
       // ── Legacy WordPress media: images moved from /wp-content/uploads/ to /uploads/
       {
         source: '/wp-content/uploads/:path*',

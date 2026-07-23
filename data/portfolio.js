@@ -5,9 +5,17 @@
 
 const leatherImg = encodeURI('/portfolio/Leather Products/Product 3 (Leather Jacket)/Leather Jacket img 1.png')
 
+// Case study URL for a project. Newer entries can set an explicit `path`;
+// everything else falls back to the legacy /blackdsn-portfolio/ prefix.
+export function projectHref(project) {
+  return project.path ?? `/blackdsn-portfolio/${project.slug}/`
+}
+
 export const portfolioProjects = [
   {
     slug: 'leather-hero-furniture-salve',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/leather-hero-furniture-salve/',
     tag: 'AMAZON LISTING SET',
     title: 'Leather Hero — Furniture Salve',
     desc: 'A leather & wood furniture care listing running four near-identical images, rebuilt into a full ten-image set led by before-and-after proof, real furniture settings, and a cross-section that shows the salve penetrating the leather.',

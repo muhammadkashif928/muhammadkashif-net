@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { createMetadata } from '@/lib/seo'
-import { portfolioProjects } from '@/data/portfolio'
+import { portfolioProjects, projectHref } from '@/data/portfolio'
 
 export const metadata = createMetadata({
   title: 'Amazon Design Portfolio — Case Studies | Muhammad Kashif',
@@ -44,7 +44,7 @@ export default function MyPortfolio() {
             {portfolioProjects.map((p) => (
               <Link
                 key={p.slug}
-                href={`/blackdsn-portfolio/${p.slug}/`}
+                href={projectHref(p)}
                 className="group border-2 border-[#0a0a0a] bg-white shadow-brutal hover:shadow-brutal-xl hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all overflow-hidden"
               >
                 <div className="h-60 bg-[#0a0a0a]/10 overflow-hidden relative">

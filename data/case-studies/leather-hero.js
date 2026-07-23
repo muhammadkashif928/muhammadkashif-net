@@ -34,7 +34,7 @@ export const meta = {
   published: 'Jul 24, 2026',
   publishedISO: '2026-07-24',
   slug: 'leather-hero-furniture-salve',
-  path: '/blackdsn-portfolio/leather-hero-furniture-salve/',
+  path: '/portfolio/leather-hero-furniture-salve/',
 }
 
 const BEFORE_DIR = '/case-studies/leather-hero/before'
