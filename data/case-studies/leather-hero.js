@@ -194,6 +194,6 @@ export const problemParagraphs = [
 export const detailParagraphs = [
   'Every leather conditioner on Amazon says “deep conditioning.” It’s on the tin, it’s in the bullets, it’s in the A+ content. Which means it has stopped being information and become noise — the buyer’s eye slides straight past it.',
   'The claim isn’t the problem. The problem is that it describes something happening where nobody can see it. You cannot verify “deep” by looking at a jar of cream.',
-  'So I drew it. A magnified cut-away, set inside a real photograph of the salve being brushed onto a leather cushion, showing the product travelling down between the fibres rather than pooling on the surface. The wider shot keeps it honest — this is the product being used, not a diagram in a vacuum — and the inset does the explaining.',
+  'So I drew it. A magnified cut-away, set inside a full frame of the salve being brushed onto a leather cushion, showing the product travelling down between the fibres rather than pooling on the surface. The wider frame keeps it honest — this is the product being used, not a diagram in a vacuum — and the inset does the explaining.',
   'It changes what the slot is for. Instead of asking a buyer to trust an adjective, it hands them a mechanism and lets them decide for themselves. That’s the line between an image that decorates a listing and an image that answers an objection — and answering objections is the only reason a listing image exists.',
 ]
