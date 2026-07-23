@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
+  images: {
+    // Serve AVIF, then WebP, falling back to the source JPG per browser support.
+    formats: ['image/avif', 'image/webp'],
+  },
   async redirects() {
     return [
       // ── Legacy WordPress media: images moved from /wp-content/uploads/ to /uploads/

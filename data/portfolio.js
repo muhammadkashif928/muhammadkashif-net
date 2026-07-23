@@ -7,6 +7,15 @@ const leatherImg = encodeURI('/portfolio/Leather Products/Product 3 (Leather Jac
 
 export const portfolioProjects = [
   {
+    slug: 'leather-hero-furniture-salve',
+    tag: 'AMAZON LISTING SET',
+    title: 'Leather Hero — Furniture Salve',
+    desc: 'A leather & wood furniture care listing running four near-identical images, rebuilt into a full ten-image set led by before-and-after proof, real furniture settings, and a cross-section that shows the salve penetrating the leather.',
+    img: '/case-studies/leather-hero/after/03-penetration.jpg',
+    date: 'Jul 24, 2026',
+    software: ['Photoshop', 'Illustrator'],
+  },
+  {
     slug: 'yara-lattafa-amazon-main-image',
     tag: 'AMAZON MAIN IMAGE',
     title: 'Yara by Lattafa — Amazon Main Image',
