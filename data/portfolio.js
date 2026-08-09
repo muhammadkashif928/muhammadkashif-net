@@ -13,6 +13,17 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'leather-hero-purse-care-kit',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/leather-hero-purse-care-kit/',
+    tag: 'AMAZON LISTING SET',
+    title: 'Leather Hero — Purse Care Kit',
+    desc: 'Leather Hero’s second product — a purse cleaner & conditioner kit. An eight-image set focused on main-image craft and a leather bag before-and-after that proves the kit restores and extends leather life.',
+    img: '/case-studies/leather-hero-purse/04-before-after.jpg',
+    date: 'Aug 9, 2026',
+    software: ['Photoshop', 'Illustrator'],
+  },
+  {
     slug: 'leather-hero-furniture-salve',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/leather-hero-furniture-salve/',

@@ -24,6 +24,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/leather-hero-purse-care-kit/', 'monthly', 0.9, '2026-08-09'),
     route('/portfolio/leather-hero-furniture-salve/', 'monthly', 0.9, '2026-07-24'),
     route('/blackdsn-portfolio/premium-a-content/', 'yearly', 0.75),
     route('/blackdsn-portfolio/ai-creative-retouching/', 'yearly', 0.75),
