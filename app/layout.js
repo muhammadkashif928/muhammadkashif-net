@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import JsonLd from '@/components/JsonLd'
 import ScrollReveal from '@/components/ScrollReveal'
 import SocialDock from '@/components/SocialDock'
+import MobileContactBar from '@/components/MobileContactBar'
 import { getGlobalJsonLd, seoKeywords, siteConfig } from '@/lib/seo'
 import { GA_ID } from '@/lib/gtag'
 
@@ -116,6 +117,7 @@ export default function RootLayout({ children }) {
           {children}
         </ThemeProvider>
         <SocialDock />
+        <MobileContactBar />
       </body>
     </html>
   )

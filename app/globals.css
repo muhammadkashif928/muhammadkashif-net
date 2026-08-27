@@ -377,6 +377,38 @@ html.theme-light .social-dock {
   .dock-key, .dock-btn:hover .dock-key { transform: none; }
 }
 
+/* ─── UI/UX: MOBILE CONTACT BAR ──────────────────────────────── */
+.contact-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: none;
+  border-top: 1px solid var(--a-border);
+  background-color: var(--a-bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.contact-bar-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px; /* minimum comfortable tap target */
+  font-size: 1.05rem;
+  color: var(--a-text);
+}
+.contact-bar-btn + .contact-bar-btn { border-left: 1px solid var(--a-border); }
+@media (max-width: 767px) {
+  .contact-bar { display: flex; }
+  /* Keep the bar (48px target + 1px border) clear of page content and
+     the back-to-top button */
+  body { padding-bottom: calc(49px + env(safe-area-inset-bottom)); }
+  .back-to-top { bottom: calc(49px + env(safe-area-inset-bottom) + 1rem); }
+}
+
 /* ─── HERO PHOTO: PREMIUM 8K FRAME ───────────────────────────── */
 @keyframes heroGlowSpin {
   from { transform: rotate(0deg); }
