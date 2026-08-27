@@ -30,7 +30,10 @@ export default function Portfolio() {
 
         {/* 3 latest projects — 1 col mobile, 3 col desktop */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
-          {projects.map((p) => (
+          {projects.map((p) => {
+            // Entries with imgWidths have -{w}.webp / -960.jpg derivatives
+            const base = p.imgWidths ? p.img.replace(/\.(jpe?g|webp|png)$/i, '') : null
+            return (
             <a
               key={p.slug}
               href={projectHref(p)}
@@ -39,15 +42,24 @@ export default function Portfolio() {
               style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-bg)', boxShadow: '4px 4px 0px var(--b-border)' }}
             >
               <div className="h-48 sm:h-56 overflow-hidden relative" style={{ backgroundColor: 'var(--b-subtle)' }}>
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  width="1200"
-                  height="900"
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                  style={{ filter: 'grayscale(20%)' }}
-                />
+                <picture>
+                  {base && (
+                    <source
+                      type="image/webp"
+                      srcSet={p.imgWidths.map((w) => `${base}-${w}.webp ${w}w`).join(', ')}
+                      sizes="(min-width: 1360px) 420px, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    />
+                  )}
+                  <img
+                    src={base ? `${base}-960.jpg` : p.img}
+                    alt={p.title}
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                    className="block w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                    style={{ filter: 'grayscale(20%)' }}
+                  />
+                </picture>
                 <div
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ backgroundColor: 'rgba(8,8,8,0.75)' }}
@@ -67,7 +79,8 @@ export default function Portfolio() {
                 <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--b-muted)' }}>{p.desc}</p>
               </div>
             </a>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

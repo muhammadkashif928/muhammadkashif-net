@@ -127,15 +127,23 @@ export default function Hero() {
 
             {/* Photo frame */}
             <div className="absolute inset-0 overflow-hidden border-2" style={{ borderColor: 'var(--a-border)', backgroundColor: 'var(--a-subtle)' }}>
-              <img
-                src="/images/profile-2026.jpg"
-                alt="Muhammad Kashif, Amazon Brand Designer"
-                width="800"
-                height="999"
-                fetchPriority="high"
-                className="hero-photo-img w-full h-full object-cover object-top"
-                style={{ filter: 'grayscale(20%) contrast(1.12) saturate(1.05)' }}
-              />
+              <picture>
+                {/* Frame widths: 272px base / 340px sm / 408px md / 459px lg */}
+                <source
+                  type="image/webp"
+                  srcSet="/images/profile-2026-460.webp 460w, /images/profile-2026-800.webp 800w"
+                  sizes="(min-width: 1024px) 459px, (min-width: 768px) 408px, (min-width: 640px) 340px, 272px"
+                />
+                <img
+                  src="/images/profile-2026.jpg"
+                  alt="Muhammad Kashif, Amazon Brand Designer"
+                  width="800"
+                  height="999"
+                  fetchPriority="high"
+                  className="hero-photo-img block w-full h-full object-cover object-top"
+                  style={{ filter: 'grayscale(20%) contrast(1.12) saturate(1.05)' }}
+                />
+              </picture>
 
               {/* Bottom fade */}
               <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: 'linear-gradient(to top, var(--a-bg), transparent)' }} />

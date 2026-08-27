@@ -2,6 +2,9 @@
 // Portfolio.jsx (homepage) automatically shows the first 3.
 // my-portfolio/page.js shows all of them.
 // To feature a new project on the homepage, add it to the TOP of this array.
+// Entries with `imgWidths` have -{w}.webp and -960.jpg files derived from
+// `img` (see P-1 audit fix); the homepage renders those as srcset. Generate
+// the derivatives before adding imgWidths to a new entry.
 
 const leatherImg = encodeURI('/portfolio/Leather Products/Product 3 (Leather Jacket)/Leather Jacket img 1.png')
 
@@ -20,6 +23,7 @@ export const portfolioProjects = [
     title: 'Leather Hero — Purse Care Kit',
     desc: 'Leather Hero’s second product — a purse cleaner & conditioner kit. An eight-image set focused on main-image craft and a leather bag before-and-after that proves the kit restores and extends leather life.',
     img: '/case-studies/leather-hero-purse/04-before-after.jpg',
+    imgWidths: [320, 480, 640, 960],
     date: 'Aug 9, 2026',
     software: ['Photoshop', 'Illustrator'],
   },
@@ -31,6 +35,7 @@ export const portfolioProjects = [
     title: 'Leather Hero — Furniture Salve',
     desc: 'A leather & wood furniture care listing running four near-identical images, rebuilt into a full ten-image set led by before-and-after proof, real furniture settings, and a cross-section that shows the salve penetrating the leather.',
     img: '/case-studies/leather-hero/after/03-penetration.jpg',
+    imgWidths: [320, 480, 640, 960],
     date: 'Jul 24, 2026',
     software: ['Photoshop', 'Illustrator'],
   },
@@ -40,6 +45,7 @@ export const portfolioProjects = [
     title: 'Yara by Lattafa — Amazon Main Image',
     desc: 'Raw casual shots of the Yara Lattafa EDP redesigned into a scroll-stopping Amazon main image — no studio, no complex setup. AI + Photoshop workflow covering shape clarity, lighting, and CTR optimisation.',
     img: '/1776985426943.jpeg',
+    imgWidths: [320, 480, 640, 960],
     date: 'Jun 27, 2026',
     software: ['AI', 'Photoshop'],
   },
