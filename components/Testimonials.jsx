@@ -1,8 +1,14 @@
+'use client'
+import { gaEvent } from '@/lib/gtag'
+
+// No public Fiverr profile URL yet, so that attribution stays unlinked.
+const upworkProfile = 'https://www.upwork.com/freelancers/~016edc19243e405472'
+
 const testimonials = [
-  { name: 'Neoray Azour',  platform: 'Upwork',  project: 'Amazon Product',  stars: 5, quote: 'He completed the work in a professional and quick manner! Thank you so much, I will be working with you on future projects.' },
-  { name: 'Adrian Jallad', platform: 'Upwork',  project: 'Amazon Listing',  stars: 5, quote: 'This is now my second time working with this guy. He went past my expectations and beyond!' },
+  { name: 'Neoray Azour',  platform: 'Upwork',  project: 'Amazon Product',  stars: 5, profileUrl: upworkProfile, event: 'upwork_click', quote: 'He completed the work in a professional and quick manner! Thank you so much, I will be working with you on future projects.' },
+  { name: 'Adrian Jallad', platform: 'Upwork',  project: 'Amazon Listing',  stars: 5, profileUrl: upworkProfile, event: 'upwork_click', quote: 'This is now my second time working with this guy. He went past my expectations and beyond!' },
   { name: 'Ciro Rossi',    platform: 'Fiverr',  project: 'Design Quality',  stars: 5, quote: 'Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!' },
-  { name: 'John Bie',      platform: 'Upwork',  project: 'Amazon Product',  stars: 5, quote: 'Timely done! Clean execution, no back-and-forth needed. Will return for next batch.' },
+  { name: 'John Bie',      platform: 'Upwork',  project: 'Amazon Product',  stars: 5, profileUrl: upworkProfile, event: 'upwork_click', quote: 'Timely done! Clean execution, no back-and-forth needed. Will return for next batch.' },
 ]
 
 function Stars({ count }) {
@@ -44,8 +50,8 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* 1-col mobile, 2-col sm, 3-col lg */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {/* 1-col mobile, 2x2 from sm up — 4 cards fill the grid with no orphan */}
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
           {testimonials.map((t, i) => (
             <div
               key={i}
@@ -66,7 +72,21 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="font-bebas text-sm tracking-widest leading-none" style={{ color: i === 0 ? 'var(--accent-inv)' : 'var(--a-text)' }}>{t.name}</p>
-                  <p className="font-mono text-[13px] mt-1" style={{ color: i === 0 ? 'color-mix(in srgb, var(--accent-inv) 78%, var(--accent))' : 'var(--a-muted)' }}>{t.platform} · {t.project}</p>
+                  <p className="font-mono text-[13px] mt-1" style={{ color: i === 0 ? 'color-mix(in srgb, var(--accent-inv) 78%, var(--accent))' : 'var(--a-muted)' }}>
+                    {t.profileUrl ? (
+                      <a
+                        href={t.profileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline underline-offset-2"
+                        onClick={() => gaEvent(t.event, { location: 'testimonials' })}
+                      >
+                        {t.platform} · {t.project}
+                      </a>
+                    ) : (
+                      <>{t.platform} · {t.project}</>
+                    )}
+                  </p>
                 </div>
               </div>
             </div>
