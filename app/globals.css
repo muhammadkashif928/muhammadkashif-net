@@ -366,12 +366,6 @@ html.theme-light .social-dock {
   transform: translateY(-50%) translateX(0);
 }
 
-@media (max-width: 640px) {
-  .social-dock { bottom: 1rem; left: 0.75rem; gap: 0.45rem; }
-  .dock-key { width: 2.6rem; height: 2.6rem; }
-  .dock-key svg { width: 1.05rem; height: 1.05rem; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .reveal-init { opacity: 1; transform: none; }
   .menu-slide { animation: none; }

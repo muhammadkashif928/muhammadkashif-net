@@ -34,10 +34,26 @@ const socials = [
   },
 ]
 
+// The content column is 80rem (1360px at the 17px root) plus 1.5rem side
+// padding; the dock's right edge lands at 4.15rem (~71px). Below ~1500px
+// the gutter is too narrow and the dock would sit on top of section
+// headings and cards, so it only renders above this width.
+const DOCK_MIN_VIEWPORT = '(min-width: 1500px)'
+
 // Floating 3D social dock, bottom-left. Pops in once the user scrolls
-// past the hero and hides again near the top of the page.
+// past the hero and hides again near the top of the page. Renders only
+// when the left gutter is wide enough to hold it clear of the content.
 export default function SocialDock() {
   const [visible, setVisible] = useState(false)
+  const [hasGutter, setHasGutter] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia(DOCK_MIN_VIEWPORT)
+    const onChange = () => setHasGutter(mq.matches)
+    onChange()
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400)
@@ -45,6 +61,8 @@ export default function SocialDock() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  if (!hasGutter) return null
 
   return (
     <nav className={`social-dock ${visible ? 'dock-in' : ''}`} aria-label="Social media">
