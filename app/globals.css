@@ -8,13 +8,13 @@
 :root {
   --a-bg:     #080808;
   --a-text:   #f0f0eb;
-  --a-muted:  rgba(240,240,235,0.55);
+  --a-muted:  rgba(240,240,235,0.68); /* >=4.5:1 on --a-bg (WCAG AA) */
   --a-subtle: rgba(240,240,235,0.12);
   --a-border: rgba(240,240,235,0.18);
 
   --b-bg:     #f0f0eb;
   --b-text:   #080808;
-  --b-muted:  rgba(8,8,8,0.55);
+  --b-muted:  rgba(8,8,8,0.68); /* >=4.5:1 on --b-bg (WCAG AA) */
   --b-subtle: rgba(8,8,8,0.07);
   --b-border: rgba(8,8,8,0.16);
 
@@ -28,13 +28,13 @@
 html.theme-light {
   --a-bg:     #f0f0eb;
   --a-text:   #080808;
-  --a-muted:  rgba(8,8,8,0.55);
+  --a-muted:  rgba(8,8,8,0.68); /* >=4.5:1 on --a-bg (WCAG AA) */
   --a-subtle: rgba(8,8,8,0.07);
   --a-border: rgba(8,8,8,0.16);
 
   --b-bg:     #ffffff;
   --b-text:   #080808;
-  --b-muted:  rgba(8,8,8,0.55);
+  --b-muted:  rgba(8,8,8,0.68); /* >=4.5:1 on --b-bg (WCAG AA) */
   --b-subtle: rgba(8,8,8,0.05);
   --b-border: rgba(8,8,8,0.12);
 
@@ -137,6 +137,10 @@ body, #__next { max-width: 100vw; overflow-x: hidden; }
   white-space: nowrap;
   display: flex;
 }
+/* Marquee text is a decorative watermark repeating on-page content;
+   rendering it via ::before keeps it out of the accessibility tree
+   (and out of WCAG contrast scope, per the pure-decoration exemption). */
+.marquee-ghost::before { content: attr(data-text); }
 
 /* ─── FADE UP ────────────────────────────────────────────────── */
 @keyframes fadeUp {

@@ -9,7 +9,7 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="border-t" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-        <p className="font-mono text-xs tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ CASE STUDIES</p>
+        <p className="font-mono text-[13px] tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ CASE STUDIES</p>
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 gap-5">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--b-text)' }}>

@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section id="about" className="border-t" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)', padding: '4rem 0' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <p className="font-mono text-xs tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ WHO I AM</p>
+        <p className="font-mono text-[13px] tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ WHO I AM</p>
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
 
@@ -44,7 +44,7 @@ export default function About() {
             {/* Company badge */}
             <div className="mt-8 sm:mt-10 p-5 sm:p-6 border-2 card-lift inline-block w-full sm:w-auto" style={{ borderColor: 'var(--b-border)', boxShadow: '4px 4px 0px var(--b-border)' }}>
               <p className="font-bebas text-xl sm:text-2xl tracking-widest" style={{ color: 'var(--b-text)' }}>Designer Trends INC</p>
-              <p className="font-mono text-xs tracking-widest mt-1" style={{ color: 'var(--b-muted)' }}>Creative Designer Specialist · 2018 – Present</p>
+              <p className="font-mono text-[13px] tracking-widest mt-1" style={{ color: 'var(--b-muted)' }}>Creative Designer Specialist · 2018 – Present</p>
             </div>
 
             {/* Stats */}

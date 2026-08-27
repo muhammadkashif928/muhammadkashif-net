@@ -57,7 +57,7 @@ export default function Contact() {
   return (
     <section id="contact" className="border-t" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-        <p className="font-mono text-xs tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ LET'S TALK</p>
+        <p className="font-mono text-[13px] tracking-[0.35em] mb-3" style={{ color: 'var(--b-muted)' }}>▶ LET'S TALK</p>
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
 
@@ -181,7 +181,7 @@ export default function Contact() {
 
                 {(status === 'error' || errorMsg) && (
                   <div className="border px-4 py-3" style={{ borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)' }}>
-                    <p className="font-mono text-sm" style={{ color: '#ef4444' }}>{errorMsg}</p>
+                    <p className="font-mono text-sm" style={{ color: '#dc2626' }}>{errorMsg}</p>
                   </div>
                 )}
 

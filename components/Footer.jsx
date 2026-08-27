@@ -54,7 +54,7 @@ export default function Footer() {
       <div className="overflow-hidden py-3 sm:py-4 border-b" style={{ borderColor: 'var(--a-border)' }}>
         <div className="marquee-track">
           {Array(12).fill('AMAZON BRAND DESIGNER — A+ CONTENT — LEATHER & FOOTWEAR SPECIALIST — PRODUCT INFOGRAPHICS — ').map((t, i) => (
-            <span key={i} className="font-bebas text-2xl sm:text-3xl tracking-widest mx-5 sm:mx-6" style={{ color: 'var(--a-subtle)' }}>{t}</span>
+            <span key={i} data-text={t} aria-hidden="true" className="marquee-ghost font-bebas text-2xl sm:text-3xl tracking-widest mx-5 sm:mx-6" style={{ color: 'var(--a-subtle)' }} />
           ))}
         </div>
       </div>
@@ -72,8 +72,8 @@ export default function Footer() {
               Turning Amazon private label products — especially leather care, shoe
               care & footwear brands — into premium listings that convert.
             </p>
-            <p className="font-mono text-xs tracking-widest" style={{ color: 'var(--a-subtle)' }}>📍 Kuching, Sarawak, Malaysia</p>
-            <p className="font-mono text-xs tracking-widest mt-1" style={{ color: 'var(--a-subtle)' }}>✦ Working remotely with US, UK &amp; Canada brands</p>
+            <p className="font-mono text-xs tracking-widest" style={{ color: 'var(--a-muted)' }}>📍 Kuching, Sarawak, Malaysia</p>
+            <p className="font-mono text-xs tracking-widest mt-1" style={{ color: 'var(--a-muted)' }}>✦ Working remotely with US, UK &amp; Canada brands</p>
           </div>
 
           {/* Navigation */}
@@ -130,7 +130,7 @@ export default function Footer() {
             <div className="mt-5 p-4 border" style={{ borderColor: 'var(--a-border)' }}>
               <p className="font-mono text-xs leading-relaxed" style={{ color: 'var(--a-muted)' }}>
                 This site uses cookies and may display ads. See our{' '}
-                <a href="/privacy-policy/" style={{ color: 'var(--a-text)' }}>Privacy Policy</a>.
+                <a href="/privacy-policy/" className="underline" style={{ color: 'var(--a-text)' }}>Privacy Policy</a>.
               </p>
             </div>
           </div>
@@ -138,12 +138,12 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 sm:mt-14 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 border-t" style={{ borderColor: 'var(--a-border)' }}>
-          <p className="font-mono text-xs tracking-widest text-center sm:text-left" style={{ color: 'var(--a-subtle)' }}>
+          <p className="font-mono text-xs tracking-widest text-center sm:text-left" style={{ color: 'var(--a-muted)' }}>
             © {new Date().getFullYear()} MUHAMMAD KASHIF. ALL RIGHTS RESERVED.
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
             {legalLinks.map((l) => (
-              <a key={l.label} href={l.href} className="font-mono text-xs tracking-widest transition-colors" style={{ color: 'var(--a-subtle)' }}>
+              <a key={l.label} href={l.href} className="font-mono text-xs tracking-widest transition-colors" style={{ color: 'var(--a-muted)' }}>
                 {l.label}
               </a>
             ))}

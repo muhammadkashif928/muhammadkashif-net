@@ -21,7 +21,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="border-t" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-        <p className="font-mono text-xs tracking-[0.35em] mb-3" style={{ color: 'var(--a-muted)' }}>▶ SOCIAL PROOF</p>
+        <p className="font-mono text-[13px] tracking-[0.35em] mb-3" style={{ color: 'var(--a-muted)' }}>▶ SOCIAL PROOF</p>
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 sm:gap-6 mb-10 sm:mb-14">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--a-text)' }}>
@@ -66,7 +66,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="font-bebas text-sm tracking-widest leading-none" style={{ color: i === 0 ? 'var(--accent-inv)' : 'var(--a-text)' }}>{t.name}</p>
-                  <p className="font-mono text-xs mt-1" style={{ color: i === 0 ? 'rgba(8,8,8,0.55)' : 'var(--a-muted)' }}>{t.platform} · {t.project}</p>
+                  <p className="font-mono text-[13px] mt-1" style={{ color: i === 0 ? 'color-mix(in srgb, var(--accent-inv) 78%, var(--accent))' : 'var(--a-muted)' }}>{t.platform} · {t.project}</p>
                 </div>
               </div>
             </div>

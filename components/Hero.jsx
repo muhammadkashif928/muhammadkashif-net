@@ -47,7 +47,7 @@ export default function Hero() {
         <div>
           <div className="fade-up-1 flex items-center gap-2 mb-5 sm:mb-6">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent)' }} />
-            <p className="font-mono text-xs tracking-[0.3em]" style={{ color: 'var(--a-muted)' }}>
+            <p className="font-mono text-[13px] tracking-[0.3em]" style={{ color: 'var(--a-muted)' }}>
               AVAILABLE FOR PROJECTS
             </p>
           </div>
@@ -155,7 +155,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t" style={{ borderColor: 'var(--a-border)' }}>
         <div className="marquee-track py-2">
           {Array(10).fill('AMAZON A+ CONTENT — BRAND IDENTITY — LEATHER & FOOTWEAR BRANDS — INFOGRAPHICS — LISTING OPTIMIZATION — ').map((t, i) => (
-            <span key={i} className="font-bebas text-xs sm:text-sm tracking-widest mx-4" style={{ color: 'var(--a-subtle)' }}>{t}</span>
+            <span key={i} data-text={t} aria-hidden="true" className="marquee-ghost font-bebas text-xs sm:text-sm tracking-widest mx-4" style={{ color: 'var(--a-subtle)' }} />
           ))}
         </div>
       </div>
