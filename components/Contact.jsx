@@ -17,15 +17,18 @@ export default function Contact() {
     setStatus('sending')
     setErrorMsg('')
 
+    // Read fields by name from the form itself; "website" is the honeypot.
+    const fields = new FormData(e.currentTarget)
+
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:     form.name,
-          email:    form.email,
-          message:  form.message,
-          honeypot: form.honeypot,
+          name:     fields.get('name'),
+          email:    fields.get('email'),
+          message:  fields.get('message'),
+          honeypot: fields.get('website'),
         }),
       })
 
@@ -134,13 +137,16 @@ export default function Contact() {
                 />
 
                 {[
-                  { id: 'name',  label: 'YOUR NAME',     type: 'text',  placeholder: 'John Smith',        required: true },
-                  { id: 'email', label: 'EMAIL ADDRESS',  type: 'email', placeholder: 'john@company.com', required: true },
+                  { id: 'name',  label: 'YOUR NAME',     type: 'text',  placeholder: 'John Smith',        autoComplete: 'name',  required: true },
+                  { id: 'email', label: 'EMAIL ADDRESS',  type: 'email', placeholder: 'john@company.com', autoComplete: 'email', required: true },
                 ].map((f) => (
                   <div key={f.id}>
-                    <label className="font-mono text-xs tracking-widest block mb-2" style={{ color: 'var(--b-muted)' }}>{f.label} *</label>
+                    <label htmlFor={f.id} className="font-mono text-xs tracking-widest block mb-2" style={{ color: 'var(--b-muted)' }}>{f.label} *</label>
                     <input
                       type={f.type}
+                      id={f.id}
+                      name={f.id}
+                      autoComplete={f.autoComplete}
                       required={f.required}
                       placeholder={f.placeholder}
                       value={form[f.id]}
@@ -154,8 +160,10 @@ export default function Contact() {
                 ))}
 
                 <div>
-                  <label className="font-mono text-xs tracking-widest block mb-2" style={{ color: 'var(--b-muted)' }}>YOUR MESSAGE *</label>
+                  <label htmlFor="message" className="font-mono text-xs tracking-widest block mb-2" style={{ color: 'var(--b-muted)' }}>YOUR MESSAGE *</label>
                   <textarea
+                    id="message"
+                    name="message"
                     required
                     rows={5}
                     placeholder="Tell me about your product and goals..."
