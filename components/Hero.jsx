@@ -8,10 +8,17 @@ const roles = [
   'SHOE CARE BRAND DESIGNER',
 ]
 
+// Server-rendered inside the H1 so crawlers and no-JS visitors get the
+// full keyword line; the typewriter animates over it after hydration.
+const fullRole = 'AMAZON LISTING DESIGNER FOR LEATHER, SHOE CARE & FOOTWEAR BRANDS'
+
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [typing, setTyping] = useState(true)
+  const [animated, setAnimated] = useState(false)
+
+  useEffect(() => { setAnimated(true) }, [])
 
   useEffect(() => {
     const current = roles[roleIndex]
@@ -52,18 +59,22 @@ export default function Hero() {
             </p>
           </div>
 
-          <h1 className="font-bebas leading-none fade-up-2" style={{ fontSize: 'clamp(3.5rem,10vw,8.5rem)', color: 'var(--a-text)' }}>
-            MUHAMMAD
-            <br />
-            <span style={{ color: 'var(--accent)', WebkitTextStroke: '1px var(--a-border)' }}>KASHIF</span>
-          </h1>
-
-          {/* Typewriter */}
-          <div className="mt-4 sm:mt-5 h-10 sm:h-12 flex items-center fade-up-3">
-            <span className="font-mono tracking-widest" style={{ fontSize: 'clamp(0.7rem,2vw,0.85rem)', color: 'var(--a-text)' }}>
-              {displayed}<span className="cursor-blink" style={{ color: 'var(--accent)' }}>|</span>
+          <h1 className="hero-title">
+            <span className="hero-name block font-bebas leading-none fade-up-2" style={{ fontSize: 'clamp(3.5rem,10vw,8.5rem)', color: 'var(--a-text)' }}>
+              MUHAMMAD
+              <br />
+              <span style={{ color: 'var(--accent)', WebkitTextStroke: '1px var(--a-border)' }}>KASHIF</span>
             </span>
-          </div>
+
+            {/* Typewriter */}
+            <span className="hero-role mt-4 sm:mt-5 h-10 sm:h-12 flex items-center fade-up-3 font-mono font-normal tracking-widest" style={{ fontSize: 'clamp(0.7rem,2vw,0.85rem)', color: 'var(--a-text)' }}>
+              {animated ? (
+                <>{displayed}<span className="cursor-blink" style={{ color: 'var(--accent)' }}>|</span></>
+              ) : (
+                fullRole
+              )}
+            </span>
+          </h1>
 
           <p className="mt-5 sm:mt-6 font-mono text-sm sm:text-base leading-relaxed max-w-md fade-up-4" style={{ color: 'var(--a-muted)' }}>
             The Amazon design specialist for leather care, shoe care &amp; footwear
