@@ -1,4 +1,6 @@
+'use client'
 import { portfolioProjects, projectHref } from '@/data/portfolio'
+import { gaEvent } from '@/lib/gtag'
 
 // Always shows the 3 newest projects (first 3 in portfolioProjects array)
 const projects = portfolioProjects.slice(0, 3)
@@ -32,6 +34,7 @@ export default function Portfolio() {
             <a
               key={p.slug}
               href={projectHref(p)}
+              onClick={() => gaEvent('case_study_open', { case_study: p.slug, location: 'home_portfolio', transport_type: 'beacon' })}
               className="group border-2 overflow-hidden block card-lift"
               style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-bg)', boxShadow: '4px 4px 0px var(--b-border)' }}
             >

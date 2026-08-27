@@ -1,9 +1,11 @@
 import './globals.css'
+import Script from 'next/script'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import JsonLd from '@/components/JsonLd'
 import ScrollReveal from '@/components/ScrollReveal'
 import SocialDock from '@/components/SocialDock'
 import { getGlobalJsonLd, seoKeywords, siteConfig } from '@/lib/seo'
+import { GA_ID } from '@/lib/gtag'
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -100,6 +102,14 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="noise">
+        {/* Google Analytics 4 */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');`}
+        </Script>
         <JsonLd data={getGlobalJsonLd()} />
         <ScrollReveal />
         <ThemeProvider>

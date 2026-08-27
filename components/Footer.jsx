@@ -1,12 +1,13 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { gaEvent } from '@/lib/gtag'
 
 const socials = [
-  { label: 'UPWORK',    href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
+  { label: 'UPWORK',    href: 'https://www.upwork.com/freelancers/~016edc19243e405472', event: 'upwork_click' },
   { label: 'LINKEDIN',  href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
   { label: 'FACEBOOK',  href: 'https://www.facebook.com/profile.php?id=100011667847244' },
   { label: 'INSTAGRAM', href: 'https://instagram.com/muhamadkashif928' },
-  { label: 'WHATSAPP',  href: 'https://wa.me/60179152084' },
+  { label: 'WHATSAPP',  href: 'https://wa.me/60179152084', event: 'whatsapp_click' },
 ]
 
 const navLinks = [
@@ -102,6 +103,7 @@ export default function Footer() {
                     className="font-mono text-xs sm:text-sm tracking-widest transition-colors" style={linkStyle}
                     onMouseEnter={e => e.target.style.color = 'var(--a-text)'}
                     onMouseLeave={e => e.target.style.color = 'var(--a-muted)'}
+                    onClick={() => s.event && gaEvent(s.event, { location: 'footer' })}
                   >
                     {s.label} ↗
                   </a>

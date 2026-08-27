@@ -1,10 +1,11 @@
 'use client'
 import { useState } from 'react'
+import { gaEvent } from '@/lib/gtag'
 
 const contactLinks = [
-  { label: 'EMAIL',    value: 'info@muhammadkashif.net', href: 'mailto:info@muhammadkashif.net' },
-  { label: 'WHATSAPP', value: '+60 179152084',            href: 'https://wa.me/60179152084' },
-  { label: 'UPWORK',   value: 'View Profile →',          href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
+  { label: 'EMAIL',    value: 'info@muhammadkashif.net', href: 'mailto:info@muhammadkashif.net',                            event: 'email_click' },
+  { label: 'WHATSAPP', value: '+60 179152084',            href: 'https://wa.me/60179152084',                                event: 'whatsapp_click' },
+  { label: 'UPWORK',   value: 'View Profile →',          href: 'https://www.upwork.com/freelancers/~016edc19243e405472',   event: 'upwork_click' },
 ]
 
 export default function Contact() {
@@ -35,6 +36,7 @@ export default function Contact() {
       const data = await res.json()
       if (data.success) {
         setStatus('success')
+        gaEvent('contact_submit', { location: 'home_contact_form' })
         setForm({ name: '', email: '', message: '', honeypot: '' })
       } else {
         setStatus('error')
@@ -82,6 +84,7 @@ export default function Contact() {
                   href={c.href}
                   target={c.href.startsWith('mailto') ? undefined : '_blank'}
                   rel="noopener noreferrer"
+                  onClick={() => gaEvent(c.event, { location: 'contact_section' })}
                   className="group flex items-center gap-4 sm:gap-5 py-4 sm:py-5 border-b transition-all"
                   style={{ borderColor: 'var(--b-border)' }}
                 >
