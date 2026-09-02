@@ -3,6 +3,7 @@ import Script from 'next/script'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import JsonLd from '@/components/JsonLd'
 import ScrollReveal from '@/components/ScrollReveal'
+import AttributionTracker from '@/components/AttributionTracker'
 import SocialDock from '@/components/SocialDock'
 import MobileContactBar from '@/components/MobileContactBar'
 import { getGlobalJsonLd, seoKeywords, siteConfig } from '@/lib/seo'
@@ -113,6 +114,7 @@ export default function RootLayout({ children }) {
         </Script>
         <JsonLd data={getGlobalJsonLd()} />
         <ScrollReveal />
+        <AttributionTracker />
         <ThemeProvider>
           {children}
         </ThemeProvider>

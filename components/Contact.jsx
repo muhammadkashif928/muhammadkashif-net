@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { gaEvent } from '@/lib/gtag'
+import { getAttribution } from '@/lib/attribution'
 
 const contactLinks = [
   { label: 'EMAIL',    value: 'info@muhammadkashif.net', href: 'mailto:info@muhammadkashif.net',                            event: 'email_click' },
@@ -30,6 +31,8 @@ export default function Contact() {
           email:    fields.get('email'),
           message:  fields.get('message'),
           honeypot: fields.get('website'),
+          // Where this visitor came from — first touch, session-scoped.
+          ...getAttribution(),
         }),
       })
 
@@ -119,7 +122,11 @@ export default function Contact() {
             {status === 'success' ? (
               <div className="text-center py-10 sm:py-14">
                 <div className="font-bebas leading-none mb-4" style={{ fontSize: '5rem', color: 'var(--b-text)', WebkitTextStroke: '2px var(--b-border)' }}>SENT!</div>
-                <p className="font-mono text-sm sm:text-base" style={{ color: 'var(--b-muted)' }}>Message received. I'll get back to you within 24 hours.</p>
+                <p className="font-mono text-sm sm:text-base" style={{ color: 'var(--b-muted)' }}>Message received. I&apos;ll get back to you within one business day.</p>
+                <p className="font-mono text-xs sm:text-sm mt-3 max-w-sm mx-auto leading-relaxed" style={{ color: 'var(--b-muted)', opacity: 0.8 }}>
+                  A confirmation is already in your inbox &mdash; it lists the two or three
+                  details that let me quote without a round-trip. Check spam if it isn&apos;t there.
+                </p>
                 <button onClick={() => setStatus('idle')} className="mt-6 font-mono text-sm tracking-widest border-b" style={{ color: 'var(--b-text)', borderColor: 'var(--b-text)' }}>
                   Send another →
                 </button>

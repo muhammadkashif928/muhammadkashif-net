@@ -1,9 +1,44 @@
 import nodemailer from 'nodemailer'
+import { enrichLead, scoreLead, saveLead, countPreviousLeads } from '@/lib/leads'
+import { notificationEmail, autoReplyEmail } from '@/lib/emails'
 
 // ── Hostinger SMTP — direct, no third-party service ──────────────────────
-// Add these two env vars in Vercel → Settings → Environment Variables:
+// Required env vars in Vercel → Settings → Environment Variables:
 //   SMTP_USER = info@muhammadkashif.net
-//   SMTP_PASS = (your Hostinger email password)
+//   SMTP_PASS = (Hostinger email password)
+//
+// Optional — lead storage. Create this once in the Neon console:
+//
+//   CREATE TABLE IF NOT EXISTS leads (
+//     id            BIGSERIAL PRIMARY KEY,
+//     name          TEXT NOT NULL,
+//     email         TEXT NOT NULL,
+//     message       TEXT NOT NULL,
+//     score         INT,
+//     tier          TEXT,
+//     service       TEXT,
+//     market        TEXT,
+//     asin          TEXT,
+//     country       TEXT,
+//     region        TEXT,
+//     city          TEXT,
+//     timezone      TEXT,
+//     referrer      TEXT,
+//     landing_path  TEXT,
+//     page_path     TEXT,
+//     utm_source    TEXT,
+//     utm_medium    TEXT,
+//     utm_campaign  TEXT,
+//     utm_term      TEXT,
+//     ip            TEXT,
+//     user_agent    TEXT,
+//     status        TEXT DEFAULT 'new',
+//     created_at    TIMESTAMPTZ DEFAULT NOW()
+//   );
+//   CREATE INDEX IF NOT EXISTS leads_created_at_idx ON leads (created_at DESC);
+//   CREATE INDEX IF NOT EXISTS leads_email_idx      ON leads (email);
+//
+// Until that table exists everything still works — storage is skipped silently.
 // ─────────────────────────────────────────────────────────────────────────
 
 function createTransport() {
@@ -64,74 +99,63 @@ export async function POST(request) {
   // (nodemailer CVE-class SMTP/header injection — see GHSA-268h-hp4c-crq3)
   const stripCrlf = (s) => s.replace(/[\r\n]+/g, ' ').trim()
 
-  const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-
   const cleanName    = stripCrlf(name.trim())
-  const cleanEmail    = stripCrlf(email.trim().toLowerCase())
-  const cleanMessage  = message.trim()
-  const safeName      = escapeHtml(cleanName)
+  const cleanEmail   = stripCrlf(email.trim().toLowerCase())
+  const cleanMessage = message.trim()
+
+  // ── Enrich + score ────────────────────────────────────────────────────
+  const enrichment = enrichLead(request, body)
+  const scoring = scoreLead({ message: cleanMessage, enrichment })
+  const previousCount = await countPreviousLeads(cleanEmail)
+
+  const lead = { name: cleanName, email: cleanEmail, message: cleanMessage }
 
   try {
     const transporter = createTransport()
 
+    // ── 1. Notify me. This one must succeed. ────────────────────────────
+    const notify = notificationEmail({ lead, scoring, enrichment, previousCount, ip })
+
     await transporter.sendMail({
-      from:     `"Muhammad Kashif Website" <${process.env.SMTP_USER}>`,
-      to:       process.env.SMTP_USER, // send to yourself
-      replyTo:  `"${cleanName}" <${cleanEmail}>`,
-      subject:  `New enquiry from ${cleanName} — muhammadkashif.net`,
-      text: [
-        `Name:    ${cleanName}`,
-        `Email:   ${cleanEmail}`,
-        ``,
-        `Message:`,
-        cleanMessage,
-        ``,
-        `---`,
-        `Sent via muhammadkashif.net contact form`,
-        `IP: ${ip}`,
-      ].join('\n'),
-      html: `
-        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f5f5f0;padding:0;">
-          <div style="background:#0a0a0a;padding:24px 32px;">
-            <h1 style="font-family:'Arial Black',sans-serif;color:#e8e800;margin:0;font-size:22px;letter-spacing:4px;">
-              NEW ENQUIRY
-            </h1>
-            <p style="color:#f5f5f0;margin:4px 0 0;font-size:11px;letter-spacing:2px;opacity:0.5;">
-              MUHAMMADKASHIF.NET
-            </p>
-          </div>
-          <div style="padding:32px;background:#fff;border:2px solid #0a0a0a;border-top:none;">
-            <table style="width:100%;border-collapse:collapse;">
-              <tr>
-                <td style="font-size:10px;letter-spacing:2px;color:#888;padding:8px 0 4px;text-transform:uppercase;">Name</td>
-                <td style="font-size:15px;font-weight:700;color:#0a0a0a;padding:8px 0 4px;">${safeName}</td>
-              </tr>
-              <tr>
-                <td style="font-size:10px;letter-spacing:2px;color:#888;padding:4px 0 12px;text-transform:uppercase;">Email</td>
-                <td style="padding:4px 0 12px;">
-                  <a href="mailto:${cleanEmail}" style="color:#0a0a0a;font-size:14px;">${cleanEmail}</a>
-                </td>
-              </tr>
-            </table>
-            <div style="background:#f5f5f0;border-left:4px solid #e8e800;padding:16px 20px;margin-top:8px;">
-              <p style="font-size:10px;letter-spacing:2px;color:#888;text-transform:uppercase;margin:0 0 10px;">Message</p>
-              <p style="font-size:14px;line-height:1.7;color:#0a0a0a;margin:0;white-space:pre-wrap;">${cleanMessage.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>
-            </div>
-            <div style="margin-top:24px;padding-top:16px;border-top:1px solid #eee;">
-              <a href="mailto:${cleanEmail}?subject=Re: Your enquiry — Muhammad Kashif"
-                 style="display:inline-block;background:#0a0a0a;color:#e8e800;text-decoration:none;padding:12px 24px;font-size:12px;letter-spacing:2px;font-weight:700;">
-                REPLY TO ${safeName.toUpperCase()} →
-              </a>
-            </div>
-          </div>
-          <div style="padding:16px 32px;text-align:center;">
-            <p style="font-size:11px;color:#999;margin:0;">Sent from muhammadkashif.net contact form</p>
-          </div>
-        </div>
-      `,
+      from:    `"Muhammad Kashif Website" <${process.env.SMTP_USER}>`,
+      to:      process.env.SMTP_USER,
+      replyTo: `"${cleanName}" <${cleanEmail}>`,
+      subject: notify.subject,
+      text:    notify.text,
+      html:    notify.html,
     })
 
-    return Response.json({ success: true })
+    // ── 2. Auto-reply to them. Best effort — never fails the request. ───
+    let autoReplySent = false
+    try {
+      const reply = autoReplyEmail({ name: cleanName, scoring })
+      await transporter.sendMail({
+        from:    `"Muhammad Kashif" <${process.env.SMTP_USER}>`,
+        to:      `"${cleanName}" <${cleanEmail}>`,
+        replyTo: process.env.SMTP_USER,
+        subject: reply.subject,
+        text:    reply.text,
+        html:    reply.html,
+        headers: { 'X-Auto-Response-Suppress': 'OOF, AutoReply' },
+      })
+      autoReplySent = true
+    } catch (err) {
+      console.error('Auto-reply failed (enquiry still delivered):', err.message)
+    }
+
+    // ── 3. Store the lead. Best effort. ─────────────────────────────────
+    await saveLead({
+      ...lead,
+      score: scoring.score,
+      tier: scoring.tier,
+      service: scoring.service,
+      market: scoring.market,
+      asin: scoring.asin,
+      ...enrichment,
+      ip,
+    })
+
+    return Response.json({ success: true, autoReplySent })
   } catch (err) {
     console.error('Email send failed:', err.message)
     return Response.json(
