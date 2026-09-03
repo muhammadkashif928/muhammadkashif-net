@@ -1,8 +1,11 @@
 export default function robots() {
   return {
     rules: [
-      // All crawlers allowed by default; keep admin and API out of the index
-      { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/'] },
+      // All crawlers allowed by default; keep admin and API out of the index.
+      // /api/cover/ is the exception — it serves each post's Open Graph and
+      // social preview image, so blocking it would leave every share and
+      // every image result without a picture. The more specific Allow wins.
+      { userAgent: '*', allow: ['/', '/api/cover/'], disallow: ['/admin/', '/api/'] },
       // ChatGPT / OpenAI
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
