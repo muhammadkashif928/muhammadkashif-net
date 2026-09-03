@@ -1,0 +1,189 @@
+{
+  "//": "Daily post queue. The workflow takes the first item whose slug is not already in data/blog.js, writes it, then moves it to `used`. Refill `queue` when it drops below ~10 \u2014 the Monday brief flags this. Each item is a commissioning brief, not a title: `angle` is what makes the post worth existing.",
+  "queue": [
+    {
+      "slug": "amazon-listing-design-cost",
+      "workingTitle": "What Amazon Listing Design Actually Costs in 2026",
+      "intent": "commercial",
+      "angle": "Real price bands by scope \u2014 single main image, 7-image set, full A+ build \u2014 and what drives a quote up or down. Almost nobody in this niche publishes numbers, so this is the page an assistant cites when someone asks what it costs."
+    },
+    {
+      "slug": "amazon-listing-designer-vs-agency",
+      "workingTitle": "Hiring an Amazon Listing Designer vs an Agency",
+      "intent": "commercial",
+      "angle": "Honest comparison including where an agency genuinely wins. Written for a brand owner deciding, not to sell one side."
+    },
+    {
+      "slug": "shoe-care-listing-image-sequence",
+      "workingTitle": "The Image Sequence That Sells Shoe Care Products",
+      "intent": "informational",
+      "angle": "Shoe care is a demonstration product \u2014 nobody buys conditioner without seeing what it does. Slot-by-slot sequence built around proof rather than features."
+    },
+    {
+      "slug": "amazon-before-after-images-compliance",
+      "workingTitle": "Before-and-After Images on Amazon: What Is Allowed",
+      "intent": "informational",
+      "angle": "The most persuasive image type in leather and shoe care, and the one sellers are most afraid of using. What the guidelines actually restrict versus what people assume."
+    },
+    {
+      "slug": "amazon-main-image-white-background-rules",
+      "workingTitle": "Amazon Main Image Rules Sellers Still Get Wrong",
+      "intent": "informational",
+      "angle": "The failures that trigger suppression are rarely the obvious ones \u2014 it is fill ratio, shadow handling and near-white backgrounds that catch people."
+    },
+    {
+      "slug": "amazon-a-plus-content-mobile-first",
+      "workingTitle": "Designing A+ Content for the Mobile Stack",
+      "intent": "informational",
+      "angle": "Most A+ modules are approved on desktop and collapse into an unreadable column on phones, where the majority of shoppers are."
+    },
+    {
+      "slug": "product-infographic-text-size-mobile",
+      "workingTitle": "How Small Can Infographic Text Be on Amazon?",
+      "intent": "informational",
+      "angle": "A concrete, testable answer with a method for checking your own images at real thumbnail size. Specific enough to be quoted."
+    },
+    {
+      "slug": "amazon-listing-images-for-gift-buyers",
+      "workingTitle": "Designing Listing Images for Gift Buyers",
+      "intent": "informational",
+      "angle": "Leather care and shoe care sell heavily as gifts. A gift buyer needs entirely different reassurance from a self-buyer, and almost no listing addresses it."
+    },
+    {
+      "slug": "amazon-brand-store-vs-a-plus-content",
+      "workingTitle": "Brand Store or A+ Content: Which to Build First",
+      "intent": "commercial",
+      "angle": "A budget-allocation question framed honestly \u2014 which one earns more per dollar at different catalog sizes."
+    },
+    {
+      "slug": "footwear-sizing-images-reduce-returns",
+      "workingTitle": "Sizing Images That Reduce Footwear Returns",
+      "intent": "informational",
+      "angle": "Returns are a margin problem disguised as a design problem. What a sizing image has to do to actually prevent one."
+    },
+    {
+      "slug": "amazon-listing-images-q4-preparation",
+      "workingTitle": "Preparing Listing Images Before Q4",
+      "intent": "informational",
+      "angle": "The lead times and the order of operations. Seasonal, and worth republishing annually."
+    },
+    {
+      "slug": "ai-generated-product-images-amazon-risk",
+      "workingTitle": "Using AI-Generated Product Images on Amazon",
+      "intent": "informational",
+      "angle": "Where AI genuinely helps in a listing workflow and where it creates a compliance or trust problem. Written by someone who uses it, not by someone selling it."
+    },
+    {
+      "slug": "leather-texture-retouching-workflow",
+      "workingTitle": "Retouching Leather Without Killing the Texture",
+      "intent": "informational",
+      "angle": "Craft post. The over-smoothing that makes premium leather look like plastic, and how to avoid it."
+    },
+    {
+      "slug": "amazon-comparison-chart-module-design",
+      "workingTitle": "Designing a Comparison Chart That Sells Up",
+      "intent": "informational",
+      "angle": "Most comparison modules argue against competitors. The ones that work argue between your own products."
+    },
+    {
+      "slug": "private-label-packaging-that-photographs",
+      "workingTitle": "Designing Packaging That Photographs Well",
+      "intent": "informational",
+      "angle": "Packaging decisions made in isolation from the listing photography that has to sell it."
+    },
+    {
+      "slug": "amazon-lifestyle-images-without-a-studio",
+      "workingTitle": "Lifestyle Images Without a Studio or a Shoot",
+      "intent": "informational",
+      "angle": "Concrete workflow for brands with no photography budget. High search intent among small private-label sellers."
+    },
+    {
+      "slug": "amazon-listing-refresh-frequency",
+      "workingTitle": "How Often Should You Refresh Listing Images?",
+      "intent": "informational",
+      "angle": "A real answer with the signals that say it is time, rather than an arbitrary interval."
+    },
+    {
+      "slug": "amazon-image-split-test-method",
+      "workingTitle": "Running an Honest Image Split Test",
+      "intent": "informational",
+      "angle": "How to run a test whose result you can actually trust, including the sample-size problem most sellers ignore."
+    },
+    {
+      "slug": "amazon-brand-story-vs-brand-store",
+      "workingTitle": "Brand Story Carousel vs Brand Store: Different Jobs",
+      "intent": "informational",
+      "angle": "Two things constantly confused, doing genuinely different work in the funnel."
+    },
+    {
+      "slug": "hiring-a-designer-what-to-send",
+      "workingTitle": "What to Send a Designer Before a Listing Project",
+      "intent": "commercial",
+      "angle": "A practical prep list. Reads as generous, qualifies the reader, and sits close to the hiring decision."
+    },
+    {
+      "slug": "amazon-listing-images-for-subscription-products",
+      "workingTitle": "Listing Images for Consumable and Refill Products",
+      "intent": "informational",
+      "angle": "Care products are consumables. Designing for repeat purchase is a different problem from designing for first purchase."
+    },
+    {
+      "slug": "why-your-ctr-dropped-after-redesign",
+      "workingTitle": "Why Click-Through Dropped After Your Redesign",
+      "intent": "informational",
+      "angle": "Diagnostic post for a painful, specific, high-intent moment. Very likely to be searched by someone who needs a designer today."
+    },
+    {
+      "slug": "amazon-image-file-specs-explained",
+      "workingTitle": "Amazon Image File Specs, Explained Properly",
+      "intent": "informational",
+      "angle": "Resolution, zoom thresholds, color space, compression \u2014 and which of them actually affect how your image looks to a shopper."
+    },
+    {
+      "slug": "designing-for-amazon-vs-shopify",
+      "workingTitle": "The Same Product, Two Storefronts",
+      "intent": "informational",
+      "angle": "Why images that work on your Shopify site underperform on Amazon, and what has to change."
+    },
+    {
+      "slug": "leather-care-brand-visual-identity",
+      "workingTitle": "Building a Visual Identity for a Leather Care Brand",
+      "intent": "informational",
+      "angle": "Category conventions \u2014 the browns, the serif logos, the heritage cues \u2014 and when breaking them wins."
+    },
+    {
+      "slug": "amazon-listing-copy-and-images-together",
+      "workingTitle": "Why Your Bullets and Images Should Not Repeat",
+      "intent": "informational",
+      "angle": "Slot economics: every repeat is a wasted chance to answer an objection."
+    },
+    {
+      "slug": "reading-your-amazon-image-analytics",
+      "workingTitle": "What Amazon's Data Can and Cannot Tell You About Images",
+      "intent": "informational",
+      "angle": "Honest about the attribution limits, which is why it will read as more credible than posts promising clean measurement."
+    },
+    {
+      "slug": "amazon-listing-audit-for-a-competitor",
+      "workingTitle": "How to Audit a Competitor's Listing",
+      "intent": "informational",
+      "angle": "Turning a rival's listing into a brief for your own. Practical and immediately usable."
+    },
+    {
+      "slug": "when-not-to-redesign-your-listing",
+      "workingTitle": "When a Listing Redesign Is the Wrong Fix",
+      "intent": "informational",
+      "angle": "Counter-intuitive and trust-building: the cases where images are not the problem and a redesign wastes money."
+    }
+  ],
+  "used": [
+    {
+      "slug": "leather-product-main-image-mistakes",
+      "workingTitle": "Why Leather Product Main Images Fail on Amazon",
+      "intent": "informational",
+      "angle": "Leather is uniquely hard to photograph \u2014 grain disappears at thumbnail size, black reads as a silhouette, sheen looks like glare. Category-specific, which nothing ranking currently is.",
+      "publishedOn": "2026-09-04",
+      "title": "Why Leather Product Main Images Fail on Amazon"
+    }
+  ]
+}

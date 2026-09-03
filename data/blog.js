@@ -1,5 +1,35 @@
 export const blogPosts = [
   {
+    slug: 'leather-product-main-image-mistakes',
+    title: 'Why Leather Product Main Images Fail on Amazon',
+    category: 'Amazon Product Images',
+    date: 'September 4, 2026',
+    publishedAt: '2026-09-04T02:49:21+08:00',
+    updatedAt: '2026-09-04T02:49:21+08:00',
+    image: '/api/cover/leather-product-main-image-mistakes',
+    imageAlt: 'Black leather care product photographed against a white background for an Amazon main image',
+    excerpt: 'Leather is the hardest category to photograph for a thumbnail. Here is what goes wrong between your studio shot and the search results grid.',
+    tags: ['Main Image', 'Leather Products', 'Product Photography'],
+    faqs: [
+      {
+        q: 'Should a black leather product be photographed on a pure white background?',
+        a: 'Yes, the main image still needs a clean white background. The fix for a dark product is not a different background but different lighting — raking light and deliberate tonal separation between the faces of the product, so the shape stays readable when the image is scaled down to thumbnail size.',
+      },
+      {
+        q: 'Why does my leather product look cheap in Amazon search results but fine on my own site?',
+        a: 'Your site displays the image large, where grain and stitching are visible. The search grid displays it small and recompressed, which destroys exactly that fine detail. A main image composed for a large display often communicates nothing at the size where the click is actually decided.',
+      },
+      {
+        q: 'How do I check whether my main image works at thumbnail size?',
+        a: 'Search your main keyword on a phone and find your product in the grid alongside its real competitors. Judging the image alone at full size tells you almost nothing, because that is not the context in which a shopper ever compares it.',
+      },
+      {
+        q: 'Is a lifestyle image better than a plain product shot for leather goods?',
+        a: 'Not for the main image, which needs to stay compliant and instantly readable. Context belongs in the side images, where a leather product shown in use does work that a white-background shot cannot — particularly for care products, where the transformation is the entire proposition.',
+      },
+    ],
+  },
+  {
     slug: 'amazon-a-plus-content-strategy',
     title: 'Amazon A+ Content Strategy: How to Build Modules That Convert',
     category: 'Amazon Listing Optimization',
