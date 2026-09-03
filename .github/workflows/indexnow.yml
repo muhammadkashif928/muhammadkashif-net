@@ -1,0 +1,71 @@
+name: Submit new posts to IndexNow
+
+# Fires whenever a post lands on main. Waits for Vercel to serve the page,
+# then submits it to IndexNow (Bing and friends). Google no longer accepts
+# sitemap pings — it picks the post up from sitemap.xml and Search Console.
+#
+# No secrets. No API keys. Nothing to pay for.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/blog.js'
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Post slug to submit (leave blank to use the newest in data/blog.js)'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find the newest post
+        id: post
+        run: |
+          slug="${{ github.event.inputs.slug }}"
+          if [ -z "$slug" ]; then
+            # data/blog.js is ordered newest first.
+            slug=$(grep -m1 -oE "slug: '[^']+'" data/blog.js | sed "s/slug: '//;s/'//")
+          fi
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "Newest post: $slug"
+
+      - name: Wait for the deploy
+        id: wait
+        env:
+          SLUG: ${{ steps.post.outputs.slug }}
+        run: |
+          url="https://muhammadkashif.net/$SLUG/"
+          code=000
+          for i in $(seq 1 20); do
+            sleep 30
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$url")
+            echo "attempt $i: $code"
+            [ "$code" = "200" ] && break
+          done
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Submit to IndexNow
+        if: steps.wait.outputs.code == '200'
+        env:
+          URL: ${{ steps.wait.outputs.url }}
+        run: |
+          curl -sS -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json' \
+            -d "{\"host\":\"muhammadkashif.net\",\"key\":\"82f3c322a5e0050da881e3e6e8d48270\",\"keyLocation\":\"https://muhammadkashif.net/82f3c322a5e0050da881e3e6e8d48270.txt\",\"urlList\":[\"$URL\",\"https://muhammadkashif.net/blog/\",\"https://muhammadkashif.net/sitemap.xml\"]}" \
+            -w '\nIndexNow HTTP %{http_code}\n'
+          echo "### Submitted $URL to IndexNow" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report a deploy that never came up
+        if: steps.wait.outputs.code != '200'
+        run: |
+          echo "::warning::${{ steps.wait.outputs.url }} returned ${{ steps.wait.outputs.code }} after 10 minutes — not submitted."
+          echo "### Deploy did not come up: ${{ steps.wait.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"

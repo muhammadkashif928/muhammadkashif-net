@@ -27,3 +27,6 @@ yarn-debug.log*
 # WordPress uploads folder (images moved to /public/images/)
 public/uploads/
 .env*
+
+# Post briefs — kept out of the repo; the generated post is the artifact.
+drafts/*.json
