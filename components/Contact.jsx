@@ -12,6 +12,9 @@ const contactLinks = [
 export default function Contact() {
   const [form, setForm]         = useState({ name: '', email: '', message: '', honeypot: '' })
   const [status, setStatus]     = useState('idle') // idle | sending | success | error
+  // The API tells us whether the auto-reply actually went out. The success
+  // panel must not promise an email that failed to send.
+  const [autoReplySent, setAutoReplySent] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
 
   const handleSubmit = async (e) => {
@@ -39,6 +42,7 @@ export default function Contact() {
       const data = await res.json()
       if (data.success) {
         setStatus('success')
+        setAutoReplySent(Boolean(data.autoReplySent))
         gaEvent('contact_submit', { location: 'home_contact_form' })
         setForm({ name: '', email: '', message: '', honeypot: '' })
       } else {
@@ -124,8 +128,9 @@ export default function Contact() {
                 <div className="font-bebas leading-none mb-4" style={{ fontSize: '5rem', color: 'var(--b-text)', WebkitTextStroke: '2px var(--b-border)' }}>SENT!</div>
                 <p className="font-mono text-sm sm:text-base" style={{ color: 'var(--b-muted)' }}>Message received. I&apos;ll get back to you within one business day.</p>
                 <p className="font-mono text-xs sm:text-sm mt-3 max-w-sm mx-auto leading-relaxed" style={{ color: 'var(--b-muted)', opacity: 0.8 }}>
-                  A confirmation is already in your inbox &mdash; it lists the two or three
-                  details that let me quote without a round-trip. Check spam if it isn&apos;t there.
+                  {autoReplySent
+                    ? 'A confirmation is on its way to your inbox — it repeats back what I picked up from your message and asks for the last couple of details. Check spam if it is not there.'
+                    : 'Your message reached me. I could not send the automatic confirmation, so there is nothing to look for in your inbox until I reply personally.'}
                 </p>
                 <button onClick={() => setStatus('idle')} className="mt-6 font-mono text-sm tracking-widest border-b" style={{ color: 'var(--b-text)', borderColor: 'var(--b-text)' }}>
                   Send another →
