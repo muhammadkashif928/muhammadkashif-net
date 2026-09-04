@@ -114,8 +114,14 @@ export async function GET(request, { params }) {
       ...SIZE,
       fonts: bebas ? [{ name: 'Bebas', data: bebas, style: 'normal', weight: 400 }] : [],
       headers: {
-        // Covers never change once a post is published.
-        'cache-control': 'public, immutable, no-transform, max-age=31536000',
+        // Deliberately NOT immutable. The URL is stable but the image is
+        // derived from the post title and the cover design, both of which can
+        // change — and `immutable, max-age=31536000` would mean a redesign
+        // never reaches anything that had already scraped the URL, social
+        // crawlers included, for a year. A short browser TTL with a long
+        // shared cache and stale-while-revalidate keeps it cheap while
+        // leaving a way to actually ship a change.
+        'cache-control': 'public, no-transform, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
       },
     }
   )
