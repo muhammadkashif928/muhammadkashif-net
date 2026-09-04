@@ -5,6 +5,7 @@
  *
  * @param {object|null} results             - null renders nothing (default).
  * @param {Array}       results.metrics     - [{ label, value, timeframe }]
+ * @param {string}      results.source      - where the figures came from
  * @param {string}      results.quote       - client quote, verbatim
  * @param {string}      results.attribution - who said it
  * @param {string}      results.attributionRole - their role / company
@@ -13,6 +14,9 @@
 export default function CaseStudyResults({ results, showPending = false }) {
   const metrics = results?.metrics?.filter((m) => m && m.label && m.value) ?? []
   const quote = results?.quote?.trim()
+  // Where the figures came from. Shown once, under the grid — a number a
+  // reader cannot source is a number they discount.
+  const source = results?.source?.trim()
   const hasData = metrics.length > 0 || Boolean(quote)
 
   if (!hasData) {
@@ -82,6 +86,15 @@ export default function CaseStudyResults({ results, showPending = false }) {
               </div>
             ))}
           </div>
+        )}
+
+        {source && (
+          <p
+            className="font-mono text-xs leading-relaxed mt-5 max-w-xl"
+            style={{ color: 'var(--b-muted)' }}
+          >
+            {source}
+          </p>
         )}
 
         {quote && (

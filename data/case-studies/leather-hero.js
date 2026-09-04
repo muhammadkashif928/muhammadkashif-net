@@ -2,7 +2,16 @@
 // ── RESULTS ── Edit here when Leather Hero sends performance data.
 // `null` renders nothing at all (default, recommended).
 // ═══════════════════════════════════════════════════════════════════
-export const results = null
+export const results = {
+  metrics: [
+    { label: 'Traffic', value: '+75%', timeframe: '90 days after launch' },
+    { label: 'Sales', value: '+50%', timeframe: '90 days after launch' },
+  ],
+  // The brand asked not to be named, which is why the case study credits the
+  // work rather than the client. Say where the numbers came from regardless —
+  // an unsourced figure is one a buyer discounts.
+  source: 'Figures as reported by the brand, measured over the 90 days after the new image set went live.',
+}
 
 // When the client responds, replace the line above with this shape.
 // Every field is optional — pass only what you actually have.
