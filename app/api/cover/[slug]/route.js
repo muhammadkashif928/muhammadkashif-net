@@ -61,9 +61,11 @@ export async function GET(request, { params }) {
           position: 'relative',
         }}
       >
-        {/* Corner block, echoing the site hero */}
-        <div style={{ position: 'absolute', top: 0, right: 0, width: 150, height: 150, backgroundColor: ACCENT, opacity: 0.09, display: 'flex' }} />
+        {/* Top rule plus a bracket in the corner. An earlier version used a
+            large translucent square here, which ran off the right edge and
+            read as an accident rather than a mark. */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 6, backgroundColor: ACCENT, display: 'flex' }} />
+        <div style={{ position: 'absolute', top: 40, right: 40, width: 72, height: 72, borderTop: `3px solid ${ACCENT}`, borderRight: `3px solid ${ACCENT}`, display: 'flex' }} />
 
         {/* Category */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
