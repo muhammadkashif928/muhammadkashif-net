@@ -36,7 +36,7 @@ export default function Hero() {
   }, [roleIndex, typing])
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: 'var(--a-bg)' }}>
+    <section id="home" className="relative min-h-[88vh] md:min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: 'var(--a-bg)' }}>
 
       {/* Grid background */}
       <div className="absolute inset-0 grid-bg" />
@@ -60,14 +60,14 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title">
-            <span className="hero-name block font-bebas leading-none fade-up-2" style={{ fontSize: 'clamp(3.5rem,10vw,8.5rem)', color: 'var(--a-text)' }}>
+            <span className="hero-name block font-bebas leading-none fade-up-2" style={{ fontSize: 'clamp(2.75rem,7vw,5.5rem)', color: 'var(--a-text)' }}>
               MUHAMMAD
               <br />
               <span style={{ color: 'var(--accent)', WebkitTextStroke: '1px var(--a-border)' }}>KASHIF</span>
             </span>
 
             {/* Typewriter */}
-            <span className="hero-role mt-4 sm:mt-5 h-10 sm:h-12 flex items-center fade-up-3 font-mono font-normal tracking-widest" style={{ fontSize: 'clamp(0.7rem,2vw,0.85rem)', color: 'var(--a-text)' }}>
+            <span className="hero-role mt-4 sm:mt-5 min-h-[3.5rem] sm:min-h-[4.5rem] flex items-center fade-up-3 font-mono font-normal tracking-widest" style={{ fontSize: 'clamp(0.95rem,2.2vw,1.35rem)', color: 'var(--a-text)' }}>
               {animated ? (
                 <>{displayed}<span className="cursor-blink" style={{ color: 'var(--accent)' }}>|</span></>
               ) : (

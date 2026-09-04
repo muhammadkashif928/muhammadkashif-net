@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import ClientStrip from '@/components/ClientStrip'
 import About from '@/components/About'
 import Services from '@/components/Services'
+import HomeProof from '@/components/HomeProof'
 import Portfolio from '@/components/Portfolio'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
@@ -25,10 +26,14 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ClientStrip />
-      <About />
-      <Services />
+      {/* Work first. A visitor deciding whether this person can design should
+          see the work before the biography — About answers "can I trust him",
+          which is only a live question once they already like what they saw. */}
+      <HomeProof />
       <Portfolio />
+      <Services />
       <Testimonials />
+      <About />
       <Contact />
       <Footer />
     </main>
