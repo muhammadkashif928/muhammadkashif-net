@@ -18,7 +18,7 @@ const after = afterImages[0]
  */
 function Panel({ img, label, tone }) {
   return (
-    <figure className="relative border-2 m-0" style={{ borderColor: 'var(--a-border)', backgroundColor: '#ffffff', boxShadow: '5px 5px 0px var(--a-subtle)' }}>
+    <figure className="proof-card relative m-0">
       <div className="relative aspect-square">
         <Image
           src={img.src}
@@ -28,14 +28,12 @@ function Panel({ img, label, tone }) {
           className="object-contain"
         />
       </div>
-      <figcaption
-        className="absolute top-3 left-3 font-mono text-[11px] tracking-[0.2em] px-3 py-1.5 border"
-        style={
-          tone === 'after'
-            ? { backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)' }
-            : { backgroundColor: '#ffffff', color: '#0a0a0a', borderColor: '#0a0a0a' }
-        }
-      >
+      {/* The chip sits on the product's own white background, so it is
+          pinned to fixed colours rather than --accent. --accent inverts
+          with the theme: in dark mode it resolves to cream, which put a
+          cream box on a white card and the label stopped reading as a
+          label at all. */}
+      <figcaption className={`proof-chip ${tone === 'after' ? 'proof-chip-after' : ''}`}>
         {label}
       </figcaption>
     </figure>

@@ -6,7 +6,7 @@ const socials = [
   { label: 'UPWORK',    href: 'https://www.upwork.com/freelancers/~016edc19243e405472', event: 'upwork_click' },
   { label: 'LINKEDIN',  href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
   { label: 'FACEBOOK',  href: 'https://www.facebook.com/profile.php?id=100011667847244' },
-  { label: 'INSTAGRAM', href: 'https://instagram.com/muhamadkashif928' },
+  { label: 'INSTAGRAM', href: 'https://instagram.com/muhammadkashif928' },
   { label: 'WHATSAPP',  href: 'https://wa.me/60179152084', event: 'whatsapp_click' },
 ]
 

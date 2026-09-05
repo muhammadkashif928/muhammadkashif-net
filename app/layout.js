@@ -68,7 +68,7 @@ export const metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: ['/images/profile.avif'],
-    creator: '@muhamadkashif928',
+    creator: '@muhammadkashif928',
   },
   icons: {
     // app/icon.png and app/apple-icon.png are picked up by Next's file

@@ -402,11 +402,72 @@ html.theme-light .social-dock {
 }
 .contact-bar-btn + .contact-bar-btn { border-left: 1px solid var(--a-border); }
 @media (max-width: 767px) {
-  .contact-bar { display: flex; }
-  /* Keep the bar (48px target + 1px border) clear of page content and
-     the back-to-top button */
+  .contact-bar {
+    display: flex;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+  /* Keep the bar (48px target + 1px border) clear of the end of the
+     document and of the back-to-top button */
   body { padding-bottom: calc(49px + env(safe-area-inset-bottom)); }
-  .back-to-top { bottom: calc(49px + env(safe-area-inset-bottom) + 1rem); }
+  .back-to-top {
+    bottom: calc(49px + env(safe-area-inset-bottom) + 1rem);
+    transition: bottom 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease,
+                visibility 0.3s ease, transform 0.3s ease,
+                background-color 0.15s ease, color 0.15s ease;
+  }
+
+  /* Scrolling down: get out of the reader's way. MobileContactBar puts
+     this class on <html> and removes it the moment they scroll back up. */
+  html.bar-tucked .contact-bar {
+    transform: translateY(calc(100% + env(safe-area-inset-bottom)));
+  }
+  html.bar-tucked .back-to-top { bottom: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-bar, .back-to-top { transition: none; }
+}
+
+/* ─── HOME PROOF PANELS ─────────────────────────── */
+/* Amazon main images carry their own white background, so the card is
+   almost entirely covered by the photograph. Nothing about the card's
+   own colour is visible — which is why the usual fix for glare (tint the
+   surface) does nothing here. */
+.proof-card {
+  background-color: #ffffff;
+  border: 2px solid rgba(8, 8, 8, 0.16);
+  box-shadow: 5px 5px 0 var(--a-subtle);
+}
+
+/* Dark theme only. Two pure white squares on a #080808 page is a 20:1
+   edge — the eye lands on the white boxes before it lands on the
+   product. Taking 7% off brings 255 down to about 237: still reads as
+   white, no longer glares, and the product colours are untouched. The
+   hard offset shadow is swapped for a soft one so the card edge stops
+   being a razor cut. Delete these two rules to go back to raw white. */
+html:not(.theme-light) .proof-card {
+  border-color: rgba(240, 240, 235, 0.22);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+html:not(.theme-light) .proof-card img { filter: brightness(0.93); }
+
+.proof-chip {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #080808;
+  background-color: #ffffff;
+  color: #080808;
+}
+.proof-chip-after {
+  background-color: #080808;
+  border-color: #080808;
+  color: #f0f0eb;
 }
 
 /* ─── HERO PHOTO: PREMIUM 8K FRAME ───────────────────────────── */

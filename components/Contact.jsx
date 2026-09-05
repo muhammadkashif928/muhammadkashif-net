@@ -4,7 +4,7 @@ import { gaEvent } from '@/lib/gtag'
 import { getAttribution } from '@/lib/attribution'
 
 const contactLinks = [
-  { label: 'BOOK A CALL', value: '20 min, no pitch \u2192', href: 'https://cal.com/muhammad-kashif-8divbm/listing-teardown-call', event: 'booking_click' },
+  { label: 'BOOK A CALL', value: '10 min, no pitch \u2192', href: 'https://cal.com/kashifdesign/listing-teardown-call', event: 'booking_click' },
   { label: 'EMAIL',    value: 'info@muhammadkashif.net', href: 'mailto:info@muhammadkashif.net',                            event: 'email_click' },
   { label: 'WHATSAPP', value: '+60 179152084',            href: 'https://wa.me/60179152084',                                event: 'whatsapp_click' },
   { label: 'UPWORK',   value: 'View Profile →',          href: 'https://www.upwork.com/freelancers/~016edc19243e405472',   event: 'upwork_click' },

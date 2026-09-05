@@ -269,7 +269,7 @@ export default function ResumePage() {
                       { name: 'Upwork',    detail: 'Top Rated Freelancer',  href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
                       { name: 'LinkedIn',  detail: 'Connect with me',       href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
                       { name: 'Fiverr',    detail: 'Verified Seller',       href: '#' },
-                      { name: 'Instagram', detail: '@muhamadkashif928',     href: 'https://instagram.com/muhamadkashif928' },
+                      { name: 'Instagram', detail: '@muhammadkashif928',     href: 'https://instagram.com/muhammadkashif928' },
                     ].map((p) => (
                       <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer"
                         className="flex justify-between items-center py-2 border-b transition-colors"
