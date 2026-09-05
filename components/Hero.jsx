@@ -36,15 +36,15 @@ export default function Hero() {
   }, [roleIndex, typing])
 
   return (
-    <section id="home" className="relative min-h-[88vh] md:min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: 'var(--a-bg)' }}>
+    <section id="home" className="relative min-h-[88vh] md:min-h-screen flex flex-col justify-center overflow-hidden pb-[60px] md:pb-0" style={{ backgroundColor: 'var(--a-bg)' }}>
 
       {/* Grid background */}
       <div className="absolute inset-0 grid-bg" />
       <div className="absolute top-0 left-0 w-full h-px" style={{ backgroundColor: 'var(--a-border)' }} />
 
       {/* Corner decoration */}
-      <div className="absolute top-0 right-0 w-20 h-20 sm:w-28 sm:h-28" style={{ backgroundColor: 'var(--accent)', opacity: 0.08 }} />
-      <div className="absolute top-0 right-0 w-20 h-20 sm:w-28 sm:h-28 border-b-2 border-l-2" style={{ borderColor: 'var(--a-border)' }} />
+      <div className="absolute top-0 right-0 hidden sm:block sm:w-28 sm:h-28" style={{ backgroundColor: 'var(--accent)', opacity: 0.08 }} />
+      <div className="absolute top-0 right-0 hidden sm:block sm:w-28 sm:h-28 border-b-2 border-l-2" style={{ borderColor: 'var(--a-border)' }} />
       <div className="absolute bottom-0 left-0 w-32 sm:w-48 h-px" style={{ backgroundColor: 'var(--accent)', opacity: 0.3 }} />
       <div className="absolute bottom-0 left-0 w-px h-32 sm:h-48" style={{ backgroundColor: 'var(--accent)', opacity: 0.3 }} />
 
@@ -116,8 +116,8 @@ export default function Hero() {
         </div>
 
         {/* ── PHOTO: PREMIUM 8K FRAME ── */}
-        <div className="relative flex justify-center md:justify-end fade-up-3 order-first md:order-last">
-          <div className="relative w-64 h-[22rem] sm:w-80 sm:h-[26rem] md:w-96 md:h-[32rem] lg:w-[27rem] lg:h-[36rem]">
+        <div className="relative flex justify-center md:justify-end fade-up-3 md:order-last">
+          <div className="relative w-52 h-[17rem] sm:w-80 sm:h-[26rem] md:w-96 md:h-[32rem] lg:w-[27rem] lg:h-[36rem]">
 
             {/* Rotating glow halo */}
             <div className="hero-glow" aria-hidden="true" />
