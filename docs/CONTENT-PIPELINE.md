@@ -1,29 +1,51 @@
 # Content pipeline
 
-One post a day, written and published automatically by
-`.github/workflows/daily-post.yml`. It runs on GitHub's infrastructure at
-08:00 UTC — no laptop, no local shell, nothing that has to be online.
+**Read this first.** For a while this document described
+`.github/workflows/daily-post.yml` — a GitHub Action that wrote and published
+a post every morning. That workflow was never committed. It did not exist,
+the scheduled writer had been switched off in favour of it, and nothing was
+publishing. This file now describes what actually runs.
 
-## How a post gets made
+## What actually runs
 
-1. `scripts/generate-post.mjs` takes the first topic in `content/topics.json`
-   that is not already published.
-2. It sends this document, plus an existing post as a voice reference, plus
-   every published title, to the model, which researches the topic and returns
-   a brief.
-3. `scripts/new-post.mjs` validates that brief and generates
-   `app/<slug>/page.js` and the `data/blog.js` entry. The sitemap, the blog
-   index, the article schema and the FAQ schema all read from `data/blog.js`,
-   so nothing else needs editing.
-4. The topic moves from `queue` to `used`, the workflow commits to `main`,
-   Vercel deploys, and the new URL is submitted to IndexNow.
-5. When the queue empties, the workflow opens an issue instead of publishing
-   filler. **Refill `content/topics.json` before that happens** — it is the
-   thing that keeps daily output from turning into thirty ways of saying the
-   same thing.
+A scheduled Claude task, **"Blog post — muhammadkashif.net"**, fires on the
+1st and the 15th of each month at 09:00 Kuching. It writes the post itself,
+on the Max subscription, and pushes. There is no API key anywhere in this
+pipeline and nothing is metered per post.
 
-To write one by hand, do the same thing: write the JSON brief, run
-`node scripts/new-post.mjs drafts/<slug>.json`.
+`scripts/generate-post.mjs` is the metered fallback. It needs
+`ANTHROPIC_API_KEY` and is not used in normal operation. It exists only for
+the case where the pipeline has to run with no Claude session involved at all.
+
+`scripts/new-post.mjs` is the part that does the mechanical work, and both
+routes go through it: give it a validated JSON brief and it generates
+`app/<slug>/page.js` and the `data/blog.js` entry. The sitemap, the blog
+index, the article schema and the FAQ schema all read from `data/blog.js`, so
+nothing else needs editing.
+
+`.github/workflows/indexnow.yml` fires on any push that touches
+`data/blog.js` and submits the new URL to IndexNow. That one is real and has
+been working.
+
+## Why twice a month and not daily
+
+The original brief was one post a day. Keyword research killed it: all
+thirteen target terms draw under 100 US searches a month and seven return no
+data at all. There is no search audience to publish into. Daily output would
+burn the 29-topic queue in a month and leave thirty near-duplicates competing
+with each other.
+
+So the job of a post here is not acquisition. It is credibility for someone
+already in the conversation — a prospect who has the site open, or who was
+sent a link. That work is done by a small number of genuinely useful posts,
+not by volume.
+
+To change the cadence, edit the schedule on that scheduled task. Daily is
+`0 1 * * *`; weekly Tuesdays is `0 1 * * 2`. Nothing else needs to change.
+
+## Writing one by hand
+
+Write the JSON brief, then `node scripts/new-post.mjs drafts/<slug>.json`.
 
 ## Topics
 
