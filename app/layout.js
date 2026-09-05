@@ -71,8 +71,11 @@ export const metadata = {
     creator: '@muhamadkashif928',
   },
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg',
+    // app/icon.png and app/apple-icon.png are picked up by Next's file
+    // convention and hashed automatically; these entries stay for the
+    // shortcut hint only.
+    icon: '/icon.png',
+    shortcut: '/icon.png',
   },
   other: {
     'geo.region': 'MY-13',
