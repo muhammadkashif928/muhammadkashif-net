@@ -433,9 +433,9 @@ html.theme-light .social-dock {
 /* Two files, one shown. The theme class lands on <html> before first
    paint, so the swap is CSS-only — no flash, no JS, and the browser
    only decodes the one that is displayed. */
-.nav-logo  { height: 2rem;    width: auto; display: block; }
-.foot-logo { height: 2.35rem; width: auto; display: block; }
-@media (min-width: 640px) { .nav-logo { height: 2.4rem; } }
+.nav-logo  { height: 2.15rem; width: auto; display: block; }
+.foot-logo { height: 2.6rem;  width: auto; display: block; }
+@media (min-width: 640px) { .nav-logo { height: 2.7rem; } .foot-logo { height: 3.1rem; } }
 
 .nav-logo--dark { display: none; }
 html:not(.theme-light) .nav-logo--light { display: none; }

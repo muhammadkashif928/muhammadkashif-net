@@ -63,16 +63,16 @@ export default function Navbar() {
           <img
             src="/images/logo-lockup-light.webp"
             alt="Muhammad Kashif"
-            width={550}
-            height={160}
+            width={1136}
+            height={220}
             className="nav-logo nav-logo--light"
           />
           <img
             src="/images/logo-lockup-dark.webp"
             alt=""
             aria-hidden="true"
-            width={550}
-            height={160}
+            width={1136}
+            height={220}
             className="nav-logo nav-logo--dark"
           />
         </a>
