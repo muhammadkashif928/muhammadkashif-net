@@ -63,7 +63,7 @@ export default function Navbar() {
           <img
             src="/images/logo-lockup-light.webp"
             alt="Muhammad Kashif"
-            width={514}
+            width={511}
             height={160}
             className="nav-logo nav-logo--light"
           />
@@ -71,7 +71,7 @@ export default function Navbar() {
             src="/images/logo-lockup-dark.webp"
             alt=""
             aria-hidden="true"
-            width={514}
+            width={511}
             height={160}
             className="nav-logo nav-logo--dark"
           />
