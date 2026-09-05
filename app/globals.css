@@ -429,6 +429,18 @@ html.theme-light .social-dock {
   .contact-bar, .back-to-top { transition: none; }
 }
 
+/* ─── BRAND LOCKUP ──────────────────────────────── */
+/* Two files, one shown. The theme class lands on <html> before first
+   paint, so the swap is CSS-only — no flash, no JS, and the browser
+   only decodes the one that is displayed. */
+.nav-logo  { height: 2rem;    width: auto; display: block; }
+.foot-logo { height: 2.35rem; width: auto; display: block; }
+@media (min-width: 640px) { .nav-logo { height: 2.4rem; } }
+
+.nav-logo--dark { display: none; }
+html:not(.theme-light) .nav-logo--light { display: none; }
+html:not(.theme-light) .nav-logo--dark  { display: block; }
+
 /* ─── HOME PROOF PANELS ─────────────────────────── */
 /* Amazon main images carry their own white background, so the card is
    almost entirely covered by the photograph. Nothing about the card's

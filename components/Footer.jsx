@@ -65,8 +65,9 @@ export default function Footer() {
 
           {/* Brand — spans 2 cols on mobile */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-1">
-            <div className="font-bebas tracking-[0.08em] leading-tight mb-4" style={{ fontSize: '1.35rem', color: 'var(--a-text)' }}>
-              MUHAMMAD KASHIF<span style={{ color: 'var(--accent)' }}>.</span>
+            <div className="mb-4">
+              <img src="/images/logo-lockup-light.webp" alt="Muhammad Kashif" width={514} height={160} className="foot-logo nav-logo--light" />
+              <img src="/images/logo-lockup-dark.webp" alt="" aria-hidden="true" width={514} height={160} className="foot-logo nav-logo--dark" />
             </div>
             <p className="font-mono text-sm leading-relaxed mb-4" style={{ color: 'var(--a-muted)' }}>
               Turning Amazon private label products — especially leather care, shoe

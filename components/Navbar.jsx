@@ -52,10 +52,29 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="/"
-          className="font-bebas tracking-[0.08em] transition-colors shrink-0 leading-none"
-          style={{ color: 'var(--a-text)', fontSize: 'clamp(0.9rem, 2.5vw, 1.2rem)' }}
+          aria-label="Muhammad Kashif — home"
+          className="shrink-0 flex items-center"
         >
-          MUHAMMAD KASHIF<span style={{ color: 'var(--accent)' }}>.</span>
+          {/* Both variants ship and CSS picks one. The theme class is set on
+              <html> before first paint, so this switches with no flash and no
+              JS. The light-theme file is the same lockup with the chrome
+              pulled down — as supplied, 18% of its pixels are brighter than
+              the cream page and the wordmark washes out. */}
+          <img
+            src="/images/logo-lockup-light.webp"
+            alt="Muhammad Kashif"
+            width={514}
+            height={160}
+            className="nav-logo nav-logo--light"
+          />
+          <img
+            src="/images/logo-lockup-dark.webp"
+            alt=""
+            aria-hidden="true"
+            width={514}
+            height={160}
+            className="nav-logo nav-logo--dark"
+          />
         </a>
 
         {/* Desktop links — only xl screens get all 7 */}
