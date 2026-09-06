@@ -1,5 +1,35 @@
 export const blogPosts = [
   {
+    slug: 'amazon-footwear-variation-images',
+    title: 'Amazon Footwear Listings: What the Variation Swatch Has to Do',
+    category: 'Amazon Listing Optimization',
+    date: 'September 6, 2026',
+    publishedAt: '2026-09-06T09:00:07+08:00',
+    updatedAt: '2026-09-06T09:00:07+08:00',
+    image: '/api/cover/amazon-footwear-variation-images',
+    imageAlt: 'Amazon footwear listing showing colour variation swatches beneath a main product image',
+    excerpt: 'Your main image wins the click. On a footwear listing with several colourways, the variation swatch decides which shoe the shopper ever actually looks at.',
+    tags: ['Footwear', 'Amazon Listing Design', 'Conversion Design'],
+    faqs: [
+      {
+        q: 'Can I just crop my main image to make a variation swatch?',
+        a: 'You can, and many sellers do, but it usually reads badly. A main image is composed to fill the frame with the whole shoe, so when it is shrunk to swatch size the dominant colour is often the background or the outsole rather than the upper. Crop tighter on the part whose colour is actually being chosen.',
+      },
+      {
+        q: 'Do all colourways in a footwear family need the same photography angle?',
+        a: 'Yes, and it matters more than it sounds. Shoppers compare swatches against each other, not against an ideal. When angles disagree the row reads as different products, and the shopper hesitates instead of choosing. If the colourways were shot at different times, reshooting the whole family together is usually more reliable than correcting them one by one.',
+      },
+      {
+        q: 'Where should the fit image go in a footwear image set?',
+        a: 'Early enough that a shopper sees it before they decide, which in practice means among the first few after the main image. Fit is the main driver of footwear returns, and a size chart only gets read by someone who is already fairly convinced. An honest on-foot image sets the expectation the chart cannot.',
+      },
+      {
+        q: 'Does Amazon publish specific image rules for shoes?',
+        a: 'It publishes a category style guide for shoes covering main image requirements and how variation families are expected to be built. It is worth reading in full rather than relying on summaries, because the requirements are enforced automatically and a family with a missing or mismatched child can be shown to shoppers in ways you did not intend.',
+      },
+    ],
+  },
+  {
     slug: 'leather-product-main-image-mistakes',
     title: 'Why Leather Product Main Images Fail on Amazon',
     category: 'Amazon Product Images',
