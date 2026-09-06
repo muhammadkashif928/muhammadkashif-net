@@ -8,8 +8,8 @@ publishing. This file now describes what actually runs.
 
 ## What actually runs
 
-A scheduled Claude task, **"Blog post — muhammadkashif.net (1st & 15th)"**,
-fires on the 1st and the 15th of each month at 09:00 Kuching. It writes the
+A scheduled Claude task, **"Blog post — muhammadkashif.net (daily)"**, fires
+every day at 09:00 Kuching. It writes the
 post itself, on the Max subscription, and pushes a `content/<slug>` branch.
 There is no API key anywhere in this pipeline and nothing is metered per post.
 
@@ -41,21 +41,32 @@ the FAQ schema all read from `data/blog.js`, so nothing else needs editing.
 `.github/workflows/indexnow.yml` fires on any push that touches
 `data/blog.js` and submits the new URL to IndexNow.
 
-## Why twice a month and not daily
+## Cadence, and what actually limits it
 
-The original brief was one post a day. Keyword research killed it: all
-thirteen target terms draw under 100 US searches a month and seven return no
-data at all. There is no search audience to publish into. Daily output would
-burn the 29-topic queue in a month and leave thirty near-duplicates competing
-with each other.
+Daily, at Muhammad's instruction. `0 1 * * *`.
 
-So the job of a post here is not acquisition. It is credibility for someone
-already in the conversation — a prospect who has the site open, or who was
-sent a link. That work is done by a small number of genuinely useful posts,
-not by volume.
+Daily is the schedule, not the output. The task does not work through a fixed
+queue — it researches a fresh topic each morning and applies four tests: no
+existing post covers it or anything close; a US brand owner would genuinely
+search it; it sits in or beside the niche; and we can say something the
+ranking pages do not. If nothing passes, it publishes nothing and reports why.
 
-To change the cadence, edit the schedule on that scheduled task. Daily is
-`0 1 * * *`; weekly Tuesdays is `0 1 * * 2`. Nothing else needs to change.
+That matters here because the niche is small. Keyword research found all
+thirteen target terms drawing under 100 US searches a month, seven with no
+data at all. The supply of genuinely distinct, defensible topics is finite and
+gets smaller with every post published, because test one compares against
+everything already on the site. So expect a run of posts and then increasingly
+frequent days where the task declines. **That is the design working, not a
+fault.** A day with no post costs nothing; a thin near-duplicate splits your
+own ranking against yourself and stays up forever.
+
+`content/topics.json` still holds commissioning briefs and is still worth
+refilling — it is a useful place to record a topic worth writing — but the
+scheduled task does not read it. `scripts/generate-post.mjs`, the metered
+fallback, is what consumes the queue.
+
+To change the cadence, edit the schedule on the scheduled task. Twice a month
+is `0 1 1,15 * *`; weekly Tuesdays is `0 1 * * 2`.
 
 ## Writing one by hand
 
