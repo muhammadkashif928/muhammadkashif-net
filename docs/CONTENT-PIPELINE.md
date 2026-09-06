@@ -8,24 +8,38 @@ publishing. This file now describes what actually runs.
 
 ## What actually runs
 
-A scheduled Claude task, **"Blog post — muhammadkashif.net"**, fires on the
-1st and the 15th of each month at 09:00 Kuching. It writes the post itself,
-on the Max subscription, and pushes. There is no API key anywhere in this
-pipeline and nothing is metered per post.
+A scheduled Claude task, **"Blog post — muhammadkashif.net (1st & 15th)"**,
+fires on the 1st and the 15th of each month at 09:00 Kuching. It writes the
+post itself, on the Max subscription, and pushes a `content/<slug>` branch.
+There is no API key anywhere in this pipeline and nothing is metered per post.
+
+`.github/workflows/publish-content.yml` then publishes it **automatically**.
+No human reviews a post before it goes live. That was a deliberate decision,
+and what stands in place of the review is `scripts/guard-post.mjs`.
+
+The guard cannot tell whether a post is any good — that is the thing the human
+click was actually for, and it is gone. What it can do is catch the failure
+that costs the most: a confident invented number going out under Muhammad's
+name in front of buyers paying $2,800. It holds a post that contains a
+percentage, a multiplier, a dollar figure or a quantified claim that is not on
+the allowlist of Amazon's own published image rules; anything that reads like
+a client result; a word count outside 700-2200; a missing or duplicated
+`data/blog.js` entry; or a hero image that does not resolve.
+
+A held post is **not** discarded. The branch stays exactly where it is and an
+issue opens naming the reason. Fix the branch and push again, or merge it by
+hand if the guard is wrong.
 
 `scripts/generate-post.mjs` is the metered fallback. It needs
-`ANTHROPIC_API_KEY` and is not used in normal operation. It exists only for
-the case where the pipeline has to run with no Claude session involved at all.
+`ANTHROPIC_API_KEY` and is not used in normal operation.
 
-`scripts/new-post.mjs` is the part that does the mechanical work, and both
-routes go through it: give it a validated JSON brief and it generates
-`app/<slug>/page.js` and the `data/blog.js` entry. The sitemap, the blog
-index, the article schema and the FAQ schema all read from `data/blog.js`, so
-nothing else needs editing.
+`scripts/new-post.mjs` does the mechanical work, and both routes go through
+it: give it a validated JSON brief and it generates `app/<slug>/page.js` and
+the `data/blog.js` entry. The sitemap, the blog index, the article schema and
+the FAQ schema all read from `data/blog.js`, so nothing else needs editing.
 
 `.github/workflows/indexnow.yml` fires on any push that touches
-`data/blog.js` and submits the new URL to IndexNow. That one is real and has
-been working.
+`data/blog.js` and submits the new URL to IndexNow.
 
 ## Why twice a month and not daily
 
