@@ -41,8 +41,11 @@ jobs:
         id: post
         run: |
           set -euo pipefail
-          git fetch origin main --depth=0
-          FILES=$(git diff --name-only --diff-filter=A origin/main...HEAD -- 'app/*/page.js' || true)
+          # --depth=0 is a clone option, not a fetch option; git exits 128 on it.
+          # The checkout already has full history, this just guarantees the ref.
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          BASE=$(git merge-base refs/remotes/origin/main HEAD)
+          FILES=$(git diff --name-only --diff-filter=A "$BASE" HEAD -- 'app/*/page.js' || true)
           if [ -z "$FILES" ]; then
             echo "No new post file on this branch." >&2
             exit 1
@@ -78,7 +81,8 @@ jobs:
           set -euo pipefail
           git config user.name  "Muhammad Kashif"
           git config user.email "info@muhammadkashif.net"
-          git checkout main
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          git checkout -B main refs/remotes/origin/main
           git merge --no-ff "$GITHUB_SHA" -m "content: publish ${{ steps.post.outputs.slug }}
 
           Merged automatically after scripts/guard-post.mjs passed.
