@@ -66,7 +66,12 @@ jobs:
 
       - name: Guard
         id: guard
-        run: node scripts/guard-post.mjs ${{ steps.post.outputs.files }} 2>&1 | tee guard.log
+        # pipefail is NOT set by default in an Actions `run` step, so without
+        # it `| tee` returns tee's exit code and a held post would sail
+        # straight through the merge. The guard has to be able to say no.
+        run: |
+          set -o pipefail
+          node scripts/guard-post.mjs ${{ steps.post.outputs.files }} 2>&1 | tee guard.log
 
       - name: Merge into main
         run: |
