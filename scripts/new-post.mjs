@@ -21,10 +21,17 @@
  *   "tags": ["A+ Content", "Conversion Design"],
  *   "faqs": [{ "q": "...", "a": "..." }],
  *   "intro": "Opening paragraph.",
+ *   "related": [{ "slug": "existing-post", "title": "Its Title" }],   // >= 2, required
  *   "sections": [{
  *     "h2": "Section heading",
  *     "paragraphs": ["..."],
- *     "bullets": [{ "lead": "Bold lead-in", "text": "rest of the point" }]
+ *     "bullets": [{ "lead": "Bold lead-in", "text": "rest of the point" }],
+ *     "figure": {                       // >= 1 across the post, required
+ *       "kind": "grid|compare|sequence|stack",
+ *       "label": "OPTIONAL EYEBROW",
+ *       "caption": "Required. What the reader should take from it.",
+ *       "items": [{ "label": "...", "note": "...", "emphasis": false }]
+ *     }
  *   }],
  *   "conclusion": "Closing paragraph."
  * }
@@ -66,6 +73,16 @@ need('tags', Array.isArray(brief.tags) && brief.tags.length >= 2 && brief.tags.l
 need('faqs', Array.isArray(brief.faqs) && brief.faqs.length >= 3, 'needs at least 3 FAQs')
 need('intro', brief.intro?.length >= 200, 'opening paragraph is too short')
 need('sections', Array.isArray(brief.sections) && brief.sections.length >= 4, 'needs at least 4 sections')
+need('related', Array.isArray(brief.related) && brief.related.length >= 2, 'needs at least 2 internal links to existing posts')
+need('figures', (brief.sections || []).some((s) => s.figure), 'at least one section must carry a figure — a design blog with no visuals argues against itself')
+for (const [i, s] of (brief.sections || []).entries()) {
+  if (!s.figure) continue
+  const f = s.figure
+  need(`sections[${i}].figure.kind`, ['grid', 'compare', 'sequence', 'stack'].includes(f.kind), 'must be grid, compare, sequence or stack')
+  need(`sections[${i}].figure.caption`, Boolean(f.caption), 'every figure needs a caption')
+  need(`sections[${i}].figure.items`, Array.isArray(f.items) && f.items.length >= 2, 'needs at least 2 items')
+  if (f.kind === 'compare') need(`sections[${i}].figure.items`, f.items?.length === 2, 'compare takes exactly 2 items')
+}
 need('conclusion', brief.conclusion?.length >= 150, 'conclusion is too short')
 
 for (const [i, s] of (brief.sections || []).entries()) {
@@ -122,6 +139,23 @@ const human = kuching.toLocaleDateString('en-US', {
 
 // ── Build app/<slug>/page.js ───────────────────────────────────────────
 
+
+/** Serialise a figure into a <PostFigure> call. Data only — never raw SVG. */
+function renderFigure(f) {
+  const items = (f.items || []).slice(0, 6).map((it) => {
+    const parts = [`label: ${jsStr(it.label)}`]
+    if (it.note) parts.push(`note: ${jsStr(it.note)}`)
+    if (it.emphasis) parts.push('emphasis: true')
+    return `{ ${parts.join(', ')} }`
+  }).join(', ')
+  const attrs = [`kind=${jsStr(f.kind)}`]
+  if (f.label) attrs.push(`label=${jsStr(f.label)}`)
+  attrs.push(`caption=${jsStr(f.caption)}`)
+  return `        <PostFigure\n          ${attrs.join('\n          ')}\n          items={[${items}]}\n        />`
+}
+
+const usesFigures = (brief.sections || []).some((s) => s.figure)
+
 const body = brief.sections.map((s) => {
   const paras = s.paragraphs.map((p) => `        <p>\n          ${jsxText(p)}\n        </p>`).join('\n')
   const bullets = s.bullets?.length
@@ -131,7 +165,8 @@ const body = brief.sections.map((s) => {
           : `          <li>${jsxText(b.text ?? b)}</li>`
       ).join('\n') + '\n        </ul>'
     : ''
-  return `        <h2>${jsxText(s.h2)}</h2>\n${paras}${bullets}`
+  const figure = s.figure ? '\n' + renderFigure(s.figure) : ''
+  return `        <h2>${jsxText(s.h2)}</h2>\n${paras}${bullets}${figure}`
 }).join('\n\n')
 
 const related = brief.related?.length
@@ -141,7 +176,7 @@ const related = brief.related?.length
   : ''
 
 const page = `import BlogLayout from '@/components/BlogLayout'
-import BlogStructuredData from '@/components/BlogStructuredData'
+import BlogStructuredData from '@/components/BlogStructuredData'${usesFigures ? "\nimport PostFigure from '@/components/PostFigure'" : ''}
 import { getBlogPost } from '@/data/blog'
 import { createMetadata } from '@/lib/seo'
 
@@ -223,6 +258,19 @@ const anchor = 'export const blogPosts = [\n'
 if (!blogData.startsWith(anchor)) {
   console.error('data/blog.js does not start with the expected `export const blogPosts = [`.')
   process.exit(1)
+}
+// --force regenerates the page, so it must REPLACE the existing entry
+// rather than add a second one. Inserting blindly produced a duplicate slug
+// that the publish guard caught — silently, it would have broken getBlogPost
+// and the sitemap.
+const existing = new RegExp(`\\n  \\{\\n    slug: '${brief.slug}',[\\s\\S]*?\\n  \\},\\n`)
+if (existing.test(blogData)) {
+  if (!force) {
+    console.error(`data/blog.js already has an entry for "${brief.slug}". Use --force to replace it.`)
+    process.exit(1)
+  }
+  blogData = blogData.replace(existing, '\n')
+  console.log(`replaced existing data/blog.js entry for ${brief.slug}`)
 }
 blogData = anchor + entry + blogData.slice(anchor.length)
 

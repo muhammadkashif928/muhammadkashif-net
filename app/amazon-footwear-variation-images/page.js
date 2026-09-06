@@ -1,5 +1,6 @@
 import BlogLayout from '@/components/BlogLayout'
 import BlogStructuredData from '@/components/BlogStructuredData'
+import PostFigure from '@/components/PostFigure'
 import { getBlogPost } from '@/data/blog'
 import { createMetadata } from '@/lib/seo'
 
@@ -46,6 +47,12 @@ export default function AmazonFootwearVariationImages() {
           <li><strong>Readable at thumbnail size.:</strong> Before you upload, shrink the swatch on your own screen until it is the size Amazon will render it. If you cannot name the colour at that size, neither can a shopper.</li>
           <li><strong>Consistent framing across the family.:</strong> The eye compares swatches to each other, not to an ideal. Inconsistency reads as a different product, not a different colour.</li>
         </ul>
+        <PostFigure
+          kind='grid'
+          label='WHAT THE SHOPPER ACTUALLY SEES'
+          caption='The swatch row is a second selection step, and it is the only one where your variations compete with each other rather than with a rival brand.'
+          items={[{ label: 'BLACK', note: 'Upper fills the square' }, { label: 'BROWN', note: 'Same angle, same crop' }, { label: 'TAN', note: 'Same angle, same crop' }, { label: 'OXBLOOD', note: 'Readable at thumbnail size', emphasis: true }]}
+        />
 
         <h2>Why a cropped hero makes a bad swatch</h2>
         <p>
@@ -57,6 +64,12 @@ export default function AmazonFootwearVariationImages() {
         <p>
           The fix is not clever. Shoot or crop the swatch so the upper — the part whose colour is being chosen — fills most of the square, at the same angle for every variation in the family.
         </p>
+        <PostFigure
+          kind='compare'
+          label='SAME SHOE, TWO CROPS'
+          caption='A main image is composed to fill the frame with the whole shoe. Shrink that composition to swatch size and the dominant colour is often background and outsole, not the upper being chosen.'
+          items={[{ label: 'CROPPED HERO', note: 'Background and sole take most of the square. Two similar colourways become impossible to tell apart.' }, { label: 'PURPOSE-CROPPED', note: 'The upper fills the frame. Colour is legible before the shopper has to think about it.', emphasis: true }]}
+        />
 
         <h2>Keep the angle identical across every colourway</h2>
         <p>
@@ -68,6 +81,12 @@ export default function AmazonFootwearVariationImages() {
         <p>
           If your colourways were photographed at different times, the honest fix is to reshoot the set together rather than to correct them individually. Matching an angle after the fact rarely survives being placed next to the original.
         </p>
+        <PostFigure
+          kind='grid'
+          label='ONE FAMILY, FOUR SHOOTS'
+          caption='Each of these looks fine on its own. Placed in a row, the odd angle reads as a different product, and the shopper hesitates instead of choosing.'
+          items={[{ label: 'BLACK', note: 'Three-quarter' }, { label: 'BROWN', note: 'Three-quarter' }, { label: 'TAN', note: 'Side profile — reshot later', emphasis: true }, { label: 'OXBLOOD', note: 'Three-quarter' }]}
+        />
 
         <h2>The size image is doing work the size chart cannot</h2>
         <p>
@@ -79,6 +98,12 @@ export default function AmazonFootwearVariationImages() {
         <p>
           So use one slot in the set to answer fit visually and honestly. On foot, at eye level, with nothing about the pose flattering the shape in a way the shoe does not deliver. This is the rare place where a less appealing image earns more than a beautiful one, because every return you avoid is a sale you keep.
         </p>
+        <PostFigure
+          kind='sequence'
+          label='WHERE FIT BELONGS IN THE SET'
+          caption='Fit drives footwear returns, and a size chart is only read by someone already convinced. Answer it visually while the shopper is still deciding.'
+          items={[{ label: 'MAIN IMAGE', note: 'Wins the click in search' }, { label: 'ON FOOT', note: 'Sets the fit expectation honestly' }, { label: 'DETAIL', note: 'Material, stitching, finish' }, { label: 'SCALE', note: 'Shaft height, toe box, profile' }]}
+        />
 
         <h2>What Amazon&rsquo;s own shoe guidance actually asks for</h2>
         <p>
@@ -90,7 +115,20 @@ export default function AmazonFootwearVariationImages() {
         <p>
           Read the guide, then check your live listing on a phone rather than in Seller Central. Seller Central shows you a tidy grid of everything you uploaded. A shopper sees a small row on a screen held at arm&rsquo;s length, and that is the only view that decides anything.
         </p>
+        <PostFigure
+          kind='stack'
+          label='THE FLOOR, NOT THE TARGET'
+          caption='These are enforced automatically and do not care how good your photography is. Meeting them is where the work starts, not where it ends.'
+          items={[{ label: 'PURE WHITE', note: 'Main image background, no exceptions' }, { label: 'FILLS THE FRAME', note: 'The product, not the negative space around it' }, { label: 'NO PROPS OR TEXT', note: 'On the main image. Everything else has room further down the set' }, { label: 'COMPLETE FAMILY', note: 'Every child carries its own images. A gap is a decision Amazon makes for you' }]}
+        />
 
+
+        <h2>Related Reading</h2>
+        <ul>
+          <li><a href="/amazon-image-requirements-2026/">Amazon Image Requirements 2026: The Complete Technical Specs Guide</a></li>
+          <li><a href="/why-amazon-rejects-product-images/">Why Amazon Rejects Product Images: Common Compliance Mistakes</a></li>
+          <li><a href="/mobile-first-amazon-listing-design/">Mobile-First Amazon Listing Design</a></li>
+        </ul>
 
         <h2>Frequently Asked Questions</h2>
         {post.faqs.map((item) => (

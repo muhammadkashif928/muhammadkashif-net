@@ -68,6 +68,70 @@ fallback, is what consumes the queue.
 To change the cadence, edit the schedule on the scheduled task. Twice a month
 is `0 1 1,15 * *`; weekly Tuesdays is `0 1 * * 2`.
 
+## Choosing a topic
+
+Where to look, in this order. The order matters more than the tests — a good
+topic found in the right place beats a mediocre one that passes four checks.
+
+1. **Questions real prospects have asked.** The enquiry notifications and the
+   booking notes in Gmail are a record of what buyers in this niche actually
+   want to know, in their own words. A post answering a question someone paid
+   attention long enough to type is worth ten posts answering a keyword.
+2. **Gaps the Monday brief flagged.** Check `~/mnt/Muhammad Kashif/reports/`.
+3. **The niche's own specifics.** Leather care, shoe care, footwear. Anything
+   that is true of those products and not of products in general — how a matte
+   leather reads against white, what a multi-piece kit does to a main image,
+   how a colourway family behaves. This is the ground nobody else is writing
+   from, and it is the whole reason the site exists.
+4. **A change in Amazon's published rules**, verified against Amazon's own
+   documentation and not a summary of it.
+
+A topic qualifies only if all four hold:
+
+- **Nobody here has covered it.** Check every `slug` in `data/blog.js` first.
+  A near-duplicate is worse than no post — the two compete for the same query
+  and both lose.
+- **A US brand owner would genuinely search it.** Not "interesting to
+  designers". The reader is a private-label owner or an Amazon manager.
+- **It sits in or beside the niche.** Generic Amazon advice is written better
+  elsewhere by people with more traffic.
+- **We can say something the top results do not.** If the ranking pages
+  already answer it well and we would only rephrase, skip it and say so.
+
+And one test above those four: **the post should resolve a decision the reader
+is actually stuck on.** "What is A+ Content" is a definition; anyone can write
+it and nobody needed us to. "Which A+ module earns the top slot when you only
+have three" is a decision. Decisions are what buyers search when they are close
+to hiring someone, which is the only traffic worth having here.
+
+## Every post carries figures
+
+A listing designer publishing unbroken walls of text argues against the thing
+being sold. Every post must carry at least one figure, and the publish guard
+rejects posts that do not.
+
+Figures are never hand-written SVG — model-authored vector art breaks in ways
+nobody notices until it is live. The brief picks one of four primitives and
+supplies structured data, so a figure is on-brand by construction and cannot
+render broken:
+
+- `grid` — a row of tiles. Swatch rows, image sets, carousels.
+- `compare` — two labelled panels. Before/after, right/wrong.
+- `sequence` — numbered steps. A process, an order of operations.
+- `stack` — labelled horizontal bands. A+ modules, page structure.
+
+Every figure needs a `caption` saying what the reader should take from it. A
+figure a reader cannot interpret unaided is decoration, and decoration is
+exactly what this niche's buyers are paying not to receive. Use `emphasis` on
+at most one item — it is the thing the figure is arguing for.
+
+## Internal links are not optional
+
+Every post links to at least two existing posts, and the guard enforces it.
+An orphan post does not rank and does not move a reader towards the work. Put
+them in `related` and choose ones a reader of this post would actually want,
+not the two most recent.
+
 ## Writing one by hand
 
 Write the JSON brief, then `node scripts/new-post.mjs drafts/<slug>.json`.

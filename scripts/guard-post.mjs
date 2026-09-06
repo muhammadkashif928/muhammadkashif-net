@@ -89,6 +89,18 @@ const words = prose.split(/\s+/).filter((w) => /[a-z]/i.test(w)).length
 if (words < 700) problems.push(`Only ~${words} words of prose — too thin to publish`)
 if (words > 2200) problems.push(`~${words} words — longer than the house style allows, likely padded`)
 
+// ── 3b. It has to look like a designer wrote it ──────────────────────
+// A listing designer publishing walls of unbroken text argues against the
+// service being sold. These are cheap to satisfy and the absence is glaring.
+const figures = (source.match(/<PostFigure/g) || []).length
+if (figures === 0) problems.push('No figures. A design blog with no visuals undercuts the thing it is selling.')
+
+const internal = new Set([...source.matchAll(/href="\/([a-z0-9-]+)\/"/g)].map((m) => m[1]))
+internal.delete(slug)
+if (internal.size < 2) {
+  problems.push(`Only ${internal.size} internal link(s). Orphan posts do not rank and do not move readers to the work.`)
+}
+
 // ── 4. The entry has to actually exist and be unique ─────────────────
 const blog = fs.readFileSync('data/blog.js', 'utf8')
 const slugCount = [...blog.matchAll(new RegExp(`slug:\\s*['"\`]${slug}['"\`]`, 'g'))].length
