@@ -2,14 +2,12 @@
 // Per-image pricing invites a comparison against $50 marketplace sellers on
 // asset count, which is the one comparison this work always loses — the value
 // is in deciding what each slot has to do, not in how many files ship.
-const services = [
-  { num: '01', title: 'MAIN IMAGE OPTIMIZATION', price: '$350',        scope: 'per product',        desc: 'Your most important asset. I design and optimize Amazon main images with clean, compliant white backgrounds that maximize click-through rate from search results.' },
-  { num: '02', title: 'PRODUCT INFOGRAPHICS',    price: 'from $1,200', scope: '7–9 image set',      desc: 'Benefit-led side images that communicate features, scale, and value at a glance. Each infographic answers a buying question and handles an objection before it costs you the sale.' },
-  { num: '03', title: 'A+ CONTENT',              price: 'from $950',   scope: '5–7 modules',        desc: 'Immersive A+ Content (Enhanced Brand Content) that tells your brand story, explains value, and handles objections visually to lift conversion and reduce returns.' },
-  { num: '04', title: 'AMAZON BRAND STORY',      price: '$450',        scope: 'cross-sell carousel', desc: 'The cross-sell carousel above your A+ Content. I design a Brand Story that builds trust, links your catalog, and keeps shoppers inside your brand instead of clicking to competitors.' },
-  { num: '05', title: 'AMAZON BRAND STORE',      price: 'from $1,400', scope: 'multi-page',         desc: 'A custom multi-page Amazon Brand Store (Storefront) that showcases your full catalog, strengthens brand identity, and gives your ads and shoppers a premium destination.' },
-  { num: '06', title: 'FULL LISTING DESIGN',     price: 'from $2,800', scope: 'everything above',   desc: 'The complete package — main images, infographics, A+ Content, Brand Story, and Brand Store designed as one cohesive, high-converting system from a single designer.' },
-]
+//
+// The catalog lives in data/services.js because the checkout API charges from
+// it. Keeping the displayed price and the charged price in one place is the
+// point: two copies would eventually disagree, and the disagreement would be
+// about money.
+import { services, priceLabel } from '@/data/services'
 
 export default function Services() {
   return (
@@ -33,20 +31,39 @@ export default function Services() {
           {services.map((s) => (
             <div
               key={s.num}
-              className="group p-6 sm:p-8 border-b border-r relative overflow-hidden cursor-default transition-all duration-200"
+              className="group p-6 sm:p-8 border-b border-r relative overflow-hidden flex flex-col transition-all duration-200"
               style={{ borderColor: 'var(--a-border)' }}
             >
               <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style={{ backgroundColor: 'var(--accent)', opacity: 0.06 }} />
               <span className="absolute top-4 right-5 font-bebas select-none" style={{ fontSize: '4rem', color: 'var(--a-subtle)', lineHeight: 1 }}>{s.num}</span>
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col flex-1">
                 <div className="w-6 h-px mb-5 sm:mb-6 transition-all duration-200 group-hover:w-12" style={{ backgroundColor: 'var(--accent)' }} />
                 <h3 className="font-bebas text-lg sm:text-xl tracking-widest mb-2 leading-tight" style={{ color: 'var(--a-text)' }}>{s.title}</h3>
                 <div className="flex items-baseline gap-2 mb-3 sm:mb-4">
-                  <span className="font-bebas text-xl sm:text-2xl tracking-wider" style={{ color: 'var(--accent)' }}>{s.price}</span>
-                  <span className="font-mono text-xs" style={{ color: 'var(--a-muted)' }}>{s.scope}</span>
+                  <span className="font-bebas text-xl sm:text-2xl tracking-wider" style={{ color: 'var(--accent)' }}>{priceLabel(s)}</span>
+                  <span className="font-mono text-xs" style={{ color: 'var(--a-muted)' }}>{s.unit}</span>
                 </div>
-                <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--a-muted)' }}>{s.desc}</p>
+                <p className="font-mono text-sm leading-relaxed mb-6" style={{ color: 'var(--a-muted)' }}>{s.desc}</p>
+
+                {/* mt-auto so every card's buttons sit on the same line, however
+                    long the description runs. */}
+                <div className="mt-auto flex items-center gap-4">
+                  <a
+                    href={`/order/${s.slug}/`}
+                    className="btn-brutal font-bebas text-sm tracking-widest px-5 py-2.5 border-2"
+                    style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)', boxShadow: '3px 3px 0px var(--a-subtle)' }}
+                  >
+                    PURCHASE →
+                  </a>
+                  <a
+                    href="/contact-me/"
+                    className="font-mono text-[11px] tracking-widest underline underline-offset-4"
+                    style={{ color: 'var(--a-muted)' }}
+                  >
+                    ASK FIRST
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -59,7 +76,10 @@ export default function Services() {
           Prices in USD, per project — not per hour and not per image. Every
           quote includes competitor analysis, two revision rounds, and final
           files sized for Seller Central. Larger catalogs and multi-product
-          brands are quoted individually.
+          brands are quoted individually. Card payments are handled by Stripe;
+          a &ldquo;from&rdquo; price charges that amount for the scope listed on
+          its order page, and anything beyond it is quoted before any further
+          work — never charged automatically.
         </p>
 
         {/* CTA bar */}

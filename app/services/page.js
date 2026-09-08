@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Services from '@/components/Services'
 import PageHeader from '@/components/PageHeader'
+import BrandBanner from '@/components/BrandBanner'
 import JsonLd from '@/components/JsonLd'
 import { createMetadata, getBreadcrumbJsonLd, getFaqJsonLd } from '@/lib/seo'
 
@@ -100,6 +101,14 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
+        <BrandBanner
+          eyebrow="READY WHEN YOU ARE"
+          title={<>PICK A SERVICE<br />AND BOOK IT</>}
+          body="Every service above has a published price and a defined scope, so you can book one without a discovery call first. Pay securely by card and I will be in touch within one business day with next steps."
+          primary={{ label: 'BROWSE SERVICES', href: '#services' }}
+          secondary={{ label: 'ASK A QUESTION', href: '/contact-me/' }}
+        />
       </main>
       <Footer />
     </>

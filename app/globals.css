@@ -607,3 +607,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 /* ─── RESPONSIVE IMAGES ──────────────────────────────────────── */
 img { max-width: 100%; height: auto; }
+
+/* ─── ANNOUNCEMENT BAR ───────────────────────────────────────── */
+/* Declared on :root so body and the fixed navbar can both read it. */
+:root { --announce-h: 2.25rem; }
+@media (max-width: 640px) { :root { --announce-h: 2rem; } }
+
+.announce-bar { height: var(--announce-h); }
+
+/* While the bar is showing, the fixed navbar drops below it and the document
+   reserves the same height — without the body padding the navbar would sit on
+   top of every page's first heading (PageHeader offsets for the navbar only). */
+html.has-announce .nav-offset { top: var(--announce-h); }
+html.has-announce body       { padding-top: var(--announce-h); }
+
+/* Full-height sections should still fit the space left under the bar rather
+   than pushing the fold down by its height. */
+html.has-announce .min-h-screen { min-height: calc(100vh - var(--announce-h)); }

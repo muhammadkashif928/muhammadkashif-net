@@ -1,4 +1,5 @@
 import { blogPosts } from '@/data/blog'
+import { services } from '@/data/services'
 
 const baseUrl = 'https://muhammadkashif.net'
 const siteUpdated = '2026-07-18T10:00:00+08:00'
@@ -45,11 +46,14 @@ export default function sitemap() {
     )
   )
 
+  // One buyable page per catalog service.
+  const orderRoutes = services.map((s) => route(`/order/${s.slug}/`, 'monthly', 0.85))
+
   const legalRoutes = [
     route('/privacy-policy/', 'yearly', 0.35),
     route('/terms/', 'yearly', 0.35),
     route('/disclaimer/', 'yearly', 0.35),
   ]
 
-  return [...coreRoutes, ...portfolioRoutes, ...blogRoutes, ...legalRoutes]
+  return [...coreRoutes, ...orderRoutes, ...portfolioRoutes, ...blogRoutes, ...legalRoutes]
 }

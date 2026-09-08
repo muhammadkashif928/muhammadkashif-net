@@ -5,6 +5,7 @@ import JsonLd from '@/components/JsonLd'
 import ScrollReveal from '@/components/ScrollReveal'
 import AttributionTracker from '@/components/AttributionTracker'
 import SocialDock from '@/components/SocialDock'
+import AnnouncementBar from '@/components/AnnouncementBar'
 import MobileContactBar from '@/components/MobileContactBar'
 import { getGlobalJsonLd, seoKeywords, siteConfig } from '@/lib/seo'
 import { GA_ID } from '@/lib/gtag'
@@ -118,6 +119,7 @@ export default function RootLayout({ children }) {
         <JsonLd data={getGlobalJsonLd()} />
         <ScrollReveal />
         <AttributionTracker />
+        <AnnouncementBar />
         <ThemeProvider>
           {children}
         </ThemeProvider>

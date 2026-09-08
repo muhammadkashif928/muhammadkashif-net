@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled && !menuOpen ? 'nav-glass' : ''}`}
+      className={`nav-offset fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled && !menuOpen ? 'nav-glass' : ''}`}
       style={{
         backgroundColor: menuOpen ? 'var(--a-bg)' : scrolled ? undefined : 'transparent',
         borderBottom: scrolled ? '1px solid var(--a-border)' : 'none',
