@@ -55,25 +55,16 @@ export default function Navbar() {
           aria-label="Muhammad Kashif — home"
           className="shrink-0 flex items-center"
         >
-          {/* Both variants ship and CSS picks one. The theme class is set on
-              <html> before first paint, so this switches with no flash and no
-              JS. The light-theme file is the same lockup with the chrome
-              pulled down — as supplied, 18% of its pixels are brighter than
-              the cream page and the wordmark washes out. */}
+          {/* The mark ships as black art on transparency. It reads as-is on
+              the light theme and is flipped to cream on the dark one by the
+              .site-logo rule in globals.css, so there is only ever one file to
+              keep in sync. */}
           <img
-            src="/images/logo-lockup-light.webp"
+            src="/images/logo-mark.png"
             alt="Muhammad Kashif"
-            width={1136}
-            height={220}
-            className="nav-logo nav-logo--light"
-          />
-          <img
-            src="/images/logo-lockup-dark.webp"
-            alt=""
-            aria-hidden="true"
-            width={1136}
-            height={220}
-            className="nav-logo nav-logo--dark"
+            width={943}
+            height={512}
+            className="site-logo nav-logo"
           />
         </a>
 

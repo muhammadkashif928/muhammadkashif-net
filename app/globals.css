@@ -429,17 +429,17 @@ html.theme-light .social-dock {
   .contact-bar, .back-to-top { transition: none; }
 }
 
-/* ─── BRAND LOCKUP ──────────────────────────────── */
-/* Two files, one shown. The theme class lands on <html> before first
-   paint, so the swap is CSS-only — no flash, no JS, and the browser
-   only decodes the one that is displayed. */
-.nav-logo  { height: 2.15rem; width: auto; display: block; }
-.foot-logo { height: 2.6rem;  width: auto; display: block; }
-@media (min-width: 640px) { .nav-logo { height: 2.7rem; } .foot-logo { height: 3.1rem; } }
+/* ─── BRAND MARK ────────────────────────────────── */
+/* The mark is 943x512 (1.84:1) where the old lockup was 5.2:1, so the same
+   height reads much smaller — these are tuned for the mark, not carried over. */
+.nav-logo  { height: 1.9rem; width: auto; display: block; }
+.foot-logo { height: 2.4rem; width: auto; display: block; }
+@media (min-width: 640px) { .nav-logo { height: 2.25rem; } .foot-logo { height: 2.9rem; } }
 
-.nav-logo--dark { display: none; }
-html:not(.theme-light) .nav-logo--light { display: none; }
-html:not(.theme-light) .nav-logo--dark  { display: block; }
+/* One asset, both themes. Dark is the default here — the light theme is the
+   one that carries a class — so the invert applies unless .theme-light is set. */
+.site-logo { transition: filter 0.3s ease; }
+html:not(.theme-light) .site-logo { filter: invert(1); }
 
 /* ─── HOME PROOF PANELS ─────────────────────────── */
 /* Amazon main images carry their own white background, so the card is
