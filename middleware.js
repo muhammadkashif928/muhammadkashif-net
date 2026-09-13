@@ -38,14 +38,19 @@ async function isValidSession(token) {
 // Controlled entirely by environment variables so it can be turned off, or the
 // country list widened, without touching this file:
 //
-//   GEO_RESTRICT         'on' to enforce. Anything else (or unset) = wide open.
-//   GEO_ALLOW_COUNTRIES  comma-separated ISO-3166 alpha-2. Defaults to 'US'.
-//   GEO_BYPASS_SECRET    owner key. Visit any page with ?geo-key=<secret> once
+//   GEO_BYPASS_SECRET    Setting this ENABLES the restriction. It is also the
+//                        owner key: visit any page with ?geo-key=<secret> once
 //                        and a cookie lets that browser through from anywhere.
+//   GEO_ALLOW_COUNTRIES  comma-separated ISO-3166 alpha-2. Defaults to 'US'.
+//   GEO_RESTRICT         set to 'off' to disable without removing the secret.
 //
-// Changing a Vercel env var only takes effect on the next deployment, so treat
-// GEO_RESTRICT as "off until redeployed", not as an instant kill switch.
-const GEO_ON = process.env.GEO_RESTRICT === 'on'
+// Enforcement is deliberately tied to the bypass key existing. The site is run
+// from Malaysia, so a block with no way back in would lock its owner out of
+// their own business — including /admin — with a redeploy as the only remedy.
+// Requiring the key makes that failure impossible to reach by accident.
+//
+// Changing a Vercel env var only takes effect on the next deployment, so this
+// is not an instant kill switch — redeploy after changing it.
 
 const ALLOWED_COUNTRIES = new Set(
   (process.env.GEO_ALLOW_COUNTRIES || 'US')
@@ -54,6 +59,9 @@ const ALLOWED_COUNTRIES = new Set(
 
 const BYPASS_SECRET = process.env.GEO_BYPASS_SECRET
 const BYPASS_COOKIE = 'mk-geo-ok'
+
+// On when a bypass key exists, unless explicitly switched off.
+const GEO_ON = Boolean(BYPASS_SECRET) && process.env.GEO_RESTRICT !== 'off'
 
 /**
  * Paths that must answer no matter where the request originated.
@@ -114,7 +122,7 @@ function enforceGeo(request) {
   if (isExemptPath(request.nextUrl.pathname)) return null
 
   // Owner key: ?geo-key=<secret> drops a cookie so later requests pass.
-  if (BYPASS_SECRET) {
+  {
     const supplied = request.nextUrl.searchParams.get('geo-key')
     if (supplied && supplied === BYPASS_SECRET) {
       const url = request.nextUrl.clone()
