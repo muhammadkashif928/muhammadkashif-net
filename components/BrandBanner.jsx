@@ -9,9 +9,9 @@ import Image from 'next/image'
  */
 export default function BrandBanner({
   id = 'brand-banner',
-  eyebrow = 'LEATHER · SHOE CARE · FOOTWEAR',
+  eyebrow = 'YOUR PRODUCT · YOUR CATEGORY · YOUR BRAND',
   title = <>BUILT TO WIN<br />THE CLICK</>,
-  body = 'Eight years designing Amazon listings for leather care, shoe care and footwear brands — including Angelus, Eagle Shoe Care, Leather Hero and Lincoln. Every image is built to be judged at thumbnail size and to survive the scroll.',
+  body = 'Eight years of Amazon design experience, bringing a considered visual approach to products across categories. Every image is built to be judged at thumbnail size and to survive the scroll.',
   primary = { label: 'BOOK A SERVICE', href: '/services/' },
   secondary = { label: 'SEE THE WORK', href: '/my-portfolio/' },
 }) {

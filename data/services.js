@@ -13,9 +13,9 @@
 
 // Questions every order asks, whatever the service.
 export const baseFields = [
-  { name: 'brand',       label: 'Brand name',            type: 'text',   required: true,  placeholder: 'e.g. Eagle Shoe Care' },
+  { name: 'brand',       label: 'Brand name',            type: 'text',   required: true,  placeholder: 'Your brand name' },
   { name: 'marketplace', label: 'Marketplace',           type: 'select', required: true,  options: ['Amazon US', 'Amazon UK', 'Amazon CA', 'Amazon EU', 'Amazon AU', 'Shopify', 'Walmart', 'Other'] },
-  { name: 'category',    label: 'Product category',      type: 'select', required: true,  options: ['Leather care', 'Shoe care', 'Footwear', 'Leather goods / accessories', 'Beauty / personal care', 'Home', 'Other'] },
+  { name: 'category',    label: 'Product category',      type: 'select', required: true,  options: ['Beauty / personal care', 'Home / kitchen', 'Electronics / accessories', 'Fashion / footwear', 'Health / wellness', 'Sports / outdoors', 'Pet supplies', 'Food / beverages', 'Toys / baby', 'Automotive / tools', 'Other'] },
   { name: 'listingUrl',  label: 'ASIN or listing URL',   type: 'text',   required: false, placeholder: 'B0XXXXXXXX or https://amazon.com/dp/...', help: 'Leave blank if the product has not launched yet.' },
   { name: 'deadline',    label: 'Target delivery date',  type: 'date',   required: false },
   { name: 'assetsUrl',   label: 'Link to your photos / brand assets', type: 'text', required: false, placeholder: 'Google Drive, Dropbox or WeTransfer link' },

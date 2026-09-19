@@ -53,7 +53,7 @@ export default function Footer() {
       {/* Marquee */}
       <div className="overflow-hidden py-3 sm:py-4 border-b" style={{ borderColor: 'var(--a-border)' }}>
         <div className="marquee-track">
-          {Array(12).fill('AMAZON BRAND DESIGNER — A+ CONTENT — LEATHER & FOOTWEAR SPECIALIST — PRODUCT INFOGRAPHICS — ').map((t, i) => (
+          {Array(12).fill('AMAZON BRAND DESIGNER — A+ CONTENT — PRODUCT VISUAL SPECIALIST — PRODUCT INFOGRAPHICS — ').map((t, i) => (
             <span key={i} data-text={t} aria-hidden="true" className="marquee-ghost font-bebas text-2xl sm:text-3xl tracking-widest mx-5 sm:mx-6" style={{ color: 'var(--a-subtle)' }} />
           ))}
         </div>
@@ -69,8 +69,7 @@ export default function Footer() {
               <img src="/images/logo-mark.png" alt="Muhammad Kashif" width={943} height={512} className="site-logo foot-logo" />
             </div>
             <p className="font-mono text-sm leading-relaxed mb-4" style={{ color: 'var(--a-muted)' }}>
-              Turning Amazon private label products — especially leather care, shoe
-              care & footwear brands — into premium listings that convert.
+              Turning products across every category into premium Amazon listings that help shoppers buy with confidence.
             </p>
             <p className="font-mono text-xs tracking-widest" style={{ color: 'var(--a-muted)' }}>📍 Kuching, Sarawak, Malaysia</p>
             <p className="font-mono text-xs tracking-widest mt-1" style={{ color: 'var(--a-muted)' }}>✦ Working remotely with US, UK &amp; Canada brands</p>

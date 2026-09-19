@@ -1,188 +1,24 @@
-'use client'
-import { useEffect, useState } from 'react'
-
-const roles = [
-  'LEATHER & FOOTWEAR BRAND SPECIALIST',
-  'AMAZON LISTING DESIGNER',
-  'A+ CONTENT STRATEGIST',
-  'SHOE CARE BRAND DESIGNER',
-]
-
-// Server-rendered inside the H1 so crawlers and no-JS visitors get the
-// full keyword line; the typewriter animates over it after hydration.
-const fullRole = 'AMAZON LISTING DESIGNER FOR LEATHER, SHOE CARE & FOOTWEAR BRANDS'
+import Image from 'next/image'
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0)
-  const [displayed, setDisplayed] = useState('')
-  const [typing, setTyping] = useState(true)
-  const [animated, setAnimated] = useState(false)
-
-  useEffect(() => { setAnimated(true) }, [])
-
-  useEffect(() => {
-    const current = roles[roleIndex]
-    let i = typing ? 0 : current.length
-    const interval = setInterval(() => {
-      if (typing) {
-        setDisplayed(current.slice(0, i + 1)); i++
-        if (i === current.length) { clearInterval(interval); setTimeout(() => setTyping(false), 2000) }
-      } else {
-        setDisplayed(current.slice(0, i - 1)); i--
-        if (i === 0) { clearInterval(interval); setRoleIndex(p => (p + 1) % roles.length); setTyping(true) }
-      }
-    }, typing ? 55 : 30)
-    return () => clearInterval(interval)
-  }, [roleIndex, typing])
-
   return (
-    <section id="home" className="relative min-h-[88vh] md:min-h-screen flex flex-col justify-center overflow-hidden pb-[60px] md:pb-0" style={{ backgroundColor: 'var(--a-bg)' }}>
-
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-bg" />
-      <div className="absolute top-0 left-0 w-full h-px" style={{ backgroundColor: 'var(--a-border)' }} />
-
-      {/* Corner decoration */}
-      <div className="absolute top-0 right-0 hidden sm:block sm:w-28 sm:h-28" style={{ backgroundColor: 'var(--accent)', opacity: 0.08 }} />
-      <div className="absolute top-0 right-0 hidden sm:block sm:w-28 sm:h-28 border-b-2 border-l-2" style={{ borderColor: 'var(--a-border)' }} />
-      <div className="absolute bottom-0 left-0 w-32 sm:w-48 h-px" style={{ backgroundColor: 'var(--accent)', opacity: 0.3 }} />
-      <div className="absolute bottom-0 left-0 w-px h-32 sm:h-48" style={{ backgroundColor: 'var(--accent)', opacity: 0.3 }} />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20 grid md:grid-cols-2 gap-10 md:gap-12 items-center w-full">
-
-        {/* ── TEXT ── */}
-        <div>
-          <div className="fade-up-1 flex items-center gap-2 mb-5 sm:mb-6">
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent)' }} />
-            <p className="font-mono text-[13px] tracking-[0.3em]" style={{ color: 'var(--a-muted)' }}>
-              AVAILABLE FOR PROJECTS
-            </p>
+    <section id="home" className="studio-hero">
+      <div className="studio-wrap studio-hero-grid">
+        <div className="studio-intro">
+          <p className="studio-eyebrow"><span className="availability-dot" /> MUHAMMAD KASHIF · BRAND DESIGNER</p>
+          <h1>Great products.<br /> <em>Unmissable</em><br /> first impressions.</h1>
+          <p className="studio-lead">Amazon listing design for products of every kind — beauty, home, electronics, fashion and beyond. Thoughtful visuals that turn a closer look into a confident purchase.</p>
+          <div className="studio-actions">
+            <a className="studio-button" href="/my-portfolio/">Explore my work <span>↗</span></a>
+            <a className="studio-text-link" href="/contact-me/">Let’s talk →</a>
           </div>
-
-          <h1 className="hero-title">
-            <span className="hero-name block font-bebas leading-none fade-up-2" style={{ fontSize: 'clamp(2.75rem,7vw,5.5rem)', color: 'var(--a-text)' }}>
-              MUHAMMAD
-              <br />
-              <span style={{ color: 'var(--accent)', WebkitTextStroke: '1px var(--a-border)' }}>KASHIF</span>
-            </span>
-
-            {/* Typewriter */}
-            <span className="hero-role mt-4 sm:mt-5 min-h-[3.5rem] sm:min-h-[4.5rem] flex items-center fade-up-3 font-mono font-normal tracking-widest" style={{ fontSize: 'clamp(0.95rem,2.2vw,1.35rem)', color: 'var(--a-text)' }}>
-              {animated ? (
-                <>{displayed}<span className="cursor-blink" style={{ color: 'var(--accent)' }}>|</span></>
-              ) : (
-                fullRole
-              )}
-            </span>
-          </h1>
-
-          <p className="mt-5 sm:mt-6 font-mono text-sm sm:text-base leading-relaxed max-w-md fade-up-4" style={{ color: 'var(--a-muted)' }}>
-            The Amazon design specialist for leather care, shoe care &amp; footwear
-            brands. I turn private-label products into premium listings that win the
-            click and convert — for US, UK &amp; Canada sellers.
-          </p>
-
-          {/* Buttons */}
-          <div className="mt-8 sm:mt-10 flex flex-wrap gap-3 sm:gap-4 fade-up-4">
-            <a
-              href="/my-portfolio/"
-              className="btn-brutal font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2"
-              style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)', boxShadow: '4px 4px 0px var(--a-muted)' }}
-            >
-              VIEW PORTFOLIO
-            </a>
-            <a
-              href="/contact-me/"
-              className="btn-brutal font-bebas text-base sm:text-lg tracking-widest px-6 sm:px-8 py-3 border-2"
-              style={{ backgroundColor: 'transparent', color: 'var(--a-text)', borderColor: 'var(--a-border)', boxShadow: '4px 4px 0px var(--a-subtle)' }}
-            >
-              START A PROJECT
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-10 sm:mt-14 grid grid-cols-3 sm:flex sm:gap-10 gap-0 border-t fade-up-5" style={{ borderColor: 'var(--a-border)' }}>
-            {[
-              { num: '8+',   label: 'YEARS EXP' },
-              { num: '200+', label: 'PRODUCTS' },
-              { num: '50+',  label: 'CLIENTS' },
-            ].map((s, i) => (
-              <div key={s.label} className="py-5 text-center sm:text-left" style={{ borderRight: i < 2 ? '1px solid var(--a-border)' : 'none', paddingLeft: i > 0 ? '1rem' : 0, paddingRight: i < 2 ? '1rem' : 0 }}>
-                <div className="font-bebas leading-none" style={{ fontSize: 'clamp(2rem,5vw,3rem)', color: 'var(--a-text)' }}>{s.num}</div>
-                <div className="font-mono text-xs tracking-[0.2em] mt-1" style={{ color: 'var(--a-muted)' }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
+          <div className="studio-credentials"><span><strong>8+</strong> years of craft</span><span><strong>200+</strong> products designed</span></div>
         </div>
-
-        {/* ── PHOTO: PREMIUM 8K FRAME ── */}
-        <div className="relative flex justify-center md:justify-end fade-up-3 md:order-last">
-          <div className="relative w-52 h-[17rem] sm:w-80 sm:h-[26rem] md:w-96 md:h-[32rem] lg:w-[27rem] lg:h-[36rem]">
-
-            {/* Rotating glow halo */}
-            <div className="hero-glow" aria-hidden="true" />
-
-            {/* Offset backing plate */}
-            <div className="absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4" style={{ backgroundColor: 'var(--a-subtle)', border: '1px solid var(--a-border)' }} />
-
-            {/* Photo frame */}
-            <div className="absolute inset-0 overflow-hidden border-2" style={{ borderColor: 'var(--a-border)', backgroundColor: 'var(--a-subtle)' }}>
-              <picture>
-                {/* Frame widths: 272px base / 340px sm / 408px md / 459px lg */}
-                <source
-                  type="image/webp"
-                  srcSet="/images/profile-2026-460.webp 460w, /images/profile-2026-800.webp 800w"
-                  sizes="(min-width: 1024px) 459px, (min-width: 768px) 408px, (min-width: 640px) 340px, 272px"
-                />
-                <img
-                  src="/images/profile-2026.jpg"
-                  alt="Muhammad Kashif, Amazon Brand Designer"
-                  width="800"
-                  height="999"
-                  fetchPriority="high"
-                  className="hero-photo-img block w-full h-full object-cover object-top"
-                  style={{ filter: 'grayscale(20%) contrast(1.12) saturate(1.05)' }}
-                />
-              </picture>
-
-              {/* Bottom fade */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: 'linear-gradient(to top, var(--a-bg), transparent)' }} />
-
-              {/* Light sweep + scanline */}
-              <div className="hero-shine" aria-hidden="true" />
-              <div className="hero-scanline" aria-hidden="true" />
-
-              {/* HUD corner brackets */}
-              <div className="hero-bracket tl" aria-hidden="true" />
-              <div className="hero-bracket tr" aria-hidden="true" />
-              <div className="hero-bracket bl" aria-hidden="true" />
-              <div className="hero-bracket br" aria-hidden="true" />
-
-            </div>
-
-            {/* Name plate */}
-            <div className="absolute -bottom-4 -left-3 sm:-left-4 px-3 sm:px-4 py-2 border-2" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
-              <span className="font-bebas text-xs sm:text-sm tracking-widest" style={{ color: 'var(--a-text)' }}>
-                AMAZON BRAND DESIGNER
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Marquee */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t" style={{ borderColor: 'var(--a-border)' }}>
-        <div className="marquee-track py-2">
-          {Array(10).fill('AMAZON A+ CONTENT — BRAND IDENTITY — LEATHER & FOOTWEAR BRANDS — INFOGRAPHICS — LISTING OPTIMIZATION — ').map((t, i) => (
-            <span key={i} data-text={t} aria-hidden="true" className="marquee-ghost font-bebas text-xs sm:text-sm tracking-widest mx-4" style={{ color: 'var(--a-subtle)' }} />
-          ))}
-        </div>
-      </div>
-
-      {/* Scroll indicator — desktop only */}
-      <div className="absolute bottom-14 right-6 hidden lg:flex flex-col items-center gap-2 scroll-bounce">
-        <div className="font-mono text-[10px] tracking-[0.3em] rotate-90 origin-center mb-4" style={{ color: 'var(--a-muted)' }}>SCROLL</div>
-        <div className="w-px h-12" style={{ backgroundColor: 'var(--a-border)' }} />
+        <figure className="studio-hero-art">
+          <Image src="/images/product-categories-v2.webp" alt="Creative concept featuring skincare, headphones, homeware, footwear and fragrance products" width={1440} height={960} priority sizes="(min-width: 900px) 55vw, 100vw" />
+          <figcaption><span>PRODUCTS, WITH PRESENCE.</span><span>AI concept / art direction</span></figcaption>
+          <a href="#about" className="studio-designer-tag"><Image src="/images/kashif-portrait-ivory-v1.webp" width={48} height={48} alt="" /><span>Designed with intention.<small>Meet Kashif ↗</small></span></a>
+        </figure>
       </div>
     </section>
   )

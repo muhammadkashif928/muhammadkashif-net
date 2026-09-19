@@ -89,21 +89,18 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f5f5f0' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-  ],
-  colorScheme: 'light dark',
+  themeColor: '#faf8f4',
+  colorScheme: 'light',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="theme-light" suppressHydrationWarning>
       <head>
         {/* Apply saved theme before paint (default: light) to avoid flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme')||'light';if(t!=='dark')document.documentElement.classList.add('theme-light');}catch(e){document.documentElement.classList.add('theme-light');}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.classList.toggle('theme-light',t!=='dark');}catch(e){document.documentElement.classList.add('theme-light');}})();`,
           }}
         />
       </head>

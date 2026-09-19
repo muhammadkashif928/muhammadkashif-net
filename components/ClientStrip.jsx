@@ -7,7 +7,7 @@ export default function ClientStrip() {
     <section className="border-t border-b" style={{ backgroundColor: 'var(--a-bg)', borderColor: 'var(--a-border)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
         <p className="font-mono text-[13px] tracking-[0.35em] text-center mb-7 sm:mb-9" style={{ color: 'var(--a-muted)' }}>
-          ▶ TRUSTED BY LEATHER, SHOE CARE &amp; FOOTWEAR BRANDS
+          ▶ A FEW BRANDS I’VE WORKED WITH
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:gap-x-14">
           {clients.map((c) => (

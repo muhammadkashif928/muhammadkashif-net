@@ -2,8 +2,9 @@
 import { portfolioProjects, projectHref } from '@/data/portfolio'
 import { gaEvent } from '@/lib/gtag'
 
-// Always shows the 3 newest projects (first 3 in portfolioProjects array)
-const projects = portfolioProjects.slice(0, 3)
+// Show a range of product and design work on the homepage.
+const featuredSlugs = ['yara-lattafa-amazon-main-image', 'leather-hero-furniture-salve', 'brand-identity-packaging']
+const projects = featuredSlugs.map(slug => portfolioProjects.find(project => project.slug === slug)).filter(Boolean)
 
 export default function Portfolio() {
   return (
@@ -13,11 +14,7 @@ export default function Portfolio() {
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 gap-5">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--b-text)' }}>
-            HIGH-CONVERTING
-            <br />
-            VISUALS THAT
-            <br />
-            <span style={{ WebkitTextStroke: '2px var(--b-text)', color: 'transparent' }}>DRIVE SALES</span>
+            SELECTED WORK
           </h2>
           <a
             href="/my-portfolio/"
@@ -64,7 +61,7 @@ export default function Portfolio() {
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ backgroundColor: 'rgba(8,8,8,0.75)' }}
                 >
-                  <span className="font-bebas text-sm tracking-widest border px-4 py-2" style={{ color: 'var(--a-text)', borderColor: 'var(--a-border)' }}>
+                  <span className="font-bebas text-sm tracking-widest border px-4 py-2" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.5)' }}>
                     VIEW CASE STUDY →
                   </span>
                 </div>

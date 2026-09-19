@@ -43,7 +43,7 @@ const personJsonLd = {
   knowsAbout: [
     'Amazon A+ Content Design', 'Amazon Listing Optimization', 'Product Infographics',
     'Brand Identity Design', 'Packaging Design', 'AI Product Lifestyle Images',
-    'Leather Product Image Optimization', 'E-commerce Product Photography',
+    'Product Image Optimization', 'E-commerce Product Photography',
     'Private Label Brand Strategy', 'Adobe Photoshop', 'Adobe Illustrator',
     'Blender 3D Rendering', 'Midjourney AI', 'Amazon Seller Central', '3D Product Visualization',
   ],

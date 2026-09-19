@@ -5,7 +5,6 @@ import About from '@/components/About'
 import Services from '@/components/Services'
 import HomeProof from '@/components/HomeProof'
 import Portfolio from '@/components/Portfolio'
-import BrandBanner from '@/components/BrandBanner'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -13,9 +12,9 @@ import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
   // 54 chars — Google shows ~60; keep under to avoid truncation (S-1)
-  title: 'Amazon Listing Designer for Leather & Shoe Care Brands',
+  title: 'Amazon Listing Design & A+ Content for Every Category',
   // 142 chars — Google shows ~155 (S-2)
-  description: 'Amazon listing design for leather, shoe care & footwear brands: main images, infographics, A+ Content and Brand Stores built to win the click.',
+  description: 'Amazon listing design across all product categories: main images, infographics, A+ Content and Brand Stores that help your brand stand out.',
   path: '/',
   image: '/images/profile.avif',
   imageAlt: 'Muhammad Kashif — Amazon Brand Designer and A+ Content Specialist in Kuching, Malaysia',
@@ -33,7 +32,6 @@ export default function Home() {
       <HomeProof />
       <Portfolio />
       <Services />
-      <BrandBanner />
       <Testimonials />
       <About />
       <Contact />

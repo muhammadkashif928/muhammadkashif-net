@@ -7,7 +7,8 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('light')
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme') || 'light'
+    let saved = 'light'
+    try { saved = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light' } catch {}
     setTheme(saved)
     document.documentElement.classList.toggle('theme-light', saved === 'light')
   }, [])
@@ -15,7 +16,7 @@ export function ThemeProvider({ children }) {
   const toggle = () => {
     const next = theme === 'dark' ? 'light' : 'dark'
     setTheme(next)
-    localStorage.setItem('theme', next)
+    try { localStorage.setItem('theme', next) } catch {}
     document.documentElement.classList.toggle('theme-light', next === 'light')
   }
 

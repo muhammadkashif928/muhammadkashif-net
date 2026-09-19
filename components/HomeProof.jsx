@@ -54,11 +54,7 @@ export default function HomeProof() {
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 sm:mb-12">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--a-text)' }}>
-            SAME PRODUCT.
-            <br />
-            SAME AMAZON RULES.
-            <br />
-            <span style={{ color: 'var(--accent)' }}>DIFFERENT IMAGE.</span>
+            SMALL DETAILS.<br />BIG DIFFERENCE.
           </h2>
 
           <a
@@ -78,14 +74,10 @@ export default function HomeProof() {
 
         <div className="grid md:grid-cols-2 gap-5 sm:gap-8 mt-6 sm:mt-8">
           <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--a-muted)' }}>
-            Nothing here breaks a policy or adds a prop. Same three pieces, same
-            white background, same Amazon rules.
+            The original: three pieces competing for attention.
           </p>
           <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--a-muted)' }}>
-            The tin turns to face the camera, the brush lifts clear of the pad
-            instead of crossing it, and every piece gets its own silhouette — so
-            the product still reads at the size a shopper actually sees it in
-            search results.
+            The redesign: clearer labels, distinct silhouettes, and a composition that reads at thumbnail size.
           </p>
         </div>
       </div>

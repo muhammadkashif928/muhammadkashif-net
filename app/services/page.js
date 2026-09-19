@@ -42,7 +42,7 @@ const faq = [
   { q: 'Can I request revisions?', a: 'Absolutely. All packages include revision rounds. I work until you are completely satisfied with the final result — your satisfaction is the measure of project completion.' },
   { q: 'Do you work with new Amazon sellers?', a: 'Yes — whether you are launching your first product or scaling an established brand with 100+ ASINs, I create visuals that compete at any level of the Amazon marketplace.' },
   { q: 'What files do you deliver?', a: 'High-resolution JPG/PNG files at 2000×2000px minimum (2000×800px for A+ Content). Layered Photoshop PSDs and vector AI/EPS files are available on request for brands that want to make future edits in-house.' },
-  { q: 'What is the best way to optimize leather product images for Amazon?', a: 'Leather product images need to show texture, grain, stitching detail, and hardware clearly — these tactile qualities are what buyers look for. The best results combine background removal to a pure white background, AI upscaling to 8K resolution, manual retouching for leather texture enhancement, and controlled lighting simulation. Muhammad Kashif specializes in this exact process, as showcased in his Leather Items Optimized portfolio.' },
+  { q: 'Do you design Amazon listings for all product categories?', a: 'Yes. I work with brands across beauty, home, electronics, fashion, health, pet supplies and more. Each project adapts the photography, retouching, infographics and A+ Content to the product and the questions its buyers need answered.' },
 ]
 
 export default function ServicesPage() {
