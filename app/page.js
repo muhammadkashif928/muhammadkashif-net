@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import { StartingPoints, ProductCategories, DesignProcess, HomeFAQ } from '@/components/HomeGrowth'
 import ClientStrip from '@/components/ClientStrip'
 import About from '@/components/About'
 import Services from '@/components/Services'
@@ -26,14 +27,15 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ClientStrip />
-      {/* Work first. A visitor deciding whether this person can design should
-          see the work before the biography — About answers "can I trust him",
-          which is only a live question once they already like what they saw. */}
-      <HomeProof />
-      <Portfolio />
+      <StartingPoints />
       <Services />
+      <Portfolio />
+      <ProductCategories />
+      <HomeProof />
+      <DesignProcess />
       <Testimonials />
       <About />
+      <HomeFAQ />
       <Contact />
       <Footer />
     </main>

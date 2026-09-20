@@ -6,11 +6,11 @@ export default function Hero() {
       <div className="studio-wrap studio-hero-grid">
         <div className="studio-intro">
           <p className="studio-eyebrow"><span className="availability-dot" /> MUHAMMAD KASHIF · BRAND DESIGNER</p>
-          <h1>Great products.<br /> <em>Unmissable</em><br /> first impressions.</h1>
-          <p className="studio-lead">Amazon listing design for products of every kind — beauty, home, electronics, fashion and beyond. Thoughtful visuals that turn a closer look into a confident purchase.</p>
+          <h1>Make your product<br /><em>the one</em><br /> they notice.</h1>
+          <p className="studio-lead">Amazon listing design for products of every kind — beauty, home, electronics, fashion and beyond. Main images, A+ Content and Brand Stores that give shoppers a reason to choose you.</p>
           <div className="studio-actions">
-            <a className="studio-button" href="/my-portfolio/">Explore my work <span>↗</span></a>
-            <a className="studio-text-link" href="/contact-me/">Let’s talk →</a>
+            <a className="studio-button" href="/contact-me/">Get a project quote <span>↗</span></a>
+            <a className="studio-text-link" href="/my-portfolio/">See the work →</a>
           </div>
           <div className="studio-credentials"><span><strong>8+</strong> years of craft</span><span><strong>200+</strong> products designed</span></div>
         </div>

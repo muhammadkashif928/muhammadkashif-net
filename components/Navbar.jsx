@@ -9,7 +9,7 @@ const links = [
   { label: 'SERVICES',  href: '/services/' },
   { label: 'PORTFOLIO', href: '/my-portfolio/' },
   { label: 'BLOG',      href: '/blog/' },
-  { label: 'RESUME',    href: '/resume/' },
+  { label: 'CATEGORIES', href: '/#categories' },
   { label: 'CONTACT',   href: '/contact-me/' },
 ]
 
@@ -116,7 +116,7 @@ export default function Navbar() {
             className="btn-brutal hidden sm:block font-bebas text-sm tracking-widest px-4 sm:px-5 py-2 border-2 shrink-0"
             style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)' }}
           >
-            HIRE ME
+            GET A QUOTE
           </a>
 
           {/* Hamburger — xl hides */}
@@ -157,7 +157,7 @@ export default function Navbar() {
             className="mt-4 font-bebas text-lg tracking-widest px-5 py-3 text-center border-2"
             style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)' }}
           >
-            HIRE ME →
+            GET A QUOTE →
           </a>
         </div>
       )}

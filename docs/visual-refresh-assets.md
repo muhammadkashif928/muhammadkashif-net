@@ -7,6 +7,14 @@ Created with the built-in ChatGPT image generation tool. Originals retained in t
 
 ## Final prompts
 
+### Category discovery images
+
+Created using the built-in image generation tool, optimized to 960 × 640 WebP and displayed as illustrative concepts. Original prompts:
+
+- `public/images/category-beauty-v1.webp`: Use case: product-mockup. Asset: original category image for an Amazon product designer website. Photorealistic premium product photography of a frosted blush skincare serum bottle, ivory cosmetic jar and amber perfume bottle, a single soft botanical shadow, warm peach and ivory studio background. Objects arranged artfully on low limestone blocks. Soft daylight, refined commercial styling, realistic textures, wide landscape 3:2, generous spacing, all products fully in frame. No text, no logos, no watermarks. Fictional concept products, not client work.
+- `public/images/category-home-v1.webp`: Use case: product-mockup. Asset: original category image for an Amazon product designer website. Photorealistic premium product photography of a cream ceramic coffee mug, sage green insulated water bottle, small natural wood kitchen utensil and folded linen cloth, pale sage and ivory studio background. Objects arranged artfully on low limestone blocks. Soft daylight, refined commercial styling, realistic textures, wide landscape 3:2, generous spacing, all products fully in frame. No text, no logos, no watermarks. Fictional concept products, not client work.
+- `public/images/category-electronics-v1.webp`: Use case: product-mockup. Asset: original category image for an Amazon product designer website. Photorealistic premium product photography of sage green over-ear headphones, ivory portable speaker and cream athletic sneaker, pale stone and ivory studio background. Objects arranged artfully on low limestone blocks. Soft daylight, refined commercial styling, realistic textures, wide landscape 3:2, generous spacing, all products fully in frame. No text, no logos, no watermarks. Fictional concept products, not client work.
+
 ### Multi-category hero (current)
 
 Saved as `public/images/product-categories-v2.webp` using the built-in image generation tool. Replaces the shoe-care still life in the homepage hero.

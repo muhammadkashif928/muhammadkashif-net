@@ -72,17 +72,11 @@ export default function Contact() {
           {/* ── LEFT ── */}
           <div>
             <h2 className="font-bebas leading-none mb-6 sm:mb-8" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--b-text)' }}>
-              YOUR BRAND
-              <br />
-              DESERVES
-              <br />
-              <span style={{ WebkitTextStroke: '2px var(--b-text)', color: 'transparent' }}>BETTER</span>
+              LET’S BUILD YOUR<br />NEXT FIRST IMPRESSION.
             </h2>
 
             <p className="font-mono text-sm sm:text-base leading-relaxed mb-8 sm:mb-10 max-w-sm" style={{ color: 'var(--b-muted)' }}>
-              Quality design is the difference between browsing and buying.
-              Ready to upgrade your Amazon presence with premium visuals and
-              strategic A+ content?
+              Share your product, your goals and what you need designed. I’ll help you choose the right scope for your next step.
             </p>
 
             <div className="flex flex-col gap-0 border-t" style={{ borderColor: 'var(--b-border)' }}>
