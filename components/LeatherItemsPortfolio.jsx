@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 function imgUrl(folder, file) {
-  return encodeURI(`/portfolio/Leather Products/${folder}/${file}`)
+  return `/portfolio/Leather Products/${folder}/${file}`.split('/').map(encodeURIComponent).join('/')
 }
 
 const PRODUCTS = [
@@ -274,31 +274,31 @@ export default function LeatherItemsPortfolio() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
+      <main id="main-content" className="interior-page legacy-case min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
 
         {/* ── Hero ── */}
-        <div className="bg-[#0a0a0a] pt-24 pb-0">
+        <div className="case-intro bg-[var(--a-bg)] pt-24 pb-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <Link
               href="/my-portfolio/"
-              className="font-mono text-xs tracking-widest text-[#f5f5f0]/40 hover:text-[#e8e800] transition-colors mb-6 inline-block"
+              className="font-mono text-xs tracking-widest text-[var(--a-muted)] hover:text-[var(--accent)] transition-colors mb-6 inline-block"
             >
               ← BACK TO PORTFOLIO
             </Link>
-            <span className="block font-mono text-[10px] tracking-[0.35em] text-[#e8e800] mb-4 uppercase">
+            <span className="block font-mono text-[10px] tracking-[0.35em] text-[var(--accent)] mb-4 uppercase">
               ▶ Image Optimization · Leather Products
             </span>
-            <h1 className="font-bebas leading-none text-[#f5f5f0]" style={{ fontSize: 'clamp(3rem,9vw,7rem)' }}>
+            <h1 className="font-bebas leading-none text-[var(--a-text)]" style={{ fontSize: 'clamp(3rem,9vw,7rem)' }}>
               LEATHER ITEMS<br />
-              <span style={{ WebkitTextStroke: '2px #f5f5f0', color: 'transparent' }}>OPTIMIZED</span>
+              <span style={{ color: 'var(--accent)'  }}>OPTIMIZED</span>
             </h1>
-            <p className="font-mono text-sm text-[#f5f5f0]/60 mt-6 max-w-2xl leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mt-6 max-w-2xl leading-relaxed">
               Raw product photos transformed into ultra-high-definition 8K images with pristine white backgrounds,
               deep texture rendering, and photorealistic detail. Every image is e-commerce ready —
               optimized for Amazon, Shopify, and premium brand listings.
             </p>
             {/* Stats */}
-            <div className="flex flex-wrap gap-8 mt-10 pt-8 border-t border-[#f5f5f0]/10">
+            <div className="flex flex-wrap gap-8 mt-10 pt-8 border-t border-[var(--a-border)]">
               {[
                 { label: 'PRODUCTS', value: '12' },
                 { label: 'OUTPUT QUALITY', value: '8K' },
@@ -306,8 +306,8 @@ export default function LeatherItemsPortfolio() {
                 { label: 'CATEGORY', value: 'LEATHER GOODS' },
               ].map(s => (
                 <div key={s.label}>
-                  <p className="font-mono text-[9px] tracking-[0.3em] text-[#f5f5f0]/30">{s.label}</p>
-                  <p className="font-mono text-sm text-[#e8e800] mt-1 font-bold">{s.value}</p>
+                  <p className="font-mono text-[9px] tracking-[0.3em] text-[var(--a-muted)]">{s.label}</p>
+                  <p className="font-mono text-sm text-[var(--accent)] mt-1 font-bold">{s.value}</p>
                 </div>
               ))}
             </div>
@@ -316,11 +316,11 @@ export default function LeatherItemsPortfolio() {
 
         {/* ── Section intro ── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-4">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-2">▶ BEFORE & AFTER GALLERY</p>
-          <h2 className="font-bebas text-[clamp(1.8rem,4vw,3rem)] text-[#0a0a0a] leading-tight">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-2">▶ BEFORE & AFTER GALLERY</p>
+          <h2 className="font-bebas text-[clamp(1.8rem,4vw,3rem)] text-[var(--a-text)] leading-tight">
             CLICK ANY IMAGE TO VIEW FULL SCREEN
           </h2>
-          <p className="font-mono text-xs text-[#0a0a0a]/50 mt-2">
+          <p className="font-mono text-xs text-[var(--a-muted)] mt-2">
             Each card shows the original raw photo (left) alongside the 8K-optimized final image (right).
             Click to zoom — use arrow keys or swipe to navigate all images.
           </p>
@@ -336,7 +336,7 @@ export default function LeatherItemsPortfolio() {
               return (
                 <article
                   key={product.id}
-                  className="border-2 border-[#0a0a0a] bg-white overflow-hidden"
+                  className="border-2 border-[var(--a-border)] bg-white overflow-hidden"
                   style={{ boxShadow: '5px 5px 0px #0a0a0a' }}
                 >
                   {/* Before / After images */}
@@ -357,17 +357,17 @@ export default function LeatherItemsPortfolio() {
                       />
                       <div className="absolute inset-0 bg-[#0a0a0a]/0 group-hover:bg-[#0a0a0a]/30 transition-colors duration-300" />
                       <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-2 pt-2">
-                        <span className="font-mono text-[9px] tracking-[0.2em] bg-[#0a0a0a] text-[#f5f5f0] px-2 py-1">
+                        <span className="font-mono text-[9px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 py-1">
                           BEFORE
                         </span>
                         {product.before.length > 1 && (
-                          <span className="font-mono text-[8px] text-[#f5f5f0]/70 bg-[#0a0a0a]/60 px-1.5 py-0.5">
+                          <span className="font-mono text-[8px] text-[var(--a-muted)] bg-[#0a0a0a]/60 px-1.5 py-0.5">
                             +{product.before.length - 1}
                           </span>
                         )}
                       </div>
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="font-mono text-[10px] tracking-widest text-[#f5f5f0] border border-[#f5f5f0] px-3 py-1.5">
+                        <span className="font-mono text-[10px] tracking-widest text-[var(--a-text)] border border-[var(--a-border)] px-3 py-1.5">
                           ⊕ ZOOM
                         </span>
                       </div>
@@ -375,7 +375,7 @@ export default function LeatherItemsPortfolio() {
 
                     {/* AFTER */}
                     <div
-                      className="relative cursor-zoom-in group overflow-hidden border-l-2 border-[#0a0a0a] bg-white"
+                      className="relative cursor-zoom-in group overflow-hidden border-l-2 border-[var(--a-border)] bg-white"
                       style={{ aspectRatio: '1/1' }}
                       onClick={() => openLightbox(pi, product.before.length)}
                     >
@@ -389,17 +389,17 @@ export default function LeatherItemsPortfolio() {
                       />
                       <div className="absolute inset-0 bg-[#0a0a0a]/0 group-hover:bg-[#0a0a0a]/20 transition-colors duration-300" />
                       <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-2 pt-2">
-                        <span className="font-mono text-[9px] tracking-[0.2em] bg-[#e8e800] text-[#0a0a0a] px-2 py-1">
+                        <span className="font-mono text-[9px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 py-1">
                           AFTER
                         </span>
                         {product.after.length > 1 && (
-                          <span className="font-mono text-[8px] text-[#f5f5f0] bg-[#0a0a0a]/60 px-1.5 py-0.5">
+                          <span className="font-mono text-[8px] text-[var(--a-text)] bg-[#0a0a0a]/60 px-1.5 py-0.5">
                             +{product.after.length - 1}
                           </span>
                         )}
                       </div>
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="font-mono text-[10px] tracking-widest text-[#0a0a0a] border border-[#0a0a0a] bg-[#e8e800]/90 px-3 py-1.5">
+                        <span className="font-mono text-[10px] tracking-widest text-[var(--a-text)] border border-[var(--a-border)] bg-[var(--a-subtle)]/90 px-3 py-1.5">
                           ⊕ ZOOM
                         </span>
                       </div>
@@ -407,26 +407,26 @@ export default function LeatherItemsPortfolio() {
                   </div>
 
                   {/* Card footer */}
-                  <div className="border-t-2 border-[#0a0a0a] px-4 sm:px-5 pt-4 pb-3">
+                  <div className="border-t-2 border-[var(--a-border)] px-4 sm:px-5 pt-4 pb-3">
                     {/* Category + number */}
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-mono text-[9px] tracking-[0.2em] text-[#0a0a0a]/40 uppercase">
+                      <span className="font-mono text-[9px] tracking-[0.2em] text-[var(--a-muted)] uppercase">
                         {product.category}
                       </span>
-                      <span className="font-mono text-[9px] text-[#0a0a0a]/25">#{String(product.id).padStart(2,'0')}</span>
+                      <span className="font-mono text-[9px] text-[var(--a-muted)]">#{String(product.id).padStart(2,'0')}</span>
                     </div>
                     {/* Product name */}
-                    <h3 className="font-bebas text-base sm:text-lg tracking-wider text-[#0a0a0a] leading-tight mb-3">
+                    <h3 className="font-bebas text-base sm:text-lg tracking-wider text-[var(--a-text)] leading-tight mb-3">
                       {product.name}
                     </h3>
                     {/* Date · Time row */}
                     <div className="flex items-center gap-3 mb-2.5">
-                      <span className="font-mono text-[9px] text-[#0a0a0a]/50 flex items-center gap-1">
-                        <span className="text-[#0a0a0a]/30">DATE</span> {product.date}
+                      <span className="font-mono text-[9px] text-[var(--a-muted)] flex items-center gap-1">
+                        <span className="text-[var(--a-muted)]">DATE</span> {product.date}
                       </span>
-                      <span className="text-[#0a0a0a]/20">·</span>
-                      <span className="font-mono text-[9px] text-[#0a0a0a]/50 flex items-center gap-1">
-                        <span className="text-[#0a0a0a]/30">TIME</span> {product.time}
+                      <span className="text-[var(--a-muted)]">·</span>
+                      <span className="font-mono text-[9px] text-[var(--a-muted)] flex items-center gap-1">
+                        <span className="text-[var(--a-muted)]">TIME</span> {product.time}
                       </span>
                     </div>
                     {/* Software chips + button */}
@@ -435,7 +435,7 @@ export default function LeatherItemsPortfolio() {
                         {product.software.map(sw => (
                           <span
                             key={sw}
-                            className="font-mono text-[8px] tracking-widest px-2 py-1 border border-[#0a0a0a]/20 text-[#0a0a0a]/60 bg-[#f5f5f0]"
+                            className="font-mono text-[8px] tracking-widest px-2 py-1 border border-[var(--a-border)] text-[var(--a-muted)] bg-[var(--a-bg)]"
                           >
                             {sw}
                           </span>
@@ -443,7 +443,7 @@ export default function LeatherItemsPortfolio() {
                       </div>
                       <button
                         onClick={() => openLightbox(pi, product.before.length)}
-                        className="shrink-0 font-mono text-[9px] tracking-widest text-[#0a0a0a] border-2 border-[#0a0a0a] px-3 py-2 hover:bg-[#e8e800] hover:border-[#e8e800] transition-all whitespace-nowrap"
+                        className="shrink-0 font-mono text-[9px] tracking-widest text-[var(--a-text)] border-2 border-[var(--a-border)] px-3 py-2 hover:bg-[var(--a-subtle)] hover:border-[var(--a-border)] transition-all whitespace-nowrap"
                         aria-label={`View all ${gallery.length} images for ${product.name}`}
                       >
                         VIEW ALL {gallery.length} →
@@ -457,7 +457,7 @@ export default function LeatherItemsPortfolio() {
         </div>
 
         {/* ── SEO Content ── */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t-2 border-[#0a0a0a] mt-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t-2 border-[var(--a-border)] mt-8">
           <div className="grid md:grid-cols-[1fr_280px] gap-12 sm:gap-16">
             <div className="prose-leather">
               <h2>Professional Leather Product Image Optimization</h2>
@@ -521,8 +521,8 @@ export default function LeatherItemsPortfolio() {
 
             {/* Sidebar */}
             <aside className="space-y-5">
-              <div className="border-2 border-[#0a0a0a] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE PROJECTS</h3>
+              <div className="border-2 border-[var(--a-border)] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-4">MORE PROJECTS</h3>
                 <div className="flex flex-col gap-3">
                   {[
                     { title: 'Premium A+ Content', slug: 'premium-a-content' },
@@ -532,7 +532,7 @@ export default function LeatherItemsPortfolio() {
                     <Link
                       key={p.slug}
                       href={`/blackdsn-portfolio/${p.slug}/`}
-                      className="font-mono text-xs text-[#0a0a0a] hover:text-[#0a0a0a]/60 border-b border-[#0a0a0a]/10 pb-2 transition-colors"
+                      className="font-mono text-xs text-[var(--a-text)] hover:text-[var(--a-muted)] border-b border-[var(--a-border)] pb-2 transition-colors"
                     >
                       {p.title} →
                     </Link>
@@ -540,8 +540,8 @@ export default function LeatherItemsPortfolio() {
                 </div>
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5 bg-[#f5f5f0]">
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-3">QUICK STATS</h3>
+              <div className="border-2 border-[var(--a-border)] p-5 bg-[var(--a-bg)]">
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-3">QUICK STATS</h3>
                 {[
                   ['Products', '12'],
                   ['Total Images', '30+'],
@@ -549,9 +549,9 @@ export default function LeatherItemsPortfolio() {
                   ['Background', 'Pure White'],
                   ['Format', 'PNG / JPEG'],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between items-center border-b border-[#0a0a0a]/10 py-2 last:border-0">
-                    <span className="font-mono text-[10px] text-[#0a0a0a]/50">{k}</span>
-                    <span className="font-mono text-[10px] text-[#0a0a0a] font-bold">{v}</span>
+                  <div key={k} className="flex justify-between items-center border-b border-[var(--a-border)] py-2 last:border-0">
+                    <span className="font-mono text-[10px] text-[var(--a-muted)]">{k}</span>
+                    <span className="font-mono text-[10px] text-[var(--a-text)] font-bold">{v}</span>
                   </div>
                 ))}
               </div>
@@ -560,18 +560,18 @@ export default function LeatherItemsPortfolio() {
         </div>
 
         {/* ── CTA Banner ── */}
-        <div className="bg-[#0a0a0a] py-16">
+        <div className="bg-[var(--a-subtle)] py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800] mb-4">▶ READY TO TRANSFORM YOUR PRODUCT IMAGES?</p>
-            <h2 className="font-bebas text-[clamp(2rem,6vw,4.5rem)] leading-none text-[#f5f5f0] mb-6">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)] mb-4">▶ READY TO TRANSFORM YOUR PRODUCT IMAGES?</p>
+            <h2 className="font-bebas text-[clamp(2rem,6vw,4.5rem)] leading-none text-[var(--a-text)] mb-6">
               LET'S MAKE YOUR LEATHER<br />PRODUCTS LOOK PREMIUM
             </h2>
-            <p className="font-mono text-sm text-[#f5f5f0]/50 mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mb-8 max-w-lg mx-auto leading-relaxed">
               From raw product shots to 8K e-commerce images — professional retouching that drives real results.
             </p>
             <Link
               href="/contact-me/"
-              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all"
+              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all"
             >
               GET STARTED TODAY →
             </Link>
@@ -708,30 +708,30 @@ export default function LeatherItemsPortfolio() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: clamp(1.4rem, 3vw, 2rem);
           letter-spacing: 0.05em;
-          color: #0a0a0a;
+          color: var(--a-text);
           margin-top: 2.5rem;
           margin-bottom: 0.75rem;
-          border-bottom: 2px solid #0a0a0a;
+          border-bottom: 2px solid var(--a-border);
           padding-bottom: 0.4rem;
         }
         .prose-leather p {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.95;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 1.2rem;
         }
-        .prose-leather strong { color: #0a0a0a; font-weight: 700; }
+        .prose-leather strong { color: var(--a-text); font-weight: 700; }
         .prose-leather ul {
           padding-left: 0;
           margin-bottom: 1.5rem;
           list-style: none;
         }
         .prose-leather li {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.85;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 0.6rem;
           padding-left: 1.2rem;
           position: relative;
@@ -740,7 +740,7 @@ export default function LeatherItemsPortfolio() {
           content: '▶';
           position: absolute;
           left: 0;
-          color: #e8e800;
+          color: var(--accent);
           font-size: 0.55rem;
           top: 0.35rem;
         }

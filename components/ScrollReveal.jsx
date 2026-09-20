@@ -22,7 +22,7 @@ export default function ScrollReveal() {
           }
         })
       },
-      { threshold: 0.08, rootMargin: '0px 0px -5% 0px' }
+      { threshold: 0, rootMargin: '0px 0px -5% 0px' }
     )
 
     sections.forEach((s) => {
@@ -32,7 +32,10 @@ export default function ScrollReveal() {
       observer.observe(s)
     })
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      sections.forEach(section => section.classList.remove('reveal-init'))
+    }
   }, [pathname])
 
   return null

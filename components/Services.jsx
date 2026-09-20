@@ -61,11 +61,11 @@ export default function Services() {
                     long the description runs. */}
                 <div className="mt-auto flex items-center gap-4">
                   <a
-                    href={`/order/${s.slug}/`}
+                    href={`/services/${s.slug}/`}
                     className="btn-brutal font-bebas text-sm tracking-widest px-5 py-2.5 border-2"
                     style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-inv)', borderColor: 'var(--accent)', boxShadow: '3px 3px 0px var(--a-subtle)' }}
                   >
-                    PURCHASE →
+                    VIEW SERVICE →
                   </a>
                   <a
                     href="/contact-me/"
@@ -82,7 +82,7 @@ export default function Services() {
 
         <details className="mt-6 font-mono text-xs leading-relaxed" style={{ color: 'var(--a-muted)' }}>
           <summary className="cursor-pointer py-3">Project scope, revisions &amp; payment details</summary>
-          <p className="max-w-3xl pb-3">Prices in USD, per project. Includes competitor analysis, two revision rounds and Seller Central-ready files. A “from” price covers the scope on its order page. Larger catalogs and additional work are quoted separately before work begins, never charged automatically. Card payments are handled by Stripe.</p>
+          <p className="max-w-3xl pb-3">Prices in USD, per project. Includes competitor analysis, the revision allowance on your order page and Seller Central-ready files. A “from” price covers the scope on its order page. Larger catalogs and additional work are quoted separately before work begins, never charged automatically. Card payments are handled by Stripe.</p>
         </details>
 
         {/* CTA bar */}

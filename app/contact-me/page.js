@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Contact from '@/components/Contact'
+import PageHeader from '@/components/PageHeader'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
@@ -14,9 +15,10 @@ export default function ContactMe() {
   return (
     <>
       <Navbar />
-      <div className="pt-16">
+      <main id="main-content" className="interior-page contact-page">
+        <PageHeader label="LET’S TALK" title={<>Your next launch<br />starts with a conversation.</>} subtitle="Send your product link, what you need designed and your ideal timing. We’ll find a clear starting point." image="/images/kashif-portrait-ivory-v1.webp" imageAlt="Muhammad Kashif, your design partner" />
         <Contact />
-      </div>
+      </main>
       <Footer />
     </>
   )

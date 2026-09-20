@@ -23,7 +23,7 @@ export const metadata = createMetadata({
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <Navbar />
       <Hero />
       <ClientStrip />

@@ -19,7 +19,7 @@ export default function NotFound() {
   return (
     <>
       <Navbar />
-      <main className="pt-16 sm:pt-[4.5rem] min-h-[70vh]" style={{ backgroundColor: 'var(--a-bg)' }}>
+      <main id="main-content" className="interior-page pt-24 sm:pt-28 min-h-[70vh]" style={{ backgroundColor: 'var(--a-bg)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
           <p className="font-mono text-xs tracking-[0.35em] mb-3" style={{ color: 'var(--a-muted)' }}>
             ▶ ERROR 404

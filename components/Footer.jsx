@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { gaEvent } from '@/lib/gtag'
+import { services } from '@/data/services'
 
 const socials = [
   { label: 'UPWORK',    href: 'https://www.upwork.com/freelancers/~016edc19243e405472', event: 'upwork_click' },
@@ -111,11 +112,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Services — legal links remain in the bottom bar. */}
           <div>
-            <h4 className="font-bebas text-base tracking-widest mb-4 sm:mb-5" style={{ color: 'var(--accent)' }}>LEGAL</h4>
+            <h4 className="font-bebas text-base tracking-widest mb-4 sm:mb-5" style={{ color: 'var(--accent)' }}>DESIGN SERVICES</h4>
             <ul className="flex flex-col gap-2.5">
-              {legalLinks.map((l) => (
+              {services.map((service) => ({ label: service.title, href: `/services/${service.slug}/` })).map((l) => (
                 <li key={l.label}>
                   <a href={l.href} className="font-mono text-xs sm:text-sm tracking-widest transition-colors" style={linkStyle}
                     onMouseEnter={e => e.target.style.color = 'var(--a-text)'}

@@ -56,31 +56,31 @@ export default function YaraLattafaPortfolio() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
+      <main id="main-content" className="interior-page legacy-case min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
 
         {/* ── Hero ── */}
-        <div className="bg-[#0a0a0a] pt-24 pb-0">
+        <div className="case-intro bg-[var(--a-bg)] pt-24 pb-0">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <Link href="/my-portfolio/"
-              className="font-mono text-xs tracking-widest text-[#f5f5f0]/40 hover:text-[#e8e800] transition-colors mb-6 inline-block">
+              className="font-mono text-xs tracking-widest text-[var(--a-muted)] hover:text-[var(--accent)] transition-colors mb-6 inline-block">
               ← BACK TO PORTFOLIO
             </Link>
-            <span className="block font-mono text-[10px] tracking-[0.35em] text-[#e8e800] mb-4 uppercase">
+            <span className="block font-mono text-[10px] tracking-[0.35em] text-[var(--accent)] mb-4 uppercase">
               ▶ Amazon Main Image · AI + Photoshop · Conversion Optimisation
             </span>
-            <h1 className="font-bebas leading-none text-[#f5f5f0]" style={{ fontSize: 'clamp(2.2rem,6.5vw,5rem)' }}>
+            <h1 className="font-bebas leading-none text-[var(--a-text)]" style={{ fontSize: 'clamp(2.2rem,6.5vw,5rem)' }}>
               YARA BY LATTAFA<br />
-              <span style={{ WebkitTextStroke: '2px #f5f5f0', color: 'transparent' }}>AMAZON MAIN IMAGE</span>
+              <span style={{ color: 'var(--accent)'  }}>AMAZON MAIN IMAGE</span>
             </h1>
-            <p className="font-mono text-sm text-[#f5f5f0]/60 mt-5 max-w-2xl leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mt-5 max-w-2xl leading-relaxed">
               Redesigned in minutes — no studio shoot, no complex setup, no endless revisions.
               Just a smarter workflow. Raw product shots transformed into a scroll-stopping Amazon main image
-              for <strong className="text-[#f5f5f0]/80">Yara by Lattafa</strong> Eau de Parfum using
+              for <strong className="text-[var(--a-muted)]">Yara by Lattafa</strong> Eau de Parfum using
               AI-assisted cleanup and Photoshop precision.
             </p>
 
             {/* Meta */}
-            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[#f5f5f0]/10">
+            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[var(--a-border)]">
               {[
                 { label: 'PRODUCT', value: 'Yara by Lattafa EDP 100ML' },
                 { label: 'DATE', value: 'Jun 27, 2026' },
@@ -89,8 +89,8 @@ export default function YaraLattafaPortfolio() {
                 { label: 'OUTPUT', value: 'Amazon Main Image' },
               ].map(s => (
                 <div key={s.label}>
-                  <p className="font-mono text-[9px] tracking-[0.3em] text-[#f5f5f0]/30">{s.label}</p>
-                  <p className="font-mono text-xs text-[#e8e800] mt-1 font-bold">{s.value}</p>
+                  <p className="font-mono text-[9px] tracking-[0.3em] text-[var(--a-muted)]">{s.label}</p>
+                  <p className="font-mono text-xs text-[var(--accent)] mt-1 font-bold">{s.value}</p>
                 </div>
               ))}
             </div>
@@ -99,30 +99,30 @@ export default function YaraLattafaPortfolio() {
 
         {/* ── Main Image ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-4">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-4">
             ▶ RAW SHOTS → AMAZON MAIN IMAGE · CLICK TO ZOOM
           </p>
           <div className="grid md:grid-cols-[1fr_2fr] gap-4 sm:gap-6 items-start">
 
             {/* Annotation column */}
             <div className="space-y-4 md:pt-2">
-              <div className="border-2 border-[#0a0a0a] p-4 bg-white" style={{ boxShadow: '3px 3px 0 #0a0a0a' }}>
-                <span className="font-mono text-[9px] tracking-[0.2em] bg-[#0a0a0a] text-[#f5f5f0] px-2 py-0.5 inline-block mb-2">RAW INPUTS</span>
-                <p className="font-mono text-[10px] text-[#0a0a0a]/60 leading-relaxed">
+              <div className="border-2 border-[var(--a-border)] p-4 bg-white" style={{ boxShadow: '3px 3px 0 #0a0a0a' }}>
+                <span className="font-mono text-[9px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 py-0.5 inline-block mb-2">RAW INPUTS</span>
+                <p className="font-mono text-[10px] text-[var(--a-muted)] leading-relaxed">
                   Two casual product shots — textured backgrounds, uneven angles, inconsistent lighting.
                   Not sellable as-is.
                 </p>
               </div>
-              <div className="border-2 border-[#0a0a0a] p-4 bg-[#0a0a0a]" style={{ boxShadow: '3px 3px 0 #e8e800' }}>
-                <span className="font-mono text-[9px] tracking-[0.2em] bg-[#e8e800] text-[#0a0a0a] px-2 py-0.5 inline-block mb-2">WORKFLOW</span>
-                <p className="font-mono text-[10px] text-[#f5f5f0]/60 leading-relaxed">
+              <div className="border-2 border-[var(--a-border)] p-4 bg-[var(--a-subtle)]" style={{ boxShadow: '3px 3px 0 #e8e800' }}>
+                <span className="font-mono text-[9px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 py-0.5 inline-block mb-2">WORKFLOW</span>
+                <p className="font-mono text-[10px] text-[var(--a-muted)] leading-relaxed">
                   Ai + Photoshop — AI for background removal and initial cleanup; Photoshop for
                   precision lighting, reflections, centering, and final polish.
                 </p>
               </div>
-              <div className="border-2 border-[#0a0a0a] p-4 bg-[#f5f5f0]" style={{ boxShadow: '3px 3px 0 #0a0a0a' }}>
-                <span className="font-mono text-[9px] tracking-[0.2em] bg-[#0a0a0a] text-[#e8e800] px-2 py-0.5 inline-block mb-2">RESULT</span>
-                <p className="font-mono text-[10px] text-[#0a0a0a]/60 leading-relaxed">
+              <div className="border-2 border-[var(--a-border)] p-4 bg-[var(--a-bg)]" style={{ boxShadow: '3px 3px 0 #0a0a0a' }}>
+                <span className="font-mono text-[9px] tracking-[0.2em] bg-[var(--a-subtle)] text-[var(--accent)] px-2 py-0.5 inline-block mb-2">RESULT</span>
+                <p className="font-mono text-[10px] text-[var(--a-muted)] leading-relaxed">
                   Amazon-compliant main image. Pure white background. CTR-optimised framing. Scroll-stopping
                   luxury finish — done in minutes, not days.
                 </p>
@@ -131,7 +131,7 @@ export default function YaraLattafaPortfolio() {
 
             {/* Image */}
             <div
-              className="relative cursor-zoom-in border-2 border-[#0a0a0a] overflow-hidden group bg-white"
+              className="relative cursor-zoom-in border-2 border-[var(--a-border)] overflow-hidden group bg-white"
               style={{ boxShadow: '6px 6px 0 #0a0a0a' }}
               onClick={() => setLightboxOpen(true)}
             >
@@ -153,16 +153,16 @@ export default function YaraLattafaPortfolio() {
         </div>
 
         {/* ── Workflow Steps ── */}
-        <div className="border-t-2 border-[#0a0a0a] bg-[#0a0a0a]">
+        <div className="border-t-2 border-[var(--a-border)] bg-[var(--a-subtle)]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800]/60 mb-6">▶ THE EXACT WORKFLOW</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)]/60 mb-6">▶ THE EXACT WORKFLOW</p>
             <div className="flex flex-col gap-0">
               {workflow.map((step, i) => (
-                <div key={i} className="flex items-start gap-4 border-b border-[#f5f5f0]/8 py-4 last:border-0">
-                  <span className="font-bebas text-2xl text-[#e8e800] leading-none shrink-0 mt-0.5">
+                <div key={i} className="flex items-start gap-4 border-b border-[var(--a-border)] py-4 last:border-0">
+                  <span className="font-bebas text-2xl text-[var(--accent)] leading-none shrink-0 mt-0.5">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <p className="font-mono text-[11px] text-[#f5f5f0]/65 leading-relaxed">{step.text}</p>
+                  <p className="font-mono text-[11px] text-[var(--a-muted)] leading-relaxed">{step.text}</p>
                 </div>
               ))}
             </div>
@@ -171,43 +171,43 @@ export default function YaraLattafaPortfolio() {
 
         {/* ── 4 Principles ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-2">▶ WHAT MOST PEOPLE GET WRONG</p>
-          <h2 className="font-bebas text-[clamp(1.6rem,4vw,2.5rem)] text-[#0a0a0a] leading-tight mb-8">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-2">▶ WHAT MOST PEOPLE GET WRONG</p>
+          <h2 className="font-bebas text-[clamp(1.6rem,4vw,2.5rem)] text-[var(--a-text)] leading-tight mb-8">
             MAIN IMAGES ARE NOT JUST ABOUT<br />"CLEAN BACKGROUND"
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {principles.map((p, i) => (
-              <div key={i} className="border-2 border-[#0a0a0a] p-5" style={{ boxShadow: '4px 4px 0 #0a0a0a' }}>
+              <div key={i} className="border-2 border-[var(--a-border)] p-5" style={{ boxShadow: '4px 4px 0 #0a0a0a' }}>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="font-mono text-[9px] text-[#e8e800] bg-[#0a0a0a] px-1.5 py-0.5">
+                  <span className="font-mono text-[9px] text-[var(--accent)] bg-[var(--a-subtle)] px-1.5 py-0.5">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="font-bebas text-lg tracking-wide text-[#0a0a0a]">{p.title}</h3>
+                  <h3 className="font-bebas text-lg tracking-wide text-[var(--a-text)]">{p.title}</h3>
                 </div>
-                <p className="font-mono text-[10px] text-[#0a0a0a]/55 leading-relaxed">{p.desc}</p>
+                <p className="font-mono text-[10px] text-[var(--a-muted)] leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* ── The Shift ── */}
-        <div className="border-t-2 border-[#0a0a0a] border-b-2">
+        <div className="border-t-2 border-[var(--a-border)] border-b-2">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-2">▶ THE GAME IS SHIFTING</p>
-            <h2 className="font-bebas text-[clamp(1.6rem,4vw,2.5rem)] text-[#0a0a0a] leading-tight mb-8">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-2">▶ THE GAME IS SHIFTING</p>
+            <h2 className="font-bebas text-[clamp(1.6rem,4vw,2.5rem)] text-[var(--a-text)] leading-tight mb-8">
               FROM "MAKE IT LOOK NICE"<br />TO "MAKE IT CONVERT"
             </h2>
             <div className="flex flex-col gap-0">
               {shiftItems.map((item, i) => (
-                <div key={i} className="grid grid-cols-[1fr_auto_1fr] items-center border-t border-[#0a0a0a]/10 py-4 gap-4">
-                  <div className="border border-[#0a0a0a]/20 px-3 py-2 text-center">
-                    <span className="font-mono text-[10px] text-[#0a0a0a]/40 block mb-0.5 tracking-widest">BEFORE</span>
-                    <span className="font-mono text-[10px] text-[#0a0a0a]/60">{item.from}</span>
+                <div key={i} className="grid grid-cols-[1fr_auto_1fr] items-center border-t border-[var(--a-border)] py-4 gap-4">
+                  <div className="border border-[var(--a-border)] px-3 py-2 text-center">
+                    <span className="font-mono text-[10px] text-[var(--a-muted)] block mb-0.5 tracking-widest">BEFORE</span>
+                    <span className="font-mono text-[10px] text-[var(--a-muted)]">{item.from}</span>
                   </div>
-                  <span className="font-bebas text-xl text-[#e8e800] bg-[#0a0a0a] px-3 py-1.5">→</span>
-                  <div className="border-2 border-[#0a0a0a] px-3 py-2 text-center bg-white">
-                    <span className="font-mono text-[10px] text-[#e8e800] bg-[#0a0a0a] px-1.5 py-0.5 block mb-1 text-[8px] tracking-widest w-fit mx-auto">AFTER</span>
-                    <span className="font-mono text-[10px] text-[#0a0a0a] font-bold">{item.to}</span>
+                  <span className="font-bebas text-xl text-[var(--accent)] bg-[var(--a-subtle)] px-3 py-1.5">→</span>
+                  <div className="border-2 border-[var(--a-border)] px-3 py-2 text-center bg-white">
+                    <span className="font-mono text-[10px] text-[var(--accent)] bg-[var(--a-subtle)] px-1.5 py-0.5 block mb-1 text-[8px] tracking-widest w-fit mx-auto">AFTER</span>
+                    <span className="font-mono text-[10px] text-[var(--a-text)] font-bold">{item.to}</span>
                   </div>
                 </div>
               ))}
@@ -271,19 +271,19 @@ export default function YaraLattafaPortfolio() {
 
             {/* Sidebar */}
             <aside className="space-y-5">
-              <div className="border-2 border-[#0a0a0a] p-5 bg-[#0a0a0a]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
-                <h3 className="font-bebas text-xl tracking-widest text-[#e8e800] mb-3">YOUR MAIN IMAGE ISN'T CONVERTING?</h3>
-                <p className="font-mono text-xs text-[#f5f5f0]/60 leading-relaxed mb-4">
+              <div className="border-2 border-[var(--a-border)] p-5 bg-[var(--a-subtle)]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
+                <h3 className="font-bebas text-xl tracking-widest text-[var(--accent)] mb-3">YOUR MAIN IMAGE ISN'T CONVERTING?</h3>
+                <p className="font-mono text-xs text-[var(--a-muted)] leading-relaxed mb-4">
                   Let's redesign it. Fast, precise, Amazon-compliant — and built to make buyers click.
                 </p>
                 <Link href="/contact-me/"
-                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all">
+                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all">
                   START YOUR PROJECT →
                 </Link>
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-3">PROJECT INFO</h3>
+              <div className="border-2 border-[var(--a-border)] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-3">PROJECT INFO</h3>
                 {[
                   ['Product', 'Yara by Lattafa'],
                   ['Type', 'EDP 100ML / 3.4 FL OZ'],
@@ -293,31 +293,31 @@ export default function YaraLattafaPortfolio() {
                   ['Output', 'Amazon Main Image'],
                   ['Background', 'Pure White'],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between items-start border-b border-[#0a0a0a]/10 py-2 last:border-0 gap-2">
-                    <span className="font-mono text-[9px] text-[#0a0a0a]/40 shrink-0">{k}</span>
-                    <span className="font-mono text-[9px] text-[#0a0a0a] font-bold text-right">{v}</span>
+                  <div key={k} className="flex justify-between items-start border-b border-[var(--a-border)] py-2 last:border-0 gap-2">
+                    <span className="font-mono text-[9px] text-[var(--a-muted)] shrink-0">{k}</span>
+                    <span className="font-mono text-[9px] text-[var(--a-text)] font-bold text-right">{v}</span>
                   </div>
                 ))}
               </div>
 
               {/* Key stats */}
-              <div className="border-2 border-[#0a0a0a] p-5 bg-[#f5f5f0]">
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-3">WHY MAIN IMAGE MATTERS</h3>
+              <div className="border-2 border-[var(--a-border)] p-5 bg-[var(--a-bg)]">
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-3">WHY MAIN IMAGE MATTERS</h3>
                 {[
                   ['First touchpoint', 'In search, ads, and comparisons'],
                   ['85%+ frame fill', 'Amazon best practice for CTR'],
                   ['Zoom-ready', 'Label readable at 400% scale'],
                   ['No studio needed', 'AI + Photoshop in minutes'],
                 ].map(([k, v]) => (
-                  <div key={k} className="border-b border-[#0a0a0a]/10 py-2.5 last:border-0">
-                    <p className="font-bebas text-sm tracking-wide text-[#0a0a0a]">{k}</p>
-                    <p className="font-mono text-[9px] text-[#0a0a0a]/50">{v}</p>
+                  <div key={k} className="border-b border-[var(--a-border)] py-2.5 last:border-0">
+                    <p className="font-bebas text-sm tracking-wide text-[var(--a-text)]">{k}</p>
+                    <p className="font-mono text-[9px] text-[var(--a-muted)]">{v}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5">
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE PROJECTS</h3>
+              <div className="border-2 border-[var(--a-border)] p-5">
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-4">MORE PROJECTS</h3>
                 <div className="flex flex-col gap-3">
                   {[
                     { title: 'Jason Markk Lifestyle Composite', slug: 'jason-markk-lifestyle-composite' },
@@ -326,7 +326,7 @@ export default function YaraLattafaPortfolio() {
                     { title: 'Leather Items Optimized', slug: 'leather-items-optimized' },
                   ].map(p => (
                     <Link key={p.slug} href={`/blackdsn-portfolio/${p.slug}/`}
-                      className="font-mono text-xs text-[#0a0a0a] hover:text-[#0a0a0a]/60 border-b border-[#0a0a0a]/10 pb-2 transition-colors">
+                      className="font-mono text-xs text-[var(--a-text)] hover:text-[var(--a-muted)] border-b border-[var(--a-border)] pb-2 transition-colors">
                       {p.title} →
                     </Link>
                   ))}
@@ -337,17 +337,17 @@ export default function YaraLattafaPortfolio() {
         </div>
 
         {/* ── CTA ── */}
-        <div className="bg-[#0a0a0a] py-16">
+        <div className="bg-[var(--a-subtle)] py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800] mb-4">▶ YOUR MAIN IMAGE IS YOUR FIRST SALE</p>
-            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[#f5f5f0] mb-6">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)] mb-4">▶ YOUR MAIN IMAGE IS YOUR FIRST SALE</p>
+            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[var(--a-text)] mb-6">
               MAKE IT CONVERT.<br />NOT JUST LOOK NICE.
             </h2>
-            <p className="font-mono text-sm text-[#f5f5f0]/50 mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mb-8 max-w-lg mx-auto leading-relaxed">
               AI + Photoshop workflow. Amazon rules + buyer psychology. Scroll-stopping main images that actually drive clicks and sales.
             </p>
             <Link href="/contact-me/"
-              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all">
+              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all">
               REDESIGN MY MAIN IMAGE →
             </Link>
           </div>
@@ -385,20 +385,20 @@ export default function YaraLattafaPortfolio() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: clamp(1.4rem, 3vw, 2rem);
           letter-spacing: 0.05em;
-          color: #0a0a0a;
+          color: var(--a-text);
           margin-top: 2.5rem;
           margin-bottom: 0.75rem;
-          border-bottom: 2px solid #0a0a0a;
+          border-bottom: 2px solid var(--a-border);
           padding-bottom: 0.4rem;
         }
         .prose-yara p {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.95;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 1.2rem;
         }
-        .prose-yara strong { color: #0a0a0a; font-weight: 700; }
+        .prose-yara strong { color: var(--a-text); font-weight: 700; }
       `}</style>
     </>
   )

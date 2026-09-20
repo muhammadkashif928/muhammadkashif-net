@@ -128,7 +128,7 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content" className="interior-page document-page">
         <PageHeader
           label="LEGAL"
           title={<>PRIVACY<br />POLICY</>}

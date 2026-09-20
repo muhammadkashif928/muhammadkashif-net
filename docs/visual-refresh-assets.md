@@ -7,6 +7,12 @@ Created with the built-in ChatGPT image generation tool. Originals retained in t
 
 ## Final prompts
 
+### Full-site studio banner
+
+`public/images/design-studio-v1.webp` — 1200 × 800, generated with the built-in image tool. Used for the services and resources introductions and the Brand Store detail page. Labeled as concept imagery.
+
+Use case: product-mockup. Asset: wide editorial banner for an Amazon product design studio services page. Photorealistic art director desk with a cream laptop showing abstract ecommerce product tiles (no legible text), carefully arranged printed product layout cards, a sage ceramic mug, amber skincare bottle, color swatch papers in olive, sand and peach. Warm ivory desk and seamless background, soft daylight, premium tactile materials. Landscape 3:2 framing, beautifully organized visual storytelling, no people, no logos, no watermark. Generic design concept, not real client work.
+
 ### Category discovery images
 
 Created using the built-in image generation tool, optimized to 960 × 640 WebP and displayed as illustrative concepts. Original prompts:

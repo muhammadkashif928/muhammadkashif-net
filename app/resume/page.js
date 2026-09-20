@@ -5,18 +5,18 @@ import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
   title: 'Resume & CV | Muhammad Kashif — Amazon Designer for Leather & Footwear Brands',
-  description: 'Professional resume and CV of Muhammad Kashif, Amazon brand designer specializing in leather care, shoe care, and footwear brands, with 8+ years of experience. Based in Kuching, Sarawak, Malaysia.',
+  description: 'Professional resume and CV of Muhammad Kashif, Amazon brand designer working with brands across product categories, with 8+ years of experience. Based in Kuching, Sarawak, Malaysia.',
   path: '/resume/',
   keywords: ['Muhammad Kashif resume', 'Amazon brand designer CV', 'AI-powered creative specialist'],
 })
 
 const skills = [
-  { label: 'AI Concept Art',        pct: 91 },
-  { label: 'Brand Identity',        pct: 80 },
-  { label: 'High-End Retouching',   pct: 79 },
-  { label: 'Competitor Analysis',   pct: 59 },
-  { label: 'Infographic Design',    pct: 58 },
-  { label: 'A+ Content Strategy',   pct: 51 },
+  { label: 'AI Concept Art' },
+  { label: 'Brand Identity' },
+  { label: 'High-End Retouching' },
+  { label: 'Competitor Analysis' },
+  { label: 'Infographic Design' },
+  { label: 'A+ Content Strategy' },
 ]
 
 const experience = [
@@ -69,7 +69,7 @@ export default function ResumePage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content" className="interior-page document-page">
         <PageHeader
           label="PROFESSIONAL RESUME & CV"
           title={<>RESUME<br />& CV</>}
@@ -121,9 +121,9 @@ export default function ResumePage() {
 
                 {/* Header */}
                 <div className="mb-12 pb-10 border-b" style={{ borderColor: 'var(--b-border)' }}>
-                  <h1 className="font-bebas tracking-[0.08em] leading-none mb-2" style={{ fontSize: '2.8rem', color: 'var(--b-text)' }}>
+                  <h2 className="font-bebas tracking-[0.08em] leading-none mb-2" style={{ fontSize: '2.8rem', color: 'var(--b-text)' }}>
                     MUHAMMAD KASHIF
-                  </h1>
+                  </h2>
                   <p className="font-mono text-xs tracking-widest mb-5" style={{ color: 'var(--b-muted)' }}>
                     AI-POWERED AMAZON BRAND DESIGNER · CREATIVE SPECIALIST
                   </p>
@@ -234,10 +234,6 @@ export default function ResumePage() {
                       <div key={s.label}>
                         <div className="flex justify-between mb-1.5">
                           <span className="font-mono text-[9px] tracking-widest" style={{ color: 'var(--b-text)' }}>{s.label.toUpperCase()}</span>
-                          <span className="font-bebas text-sm" style={{ color: 'var(--b-muted)' }}>{s.pct}%</span>
-                        </div>
-                        <div className="h-1 relative" style={{ backgroundColor: 'var(--b-subtle)', border: '1px solid var(--b-border)' }}>
-                          <div className="h-full" style={{ width: `${s.pct}%`, backgroundColor: 'var(--b-text)' }} />
                         </div>
                       </div>
                     ))}

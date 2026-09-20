@@ -36,6 +36,7 @@ export default function Navbar() {
 
   const isActive = (href) => {
     if (href === '/') return pathname === '/'
+    if (href.includes('#')) return false
     return pathname.startsWith(href.replace(/\/$/, ''))
   }
 
@@ -43,7 +44,7 @@ export default function Navbar() {
     <nav
       className={`nav-offset fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled && !menuOpen ? 'nav-glass' : ''}`}
       style={{
-        backgroundColor: menuOpen ? 'var(--a-bg)' : scrolled ? undefined : 'transparent',
+        backgroundColor: 'var(--a-bg-glass)',
         borderBottom: scrolled ? '1px solid var(--a-border)' : 'none',
       }}
     >
@@ -124,6 +125,8 @@ export default function Navbar() {
             className="xl:hidden flex flex-col gap-1.5 p-2 shrink-0"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <span className="block w-5 h-px transition-all duration-200" style={{ backgroundColor: 'var(--a-text)', transform: menuOpen ? 'rotate(45deg) translateY(8px)' : '' }} />
             <span className="block w-5 h-px transition-all duration-200" style={{ backgroundColor: 'var(--a-text)', opacity: menuOpen ? 0 : 1 }} />
@@ -139,7 +142,7 @@ export default function Navbar() {
 
       {/* Mobile/Tablet menu */}
       {menuOpen && (
-        <div className="menu-slide xl:hidden px-4 sm:px-6 py-6 flex flex-col gap-2" style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
+        <div id="mobile-navigation" className="menu-slide xl:hidden px-4 sm:px-6 py-6 flex flex-col gap-2" style={{ backgroundColor: 'var(--a-bg)', borderTop: '1px solid var(--a-border)' }}>
           {links.map((l) => (
             <a
               key={l.label}

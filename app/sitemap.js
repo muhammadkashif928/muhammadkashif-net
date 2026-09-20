@@ -2,7 +2,7 @@ import { blogPosts } from '@/data/blog'
 import { services } from '@/data/services'
 
 const baseUrl = 'https://muhammadkashif.net'
-const siteUpdated = '2026-07-18T10:00:00+08:00'
+const siteUpdated = '2026-09-21T10:00:00+08:00'
 
 function route(path, changeFrequency, priority, lastModified = siteUpdated) {
   return {
@@ -55,5 +55,5 @@ export default function sitemap() {
     route('/disclaimer/', 'yearly', 0.35),
   ]
 
-  return [...coreRoutes, ...orderRoutes, ...portfolioRoutes, ...blogRoutes, ...legalRoutes]
+  return [...coreRoutes, ...services.map(s => route(`/services/${s.slug}/`, 'monthly', 0.9)), ...orderRoutes, ...portfolioRoutes, ...blogRoutes, ...legalRoutes]
 }

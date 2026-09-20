@@ -68,7 +68,7 @@ export default async function OrderSuccessPage({ searchParams }) {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen flex items-center" style={{ backgroundColor: 'var(--b-bg)' }}>
+      <main id="main-content" className="interior-page min-h-screen flex items-center" style={{ backgroundColor: 'var(--b-bg)' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-32 pb-20 w-full">
 
           <p className="font-mono text-[11px] tracking-[0.35em] mb-4" style={{ color: 'var(--b-muted)' }}>

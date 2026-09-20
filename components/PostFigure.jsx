@@ -18,16 +18,16 @@
  * unaided is decoration.
  */
 
-const INK = '#0a0a0a'
-const CREAM = '#f5f5f0'
-const ACCENT = '#e8e800'
+const INK = 'var(--a-text)'
+const CREAM = 'var(--a-bg)'
+const ACCENT = 'var(--a-bg)'
 
 function Caption({ children }) {
   if (!children) return null
   return (
     <figcaption
       className="font-mono text-xs leading-relaxed mt-3 pl-3"
-      style={{ color: 'rgba(10,10,10,0.62)', borderLeft: `2px solid ${INK}` }}
+      style={{ color: 'var(--a-muted)', borderLeft: `2px solid ${INK}` }}
     >
       {children}
     </figcaption>
@@ -49,7 +49,7 @@ function Tile({ label, note, emphasis }) {
       {note && (
         <span
           className="font-mono text-[11px] leading-snug mt-3 break-words"
-          style={{ color: emphasis ? 'rgba(245,245,240,0.72)' : 'rgba(10,10,10,0.62)' }}
+          style={{ color: emphasis ? 'rgba(245,245,240,0.72)' : 'var(--a-muted)' }}
         >
           {note}
         </span>
@@ -97,7 +97,7 @@ export default function PostFigure({ kind = 'grid', items = [], caption, label }
               </span>
               <span className="font-bebas text-lg tracking-wide leading-none block">{it.label}</span>
               {it.note && (
-                <span className="font-mono text-[11px] leading-snug block mt-2" style={{ color: 'rgba(10,10,10,0.62)' }}>
+                <span className="font-mono text-[11px] leading-snug block mt-2" style={{ color: 'var(--a-muted)' }}>
                   {it.note}
                 </span>
               )}
@@ -125,7 +125,7 @@ export default function PostFigure({ kind = 'grid', items = [], caption, label }
             >
               <span className="font-bebas text-lg tracking-widest leading-none sm:w-48 shrink-0">{it.label}</span>
               {it.note && (
-                <span className="font-mono text-xs leading-relaxed" style={{ color: 'rgba(10,10,10,0.68)' }}>
+                <span className="font-mono text-xs leading-relaxed" style={{ color: 'var(--a-muted)' }}>
                   {it.note}
                 </span>
               )}

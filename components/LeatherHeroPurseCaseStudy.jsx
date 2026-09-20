@@ -22,7 +22,7 @@ export default function LeatherHeroPurseCaseStudy() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content" className="interior-page legacy-case">
         {/* ── 1. HERO ─────────────────────────────────────────────── */}
         <section className="pt-24" style={{ backgroundColor: 'var(--a-bg)' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">

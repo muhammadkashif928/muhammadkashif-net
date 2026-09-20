@@ -49,32 +49,32 @@ export default function PerfumeOilBottlePortfolio() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
+      <main id="main-content" className="interior-page legacy-case min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
 
         {/* ── Hero ── */}
-        <div className="bg-[#0a0a0a] pt-24 pb-0">
+        <div className="case-intro bg-[var(--a-bg)] pt-24 pb-0">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <Link
               href="/my-portfolio/"
-              className="font-mono text-xs tracking-widest text-[#f5f5f0]/40 hover:text-[#e8e800] transition-colors mb-6 inline-block"
+              className="font-mono text-xs tracking-widest text-[var(--a-muted)] hover:text-[var(--accent)] transition-colors mb-6 inline-block"
             >
               ← BACK TO PORTFOLIO
             </Link>
-            <span className="block font-mono text-[10px] tracking-[0.35em] text-[#e8e800] mb-4 uppercase">
+            <span className="block font-mono text-[10px] tracking-[0.35em] text-[var(--accent)] mb-4 uppercase">
               ▶ Product Retouching · E-commerce Image Optimization
             </span>
-            <h1 className="font-bebas leading-none text-[#f5f5f0]" style={{ fontSize: 'clamp(2.5rem,7vw,5.5rem)' }}>
+            <h1 className="font-bebas leading-none text-[var(--a-text)]" style={{ fontSize: 'clamp(2.5rem,7vw,5.5rem)' }}>
               PERFUME OIL BOTTLE<br />
-              <span style={{ WebkitTextStroke: '2px #f5f5f0', color: 'transparent' }}>RETOUCHING</span>
+              <span style={{ color: 'var(--accent)'  }}>RETOUCHING</span>
             </h1>
-            <p className="font-mono text-sm text-[#f5f5f0]/60 mt-5 max-w-2xl leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mt-5 max-w-2xl leading-relaxed">
               From ordinary to marketplace-ready. A casual photo with uneven angle, distracting background,
               and inconsistent lighting — transformed into a clean, professional, e-commerce-ready main image
               through careful product retouching and optimization.
             </p>
 
             {/* Meta row */}
-            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[#f5f5f0]/10">
+            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[var(--a-border)]">
               {[
                 { label: 'PRODUCT', value: 'UAE Perfume Oil Bottle' },
                 { label: 'DATE', value: 'Jun 27, 2026' },
@@ -83,8 +83,8 @@ export default function PerfumeOilBottlePortfolio() {
                 { label: 'OUTPUT', value: 'Marketplace Ready' },
               ].map(s => (
                 <div key={s.label}>
-                  <p className="font-mono text-[9px] tracking-[0.3em] text-[#f5f5f0]/30">{s.label}</p>
-                  <p className="font-mono text-xs text-[#e8e800] mt-1 font-bold">{s.value}</p>
+                  <p className="font-mono text-[9px] tracking-[0.3em] text-[var(--a-muted)]">{s.label}</p>
+                  <p className="font-mono text-xs text-[var(--accent)] mt-1 font-bold">{s.value}</p>
                 </div>
               ))}
             </div>
@@ -93,10 +93,10 @@ export default function PerfumeOilBottlePortfolio() {
 
         {/* ── Before / After Image ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-4">▶ ORIGINAL → MARKETPLACE-READY TRANSFORMATION</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-4">▶ ORIGINAL → MARKETPLACE-READY TRANSFORMATION</p>
 
           <div
-            className="relative cursor-zoom-in border-2 border-[#0a0a0a] overflow-hidden group bg-white"
+            className="relative cursor-zoom-in border-2 border-[var(--a-border)] overflow-hidden group bg-white"
             style={{ boxShadow: '6px 6px 0px #0a0a0a' }}
             onClick={() => setLightboxOpen(true)}
           >
@@ -110,12 +110,12 @@ export default function PerfumeOilBottlePortfolio() {
             />
             {/* ORIGINAL label — embedded in image already, but reinforce */}
             <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[#0a0a0a] text-[#f5f5f0] px-2 sm:px-3 py-1">
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 sm:px-3 py-1">
                 BEFORE — ORIGINAL
               </span>
             </div>
             <div className="absolute bottom-3 sm:bottom-4" style={{ left: 'calc(50% + 8px)' }}>
-              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[#e8e800] text-[#0a0a0a] px-2 sm:px-3 py-1">
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 sm:px-3 py-1">
                 AFTER — OPTIMIZED
               </span>
             </div>
@@ -128,30 +128,30 @@ export default function PerfumeOilBottlePortfolio() {
               </span>
             </div>
           </div>
-          <p className="font-mono text-[9px] text-[#0a0a0a]/30 text-center mt-3 tracking-widest sm:hidden">
+          <p className="font-mono text-[9px] text-[var(--a-muted)] text-center mt-3 tracking-widest sm:hidden">
             TAP TO VIEW FULL SCREEN
           </p>
         </div>
 
         {/* ── Improvements Grid ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-12">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-5">▶ WHAT WAS IMPROVED</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-5">▶ WHAT WAS IMPROVED</p>
           <div className="grid sm:grid-cols-2 gap-3">
             {improvements.map((item, i) => (
               <div
                 key={i}
-                className="border-2 border-[#0a0a0a] p-4"
+                className="border-2 border-[var(--a-border)] p-4"
                 style={{ boxShadow: '3px 3px 0px #0a0a0a' }}
               >
                 <div className="flex items-start gap-3">
-                  <span className="font-mono text-[9px] text-[#e8e800] bg-[#0a0a0a] px-1.5 py-0.5 shrink-0 mt-0.5">
+                  <span className="font-mono text-[9px] text-[var(--accent)] bg-[var(--a-subtle)] px-1.5 py-0.5 shrink-0 mt-0.5">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
-                    <p className="font-bebas text-base tracking-wide text-[#0a0a0a] leading-tight mb-1">
+                    <p className="font-bebas text-base tracking-wide text-[var(--a-text)] leading-tight mb-1">
                       {item.title}
                     </p>
-                    <p className="font-mono text-[10px] text-[#0a0a0a]/55 leading-relaxed">
+                    <p className="font-mono text-[10px] text-[var(--a-muted)] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -162,14 +162,14 @@ export default function PerfumeOilBottlePortfolio() {
         </div>
 
         {/* ── Impact Metrics ── */}
-        <div className="border-t-2 border-[#0a0a0a]" style={{ backgroundColor: '#0a0a0a' }}>
+        <div className="border-t-2 border-[var(--a-border)]" style={{ backgroundColor: '#0a0a0a' }}>
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800]/60 mb-6">▶ SMALL IMPROVEMENTS, SIGNIFICANT IMPACT ON</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)]/60 mb-6">▶ SMALL IMPROVEMENTS, SIGNIFICANT IMPACT ON</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {metrics.map((m) => (
-                <div key={m.label} className="border border-[#f5f5f0]/10 p-4">
-                  <p className="font-bebas text-lg tracking-wide text-[#e8e800] leading-tight mb-1">{m.label}</p>
-                  <p className="font-mono text-[9px] text-[#f5f5f0]/40 leading-relaxed">{m.sub}</p>
+                <div key={m.label} className="border border-[var(--a-border)] p-4">
+                  <p className="font-bebas text-lg tracking-wide text-[var(--accent)] leading-tight mb-1">{m.label}</p>
+                  <p className="font-mono text-[9px] text-[var(--a-muted)] leading-relaxed">{m.sub}</p>
                 </div>
               ))}
             </div>
@@ -212,7 +212,7 @@ export default function PerfumeOilBottlePortfolio() {
                 {useCases.map(u => (
                   <div key={u.label} className="use-case-item-perf">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[#e8e800] text-xs">{u.icon}</span>
+                      <span className="text-[var(--accent)] text-xs">{u.icon}</span>
                       <strong>{u.label}</strong>
                     </div>
                     <span>{u.desc}</span>
@@ -244,21 +244,21 @@ export default function PerfumeOilBottlePortfolio() {
 
             {/* Sidebar */}
             <aside className="space-y-5">
-              <div className="border-2 border-[#0a0a0a] p-5 bg-[#0a0a0a]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
-                <h3 className="font-bebas text-xl tracking-widest text-[#e8e800] mb-3">NEED YOUR PRODUCT RETOUCHED?</h3>
-                <p className="font-mono text-xs text-[#f5f5f0]/60 leading-relaxed mb-4">
+              <div className="border-2 border-[var(--a-border)] p-5 bg-[var(--a-subtle)]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
+                <h3 className="font-bebas text-xl tracking-widest text-[var(--accent)] mb-3">NEED YOUR PRODUCT RETOUCHED?</h3>
+                <p className="font-mono text-xs text-[var(--a-muted)] leading-relaxed mb-4">
                   Turn your product photos into marketplace-ready images that convert browsers into buyers.
                 </p>
                 <Link
                   href="/contact-me/"
-                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all"
+                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all"
                 >
                   START YOUR PROJECT →
                 </Link>
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-3">PROJECT INFO</h3>
+              <div className="border-2 border-[var(--a-border)] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-3">PROJECT INFO</h3>
                 {[
                   ['Product', 'UAE Perfume Oil Bottle'],
                   ['Date', 'Jun 27, 2026'],
@@ -268,15 +268,15 @@ export default function PerfumeOilBottlePortfolio() {
                   ['Platforms', 'Amazon, Shopee, TikTok'],
                   ['Output', 'Marketplace Ready'],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between items-start border-b border-[#0a0a0a]/10 py-2 last:border-0 gap-2">
-                    <span className="font-mono text-[9px] text-[#0a0a0a]/40 shrink-0">{k}</span>
-                    <span className="font-mono text-[9px] text-[#0a0a0a] font-bold text-right">{v}</span>
+                  <div key={k} className="flex justify-between items-start border-b border-[var(--a-border)] py-2 last:border-0 gap-2">
+                    <span className="font-mono text-[9px] text-[var(--a-muted)] shrink-0">{k}</span>
+                    <span className="font-mono text-[9px] text-[var(--a-text)] font-bold text-right">{v}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5">
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE PROJECTS</h3>
+              <div className="border-2 border-[var(--a-border)] p-5">
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-4">MORE PROJECTS</h3>
                 <div className="flex flex-col gap-3">
                   {[
                     { title: 'Closetlux Image Restoration', slug: 'closetlux-image-restoration' },
@@ -287,7 +287,7 @@ export default function PerfumeOilBottlePortfolio() {
                     <Link
                       key={p.slug}
                       href={`/blackdsn-portfolio/${p.slug}/`}
-                      className="font-mono text-xs text-[#0a0a0a] hover:text-[#0a0a0a]/60 border-b border-[#0a0a0a]/10 pb-2 transition-colors"
+                      className="font-mono text-xs text-[var(--a-text)] hover:text-[var(--a-muted)] border-b border-[var(--a-border)] pb-2 transition-colors"
                     >
                       {p.title} →
                     </Link>
@@ -299,18 +299,18 @@ export default function PerfumeOilBottlePortfolio() {
         </div>
 
         {/* ── CTA ── */}
-        <div className="bg-[#0a0a0a] py-16">
+        <div className="bg-[var(--a-subtle)] py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800] mb-4">▶ IS YOUR PRODUCT IMAGE HURTING YOUR CONVERSIONS?</p>
-            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[#f5f5f0] mb-6">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)] mb-4">▶ IS YOUR PRODUCT IMAGE HURTING YOUR CONVERSIONS?</p>
+            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[var(--a-text)] mb-6">
               FROM ORDINARY PHOTO<br />TO MARKETPLACE-READY
             </h2>
-            <p className="font-mono text-sm text-[#f5f5f0]/50 mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mb-8 max-w-lg mx-auto leading-relaxed">
               Professional product retouching that improves click-through rate, brand trust, and conversion rate — across Amazon, Shopee, TikTok Shop and beyond.
             </p>
             <Link
               href="/contact-me/"
-              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all"
+              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all"
             >
               GET YOUR IMAGES RETOUCHED →
             </Link>
@@ -359,20 +359,20 @@ export default function PerfumeOilBottlePortfolio() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: clamp(1.4rem, 3vw, 2rem);
           letter-spacing: 0.05em;
-          color: #0a0a0a;
+          color: var(--a-text);
           margin-top: 2.5rem;
           margin-bottom: 0.75rem;
-          border-bottom: 2px solid #0a0a0a;
+          border-bottom: 2px solid var(--a-border);
           padding-bottom: 0.4rem;
         }
         .prose-perf p {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.95;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 1.2rem;
         }
-        .prose-perf strong { color: #0a0a0a; font-weight: 700; }
+        .prose-perf strong { color: var(--a-text); font-weight: 700; }
         .use-case-grid-perf {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -381,21 +381,21 @@ export default function PerfumeOilBottlePortfolio() {
         }
         @media (max-width: 480px) { .use-case-grid-perf { grid-template-columns: 1fr; } }
         .use-case-item-perf {
-          border: 2px solid #0a0a0a;
+          border: 2px solid var(--a-border);
           padding: 0.75rem;
         }
         .use-case-item-perf strong {
           font-family: 'Bebas Neue', sans-serif;
           font-size: 0.9rem;
           letter-spacing: 0.05em;
-          color: #0a0a0a;
+          color: var(--a-text);
         }
         .use-case-item-perf span {
           display: block;
-          font-family: 'Space Mono', monospace;
+          font-family: Arial, sans-serif;
           font-size: 0.7rem;
           line-height: 1.6;
-          color: rgba(10,10,10,0.5);
+          color: var(--a-muted);
           margin-top: 0.2rem;
         }
       `}</style>

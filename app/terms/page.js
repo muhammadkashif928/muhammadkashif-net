@@ -116,7 +116,7 @@ export default function TermsPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content" className="interior-page document-page">
         <PageHeader
           label="LEGAL"
           title={<>TERMS OF<br />SERVICE</>}

@@ -138,25 +138,25 @@ export default function OrderForm({ service }) {
     }
   }
 
-  // Brutalist Stripe fields: square corners, mono type, theme-matched.
+  // Payment fields share the site palette and readable typography.
   const appearance = useMemo(
     () => ({
       theme: theme === 'dark' ? 'night' : 'stripe',
       variables: {
-        colorPrimary: theme === 'dark' ? '#f0f0eb' : '#080808',
-        colorBackground: theme === 'dark' ? '#ffffff' : '#ffffff',
-        colorText: '#080808',
-        colorDanger: '#b00020',
-        fontFamily: '"Space Mono", monospace',
-        borderRadius: '0px',
+        colorPrimary: theme === 'dark' ? '#f0f0eb' : '#40513d',
+        colorBackground: theme === 'dark' ? '#141711' : '#faf8f4',
+        colorText: theme === 'dark' ? '#f0f0eb' : '#252820',
+        colorDanger: theme === 'dark' ? '#ff9b9b' : '#b00020',
+        fontFamily: 'Arial, sans-serif',
+        borderRadius: '6px',
         spacingUnit: '4px',
       },
       rules: {
-        '.Input': { border: '1px solid rgba(8,8,8,0.25)', boxShadow: 'none' },
-        '.Input:focus': { border: '1px solid #080808', boxShadow: 'none', outline: 'none' },
-        '.Tab': { border: '1px solid rgba(8,8,8,0.25)', boxShadow: 'none' },
-        '.Tab--selected': { border: '1px solid #080808', boxShadow: 'none' },
-        '.Label': { fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase' },
+        '.Input': { border: theme === 'dark' ? '1px solid #53584d' : '1px solid #deded4', boxShadow: 'none' },
+        '.Input:focus': { border: theme === 'dark' ? '1px solid #f0f0eb' : '1px solid #40513d', boxShadow: 'none', outline: 'none' },
+        '.Tab': { border: theme === 'dark' ? '1px solid #53584d' : '1px solid #deded4', boxShadow: 'none' },
+        '.Tab--selected': { border: theme === 'dark' ? '1px solid #f0f0eb' : '1px solid #40513d', boxShadow: 'none' },
+        '.Label': { fontSize: '12px', letterSpacing: '0.05em', textTransform: 'uppercase' },
       },
     }),
     [theme]
@@ -172,10 +172,10 @@ export default function OrderForm({ service }) {
     return (
       <div className="p-6 border-2" style={{ borderColor: 'var(--b-text)' }}>
         <h3 className="font-bebas text-2xl tracking-wide mb-2" style={{ color: 'var(--b-text)' }}>
-          ONLINE PAYMENT NOT CONFIGURED
+          LET’S CONFIRM YOUR PROJECT
         </h3>
         <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--b-muted)' }}>
-          Card checkout is not switched on yet. Email{' '}
+          To arrange this service, email{' '}
           <a href="mailto:info@muhammadkashif.net" className="underline" style={{ color: 'var(--b-text)' }}>
             info@muhammadkashif.net
           </a>{' '}

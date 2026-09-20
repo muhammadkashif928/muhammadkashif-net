@@ -105,6 +105,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="noise">
+        <a className="skip-link" href="#main-content">Skip to content</a>
         {/* Google Analytics 4 */}
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="ga4-init" strategy="afterInteractive">

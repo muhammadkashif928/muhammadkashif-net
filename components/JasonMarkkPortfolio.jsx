@@ -9,21 +9,21 @@ const IMAGES = [
   {
     src: '/1768694862919.jpeg',
     label: 'BEFORE',
-    badge: 'bg-[#0a0a0a] text-[#f5f5f0]',
+    badge: 'bg-[var(--a-subtle)] text-[var(--a-text)]',
     title: 'Before — Clean Product Shot',
     desc: 'Standard white-background product image. Clear and Amazon-compliant — but no story.',
   },
   {
     src: '/1768694867521.jpeg',
     label: 'AFTER',
-    badge: 'bg-[#e8e800] text-[#0a0a0a]',
+    badge: 'bg-[var(--a-subtle)] text-[var(--a-text)]',
     title: 'After — AI + Photoshop Lifestyle Composite',
     desc: 'HOKA sneaker prop composited behind the spray bottle using AI generation and Photoshop retouching. Context creates desire.',
   },
   {
     src: '/1768694869921.jpeg',
     label: 'COMPARISON',
-    badge: 'bg-[#f5f5f0] text-[#0a0a0a]',
+    badge: 'bg-[var(--a-bg)] text-[var(--a-text)]',
     title: 'Before vs After — Comparison Card',
     desc: 'Side-by-side: left is clarity, right is story. The after image tells buyers exactly how this product fits into their life.',
   },
@@ -67,25 +67,25 @@ export default function JasonMarkkPortfolio() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
+      <main id="main-content" className="interior-page legacy-case min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
 
         {/* ── Hero ── */}
-        <div className="bg-[#0a0a0a] pt-24 pb-0">
+        <div className="case-intro bg-[var(--a-bg)] pt-24 pb-0">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <Link
               href="/my-portfolio/"
-              className="font-mono text-xs tracking-widest text-[#f5f5f0]/40 hover:text-[#e8e800] transition-colors mb-6 inline-block"
+              className="font-mono text-xs tracking-widest text-[var(--a-muted)] hover:text-[var(--accent)] transition-colors mb-6 inline-block"
             >
               ← BACK TO PORTFOLIO
             </Link>
-            <span className="block font-mono text-[10px] tracking-[0.35em] text-[#e8e800] mb-4 uppercase">
+            <span className="block font-mono text-[10px] tracking-[0.35em] text-[var(--accent)] mb-4 uppercase">
               ▶ AI + Photoshop · Lifestyle Composite · Product Image Optimization
             </span>
-            <h1 className="font-bebas leading-none text-[#f5f5f0]" style={{ fontSize: 'clamp(2.2rem,6.5vw,5rem)' }}>
+            <h1 className="font-bebas leading-none text-[var(--a-text)]" style={{ fontSize: 'clamp(2.2rem,6.5vw,5rem)' }}>
               JASON MARKK REPEL<br />
-              <span style={{ WebkitTextStroke: '2px #f5f5f0', color: 'transparent' }}>LIFESTYLE COMPOSITE</span>
+              <span style={{ color: 'var(--accent)'  }}>LIFESTYLE COMPOSITE</span>
             </h1>
-            <p className="font-mono text-sm text-[#f5f5f0]/60 mt-5 max-w-2xl leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mt-5 max-w-2xl leading-relaxed">
               Left or right — which makes you click Buy? Context creates desire. The left is clarity;
               the right is a story. Using a mix of AI generation and Photoshop compositing, a standard product
               shot was transformed into a lifestyle visual that instantly communicates what the product is
@@ -93,7 +93,7 @@ export default function JasonMarkkPortfolio() {
             </p>
 
             {/* Meta */}
-            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[#f5f5f0]/10">
+            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[var(--a-border)]">
               {[
                 { label: 'PRODUCT', value: 'Jason Markk Repel Spray' },
                 { label: 'DATE', value: 'Jun 27, 2026' },
@@ -102,8 +102,8 @@ export default function JasonMarkkPortfolio() {
                 { label: 'TECHNIQUE', value: 'Lifestyle Composite' },
               ].map(s => (
                 <div key={s.label}>
-                  <p className="font-mono text-[9px] tracking-[0.3em] text-[#f5f5f0]/30">{s.label}</p>
-                  <p className="font-mono text-xs text-[#e8e800] mt-1 font-bold">{s.value}</p>
+                  <p className="font-mono text-[9px] tracking-[0.3em] text-[var(--a-muted)]">{s.label}</p>
+                  <p className="font-mono text-xs text-[var(--accent)] mt-1 font-bold">{s.value}</p>
                 </div>
               ))}
             </div>
@@ -112,9 +112,9 @@ export default function JasonMarkkPortfolio() {
 
         {/* ── Comparison Card (hero visual) ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-4">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-4">▶ BEFORE vs AFTER — WHICH MAKES YOU CLICK BUY?</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-4">▶ BEFORE vs AFTER — WHICH MAKES YOU CLICK BUY?</p>
           <div
-            className="relative cursor-zoom-in border-2 border-[#0a0a0a] overflow-hidden group bg-white"
+            className="relative cursor-zoom-in border-2 border-[var(--a-border)] overflow-hidden group bg-white"
             style={{ boxShadow: '6px 6px 0px #0a0a0a' }}
             onClick={() => setLightbox(2)}
           >
@@ -136,12 +136,12 @@ export default function JasonMarkkPortfolio() {
 
         {/* ── Before / After side-by-side ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-10">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-4">▶ INDIVIDUAL IMAGES — CLICK TO ZOOM</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-4">▶ INDIVIDUAL IMAGES — CLICK TO ZOOM</p>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {IMAGES.slice(0, 2).map((img, i) => (
               <div key={i} className="flex flex-col gap-3">
                 <div
-                  className="relative cursor-zoom-in border-2 border-[#0a0a0a] overflow-hidden group bg-white aspect-square"
+                  className="relative cursor-zoom-in border-2 border-[var(--a-border)] overflow-hidden group bg-white aspect-square"
                   style={{ boxShadow: '4px 4px 0px #0a0a0a' }}
                   onClick={() => setLightbox(i)}
                 >
@@ -163,8 +163,8 @@ export default function JasonMarkkPortfolio() {
                   </div>
                 </div>
                 <div className="px-1">
-                  <p className="font-bebas text-sm sm:text-base tracking-wide text-[#0a0a0a] leading-tight">{img.title}</p>
-                  <p className="font-mono text-[9px] text-[#0a0a0a]/50 leading-relaxed mt-1">{img.desc}</p>
+                  <p className="font-bebas text-sm sm:text-base tracking-wide text-[var(--a-text)] leading-tight">{img.title}</p>
+                  <p className="font-mono text-[9px] text-[var(--a-muted)] leading-relaxed mt-1">{img.desc}</p>
                 </div>
               </div>
             ))}
@@ -172,15 +172,15 @@ export default function JasonMarkkPortfolio() {
         </div>
 
         {/* ── Process Steps ── */}
-        <div className="border-t-2 border-[#0a0a0a]" style={{ backgroundColor: '#0a0a0a' }}>
+        <div className="border-t-2 border-[var(--a-border)]" style={{ backgroundColor: '#0a0a0a' }}>
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800]/60 mb-6">▶ THE PROCESS — AI + PHOTOSHOP COMPOSITING</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)]/60 mb-6">▶ THE PROCESS — AI + PHOTOSHOP COMPOSITING</p>
             <div className="grid sm:grid-cols-2 gap-4">
               {approach.map((s) => (
-                <div key={s.step} className="border border-[#f5f5f0]/10 p-5">
-                  <div className="font-bebas text-3xl leading-none text-[#e8e800]/30 mb-2">{s.step}</div>
-                  <h3 className="font-bebas text-lg tracking-wide text-[#f5f5f0] mb-2">{s.title}</h3>
-                  <p className="font-mono text-[10px] text-[#f5f5f0]/45 leading-relaxed">{s.desc}</p>
+                <div key={s.step} className="border border-[var(--a-border)] p-5">
+                  <div className="font-bebas text-3xl leading-none text-[var(--accent)]/30 mb-2">{s.step}</div>
+                  <h3 className="font-bebas text-lg tracking-wide text-[var(--a-text)] mb-2">{s.title}</h3>
+                  <p className="font-mono text-[10px] text-[var(--a-muted)] leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -241,21 +241,21 @@ export default function JasonMarkkPortfolio() {
 
             {/* Sidebar */}
             <aside className="space-y-5">
-              <div className="border-2 border-[#0a0a0a] p-5 bg-[#0a0a0a]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
-                <h3 className="font-bebas text-xl tracking-widest text-[#e8e800] mb-3">WANT LIFESTYLE COMPOSITES?</h3>
-                <p className="font-mono text-xs text-[#f5f5f0]/60 leading-relaxed mb-4">
+              <div className="border-2 border-[var(--a-border)] p-5 bg-[var(--a-subtle)]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
+                <h3 className="font-bebas text-xl tracking-widest text-[var(--accent)] mb-3">WANT LIFESTYLE COMPOSITES?</h3>
+                <p className="font-mono text-xs text-[var(--a-muted)] leading-relaxed mb-4">
                   Turn your product shots into story-driven visuals using AI + Photoshop — faster and more cost-effective than a studio shoot.
                 </p>
                 <Link
                   href="/contact-me/"
-                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all"
+                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all"
                 >
                   START YOUR PROJECT →
                 </Link>
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-3">PROJECT INFO</h3>
+              <div className="border-2 border-[var(--a-border)] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-3">PROJECT INFO</h3>
                 {[
                   ['Product', 'Jason Markk Repel Spray'],
                   ['Date', 'Jun 27, 2026'],
@@ -265,33 +265,33 @@ export default function JasonMarkkPortfolio() {
                   ['Prop', 'HOKA Sneaker (AI)'],
                   ['Output', 'Amazon / Social Media'],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between items-start border-b border-[#0a0a0a]/10 py-2 last:border-0 gap-2">
-                    <span className="font-mono text-[9px] text-[#0a0a0a]/40 shrink-0">{k}</span>
-                    <span className="font-mono text-[9px] text-[#0a0a0a] font-bold text-right">{v}</span>
+                  <div key={k} className="flex justify-between items-start border-b border-[var(--a-border)] py-2 last:border-0 gap-2">
+                    <span className="font-mono text-[9px] text-[var(--a-muted)] shrink-0">{k}</span>
+                    <span className="font-mono text-[9px] text-[var(--a-text)] font-bold text-right">{v}</span>
                   </div>
                 ))}
               </div>
 
               {/* Images count */}
-              <div className="border-2 border-[#0a0a0a] p-5">
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-3">IMAGES IN THIS PROJECT</h3>
+              <div className="border-2 border-[var(--a-border)] p-5">
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-3">IMAGES IN THIS PROJECT</h3>
                 {IMAGES.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setLightbox(i)}
-                    className="w-full flex items-center gap-3 border-b border-[#0a0a0a]/10 py-2.5 last:border-0 hover:bg-[#f5f5f0] transition-colors text-left"
+                    className="w-full flex items-center gap-3 border-b border-[var(--a-border)] py-2.5 last:border-0 hover:bg-[var(--a-bg)] transition-colors text-left"
                   >
-                    <img src={img.src} alt={img.title} className="w-10 h-10 object-cover border border-[#0a0a0a]/10 shrink-0" />
+                    <img src={img.src} alt={img.title} className="w-10 h-10 object-cover border border-[var(--a-border)] shrink-0" />
                     <div className="min-w-0">
                       <span className={`font-mono text-[8px] tracking-widest px-1.5 py-0.5 ${img.badge} inline-block mb-0.5`}>{img.label}</span>
-                      <p className="font-mono text-[9px] text-[#0a0a0a] leading-tight truncate">{img.title}</p>
+                      <p className="font-mono text-[9px] text-[var(--a-text)] leading-tight truncate">{img.title}</p>
                     </div>
                   </button>
                 ))}
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5">
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE PROJECTS</h3>
+              <div className="border-2 border-[var(--a-border)] p-5">
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-4">MORE PROJECTS</h3>
                 <div className="flex flex-col gap-3">
                   {[
                     { title: 'Closetlux Image Restoration', slug: 'closetlux-image-restoration' },
@@ -300,7 +300,7 @@ export default function JasonMarkkPortfolio() {
                     { title: 'AI & Creative Retouching', slug: 'ai-creative-retouching' },
                   ].map(p => (
                     <Link key={p.slug} href={`/blackdsn-portfolio/${p.slug}/`}
-                      className="font-mono text-xs text-[#0a0a0a] hover:text-[#0a0a0a]/60 border-b border-[#0a0a0a]/10 pb-2 transition-colors">
+                      className="font-mono text-xs text-[var(--a-text)] hover:text-[var(--a-muted)] border-b border-[var(--a-border)] pb-2 transition-colors">
                       {p.title} →
                     </Link>
                   ))}
@@ -311,17 +311,17 @@ export default function JasonMarkkPortfolio() {
         </div>
 
         {/* ── CTA ── */}
-        <div className="bg-[#0a0a0a] py-16">
+        <div className="bg-[var(--a-subtle)] py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800] mb-4">▶ YOUR PRODUCT DESERVES A STORY, NOT JUST A PHOTO</p>
-            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[#f5f5f0] mb-6">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)] mb-4">▶ YOUR PRODUCT DESERVES A STORY, NOT JUST A PHOTO</p>
+            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[var(--a-text)] mb-6">
               CONTEXT CREATES DESIRE.<br />LET'S BUILD YOURS.
             </h2>
-            <p className="font-mono text-sm text-[#f5f5f0]/50 mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mb-8 max-w-lg mx-auto leading-relaxed">
               AI + Photoshop lifestyle composites that tell buyers exactly what your product is for — and make them click Buy.
             </p>
             <Link href="/contact-me/"
-              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all">
+              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all">
               GET YOUR COMPOSITE MADE →
             </Link>
           </div>
@@ -403,27 +403,27 @@ export default function JasonMarkkPortfolio() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: clamp(1.4rem, 3vw, 2rem);
           letter-spacing: 0.05em;
-          color: #0a0a0a;
+          color: var(--a-text);
           margin-top: 2.5rem;
           margin-bottom: 0.75rem;
-          border-bottom: 2px solid #0a0a0a;
+          border-bottom: 2px solid var(--a-border);
           padding-bottom: 0.4rem;
         }
         .prose-jason p {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.95;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 1.2rem;
         }
         .prose-jason em { font-style: italic; }
-        .prose-jason strong { color: #0a0a0a; font-weight: 700; }
+        .prose-jason strong { color: var(--a-text); font-weight: 700; }
         .prose-jason ul { list-style: none; padding: 0; margin-bottom: 1.5rem; }
         .prose-jason li {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.85;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 0.6rem;
           padding-left: 1.2rem;
           position: relative;
@@ -432,7 +432,7 @@ export default function JasonMarkkPortfolio() {
           content: '▶';
           position: absolute;
           left: 0;
-          color: #e8e800;
+          color: var(--accent);
           font-size: 0.5rem;
           top: 0.38rem;
         }

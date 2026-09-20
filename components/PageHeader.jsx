@@ -1,19 +1,21 @@
-export default function PageHeader({ label, title, subtitle }) {
+import Image from 'next/image'
+
+export default function PageHeader({ label, title, subtitle, image, imageAlt = '', imageCaption, primary, secondary }) {
   return (
-    <div className="pt-16 sm:pt-[4.5rem]" style={{ backgroundColor: 'var(--a-bg)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-        <p className="font-mono text-xs tracking-[0.35em] mb-3" style={{ color: 'var(--a-muted)' }}>
-          ▶ {label}
-        </p>
-        <h1 className="font-bebas leading-none" style={{ fontSize: 'clamp(3rem,9vw,7rem)', color: 'var(--a-text)' }}>
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="font-mono text-sm sm:text-base mt-5 sm:mt-6 max-w-xl leading-relaxed" style={{ color: 'var(--a-muted)' }}>
-            {subtitle}
-          </p>
-        )}
+    <header className="page-intro">
+      <div className={`studio-wrap ${image ? 'page-intro-grid' : ''}`}>
+        <div>
+          <a href="/" className="page-breadcrumb">Home / <span>{label}</span></a>
+          <p className="studio-eyebrow">{label}</p>
+          <h1>{title}</h1>
+          {subtitle && <p className="studio-lead">{subtitle}</p>}
+          {(primary || secondary) && <div className="studio-actions">
+            {primary && <a className="studio-button" href={primary.href}>{primary.label} ↗</a>}
+            {secondary && <a className="studio-text-link" href={secondary.href}>{secondary.label} →</a>}
+          </div>}
+        </div>
+        {image && <figure className="page-intro-art"><Image src={image} alt={imageAlt} width={1200} height={800} priority sizes="(min-width: 900px) 45vw, 100vw" />{imageCaption && <figcaption>{imageCaption}</figcaption>}</figure>}
       </div>
-    </div>
+    </header>
   )
 }

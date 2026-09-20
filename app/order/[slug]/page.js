@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import OrderForm from '@/components/OrderForm'
+import { servicePresentation } from '@/data/service-presentation'
 import JsonLd from '@/components/JsonLd'
 import { services, getService, priceLabel } from '@/data/services'
 import { createMetadata, getBreadcrumbJsonLd, absoluteUrl, siteConfig } from '@/lib/seo'
@@ -63,13 +64,14 @@ export default async function OrderPage({ params }) {
         ]}
       />
 
-      <main style={{ backgroundColor: 'var(--b-bg)' }}>
+      <main id="main-content" className="interior-page checkout-page" style={{ backgroundColor: 'var(--b-bg)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-28 sm:pt-36 pb-16 sm:pb-24">
 
-          <a href="/services/" className="font-mono text-[11px] tracking-[0.25em] inline-block mb-8" style={{ color: 'var(--b-muted)' }}>
-            ← ALL SERVICES
+          <a href={`/services/${service.slug}/`} className="font-mono text-[11px] tracking-[0.25em] inline-block mb-8" style={{ color: 'var(--b-muted)' }}>
+            ← SERVICE DETAILS
           </a>
 
+          <div className="checkout-heading"><p className="studio-eyebrow">LET’S GET STARTED</p><h2>Your project, made clear.</h2><p>Review the scope, share your brief, then continue to secure payment.</p></div>
           <div className="grid lg:grid-cols-[1fr_22rem] gap-10 lg:gap-16 items-start">
 
             {/* Form */}
@@ -79,7 +81,8 @@ export default async function OrderPage({ params }) {
 
             {/* Summary — sticks alongside the form on desktop */}
             <aside className="order-1 lg:order-2 lg:sticky lg:top-28">
-              <div className="border-2 p-6 sm:p-7" style={{ borderColor: 'var(--b-text)', boxShadow: '6px 6px 0px var(--b-border)' }}>
+              <div className="checkout-summary border-2 p-6 sm:p-7" style={{ borderColor: 'var(--b-text)', boxShadow: '6px 6px 0px var(--b-border)' }}>
+                <img className="checkout-preview" src={servicePresentation[service.slug].image} alt={servicePresentation[service.slug].alt} width="640" height="400" />
                 <p className="font-mono text-[10px] tracking-[0.3em] mb-3" style={{ color: 'var(--b-muted)' }}>
                   {service.num} — YOUR ORDER
                 </p>

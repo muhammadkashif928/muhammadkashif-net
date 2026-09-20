@@ -39,32 +39,32 @@ export default function ClosetluxPortfolio() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
+      <main id="main-content" className="interior-page legacy-case min-h-screen" style={{ backgroundColor: 'var(--b-bg)' }}>
 
         {/* ── Hero ── */}
-        <div className="bg-[#0a0a0a] pt-24 pb-0">
+        <div className="case-intro bg-[var(--a-bg)] pt-24 pb-0">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <Link
               href="/my-portfolio/"
-              className="font-mono text-xs tracking-widest text-[#f5f5f0]/40 hover:text-[#e8e800] transition-colors mb-6 inline-block"
+              className="font-mono text-xs tracking-widest text-[var(--a-muted)] hover:text-[var(--accent)] transition-colors mb-6 inline-block"
             >
               ← BACK TO PORTFOLIO
             </Link>
-            <span className="block font-mono text-[10px] tracking-[0.35em] text-[#e8e800] mb-4 uppercase">
+            <span className="block font-mono text-[10px] tracking-[0.35em] text-[var(--accent)] mb-4 uppercase">
               ▶ Image Restoration · Luxury Product Photography
             </span>
-            <h1 className="font-bebas leading-none text-[#f5f5f0]" style={{ fontSize: 'clamp(2.5rem,7vw,5.5rem)' }}>
+            <h1 className="font-bebas leading-none text-[var(--a-text)]" style={{ fontSize: 'clamp(2.5rem,7vw,5.5rem)' }}>
               CLOSETLUX<br />
-              <span style={{ WebkitTextStroke: '2px #f5f5f0', color: 'transparent' }}>IMAGE RESTORATION</span>
+              <span style={{ color: 'var(--accent)'  }}>IMAGE RESTORATION</span>
             </h1>
-            <p className="font-mono text-sm text-[#f5f5f0]/60 mt-5 max-w-2xl leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mt-5 max-w-2xl leading-relaxed">
               Turning an ordinary product render into a premium commercial visual —
-              the <strong className="text-[#f5f5f0]/80">Closetlux Oud Faizi</strong> Extrait de Parfum
+              the <strong className="text-[var(--a-muted)]">Closetlux Oud Faizi</strong> Extrait de Parfum
               transformed from a flat grey render into a luxury-grade image ready for Amazon, Shopify, and high-end brand marketing.
             </p>
 
             {/* Meta row */}
-            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[#f5f5f0]/10">
+            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-[var(--a-border)]">
               {[
                 { label: 'CLIENT', value: 'Shahid Anwar (@Closetlux)' },
                 { label: 'DATE', value: 'Jun 27, 2026' },
@@ -73,8 +73,8 @@ export default function ClosetluxPortfolio() {
                 { label: 'OUTPUT', value: 'Commercial Ready' },
               ].map(s => (
                 <div key={s.label}>
-                  <p className="font-mono text-[9px] tracking-[0.3em] text-[#f5f5f0]/30">{s.label}</p>
-                  <p className="font-mono text-xs text-[#e8e800] mt-1 font-bold">{s.value}</p>
+                  <p className="font-mono text-[9px] tracking-[0.3em] text-[var(--a-muted)]">{s.label}</p>
+                  <p className="font-mono text-xs text-[var(--accent)] mt-1 font-bold">{s.value}</p>
                 </div>
               ))}
             </div>
@@ -83,10 +83,10 @@ export default function ClosetluxPortfolio() {
 
         {/* ── Before / After Image ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[#0a0a0a]/40 mb-4">▶ BEFORE → AFTER TRANSFORMATION</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-4">▶ BEFORE → AFTER TRANSFORMATION</p>
 
           <div
-            className="relative cursor-zoom-in border-2 border-[#0a0a0a] overflow-hidden group bg-white"
+            className="relative cursor-zoom-in border-2 border-[var(--a-border)] overflow-hidden group bg-white"
             style={{ boxShadow: '6px 6px 0px #0a0a0a' }}
             onClick={() => setLightboxOpen(true)}
           >
@@ -100,13 +100,13 @@ export default function ClosetluxPortfolio() {
             />
             {/* Before label — left side */}
             <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[#0a0a0a] text-[#f5f5f0] px-2 sm:px-3 py-1">
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 sm:px-3 py-1">
                 BEFORE
               </span>
             </div>
             {/* After label — right half */}
             <div className="absolute top-3 sm:top-4" style={{ left: 'calc(50% + 8px)' }}>
-              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[#e8e800] text-[#0a0a0a] px-2 sm:px-3 py-1">
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] bg-[var(--a-bg)] text-[var(--a-text)] px-2 sm:px-3 py-1">
                 AFTER
               </span>
             </div>
@@ -119,13 +119,13 @@ export default function ClosetluxPortfolio() {
               </span>
             </div>
           </div>
-          <p className="font-mono text-[9px] text-[#0a0a0a]/30 text-center mt-3 tracking-widest sm:hidden">
+          <p className="font-mono text-[9px] text-[var(--a-muted)] text-center mt-3 tracking-widest sm:hidden">
             TAP TO VIEW FULL SCREEN
           </p>
         </div>
 
         {/* ── Content + Sidebar ── */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-16 border-t-2 border-[#0a0a0a] pt-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-16 border-t-2 border-[var(--a-border)] pt-12">
           <div className="grid md:grid-cols-[1fr_260px] gap-10 sm:gap-14">
 
             <div className="prose-closetlux">
@@ -183,21 +183,21 @@ export default function ClosetluxPortfolio() {
 
             {/* Sidebar */}
             <aside className="space-y-5">
-              <div className="border-2 border-[#0a0a0a] p-5 bg-[#0a0a0a]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
-                <h3 className="font-bebas text-xl tracking-widest text-[#e8e800] mb-3">NEED SIMILAR WORK?</h3>
-                <p className="font-mono text-xs text-[#f5f5f0]/60 leading-relaxed mb-4">
+              <div className="border-2 border-[var(--a-border)] p-5 bg-[var(--a-subtle)]" style={{ boxShadow: '4px 4px 0px #e8e800' }}>
+                <h3 className="font-bebas text-xl tracking-widest text-[var(--accent)] mb-3">NEED SIMILAR WORK?</h3>
+                <p className="font-mono text-xs text-[var(--a-muted)] leading-relaxed mb-4">
                   Transform your product renders into premium commercial visuals that drive real conversions.
                 </p>
                 <Link
                   href="/contact-me/"
-                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all"
+                  className="block font-bebas text-sm tracking-widest text-center px-4 py-3 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[4px_4px_0px_#f5f5f0] transition-all"
                 >
                   START YOUR PROJECT →
                 </Link>
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-3">PROJECT INFO</h3>
+              <div className="border-2 border-[var(--a-border)] p-5" style={{ boxShadow: '4px 4px 0px #0a0a0a' }}>
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-3">PROJECT INFO</h3>
                 {[
                   ['Client', 'Shahid Anwar'],
                   ['Brand', '@Closetlux'],
@@ -207,15 +207,15 @@ export default function ClosetluxPortfolio() {
                   ['Software', 'Photoshop'],
                   ['Output', 'Commercial Ready'],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between items-start border-b border-[#0a0a0a]/10 py-2 last:border-0 gap-2">
-                    <span className="font-mono text-[9px] text-[#0a0a0a]/40 shrink-0">{k}</span>
-                    <span className="font-mono text-[9px] text-[#0a0a0a] font-bold text-right">{v}</span>
+                  <div key={k} className="flex justify-between items-start border-b border-[var(--a-border)] py-2 last:border-0 gap-2">
+                    <span className="font-mono text-[9px] text-[var(--a-muted)] shrink-0">{k}</span>
+                    <span className="font-mono text-[9px] text-[var(--a-text)] font-bold text-right">{v}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="border-2 border-[#0a0a0a] p-5">
-                <h3 className="font-bebas text-lg tracking-widest text-[#0a0a0a] mb-4">MORE PROJECTS</h3>
+              <div className="border-2 border-[var(--a-border)] p-5">
+                <h3 className="font-bebas text-lg tracking-widest text-[var(--a-text)] mb-4">MORE PROJECTS</h3>
                 <div className="flex flex-col gap-3">
                   {[
                     { title: 'Leather Items Optimized', slug: 'leather-items-optimized' },
@@ -226,7 +226,7 @@ export default function ClosetluxPortfolio() {
                     <Link
                       key={p.slug}
                       href={`/blackdsn-portfolio/${p.slug}/`}
-                      className="font-mono text-xs text-[#0a0a0a] hover:text-[#0a0a0a]/60 border-b border-[#0a0a0a]/10 pb-2 transition-colors"
+                      className="font-mono text-xs text-[var(--a-text)] hover:text-[var(--a-muted)] border-b border-[var(--a-border)] pb-2 transition-colors"
                     >
                       {p.title} →
                     </Link>
@@ -238,18 +238,18 @@ export default function ClosetluxPortfolio() {
         </div>
 
         {/* ── CTA ── */}
-        <div className="bg-[#0a0a0a] py-16">
+        <div className="bg-[var(--a-subtle)] py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#e8e800] mb-4">▶ READY TO ELEVATE YOUR PRODUCT VISUALS?</p>
-            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[#f5f5f0] mb-6">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--accent)] mb-4">▶ READY TO ELEVATE YOUR PRODUCT VISUALS?</p>
+            <h2 className="font-bebas text-[clamp(2rem,6vw,4rem)] leading-none text-[var(--a-text)] mb-6">
               TURN YOUR RENDERS INTO<br />PREMIUM COMMERCIAL VISUALS
             </h2>
-            <p className="font-mono text-sm text-[#f5f5f0]/50 mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="font-mono text-sm text-[var(--a-muted)] mb-8 max-w-lg mx-auto leading-relaxed">
               Sharper details, premium lighting, cleaner backgrounds — visuals that convert across Amazon, Shopify, and luxury brand marketing.
             </p>
             <Link
               href="/contact-me/"
-              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[#e8e800] text-[#0a0a0a] border-2 border-[#e8e800] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all"
+              className="inline-block font-bebas text-base tracking-widest px-8 py-4 bg-[var(--a-subtle)] text-[var(--a-text)] border-2 border-[var(--a-border)] hover:shadow-[6px_6px_0px_#f5f5f0] transition-all"
             >
               GET STARTED →
             </Link>
@@ -298,26 +298,26 @@ export default function ClosetluxPortfolio() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: clamp(1.4rem, 3vw, 2rem);
           letter-spacing: 0.05em;
-          color: #0a0a0a;
+          color: var(--a-text);
           margin-top: 2.5rem;
           margin-bottom: 0.75rem;
-          border-bottom: 2px solid #0a0a0a;
+          border-bottom: 2px solid var(--a-border);
           padding-bottom: 0.4rem;
         }
         .prose-closetlux p {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.95;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 1.2rem;
         }
-        .prose-closetlux strong { color: #0a0a0a; font-weight: 700; }
+        .prose-closetlux strong { color: var(--a-text); font-weight: 700; }
         .prose-closetlux ul { list-style: none; padding: 0; margin-bottom: 1.5rem; }
         .prose-closetlux li {
-          font-family: 'Space Mono', monospace;
-          font-size: 0.78rem;
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
           line-height: 1.85;
-          color: rgba(10,10,10,0.65);
+          color: var(--a-muted);
           margin-bottom: 0.6rem;
           padding-left: 1.2rem;
           position: relative;
@@ -326,7 +326,7 @@ export default function ClosetluxPortfolio() {
           content: '▶';
           position: absolute;
           left: 0;
-          color: #e8e800;
+          color: var(--accent);
           font-size: 0.5rem;
           top: 0.38rem;
         }
@@ -338,7 +338,7 @@ export default function ClosetluxPortfolio() {
         }
         @media (max-width: 480px) { .use-case-grid { grid-template-columns: 1fr; } }
         .use-case-item {
-          border: 2px solid #0a0a0a;
+          border: 2px solid var(--a-border);
           padding: 0.75rem;
           display: flex;
           flex-direction: column;
@@ -348,13 +348,13 @@ export default function ClosetluxPortfolio() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: 0.9rem;
           letter-spacing: 0.05em;
-          color: #0a0a0a;
+          color: var(--a-text);
         }
         .use-case-item span {
-          font-family: 'Space Mono', monospace;
+          font-family: Arial, sans-serif;
           font-size: 0.7rem;
           line-height: 1.6;
-          color: rgba(10,10,10,0.5);
+          color: var(--a-muted);
         }
       `}</style>
     </>
