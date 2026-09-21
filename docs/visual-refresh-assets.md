@@ -75,3 +75,49 @@ Final prompt: Use case: ads-marketing. Asset: service card illustration for a pr
 Saved: `public/images/services/full-listing-design-v1.webp`
 
 Final prompt: Use case: ads-marketing. Asset: service card illustration for a premium Amazon design studio. A complete coordinated ecommerce creative suite arranged as a polished editorial board: one large central product photograph of an amber skincare bottle with ivory box, one tall storefront page panel behind it, three smaller feature-image cards fanned gently along the bottom, and a wide lifestyle banner beside them. All panels share the same amber skincare bottle so the visual identity is cohesive. Composition shows an entire listing design system at a glance. Consistent collection art direction: photorealistic product imagery combined with polished dimensional editorial layout cards, warm ivory background, sage and forest green accents, limestone and sand tones, soft daylight, delicate shadows, straight-on slight three-quarter perspective. Landscape 3:2 image, entire composition centered within generous 12 percent safe margins for a 16:10 crop. Large bold visual idea with only 3-5 major elements, not cluttered. No text, letters, numbers, logos, watermarks, Amazon branding or fake performance data. Fictional concept only.
+
+## September 22 blog illustrations
+
+AI-generated editorial concepts, not client work or product evidence. Optimized to 1600 × 900 WebP.
+
+### amazon-footwear-variation-images
+
+Asset: `public/images/blog/amazon-footwear-variation-images.webp`
+
+Prompt: Create a premium editorial product photography blog cover, landscape 16:9. Three unbranded identical low-top sneakers in ivory, sage green and muted sand arranged as a graceful diagonal on warm ivory seamless paper, each with matching small round color swatch beside it. Precise leather and canvas texture, natural studio shadows, minimalist luxury art direction, forest green accent. This illustrates selecting the correct footwear color variation. No text, no logos, no browser interface, no watermark. Generous breathing room, all shoes within frame.
+
+### leather-product-main-image-mistakes
+
+Asset: `public/images/blog/leather-product-main-image-mistakes.webp`
+
+Prompt: Landscape 16:9 premium editorial product photograph for a blog about leather product main images. Unbranded matte charcoal leather card wallet standing slightly open beside a small neutral cream shoe-care tin and soft wooden brush on an ivory seamless studio background. Beautiful controlled edge lighting reveals grain and the silhouette of dark leather, realistic proportions and restrained shadows. Warm ivory, sage, charcoal palette, clean contemporary art direction, generous space, no lettering, labels, logos, watermark, or claims. This is an illustration, not a client project.
+
+### amazon-kitchen-product-dimension-images
+
+Asset: `public/images/blog/amazon-kitchen-product-dimension-images.webp`
+
+Prompt: Premium editorial product photography, landscape 16:9 blog cover about kitchen storage product dimensions and fit. An open light oak kitchen drawer with neatly fitting ivory and sage modular organizer trays, a small wooden measuring ruler placed nearby on cream stone countertop, restrained utensils, realistic tidy kitchen. Angled overhead view, soft daylight, beautiful natural materials, warm ivory and sage palette, high-end design magazine styling. No legible text, no numerical dimension overlays, no logos or watermark. Clear breathing space and focus on fit and scale.
+
+### amazon-skincare-texture-listing-images
+
+Asset: `public/images/blog/amazon-skincare-texture-listing-images.webp`
+
+Prompt: Premium beauty editorial product photograph, wide landscape 16:9 blog cover. Unbranded frosted sage skincare pump bottle and open ivory cream jar on pale travertine, with a clear glass palette holding a translucent gel smear and a creamy lotion smear to show different textures. Soft directional window lighting, warm ivory background, subtle shadows, exact realistic packaging and tactile textures. Sophisticated minimal art direction, no flowers, no medical imagery, no before-after, no labels, lettering, logos or watermark.
+
+### amazon-electronics-compatibility-infographics
+
+Asset: `public/images/blog/amazon-electronics-compatibility-infographics.webp`
+
+Prompt: Landscape 16:9 luxury editorial technology product photograph for an article about explaining electronic accessory compatibility. A refined unbranded sage aluminum USB-C hub, its short USB-C connector laid clearly beside it, a closed thin silver laptop in back, and a neatly coiled ivory cable. Clearly plausible ports, macro product detailing, cream paper studio background, restrained forest green and stone palette, soft side light, uncluttered balanced composition. No text, no letters, no logos, no digital interface or invented technical claims.
+
+### amazon-pet-harness-size-guide-images
+
+Asset: `public/images/blog/amazon-pet-harness-size-guide-images.webp`
+
+Prompt: Landscape 16:9 premium editorial pet accessory product photograph. A calm medium-sized golden mixed-breed dog standing naturally in side profile wearing a well-fitted plain sage-green Y-front walking harness, on warm ivory studio floor. Nearby a neatly rolled soft measuring tape and matching leash, neutral measurement markings not legible. Natural realistic anatomy and harness straps, soft daylight, cream and muted green styling, uncluttered luxury pet brand mood. No text, badges, logos, watermark or claims.
+
+### amazon-multi-category-store-navigation
+
+Asset: `public/images/blog/amazon-multi-category-store-navigation.webp`
+
+Prompt: Create a landscape 16:9 premium editorial still-life for a multi-category ecommerce brand store design article. Three distinct coordinated display plinths on warm ivory background: ceramic kitchen mugs with a small wood tray on left, unbranded skincare bottles in sage and cream in center, restrained silver headphones and small tech accessory on right. Clear organized groups with generous whitespace, same elegant visual language across different categories, soft studio lighting and realistic materials. No text, no logos, no screen UI, no watermark. Sage, limestone, ivory and charcoal palette, sophisticated designer portfolio mood.

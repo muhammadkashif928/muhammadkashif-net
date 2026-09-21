@@ -71,6 +71,7 @@ need('image', /^\/(api\/cover\/[a-z0-9-]+|[^\s]+\.(jpe?g|png|webp|avif))$/i.test
 need('imageAlt', brief.imageAlt?.length >= 20, 'must be a real description, 20+ characters')
 need('tags', Array.isArray(brief.tags) && brief.tags.length >= 2 && brief.tags.length <= 4, 'needs 2-4 tags')
 need('faqs', Array.isArray(brief.faqs) && brief.faqs.length >= 3, 'needs at least 3 FAQs')
+for (const source of brief.sources || []) need('source', /^https:\/\//.test(source.url || '') && source.title, 'must have an HTTPS URL and title')
 need('intro', brief.intro?.length >= 200, 'opening paragraph is too short')
 need('sections', Array.isArray(brief.sections) && brief.sections.length >= 4, 'needs at least 4 sections')
 need('related', Array.isArray(brief.related) && brief.related.length >= 2, 'needs at least 2 internal links to existing posts')
@@ -130,7 +131,8 @@ const pascal = brief.slug
   .join('')
 
 // Kuching is UTC+8 and has no daylight saving.
-const now = new Date()
+const now = new Date(process.env.POST_PUBLISHED_AT || Date.now())
+if (Number.isNaN(now.getTime())) throw new Error('Invalid POST_PUBLISHED_AT')
 const kuching = new Date(now.getTime() + 8 * 3600 * 1000)
 const iso = kuching.toISOString().replace(/\.\d{3}Z$/, '+08:00')
 const human = kuching.toLocaleDateString('en-US', {
@@ -175,6 +177,10 @@ const related = brief.related?.length
     `\n        </ul>\n`
   : ''
 
+const sources = brief.sources?.length
+  ? '\n        <h2>Official references</h2>\n        <p>The recommendations above are design guidance. Check the current Amazon guidance for the marketplace and category before uploading.</p>\n        <ul>\n' + brief.sources.map(s => `          <li><a href="${jsxText(s.url)}">${jsxText(s.title)}</a></li>`).join('\n') + '\n        </ul>\n'
+  : ''
+
 const page = `import BlogLayout from '@/components/BlogLayout'
 import BlogStructuredData from '@/components/BlogStructuredData'${usesFigures ? "\nimport PostFigure from '@/components/PostFigure'" : ''}
 import { getBlogPost } from '@/data/blog'
@@ -204,6 +210,8 @@ export default function ${pascal}() {
         date={post.date}
         image={post.image}
         imageAlt={post.imageAlt}
+        imageCaption={post.imageCaption}
+        service={post.service}
         tags={post.tags}
         slug={post.slug}
       >
@@ -214,6 +222,7 @@ export default function ${pascal}() {
 ${body}
 
 ${related}
+${sources}
         <h2>Frequently Asked Questions</h2>
         {post.faqs.map((item) => (
           <div key={item.q}>
@@ -243,6 +252,8 @@ const entry = `  {
     updatedAt: ${jsStr(iso)},
     image: ${jsStr(brief.image)},
     imageAlt: ${jsStr(brief.imageAlt)},
+    imageCaption: ${jsStr(brief.imageCaption || "")},
+    service: ${jsStr(brief.service || "")},
     excerpt: ${jsStr(brief.excerpt)},
     tags: [${brief.tags.map(jsStr).join(', ')}],
     faqs: [
@@ -292,4 +303,4 @@ if (!brief.image.startsWith('/api/cover/') && !fs.existsSync(imageFile)) {
 const words = [brief.intro, ...brief.sections.flatMap((s) => s.paragraphs), brief.conclusion]
   .join(' ').trim().split(/\s+/).length
 console.log(`\n${words} words across ${brief.sections.length} sections, ${brief.faqs.length} FAQs.`)
-if (words < 900) console.log('WARNING  under 900 words — likely too thin to rank.')
+if (words < 700) console.log('NOTE  Review article depth before publishing; word count alone does not determine search rankings.')

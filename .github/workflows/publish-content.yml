@@ -83,6 +83,8 @@ jobs:
           git config user.email "info@muhammadkashif.net"
           git fetch --no-tags origin main:refs/remotes/origin/main
           git checkout -B main refs/remotes/origin/main
+          # Respect the daily window even when another writer pushes a branch.
+          node scripts/check-publication-window.mjs
           git merge --no-ff "$GITHUB_SHA" -m "content: publish ${{ steps.post.outputs.slug }}
 
           Merged automatically after scripts/guard-post.mjs passed.

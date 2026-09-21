@@ -7,8 +7,8 @@ import { DesignProcess, HomeFAQ } from '@/components/HomeGrowth'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Amazon Design Services — A+ Content, Infographics, Brand Identity & Image Optimization',
-  description: 'Professional Amazon brand design services by Muhammad Kashif: main image optimization, product infographics, A+ Content, Amazon Brand Story, and Amazon Brand Store (Storefront) design. Serving US, UK, and Canada private label sellers worldwide from Kuching, Malaysia.',
+  title: 'Amazon Listing Design Services | Muhammad Kashif',
+  description: 'Explore Amazon main image design, product infographics, A+ Content and Brand Store services. Compare scope, pricing and turnaround across all product categories.',
   path: '/services/',
   keywords: [
     'Amazon design services',

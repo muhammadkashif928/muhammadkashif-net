@@ -2,7 +2,7 @@ import { blogPosts } from '@/data/blog'
 import { services } from '@/data/services'
 
 const baseUrl = 'https://muhammadkashif.net'
-const siteUpdated = '2026-09-21T10:00:00+08:00'
+const siteUpdated = '2026-09-22T03:00:00+08:00'
 
 function route(path, changeFrequency, priority, lastModified = siteUpdated) {
   return {
@@ -14,12 +14,13 @@ function route(path, changeFrequency, priority, lastModified = siteUpdated) {
 }
 
 export default function sitemap() {
+  const blogUpdated = blogPosts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, siteUpdated)
   const coreRoutes = [
     route('/', 'monthly', 1),
     route('/about/', 'monthly', 0.9),
     route('/services/', 'monthly', 0.95),
     route('/my-portfolio/', 'monthly', 0.9),
-    route('/blog/', 'weekly', 0.9),
+    route('/blog/', 'daily', 0.9, blogUpdated),
     route('/resume/', 'monthly', 0.75),
     route('/contact-me/', 'yearly', 0.85),
   ]
@@ -38,12 +39,12 @@ export default function sitemap() {
   ]
 
   const blogRoutes = blogPosts.map((post) =>
-    route(
+    ({ ...route(
       `/${post.slug}/`,
       post.publishedAt?.startsWith('2026') ? 'monthly' : 'yearly',
       post.publishedAt?.startsWith('2026') ? 0.8 : 0.7,
       post.updatedAt || post.publishedAt || siteUpdated
-    )
+    ), images: [`${baseUrl}${post.image}`] })
   )
 
   // One buyable page per catalog service.

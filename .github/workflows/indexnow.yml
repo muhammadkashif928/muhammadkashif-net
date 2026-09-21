@@ -28,12 +28,15 @@ jobs:
 
       - name: Find the newest post
         id: post
+        env:
+          REQUESTED_SLUG: ${{ github.event.inputs.slug }}
         run: |
-          slug="${{ github.event.inputs.slug }}"
+          slug="$REQUESTED_SLUG"
           if [ -z "$slug" ]; then
             # data/blog.js is ordered newest first.
             slug=$(grep -m1 -oE "slug: '[^']+'" data/blog.js | sed "s/slug: '//;s/'//")
           fi
+          [[ "$slug" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || exit 1
           echo "slug=$slug" >> "$GITHUB_OUTPUT"
           echo "Newest post: $slug"
 
@@ -58,7 +61,7 @@ jobs:
         env:
           URL: ${{ steps.wait.outputs.url }}
         run: |
-          curl -sS -X POST https://api.indexnow.org/indexnow \
+          curl --fail-with-body -sS -X POST https://api.indexnow.org/indexnow \
             -H 'Content-Type: application/json' \
             -d "{\"host\":\"muhammadkashif.net\",\"key\":\"82f3c322a5e0050da881e3e6e8d48270\",\"keyLocation\":\"https://muhammadkashif.net/82f3c322a5e0050da881e3e6e8d48270.txt\",\"urlList\":[\"$URL\",\"https://muhammadkashif.net/blog/\",\"https://muhammadkashif.net/sitemap.xml\"]}" \
             -w '\nIndexNow HTTP %{http_code}\n'

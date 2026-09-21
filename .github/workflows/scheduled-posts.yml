@@ -1,0 +1,58 @@
+name: Publish queued blog posts
+on:
+  schedule:
+    # Hourly retry window; the script enforces at least 24 hours between posts.
+    # GitHub can delay scheduled jobs. Never backfill multiple posts at once.
+    - cron: '37 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: publish-content
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Publish at most one due article
+        id: post
+        run: node scripts/publish-queued.mjs
+      - name: Install dependencies
+        if: steps.post.outputs.slug != ''
+        run: npm ci
+      - name: Check production build
+        if: steps.post.outputs.slug != ''
+        run: npm run build
+      - name: Commit publication
+        if: steps.post.outputs.slug != ''
+        env:
+          SLUG: ${{ steps.post.outputs.slug }}
+        run: |
+          set -euo pipefail
+          git config user.name "Muhammad Kashif"
+          git config user.email "asifmanila@gmail.com"
+          git add "app/$SLUG/page.js" data/blog.js content/publish-queue.json
+          git commit -m "content: publish $SLUG"
+          # No force push: if main moved, fail safely and retry next run.
+          git push origin HEAD:main
+      - name: Request indexing after deployment
+        if: steps.post.outputs.slug != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ steps.post.outputs.slug }}
+        # A GITHUB_TOKEN push does not trigger other Actions push workflows.
+        run: gh workflow run indexnow.yml --ref main -f "slug=$SLUG"
+      - name: Record result
+        if: always()
+        env:
+          SLUG: ${{ steps.post.outputs.slug }}
+        run: |
+          echo "Publication candidate: ${SLUG:-none due}. Inspect preceding steps for outcome." >> "$GITHUB_STEP_SUMMARY"

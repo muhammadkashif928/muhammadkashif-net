@@ -6,8 +6,9 @@ export const blogPosts = [
     date: 'September 6, 2026',
     publishedAt: '2026-09-06T09:20:55+08:00',
     updatedAt: '2026-09-06T09:20:55+08:00',
-    image: '/api/cover/amazon-footwear-variation-images',
-    imageAlt: 'Amazon footwear listing showing colour variation swatches beneath a main product image',
+    image: '/images/blog/amazon-footwear-variation-images.webp',
+    imageCaption: 'AI-generated editorial illustration; not a client product.',
+    imageAlt: 'Ivory, sage and sand sneakers with matching color swatches on an ivory background',
     excerpt: 'Your main image wins the click. On a footwear listing with several colourways, the variation swatch decides which shoe the shopper ever actually looks at.',
     tags: ['Footwear', 'Amazon Listing Design', 'Conversion Design'],
     faqs: [
@@ -36,8 +37,9 @@ export const blogPosts = [
     date: 'September 4, 2026',
     publishedAt: '2026-09-04T02:49:21+08:00',
     updatedAt: '2026-09-04T02:49:21+08:00',
-    image: '/api/cover/leather-product-main-image-mistakes',
-    imageAlt: 'Black leather care product photographed against a white background for an Amazon main image',
+    image: '/images/blog/leather-product-main-image-mistakes.webp',
+    imageCaption: 'AI-generated editorial illustration; not a client product.',
+    imageAlt: 'Charcoal leather wallet, shoe care tin and brush with controlled studio lighting',
     excerpt: 'Leather is the hardest category to photograph for a thumbnail. Here is what goes wrong between your studio shot and the search results grid.',
     tags: ['Main Image', 'Leather Products', 'Product Photography'],
     faqs: [
