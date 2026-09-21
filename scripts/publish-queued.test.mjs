@@ -19,6 +19,11 @@ test('five-post campaign publishes once per day; failures roll back', () => {
     fs.mkdirSync(path.join(root, 'app'))
     const initial = new Date('2027-01-01T01:00:00Z')
     const expected = JSON.parse(fs.readFileSync(path.join(root,'content/publish-queue.json'))).posts.map(p=>p.slug)
+    // Reset only the isolated fixture so this test also works after real releases.
+    fs.writeFileSync(path.join(root, 'content/publish-queue.json'), JSON.stringify({intervalHours:24,posts:expected.map(slug=>({slug,publishedAt:null}))}))
+    let fixtureBlog = fs.readFileSync(path.join(root,'data/blog.js'),'utf8')
+    for (const slug of expected) fixtureBlog = fixtureBlog.replace(new RegExp(`  \\{\\n    slug: '${slug}',[\\s\\S]*?\\n  \\},\\n`), '')
+    fs.writeFileSync(path.join(root,'data/blog.js'),fixtureBlog)
     // Failed asset validation must leave the index and queue untouched.
     const image = path.join(root, 'public/images/blog', `${expected[0]}.webp`)
     const imageBytes = fs.readFileSync(image)

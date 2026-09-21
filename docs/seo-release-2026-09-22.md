@@ -29,3 +29,14 @@ ownership, sitemap submission status, query performance and index coverage canno
 verified through the local verification file alone. No ranking, traffic or conversion
 result is claimed. GitHub scheduled jobs may be delayed; publication will never be
 forced early to compensate. The workflow publishes five prepared posts and then stops.
+
+Validation completed: production build with all five draft pages; browser audit of
+67 sitemap routes and 100 local image URLs with no HTTP, canonical, metadata,
+JSON-LD, or heading failures; desktop and mobile article previews; automated
+24-hour boundary, duplicate-release, queue exhaustion and rollback tests.
+
+The first GitHub publication run succeeded:
+https://github.com/muhammadkashif928/muhammadkashif-net/actions/runs/35655434897
+The kitchen article was recorded at 2026-09-21T21:09:04.401Z (September 22,
+05:09 Kuching). The remaining four are queued in order, each eligible no sooner
+than 24 hours after the preceding publication. The schedule checks hourly.
