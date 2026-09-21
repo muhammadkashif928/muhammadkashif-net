@@ -9,14 +9,15 @@ import Image from 'next/image'
 // point: two copies would eventually disagree, and the disagreement would be
 // about money.
 import { services, priceLabel } from '@/data/services'
+import { servicePresentation } from '@/data/service-presentation'
 
 const serviceVisuals = [
-  { image: '/1776985426943-960.webp', alt: 'Yara fragrance main product image', description: 'A crisp, confident first impression in search results.' },
-  { image: '/case-studies/leather-hero/after/03-penetration.jpg', alt: 'Leather care product benefit infographic', description: 'Show the benefits. Answer the buying questions.' },
-  { image: '/images/blog-a-content.png', alt: 'A+ content design example', description: 'Build a richer product story, one module at a time.' },
-  { image: '/images/portfolio-3.webp', alt: 'Brand identity and packaging design', description: 'Connect your products with a memorable brand story.' },
-  { image: '/images/blog-website.jpg', alt: 'Brand website design example', description: 'Give your collection a considered home on Amazon.' },
-  { image: '/case-studies/leather-hero/after/04-kit.jpg', alt: 'Complete Leather Hero product kit presentation', description: 'One cohesive visual direction for your full listing.' },
+  { description: 'A crisp, confident first impression in search results.' },
+  { description: 'Show the benefits. Answer the buying questions.' },
+  { description: 'Build a richer product story, one module at a time.' },
+  { description: 'Connect your products with a memorable brand story.' },
+  { description: 'Give your collection a considered home on Amazon.' },
+  { description: 'One cohesive visual direction for your full listing.' },
 ]
 
 export default function Services() {
@@ -46,7 +47,7 @@ export default function Services() {
               <span className="absolute top-4 right-5 font-bebas select-none" style={{ fontSize: '4rem', color: 'var(--a-subtle)', lineHeight: 1 }}>{s.num}</span>
 
               <div className="relative aspect-[16/10] overflow-hidden bg-white">
-                <Image src={serviceVisuals[index].image} alt={serviceVisuals[index].alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={servicePresentation[s.slug].image} alt={servicePresentation[s.slug].alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="relative z-10 flex flex-col flex-1 p-6">
                 <div className="w-6 h-px mb-5 sm:mb-6 transition-all duration-200 group-hover:w-12" style={{ backgroundColor: 'var(--accent)' }} />
@@ -80,6 +81,7 @@ export default function Services() {
           ))}
         </div>
 
+        <p className="mt-5 font-mono text-[10px]" style={{ color: 'var(--a-muted)' }}>Service illustrations are original AI-generated concepts.</p>
         <details className="mt-6 font-mono text-xs leading-relaxed" style={{ color: 'var(--a-muted)' }}>
           <summary className="cursor-pointer py-3">Project scope, revisions &amp; payment details</summary>
           <p className="max-w-3xl pb-3">Prices in USD, per project. Includes competitor analysis, the revision allowance on your order page and Seller Central-ready files. A “from” price covers the scope on its order page. Larger catalogs and additional work are quoted separately before work begins, never charged automatically. Card payments are handled by Stripe.</p>

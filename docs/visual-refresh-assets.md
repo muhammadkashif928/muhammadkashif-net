@@ -34,3 +34,44 @@ Use case: product-mockup. Asset type: premium Amazon brand designer website edit
 ### Portrait background
 
 Use case: identity-preserve. Input images: the user-attached portrait of the man wearing cream cap, dark sunglasses, denim jacket and yellow bag is the EDIT TARGET; the generated shoe still life is NOT a reference and must be ignored. Create a website portrait asset by changing ONLY the black/empty background of the attached portrait to a warm ivory studio background. Preserve the exact man's identity, sunglasses, cap, face, pose, denim jacket, hand and yellow shoulder bag. Do not change clothing or beautify face. Frame from cap to waist, with comfortable margin above cap, portrait 4:5 composition. Soft subtle warm backdrop shadow. No typography, no additional objects.
+
+
+## Dedicated service image collection
+
+Six original service illustrations created with the built-in image generation tool. Optimized to 1200 × 800 WebP, with the same image source used by service cards, detail pages and checkout summaries. Original outputs retained in the generation directory.
+
+### main-image-optimization
+
+Saved: `public/images/services/main-image-optimization-v1.webp`
+
+Final prompt: Use case: ads-marketing. Asset: service card illustration for a premium Amazon design studio. A premium sage green insulated water bottle and its ivory packaging box presented as a flawless studio product photograph inside a large floating white square image card. Behind it, a smaller muted version of the same product card suggests the original photo. Small abstract crop corner brackets around the front card indicate careful main-image composition. Product sharp and beautifully lit. No arrows or text. Consistent collection art direction: photorealistic product imagery combined with polished dimensional editorial layout cards, warm ivory background, sage and forest green accents, limestone and sand tones, soft daylight, delicate shadows, straight-on slight three-quarter perspective. Landscape 3:2 image, entire composition centered within generous 12 percent safe margins for a 16:10 crop. Large bold visual idea with only 3-5 major elements, not cluttered. No text, letters, numbers, logos, watermarks, Amazon branding or fake performance data. Fictional concept only.
+
+### product-infographics
+
+Saved: `public/images/services/product-infographics-v1.webp`
+
+Final prompt: Use case: ads-marketing. Asset: service card illustration for a premium Amazon design studio. A premium cream and sage over-ear headphone in a large floating landscape presentation card, surrounded by three restrained circular close-up inset photos of ear cushion texture, a control button and folded headband. Thin olive callout lines connect details to the product. Clean visual infographic without words or numbers, clear at thumbnail size. Consistent collection art direction: photorealistic product imagery combined with polished dimensional editorial layout cards, warm ivory background, sage and forest green accents, limestone and sand tones, soft daylight, delicate shadows, straight-on slight three-quarter perspective. Landscape 3:2 image, entire composition centered within generous 12 percent safe margins for a 16:10 crop. Large bold visual idea with only 3-5 major elements, not cluttered. No text, letters, numbers, logos, watermarks, Amazon branding or fake performance data. Fictional concept only.
+
+### a-plus-content
+
+Saved: `public/images/services/a-plus-content-v1.webp`
+
+Final prompt: Use case: ads-marketing. Asset: service card illustration for a premium Amazon design studio. Three elegantly overlapping wide ecommerce content panels: a large top lifestyle scene of ceramic homeware and an olive water bottle on a cream kitchen counter; two lower feature panels showing material close-ups and a simple product comparison with three product silhouettes. Modular rich product content, sophisticated page composition, not a device screen. Consistent collection art direction: photorealistic product imagery combined with polished dimensional editorial layout cards, warm ivory background, sage and forest green accents, limestone and sand tones, soft daylight, delicate shadows, straight-on slight three-quarter perspective. Landscape 3:2 image, entire composition centered within generous 12 percent safe margins for a 16:10 crop. Large bold visual idea with only 3-5 major elements, not cluttered. No text, letters, numbers, logos, watermarks, Amazon branding or fake performance data. Fictional concept only.
+
+### amazon-brand-story
+
+Saved: `public/images/services/amazon-brand-story-v1.webp`
+
+Final prompt: Use case: ads-marketing. Asset: service card illustration for a premium Amazon design studio. A refined horizontal brand-story carousel displayed as four slightly overlapping upright editorial cards on a warm ivory surface. First card: embossed abstract olive botanical emblem with no letters. Second: close-up hands shaping a ceramic mug in an artisan workshop, no face. Third: a sage ceramic mug with coffee beside linen and a leaf. Fourth: three coordinating cream and sage homeware products. Cards tell the maker-to-product story with photos, no writing. Consistent collection art direction: photorealistic product imagery combined with polished dimensional editorial layout cards, warm ivory background, sage and forest green accents, limestone and sand tones, soft daylight, delicate shadows, straight-on slight three-quarter perspective. Landscape 3:2 image, entire composition centered within generous 12 percent safe margins for a 16:10 crop. Large bold visual idea with only 3-5 major elements, not cluttered. No text, letters, numbers, logos, watermarks, Amazon branding or fake performance data. Fictional concept only.
+
+### amazon-brand-store
+
+Saved: `public/images/services/amazon-brand-store-v1.webp`
+
+Final prompt: Use case: ads-marketing. Asset: service card illustration for a premium Amazon design studio. A beautiful ivory desktop monitor and small tablet displaying the same cohesive fictional ecommerce storefront. The desktop screen has a wide photographic hero of sage headphones and a cream speaker, three clean category image tiles beneath, and a row of product cards. Tablet displays a simplified responsive version. Large clear screens with photorealistic product images, minimal interface rectangles, no readable text. Tiny sage headphones placed beside the monitor connect digital to physical. Consistent collection art direction: photorealistic product imagery combined with polished dimensional editorial layout cards, warm ivory background, sage and forest green accents, limestone and sand tones, soft daylight, delicate shadows, straight-on slight three-quarter perspective. Landscape 3:2 image, entire composition centered within generous 12 percent safe margins for a 16:10 crop. Large bold visual idea with only 3-5 major elements, not cluttered. No text, letters, numbers, logos, watermarks, Amazon branding or fake performance data. Fictional concept only.
+
+### full-listing-design
+
+Saved: `public/images/services/full-listing-design-v1.webp`
+
+Final prompt: Use case: ads-marketing. Asset: service card illustration for a premium Amazon design studio. A complete coordinated ecommerce creative suite arranged as a polished editorial board: one large central product photograph of an amber skincare bottle with ivory box, one tall storefront page panel behind it, three smaller feature-image cards fanned gently along the bottom, and a wide lifestyle banner beside them. All panels share the same amber skincare bottle so the visual identity is cohesive. Composition shows an entire listing design system at a glance. Consistent collection art direction: photorealistic product imagery combined with polished dimensional editorial layout cards, warm ivory background, sage and forest green accents, limestone and sand tones, soft daylight, delicate shadows, straight-on slight three-quarter perspective. Landscape 3:2 image, entire composition centered within generous 12 percent safe margins for a 16:10 crop. Large bold visual idea with only 3-5 major elements, not cluttered. No text, letters, numbers, logos, watermarks, Amazon branding or fake performance data. Fictional concept only.
