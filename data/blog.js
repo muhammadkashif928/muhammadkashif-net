@@ -1,5 +1,33 @@
 export const blogPosts = [
   {
+    slug: 'amazon-kitchen-product-dimension-images',
+    title: 'Amazon Kitchen Product Images: Show Size, Capacity and Fit',
+    category: 'Home & Kitchen Design',
+    date: 'September 22, 2026',
+    publishedAt: '2026-09-22T05:09:04+08:00',
+    updatedAt: '2026-09-22T05:09:04+08:00',
+    image: '/images/blog/amazon-kitchen-product-dimension-images.webp',
+    imageAlt: 'Sage and ivory kitchen drawer organizers beside a wooden ruler on a light countertop',
+    imageCaption: 'AI-generated editorial illustration; not a client product or performance example.',
+    service: 'product-infographics',
+    excerpt: 'Plan Amazon kitchen product images that explain dimensions, usable capacity and cabinet fit, with a clear brief for photography and product infographics.',
+    tags: ['Home & Kitchen Design', 'Amazon Listing Design'],
+    faqs: [
+      {
+        q: 'Should kitchen product dimensions appear in the main image?',
+        a: 'Plan explanatory measurements for supporting images and check the current category rules for the main image. Keep the main image focused on an accurate view of the product being sold.',
+      },
+      {
+        q: 'Can a lifestyle photo replace a dimensions infographic?',
+        a: 'It can show context, but perspective and props are unreliable measurement references. Use verified dimensions when fit is central to the purchase.',
+      },
+      {
+        q: 'What should I send a designer for a kitchen listing?',
+        a: 'Send the exact variant, approved measurements, included-item list, product photos, and the main fit questions buyers ask. Include an assembled sample or technical drawing when clearance is difficult to explain.',
+      },
+    ],
+  },
+  {
     slug: 'amazon-footwear-variation-images',
     title: 'Amazon Footwear Listings: What the Variation Swatch Has to Do',
     category: 'Amazon Listing Optimization',
