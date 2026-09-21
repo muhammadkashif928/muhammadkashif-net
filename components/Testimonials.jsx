@@ -11,11 +11,11 @@ const testimonials = [
   { name: 'John Bie',      platform: 'Upwork',  project: 'Amazon Product',  stars: 5, profileUrl: upworkProfile, event: 'upwork_click', quote: 'Timely done! Clean execution, no back-and-forth needed. Will return for next batch.' },
 ]
 
-function Stars({ count }) {
+function Stars({ count, inverse = false }) {
   return (
     <div className="flex gap-1 mb-4">
       {Array(count).fill(0).map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--accent)' }}>
+        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ color: inverse ? 'var(--accent-inv)' : 'var(--accent)' }}>
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
         </svg>
       ))}
@@ -31,9 +31,7 @@ export default function Testimonials() {
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 sm:gap-6 mb-10 sm:mb-14">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--a-text)' }}>
-            TRUSTED BY
-            <br />
-            GLOBAL SELLERS
+            Good work.<br />Lasting relationships.
           </h2>
           {/* Rating summary */}
           <div className="flex items-center gap-4 border px-5 py-4 self-start sm:self-auto" style={{ borderColor: 'var(--a-border)' }}>
@@ -61,7 +59,7 @@ export default function Testimonials() {
                 backgroundColor: i === 0 ? 'var(--accent)' : 'transparent',
               }}
             >
-              <Stars count={t.stars} />
+              <Stars count={t.stars} inverse={i === 0} />
               <p className="font-mono text-sm sm:text-base leading-[1.9] flex-1" style={{ color: i === 0 ? 'var(--accent-inv)' : 'var(--a-muted)' }}>
                 "{t.quote}"
               </p>

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import BrandLogo from '@/components/BrandLogo'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '@/components/ThemeProvider'
 
@@ -56,17 +57,7 @@ export default function Navbar() {
           aria-label="Muhammad Kashif — home"
           className="shrink-0 flex items-center"
         >
-          {/* The mark ships as black art on transparency. It reads as-is on
-              the light theme and is flipped to cream on the dark one by the
-              .site-logo rule in globals.css, so there is only ever one file to
-              keep in sync. */}
-          <img
-            src="/images/logo-mark.png"
-            alt="Muhammad Kashif"
-            width={943}
-            height={512}
-            className="site-logo nav-logo"
-          />
+          <BrandLogo />
         </a>
 
         {/* Desktop links — only xl screens get all 7 */}

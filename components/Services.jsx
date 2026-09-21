@@ -28,7 +28,7 @@ export default function Services() {
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-12 sm:mb-16">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--a-text)' }}>
-            DESIGN, AT EVERY TOUCHPOINT.
+            Design at every touchpoint.
           </h2>
           <p className="font-mono text-sm max-w-xs" style={{ color: 'var(--a-muted)' }}>
             From the first click to your full brand story. Pick the support your product needs.
@@ -36,22 +36,21 @@ export default function Services() {
         </div>
 
         {/* Grid — 1 col mobile, 2 col sm, 3 col lg */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l" style={{ borderColor: 'var(--a-border)' }}>
+        <div className="service-card-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ borderColor: 'var(--a-border)' }}>
           {services.map((s, index) => (
             <div
               key={s.num}
-              className="group border-b border-r relative overflow-hidden flex flex-col transition-all duration-200"
+              className="service-card group relative overflow-hidden flex flex-col transition-all duration-200"
               style={{ borderColor: 'var(--a-border)' }}
             >
               <div className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300" style={{ backgroundColor: 'var(--accent)', opacity: 0.06 }} />
-              <span className="absolute top-4 right-5 font-bebas select-none" style={{ fontSize: '4rem', color: 'var(--a-subtle)', lineHeight: 1 }}>{s.num}</span>
 
               <div className="relative aspect-[16/10] overflow-hidden bg-white">
                 <Image src={servicePresentation[s.slug].image} alt={servicePresentation[s.slug].alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="relative z-10 flex flex-col flex-1 p-6">
                 <div className="w-6 h-px mb-5 sm:mb-6 transition-all duration-200 group-hover:w-12" style={{ backgroundColor: 'var(--accent)' }} />
-                <h3 className="font-bebas text-lg sm:text-xl tracking-widest mb-2 leading-tight" style={{ color: 'var(--a-text)' }}>{s.title}</h3>
+                <h3 className="font-bebas text-lg sm:text-xl tracking-widest mb-2 leading-tight" style={{ color: 'var(--a-text)' }}>{servicePresentation[s.slug].title}</h3>
                 <div className="flex items-baseline gap-2 mb-3 sm:mb-4">
                   <span className="font-bebas text-xl sm:text-2xl tracking-wider" style={{ color: 'var(--accent)' }}>{priceLabel(s)}</span>
                   <span className="font-mono text-xs" style={{ color: 'var(--a-muted)' }}>{s.unit}</span>
@@ -90,7 +89,7 @@ export default function Services() {
         {/* CTA bar */}
         <div className="mt-10 sm:mt-16 p-6 sm:p-8 border-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6" style={{ borderColor: 'var(--a-border)' }}>
           <div>
-            <h3 className="font-bebas text-2xl sm:text-3xl tracking-wide" style={{ color: 'var(--a-text)' }}>READY TO UPGRADE YOUR AMAZON PRESENCE?</h3>
+            <h3 className="font-bebas text-2xl sm:text-3xl tracking-wide" style={{ color: 'var(--a-text)' }}>Ready for your next chapter?</h3>
             <p className="font-mono text-sm mt-1" style={{ color: 'var(--a-muted)' }}>No complex forms. Just one email away.</p>
           </div>
           <a

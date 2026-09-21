@@ -1,0 +1,66 @@
+/* Site-wide editorial identity: ivory paper, forest ink and soft shapes. */
+body { font-family: Arial, Helvetica, sans-serif; }
+.brand-logo { display: inline-flex; align-items: center; gap: 11px; color: var(--accent); line-height: 1; }
+.brand-symbol { width: 44px; height: 44px; flex: none; }
+.brand-wordmark { display: flex; flex-direction: column; gap: 8px; }
+.brand-wordmark > span { font: 400 21px/1 Georgia,serif; letter-spacing: -.055em; white-space: nowrap; color: var(--a-text); }
+.brand-period { color: var(--accent); }
+.brand-wordmark small { font: 500 8px/1 Arial,sans-serif; letter-spacing: .19em; color: var(--a-muted); }
+footer .brand-logo { margin-bottom: 8px; }
+nav .font-mono, footer .font-mono { font-family: Arial,Helvetica,sans-serif; letter-spacing: .035em; }
+nav > div > ul { gap: 19px; }
+nav button[aria-label="Toggle theme"] { border-radius: 50%; border-color: var(--a-border); }
+nav .btn-brutal { border-radius: 6px; font: 600 11px/1.4 Arial,sans-serif; letter-spacing: .08em; }
+main .font-mono { font-family: Arial,Helvetica,sans-serif; }
+main p.font-mono { letter-spacing: normal; }
+main p.tracking-\[0\.35em\], main p.tracking-\[0\.3em\] { font-size: 11px; letter-spacing: .16em; }
+main h1.font-bebas, main h2.font-bebas { font-family: Georgia,'Times New Roman',serif; font-weight: 400; letter-spacing: -.04em; line-height: 1.1; }
+main h3.font-bebas, main h4.font-bebas { font-family: Arial,Helvetica,sans-serif; font-weight: 600; letter-spacing: -.015em; line-height: 1.4; }
+main .btn-brutal { font: 600 12px/1.4 Arial,Helvetica,sans-serif; letter-spacing: .045em; border-width: 1px; border-radius: 6px; box-shadow: none !important; padding: 14px 20px; }
+main .btn-brutal:hover { transform: translateY(-2px); }
+main .card-lift, main .card-lift-inv { box-shadow: none !important; border-radius: 12px; }
+main .card-lift:hover, main .card-lift-inv:hover { box-shadow: 0 12px 30px #0000000a !important; transform: translateY(-4px); }
+.service-card { border: 1px solid var(--a-border); border-radius: 12px; background: var(--a-bg); }
+.service-card > div:first-child { border-radius: inherit; }
+.service-card h3 { font-size: 21px; margin-bottom: 14px; }
+.service-card .font-bebas:not(h3):not(a) { font-family: Arial,sans-serif; font-size: 22px; font-weight: 500; letter-spacing: -.025em; }
+.service-card p { font-size: 15px; line-height: 1.75; }
+.service-card .p-6 { padding: 26px; }
+#services h2, #portfolio h2, #proof h2, #testimonials h2, #contact h2 { font-size: clamp(34px,4vw,56px) !important; }
+#services > div > div:last-child { border: 1px solid var(--a-border); border-radius: 12px; background: var(--a-subtle); }
+.portfolio-preview-card { border: 1px solid var(--b-border); }
+.portfolio-preview-card h3 { font-size: 21px; }
+.portfolio-preview-card p { line-height: 1.7; font-size: 15px; }
+#testimonials .card-lift-inv { padding: 30px; }
+#testimonials .card-lift-inv p { font-size: 16px; line-height: 1.8; }
+#testimonials .card-lift-inv .font-bebas { font-family: Arial,sans-serif; }
+#testimonials .self-start { border-radius: 12px; }
+#contact input, #contact textarea, #contact select { border-radius: 6px; font: 16px/1.6 Arial,sans-serif; }
+#contact form { border: 1px solid var(--b-border); border-radius: 14px; padding: 28px; background: var(--b-bg); }
+#contact label { font: 500 12px/1.4 Arial,sans-serif; letter-spacing: .04em; }
+#contact button[type="submit"] { border-radius: 6px; font: 600 14px Arial,sans-serif; box-shadow: none !important; }
+.legacy-case h1 { font-size: clamp(34px,4.4vw,62px) !important; }
+.legacy-case [class*="prose-"] h2 { font-family: Georgia,serif; letter-spacing: -.025em; border-bottom-width: 1px; }
+.legacy-case [class*="prose-"] p, .legacy-case [class*="prose-"] li { font-family: Arial,sans-serif; font-size: 16px; line-height: 1.8; }
+.legacy-case main, .legacy-case .border-2 { border-width: 1px; }
+.legacy-case .overflow-hidden.border-2, .legacy-case aside > div { border-radius: 10px; }
+.document-page .border-2, .checkout-page .border-2 { border-width: 1px; border-radius: 10px; box-shadow: none !important; }
+.checkout-page .font-bebas { font-family: Arial,sans-serif; letter-spacing: -.02em; }
+.checkout-page h1 { font-family: Georgia,serif; }
+.checkout-page label { font-family: Arial,sans-serif; font-size: 12px; letter-spacing: .03em; }
+footer { padding-bottom: 20px; }
+footer h4.font-bebas { font: 600 11px/1.4 Arial,sans-serif; letter-spacing: .12em; }
+footer p { font-size: 14px; }
+footer ul a { font-size: 12px !important; line-height: 1.5; }
+footer .border { border-radius: 8px; }
+@media(min-width: 1280px) and (max-width: 1380px) { nav > div > ul { gap: 12px; } nav > div > ul a { font-size: 10px !important; } }
+@media(max-width: 640px) {
+  .brand-symbol { width: 38px; height: 38px; }
+  .brand-wordmark > span { font-size: 19px; }
+  .brand-wordmark small { font-size: 7px; letter-spacing: .14em; }
+  .brand-logo { gap: 9px; }
+  #contact form { padding: 20px; }
+  .service-card .p-6 { padding: 23px; }
+  .service-card h3 { font-size: 20px; }
+}
+@media(prefers-reduced-motion: reduce) { .service-card, .btn-brutal, .card-lift { transition: none !important; } }

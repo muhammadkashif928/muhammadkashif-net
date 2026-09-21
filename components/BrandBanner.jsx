@@ -28,11 +28,11 @@ export default function BrandBanner({
         style={{ opacity: 0.05 }}
       >
         <Image
-          src="/images/logo-mark.png"
+          src="/images/brand/mk-symbol-v2.svg"
           alt=""
-          width={943}
-          height={512}
-          className="logo-mark-static w-[36rem] sm:w-[46rem] lg:w-[58rem] max-w-none h-auto"
+          width={64}
+          height={64}
+          className="w-[36rem] sm:w-[46rem] lg:w-[58rem] max-w-none h-auto"
         />
       </div>
 
@@ -51,11 +51,11 @@ export default function BrandBanner({
             style={{ borderColor: 'var(--b-text)', boxShadow: '8px 8px 0px var(--b-border)' }}
           >
             <Image
-              src="/images/logo-mark.png"
+              src="/images/brand/mk-symbol-v2.svg"
               alt="Muhammad Kashif monogram"
-              width={943}
-              height={512}
-              className="logo-mark-b w-32 sm:w-44 lg:w-52 h-auto"
+              width={64}
+              height={64}
+              className="w-32 sm:w-44 lg:w-52 h-auto"
             />
           </div>
         </div>

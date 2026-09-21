@@ -14,7 +14,7 @@ export default function Portfolio() {
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 gap-5">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--b-text)' }}>
-            SELECTED WORK
+            Selected work
           </h2>
           <a
             href="/my-portfolio/"
@@ -35,7 +35,7 @@ export default function Portfolio() {
               key={p.slug}
               href={projectHref(p)}
               onClick={() => gaEvent('case_study_open', { case_study: p.slug, location: 'home_portfolio', transport_type: 'beacon' })}
-              className="group border-2 overflow-hidden block card-lift"
+              className="portfolio-preview-card group overflow-hidden block card-lift"
               style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-bg)', boxShadow: '4px 4px 0px var(--b-border)' }}
             >
               <div className="h-48 sm:h-56 overflow-hidden relative" style={{ backgroundColor: 'var(--b-subtle)' }}>

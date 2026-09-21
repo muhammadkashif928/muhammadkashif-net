@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import BrandLogo from '@/components/BrandLogo'
 import { gaEvent } from '@/lib/gtag'
 import { services } from '@/data/services'
 
@@ -51,15 +52,6 @@ export default function Footer() {
         ↑
       </button>
 
-      {/* Marquee */}
-      <div className="overflow-hidden py-3 sm:py-4 border-b" style={{ borderColor: 'var(--a-border)' }}>
-        <div className="marquee-track">
-          {Array(12).fill('AMAZON BRAND DESIGNER — A+ CONTENT — PRODUCT VISUAL SPECIALIST — PRODUCT INFOGRAPHICS — ').map((t, i) => (
-            <span key={i} data-text={t} aria-hidden="true" className="marquee-ghost font-bebas text-2xl sm:text-3xl tracking-widest mx-5 sm:mx-6" style={{ color: 'var(--a-subtle)' }} />
-          ))}
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         {/* Main grid — 1 col mobile, 2 col sm, 4 col lg */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
@@ -67,7 +59,7 @@ export default function Footer() {
           {/* Brand — spans 2 cols on mobile */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <img src="/images/logo-mark.png" alt="Muhammad Kashif" width={943} height={512} className="site-logo foot-logo" />
+              <BrandLogo />
             </div>
             <p className="font-mono text-sm leading-relaxed mb-4" style={{ color: 'var(--a-muted)' }}>
               Turning products across every category into premium Amazon listings that help shoppers buy with confidence.

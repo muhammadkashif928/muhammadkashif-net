@@ -72,7 +72,7 @@ export default function Contact() {
           {/* ── LEFT ── */}
           <div>
             <h2 className="font-bebas leading-none mb-6 sm:mb-8" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--b-text)' }}>
-              LET’S BUILD YOUR<br />NEXT FIRST IMPRESSION.
+              Let’s build your<br />next first impression.
             </h2>
 
             <p className="font-mono text-sm sm:text-base leading-relaxed mb-8 sm:mb-10 max-w-sm" style={{ color: 'var(--b-muted)' }}>

@@ -1,4 +1,5 @@
 import './globals.css'
+import './brand.css'
 import Script from 'next/script'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import JsonLd from '@/components/JsonLd'

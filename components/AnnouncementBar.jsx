@@ -9,10 +9,10 @@ import { useEffect, useState } from 'react'
  * the dismissal is remembered per id, not globally.
  */
 const announcement = {
-  id: 'q4-2026',
-  text: 'Q4 IS THE ONLY QUARTER THAT PAYS TWICE — BOOKING LISTING WORK NOW',
+  id: 'studio-2026',
+  text: 'Thoughtful product design for your next launch — booking projects now',
   // Phone-width version; the full line does not fit and would ellipsize.
-  shortText: 'BOOKING Q4 LISTING WORK NOW',
+  shortText: 'Booking new design projects',
   ctaLabel: 'SEE SERVICES',
   ctaHref: '/services/',
 }

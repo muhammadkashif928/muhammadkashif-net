@@ -54,7 +54,7 @@ export default function HomeProof() {
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 sm:mb-12">
           <h2 className="font-bebas leading-none" style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', color: 'var(--a-text)' }}>
-            SMALL DETAILS.<br />BIG DIFFERENCE.
+            Small details.<br />A real difference.
           </h2>
 
           <a

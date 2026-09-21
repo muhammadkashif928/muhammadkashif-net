@@ -52,7 +52,7 @@ const articleJsonLd = {
     name: siteConfig.name,
     logo: {
       '@type': 'ImageObject',
-      url: absoluteUrl('/icon.svg'),
+      url: absoluteUrl('/images/brand/mk-symbol-v2.svg'),
     },
   },
   mainEntityOfPage: {
