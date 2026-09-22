@@ -1,5 +1,33 @@
 export const blogPosts = [
   {
+    slug: 'amazon-skincare-texture-listing-images',
+    title: 'Amazon Skincare Images: Explain Texture Without Overclaiming',
+    category: 'Beauty & Personal Care Design',
+    date: 'September 23, 2026',
+    publishedAt: '2026-09-23T06:24:08+08:00',
+    updatedAt: '2026-09-23T06:24:08+08:00',
+    image: '/images/blog/amazon-skincare-texture-listing-images.webp',
+    imageAlt: 'Skincare bottle and cream jar beside gel and lotion texture swatches on glass',
+    imageCaption: 'AI-generated editorial illustration; not a client product or performance example.',
+    service: 'a-plus-content',
+    excerpt: 'Build skincare listing images around real texture, packaging and usage facts. Learn what to photograph and how to brief clear, credible Amazon visuals.',
+    tags: ['Beauty & Personal Care Design', 'Amazon Listing Design'],
+    faqs: [
+      {
+        q: 'Can AI generate the texture image for my actual skincare product?',
+        a: 'Use the real formula when the image is intended to show its physical texture. An AI illustration can explore a visual direction, but it should not substitute for evidence of the product’s appearance.',
+      },
+      {
+        q: 'Should every ingredient become an infographic callout?',
+        a: 'Prioritize information that helps the buyer understand the specific product. Any benefit statement should come from approved, substantiated brand material.',
+      },
+      {
+        q: 'What should a skincare A+ Content brief include?',
+        a: 'Provide current packaging artwork, product photographs, approved wording, directions, and the differences between variants. Confirm which A+ modules are available in the account before layout begins.',
+      },
+    ],
+  },
+  {
     slug: 'amazon-kitchen-product-dimension-images',
     title: 'Amazon Kitchen Product Images: Show Size, Capacity and Fit',
     category: 'Home & Kitchen Design',
