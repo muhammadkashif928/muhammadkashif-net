@@ -1,5 +1,33 @@
 export const blogPosts = [
   {
+    slug: 'amazon-electronics-compatibility-infographics',
+    title: 'Amazon Electronics Images: Make Compatibility Clear',
+    category: 'Electronics Design',
+    date: 'September 24, 2026',
+    publishedAt: '2026-09-24T08:51:30+08:00',
+    updatedAt: '2026-09-24T08:51:30+08:00',
+    image: '/images/blog/amazon-electronics-compatibility-infographics.webp',
+    imageAlt: 'Sage USB-C hub with a connector, coiled cable and closed silver laptop',
+    imageCaption: 'AI-generated editorial illustration; not a client product or performance example.',
+    service: 'product-infographics',
+    excerpt: 'Plan electronics listing infographics that explain connectors, compatibility and setup conditions so shoppers can understand which accessory fits their needs.',
+    tags: ['Electronics Design', 'Amazon Listing Design'],
+    faqs: [
+      {
+        q: 'Can a connector photo prove that an accessory is compatible?',
+        a: 'It shows physical appearance, not every supported function. Use product-owner-approved compatibility information to explain the intended setup and its requirements.',
+      },
+      {
+        q: 'Should limitations be placed only in small print?',
+        a: 'Put a condition beside the feature it qualifies. If the wording cannot be read comfortably, give the setup or limitation more space in the image sequence.',
+      },
+      {
+        q: 'What does an electronics infographic designer need?',
+        a: 'Provide accurate product photos, a verified compatibility record, included-item details, and reference setups. Have a technically responsible person approve the final claims and diagrams.',
+      },
+    ],
+  },
+  {
     slug: 'amazon-skincare-texture-listing-images',
     title: 'Amazon Skincare Images: Explain Texture Without Overclaiming',
     category: 'Beauty & Personal Care Design',
