@@ -1,5 +1,33 @@
 export const blogPosts = [
   {
+    slug: 'amazon-pet-harness-size-guide-images',
+    title: 'Amazon Pet Product Images: Build a Useful Harness Size Guide',
+    category: 'Pet Product Design',
+    date: 'September 25, 2026',
+    publishedAt: '2026-09-25T14:34:07+08:00',
+    updatedAt: '2026-09-25T14:34:07+08:00',
+    image: '/images/blog/amazon-pet-harness-size-guide-images.webp',
+    imageAlt: 'Dog wearing a sage walking harness beside a matching leash and measuring tape',
+    imageCaption: 'AI-generated editorial illustration; not a client product or performance example.',
+    service: 'full-listing-design',
+    excerpt: 'Design pet harness listing images that explain measurement, adjustment and included items, using accurate size charts and clear product photography.',
+    tags: ['Pet Product Design', 'Amazon Listing Design'],
+    faqs: [
+      {
+        q: 'Is a breed name enough to recommend a harness size?',
+        a: 'Use the specific product’s approved measurement chart. A lifestyle photograph or breed example should not replace the measurements required by that chart.',
+      },
+      {
+        q: 'Can I reuse one size chart across all pet accessories?',
+        a: 'Only when the product owner confirms it accurately applies to those items. Different patterns, models, and adjustment systems may need separate guidance.',
+      },
+      {
+        q: 'What should be included in a pet product image brief?',
+        a: 'Provide the actual item, approved size chart and fitting method, supported product claims, and a list of included accessories. Include reference photos that clearly show the hardware and strap arrangement.',
+      },
+    ],
+  },
+  {
     slug: 'amazon-electronics-compatibility-infographics',
     title: 'Amazon Electronics Images: Make Compatibility Clear',
     category: 'Electronics Design',
