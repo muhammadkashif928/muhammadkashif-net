@@ -1,5 +1,33 @@
 export const blogPosts = [
   {
+    slug: 'amazon-multi-category-store-navigation',
+    title: 'Amazon Brand Store Navigation for Multiple Product Categories',
+    category: 'Amazon Brand Store Design',
+    date: 'September 26, 2026',
+    publishedAt: '2026-09-26T18:13:10+08:00',
+    updatedAt: '2026-09-26T18:13:10+08:00',
+    image: '/images/blog/amazon-multi-category-store-navigation.webp',
+    imageAlt: 'Kitchenware, skincare and electronics arranged on coordinated ivory display plinths',
+    imageCaption: 'AI-generated editorial illustration; not a client product or performance example.',
+    service: 'amazon-brand-store',
+    excerpt: 'Organize a multi-category Amazon Brand Store around real shopping decisions, with clearer category pages, useful navigation and coordinated product visuals.',
+    tags: ['Amazon Brand Store Design', 'Amazon Listing Design'],
+    faqs: [
+      {
+        q: 'Should every product category get its own Brand Store page?',
+        a: 'Create a page when it supports a distinct shopping decision and has enough relevant products or information to justify the destination. Avoid thin pages that simply repeat the homepage.',
+      },
+      {
+        q: 'Can one design system work across unrelated product materials?',
+        a: 'Yes. Use shared typography, spacing and brand direction while adapting photography and explanations to each product category.',
+      },
+      {
+        q: 'What should I prepare before commissioning a multi-category store?',
+        a: 'Provide the catalog, proposed product groupings, brand assets, buyer questions, and intended landing pages for advertising. A clear page map helps define the scope before banner design begins.',
+      },
+    ],
+  },
+  {
     slug: 'amazon-pet-harness-size-guide-images',
     title: 'Amazon Pet Product Images: Build a Useful Harness Size Guide',
     category: 'Pet Product Design',
