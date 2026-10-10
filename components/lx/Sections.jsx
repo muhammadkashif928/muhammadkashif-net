@@ -2,7 +2,7 @@
 // from data/services.js, the same catalogue the Stripe checkout charges from.
 import { services, priceLabel } from '@/data/services'
 import { servicePresentation } from '@/data/service-presentation'
-import { questions } from '@/components/HomeGrowth'
+import { questions } from '@/data/faqs'
 import { Icon, Pill, Stars } from './Icons'
 
 /* ---------- Four featured case studies (dark cards) ---------- */
@@ -49,23 +49,39 @@ export const FEATURED = [
   },
 ]
 
-export function FeaturedCards() {
+// Which featured case study each service page points to as proof.
+export const SERVICE_PROOF = {
+  'main-image-optimization': 'yara-lattafa-amazon-main-image',
+  'product-infographics': 'leather-hero-furniture-salve',
+  'a-plus-content': 'leather-hero-purse-care-kit',
+  'amazon-brand-story': 'leather-hero-purse-care-kit',
+  'amazon-brand-store': 'leather-hero-furniture-salve',
+  'full-listing-design': 'leather-hero-furniture-salve',
+}
+
+export function FeaturedCard({ project: p }) {
   return (
-    <ul className="cards">
-      {FEATURED.map((p, i) => (
+    <a className="pcard-link" href={p.href}>
+      <article className="pcard">
+        <img className={`pcard__img ${p.imgClass || ''}`} src={p.img} alt="" loading="lazy" decoding="async" style={p.imgStyle} />
+        <div className="pcard__shade" />
+        <div className="pcard__meta"><span>{p.meta}</span><span className="pcard__badge"><Icon name="arrow-ur" /></span></div>
+        <div className="pcard__body">
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+          <div className="tags">{p.tags.map(t => <span key={t} className="tag">{t}</span>)}</div>
+        </div>
+      </article>
+    </a>
+  )
+}
+
+export function FeaturedCards({ exclude } = {}) {
+  return (
+    <ul className={`cards${exclude ? ' cards--3' : ''}`}>
+      {FEATURED.filter(p => p.slug !== exclude).map((p, i) => (
         <li key={p.slug} className="rv" style={{ '--rd': `${i * 90}ms` }}>
-          <a className="pcard-link" href={p.href}>
-            <article className="pcard">
-              <img className={`pcard__img ${p.imgClass || ''}`} src={p.img} alt="" loading="lazy" decoding="async" style={p.imgStyle} />
-              <div className="pcard__shade" />
-              <div className="pcard__meta"><span>{p.meta}</span><span className="pcard__badge"><Icon name="arrow-ur" /></span></div>
-              <div className="pcard__body">
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <div className="tags">{p.tags.map(t => <span key={t} className="tag">{t}</span>)}</div>
-              </div>
-            </article>
-          </a>
+          <FeaturedCard project={p} />
         </li>
       ))}
     </ul>

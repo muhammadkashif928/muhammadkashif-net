@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import LxShell from '@/components/lx/LxShell'
+import { Icon } from '@/components/lx/Icons'
+import { serviceName } from '@/components/lx/Sections'
 import OrderForm from '@/components/OrderForm'
 import { servicePresentation } from '@/data/service-presentation'
 import JsonLd from '@/components/JsonLd'
@@ -50,9 +51,11 @@ export default async function OrderPage({ params }) {
     },
   }
 
+  const name = serviceName(service)
+  const look = servicePresentation[service.slug]
+
   return (
-    <>
-      <Navbar />
+    <LxShell>
       <JsonLd
         data={[
           offerJsonLd,
@@ -63,76 +66,45 @@ export default async function OrderPage({ params }) {
           ]),
         ]}
       />
+      <main id="main-content">
+        <section className="ahero ohero">
+          <div className="shell ahero__in">
+            <nav className="phero__crumbs rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }} aria-label="Breadcrumb">
+              <a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><a href={`/services/${service.slug}/`}>{name}</a><span aria-hidden="true">/</span><span>Order</span>
+            </nav>
+            <h1 className="ahero__h1 lines" data-gate="" data-delay="250" data-stagger="90" data-lines={`Order ${name}`}>Order {name}</h1>
+            <p className="phero__lead rv" data-gate="" style={{ '--ry': '12px', '--rd': '500ms' }}>Review the scope, share your brief, then continue to secure payment.</p>
+          </div>
+        </section>
 
-      <main id="main-content" className="interior-page checkout-page" style={{ backgroundColor: 'var(--b-bg)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-28 sm:pt-36 pb-16 sm:pb-24">
-
-          <a href={`/services/${service.slug}/`} className="font-mono text-[11px] tracking-[0.25em] inline-block mb-8" style={{ color: 'var(--b-muted)' }}>
-            ← SERVICE DETAILS
-          </a>
-
-          <div className="checkout-heading"><p className="studio-eyebrow">LET’S GET STARTED</p><h2>Your project, made clear.</h2><p>Review the scope, share your brief, then continue to secure payment.</p></div>
-          <div className="grid lg:grid-cols-[1fr_22rem] gap-10 lg:gap-16 items-start">
-
-            {/* Form */}
-            <div className="order-2 lg:order-1">
+        <section className="section">
+          <div className="shell ogrid">
+            <div className="ogrid__form">
               <OrderForm service={service} />
             </div>
 
-            {/* Summary — sticks alongside the form on desktop */}
-            <aside className="order-1 lg:order-2 lg:sticky lg:top-28">
-              <div className="checkout-summary border-2 p-6 sm:p-7" style={{ borderColor: 'var(--b-text)', boxShadow: '6px 6px 0px var(--b-border)' }}>
-                <img className="checkout-preview" src={servicePresentation[service.slug].image} alt={servicePresentation[service.slug].alt} width="640" height="400" />
-                <p className="font-mono text-[10px] tracking-[0.3em] mb-3" style={{ color: 'var(--b-muted)' }}>
-                  {service.num} — YOUR ORDER
-                </p>
-
-                <h1 className="font-bebas text-2xl sm:text-3xl tracking-wide leading-tight mb-5" style={{ color: 'var(--b-text)' }}>
-                  {service.title}
-                </h1>
-
-                <div className="flex items-baseline gap-2 pb-5 mb-5 border-b" style={{ borderColor: 'var(--b-border)' }}>
-                  <span className="font-bebas text-4xl leading-none" style={{ color: 'var(--b-text)' }}>
-                    {priceLabel(service)}
-                  </span>
-                  <span className="font-mono text-xs" style={{ color: 'var(--b-muted)' }}>{service.unit}</span>
-                </div>
-
-                <p className="font-mono text-[10px] tracking-[0.25em] mb-3" style={{ color: 'var(--b-muted)' }}>WHAT YOU GET</p>
-                <ul className="flex flex-col gap-2.5 mb-6">
-                  {service.deliverables.map((d) => (
-                    <li key={d} className="font-mono text-xs leading-relaxed flex gap-2.5" style={{ color: 'var(--b-muted)' }}>
-                      <span style={{ color: 'var(--b-text)' }}>—</span>
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="pt-5 border-t flex justify-between items-center gap-3" style={{ borderColor: 'var(--b-border)' }}>
-                  <span className="font-mono text-[10px] tracking-[0.25em]" style={{ color: 'var(--b-muted)' }}>TURNAROUND</span>
-                  <span className="font-mono text-xs text-right" style={{ color: 'var(--b-text)' }}>{service.turnaround}</span>
+            <aside className="ogrid__side">
+              <div className="osum">
+                <img src={look.image} alt={look.alt} width="640" height="400" />
+                <div className="osum__body">
+                  <p className="eyebrow">{service.num} — Your order</p>
+                  <h2>{name}</h2>
+                  <p className="osum__price"><strong>{priceLabel(service)}</strong><span>{service.unit}</span></p>
+                  <p className="osum__k">What you get</p>
+                  <ul className="checks checks--one">
+                    {service.deliverables.map((d) => <li key={d}><Icon name="check" />{d}</li>)}
+                  </ul>
+                  <div className="osum__row"><span>Turnaround</span><strong>{service.turnaround}</strong></div>
                 </div>
               </div>
-
               {service.fromPrice && (
-                <p className="font-mono text-[11px] leading-relaxed mt-4" style={{ color: 'var(--b-muted)' }}>
-                  {priceLabel(service)} covers the scope listed above. Anything
-                  beyond it is quoted and invoiced separately after we confirm
-                  the brief — never charged automatically.
-                </p>
+                <p className="ofm__fine">{priceLabel(service)} covers the scope listed above. Anything beyond it is quoted and invoiced separately after we confirm the brief — never charged automatically.</p>
               )}
-
-              <p className="font-mono text-[11px] leading-relaxed mt-4" style={{ color: 'var(--b-muted)' }}>
-                Questions before you buy?{' '}
-                <a href="/contact-me/" className="underline" style={{ color: 'var(--b-text)' }}>Message me first</a> —
-                I reply within 24 hours.
-              </p>
+              <p className="ofm__fine">Questions before you buy? <a href="/contact-me/">Message me first</a> — I reply within 24 hours.</p>
             </aside>
           </div>
-        </div>
+        </section>
       </main>
-
-      <Footer />
-    </>
+    </LxShell>
   )
 }

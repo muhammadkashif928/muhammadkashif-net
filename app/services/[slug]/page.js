@@ -2,10 +2,9 @@ import { notFound } from 'next/navigation'
 import LxShell from '@/components/lx/LxShell'
 import JsonLd from '@/components/JsonLd'
 import { Icon, Pill } from '@/components/lx/Icons'
-import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName } from '@/components/lx/Sections'
+import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName, FeaturedCard, FEATURED, SERVICE_PROOF } from '@/components/lx/Sections'
 import { services, getService, priceLabel } from '@/data/services'
 import { servicePresentation } from '@/data/service-presentation'
-import { portfolioProjects, projectHref } from '@/data/portfolio'
 import { blogPosts } from '@/data/blog'
 import { serviceSeo } from '@/data/service-seo'
 import { createMetadata, getBreadcrumbJsonLd, getFaqJsonLd, absoluteUrl, siteConfig } from '@/lib/seo'
@@ -27,7 +26,7 @@ export default async function ServicePage({ params }) {
   const seo = serviceSeo[slug]
   const guides = blogPosts.filter(post => post.service === slug || seo.articles.includes(post.slug)).slice(0, 3)
   const schema = { '@context': 'https://schema.org', '@type': 'Service', '@id': absoluteUrl(`/services/${slug}/#service`), name: seo.heading, description: seo.description, url: absoluteUrl(`/services/${slug}/`), image: absoluteUrl(detail.image), serviceType: detail.title, provider: { '@id': `${siteConfig.url}/#service` }, areaServed: 'Worldwide', offers: { '@type': 'Offer', url: absoluteUrl(`/order/${slug}/`), priceCurrency: 'USD', ...(service.fromPrice ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: service.priceUsd, priceCurrency: 'USD' } } : { price: service.priceUsd }) } }
-  const project = portfolioProjects.find(p => p.slug === detail.project)
+  const proof = FEATURED.find(p => p.slug === SERVICE_PROOF[slug])
   const name = serviceName(service)
 
   return (
@@ -63,19 +62,9 @@ export default async function ServicePage({ params }) {
 
         <section className="section">
           <div className="shell section__in section__in--tight">
-            <SecHead eyebrow="See the approach in practice" title={project ? 'From a real project' : 'What the work looks like'} />
+            <SecHead eyebrow="See the approach in practice" title={proof ? 'From a real project' : 'What the work looks like'} />
             <div className="detail-grid">
-              {project && (
-                <a className="atile rv" href={projectHref(project)}>
-                  <div className="atile__img"><img src={project.img} alt={project.title} loading="lazy" decoding="async" /></div>
-                  <div className="atile__body">
-                    <div className="atile__meta"><span>{project.tag}</span><span>{project.date}</span></div>
-                    <h3>{project.title}</h3>
-                    <p>{project.desc}</p>
-                    <div className="atile__foot"><span>Explore the case study</span><span className="atile__badge"><Icon name="arrow-ur" /></span></div>
-                  </div>
-                </a>
-              )}
+              {proof && <div className="rv"><FeaturedCard project={proof} /></div>}
               <figure className="concept rv" style={{ '--rd': '120ms' }}>
                 <img src={detail.image} alt={detail.alt} loading="lazy" decoding="async" />
                 <figcaption>{detail.caption}</figcaption>

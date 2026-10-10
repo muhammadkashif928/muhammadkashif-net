@@ -25,9 +25,9 @@ export default function Home() {
     <LxShell>
       <main id="main-content">
 
-        {/* Hero: black-and-white portrait; the cursor paints in the colour version with the gold logo */}
+        {/* Hero: black-and-white portrait; the cursor paints in a warm copper-graded version with the gold logo */}
         <section className="hero" id="home">
-          <div className="liquid" id="liquid" data-reveal="/images/lx/hero-reveal.jpg">
+          <div className="liquid" id="liquid" data-reveal="/images/lx/hero-reveal.jpg" data-reveal-tint="#c4632a" data-reveal-tint-strength="0.82">
             <img src="/images/lx/hero.jpg" alt="Muhammad Kashif in a beige cap, round glasses and a black shirt, resting his chin on his hand" fetchPriority="high" decoding="async" width="2000" height="1333" />
             <canvas aria-hidden="true" />
           </div>

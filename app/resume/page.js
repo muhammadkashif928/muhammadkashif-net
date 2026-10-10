@@ -1,6 +1,6 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import PageHeader from '@/components/PageHeader'
+import LxShell from '@/components/lx/LxShell'
+import { Icon, Pill } from '@/components/lx/Icons'
+import { PageHero } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
@@ -65,225 +65,125 @@ const stats = [
   { num: '50+',  label: 'Freelance Clients' },
 ]
 
+const contact = [
+  { icon: 'mail', label: 'info@muhammadkashif.net', href: 'mailto:info@muhammadkashif.net' },
+  { icon: 'chat', label: '+60 17-915 2084', href: 'https://wa.me/60179152084', external: true },
+  { icon: 'globe', label: 'muhammadkashif.net', href: '/' },
+  { icon: 'pin', label: 'Kuching, Sarawak, Malaysia' },
+]
+
+const profiles = [
+  { label: 'Upwork', note: 'Top Rated freelancer', href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
+  { label: 'LinkedIn', note: 'Connect with me', href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
+  { label: 'Instagram', note: '@muhammadkashif928', href: 'https://instagram.com/muhammadkashif928' },
+]
+
 export default function ResumePage() {
   return (
-    <>
-      <Navbar />
-      <main id="main-content" className="interior-page document-page">
-        <PageHeader
-          label="PROFESSIONAL RESUME & CV"
-          title={<>RESUME<br />& CV</>}
-          subtitle="AI-Powered Amazon Brand Designer · Creative Specialist · Kuching, Sarawak, Malaysia"
+    <LxShell>
+      <main id="main-content">
+        <PageHero
+          watermark="RESUME"
+          crumb={[{ label: 'Resume' }]}
+          lines={['Resume & CV.', 'Eight years, one focus.']}
+          lead="AI-powered Amazon brand designer and creative specialist — and a Malaysian approved digital nomad, working remotely with brands in the US, UK and Canada."
+          aside={
+            <div className="dl-stack">
+              <Pill variant="dark" arrow="download" href="/Muhammad-Kashif-Resume.pdf" external>Download resume</Pill>
+              <Pill variant="outline" arrow="download" href="/Muhammad-Kashif-CV.pdf" external>Download CV</Pill>
+            </div>
+          }
         />
 
-        {/* Download bar */}
-        <div className="border-b" style={{ backgroundColor: 'var(--b-bg)', borderColor: 'var(--b-border)' }}>
-          <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="font-mono text-xs" style={{ color: 'var(--b-muted)' }}>
-              Download a copy of my professional documents in PDF format.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="/Muhammad-Kashif-Resume.pdf"
-                download
-                className="font-bebas text-sm tracking-widest px-6 py-3 border-2 flex items-center gap-2 transition-all hover:-translate-y-0.5"
-                style={{ backgroundColor: 'var(--b-text)', color: 'var(--b-bg)', borderColor: 'var(--b-text)', boxShadow: '3px 3px 0px var(--b-border)' }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                DOWNLOAD RESUME
-              </a>
-              <a
-                href="/Muhammad-Kashif-CV.pdf"
-                download
-                className="font-bebas text-sm tracking-widest px-6 py-3 border-2 flex items-center gap-2 transition-all hover:-translate-y-0.5"
-                style={{ backgroundColor: 'transparent', color: 'var(--b-text)', borderColor: 'var(--b-border)', boxShadow: '3px 3px 0px var(--b-border)' }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                DOWNLOAD CV
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Resume content */}
-        <div style={{ backgroundColor: 'var(--b-bg)' }}>
-          <div className="max-w-7xl mx-auto px-6 py-16">
-            <div className="grid lg:grid-cols-[1fr_300px] gap-16">
-
-              {/* ── LEFT COLUMN ── */}
-              <div>
-
-                {/* Header */}
-                <div className="mb-12 pb-10 border-b" style={{ borderColor: 'var(--b-border)' }}>
-                  <h2 className="font-bebas tracking-[0.08em] leading-none mb-2" style={{ fontSize: '2.8rem', color: 'var(--b-text)' }}>
-                    MUHAMMAD KASHIF
-                  </h2>
-                  <p className="font-mono text-xs tracking-widest mb-5" style={{ color: 'var(--b-muted)' }}>
-                    AI-POWERED AMAZON BRAND DESIGNER · CREATIVE SPECIALIST
-                  </p>
-
-                  <div className="grid sm:grid-cols-2 gap-2">
-                    {[
-                      { icon: '✉', val: 'info@muhammadkashif.net' },
-                      { icon: '📱', val: '+60 179152084' },
-                      { icon: '🌐', val: 'muhammadkashif.net' },
-                      { icon: '📍', val: 'Kuching, Sarawak, Malaysia' },
-                    ].map((c) => (
-                      <p key={c.val} className="font-mono text-xs flex items-center gap-2" style={{ color: 'var(--b-muted)' }}>
-                        <span>{c.icon}</span>{c.val}
-                      </p>
+        <section className="section">
+          <div className="shell section__in">
+            <div className="cv">
+              <div className="cv__main">
+                <div className="cv__id rv">
+                  <h2>Muhammad Kashif</h2>
+                  <p>AI-Powered Amazon Brand Designer · Creative Specialist</p>
+                  <ul className="cv__contact">
+                    {contact.map(c => (
+                      <li key={c.label}>
+                        <Icon name={c.icon} />
+                        {c.href ? <a href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}>{c.label}</a> : <span>{c.label}</span>}
+                      </li>
                     ))}
-                  </div>
-
-                  {/* Digital Nomad badge */}
-                  <div className="mt-5 inline-flex items-center gap-2 border px-4 py-2" style={{ borderColor: 'var(--b-border)' }}>
-                    <span className="font-mono text-[9px] tracking-[0.25em]" style={{ color: 'var(--b-text)' }}>
-                      ✈ MALAYSIAN APPROVED DIGITAL NOMAD
-                    </span>
-                  </div>
+                  </ul>
                 </div>
 
-                {/* Career Objective */}
-                <div className="mb-12">
-                  <h2 className="font-bebas text-2xl tracking-widest mb-5" style={{ color: 'var(--b-text)' }}>CAREER OBJECTIVE</h2>
-                  <p className="font-mono text-sm leading-[1.9]" style={{ color: 'var(--b-muted)' }}>
-                    Results-driven Amazon Brand Designer with <strong style={{ color: 'var(--b-text)' }}>8+ years of experience</strong> helping
-                    U.S. private-label sellers dominate their categories through premium visual storytelling
-                    and data-led design strategy. I combine deep e-commerce expertise with advanced
-                    generative AI tools to deliver <strong style={{ color: 'var(--b-text)' }}>8K-resolution assets</strong>, scroll-stopping Main
-                    Images, and high-converting A+ Content — transforming everyday products into trusted,
-                    market-leading brands.
-                  </p>
+                <div className="cv__block rv">
+                  <p className="eyebrow">Career objective</p>
+                  <p className="cv__lead">Results-driven Amazon Brand Designer with 8+ years of experience helping U.S. private-label sellers dominate their categories through premium visual storytelling and data-led design strategy. I combine deep e-commerce expertise with advanced generative AI tools to deliver 8K-resolution assets, scroll-stopping main images and high-converting A+ Content — transforming everyday products into trusted, market-leading brands.</p>
                 </div>
 
-                {/* Work Experience */}
-                <div className="mb-12">
-                  <h2 className="font-bebas text-2xl tracking-widest mb-8" style={{ color: 'var(--b-text)' }}>WORK EXPERIENCE</h2>
-                  <div className="flex flex-col gap-10">
-                    {experience.map((exp, i) => (
-                      <div key={i} className="border-l-2 pl-6" style={{ borderColor: 'var(--b-border)' }}>
-                        <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
-                          <h3 className="font-bebas text-xl tracking-wide" style={{ color: 'var(--b-text)' }}>{exp.role}</h3>
-                          <span className="font-mono text-[10px] px-3 py-1 border" style={{ borderColor: 'var(--b-border)', color: 'var(--b-muted)' }}>{exp.period}</span>
+                <div className="cv__block">
+                  <p className="eyebrow rv">Work experience</p>
+                  <ol className="xp">
+                    {experience.map(x => (
+                      <li key={x.period} className="rv">
+                        <div className="xp__when"><span className="xp__years">{x.period.replace('–', '—')}</span><span className="xp__org">{x.company}</span></div>
+                        <div>
+                          <h3 className="xp__role">{x.role.replace(' | ', ' & ')}</h3>
+                          <ul className="bul">{x.points.map(pt => <li key={pt}>{pt}</li>)}</ul>
+                          <div className="chips">{x.tags.map(t => <span key={t}>{t}</span>)}</div>
                         </div>
-                        <p className="font-mono text-xs tracking-widest mb-4" style={{ color: 'var(--b-muted)' }}>{exp.company}</p>
-
-                        <ul className="flex flex-col gap-2 mb-5">
-                          {exp.points.map((p, j) => (
-                            <li key={j} className="font-mono text-xs leading-relaxed flex gap-2" style={{ color: 'var(--b-muted)' }}>
-                              <span className="shrink-0 mt-0.5" style={{ color: 'var(--b-text)' }}>▸</span> {p}
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="flex flex-wrap gap-2">
-                          {exp.tags.map((t) => (
-                            <span key={t} className="font-mono text-[9px] tracking-widest px-2 py-1 border" style={{ borderColor: 'var(--b-border)', color: 'var(--b-text)', backgroundColor: 'var(--b-subtle)' }}>{t}</span>
-                          ))}
-                        </div>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ol>
                 </div>
 
-                {/* Tools */}
-                <div>
-                  <h2 className="font-bebas text-2xl tracking-widest mb-8" style={{ color: 'var(--b-text)' }}>TOOLS & SOFTWARE</h2>
-                  <div className="grid sm:grid-cols-3 gap-6">
-                    {toolGroups.map((cat) => (
-                      <div key={cat.category}>
-                        <h3 className="font-mono text-[9px] tracking-widest mb-3" style={{ color: 'var(--b-muted)' }}>{cat.category.toUpperCase()}</h3>
-                        <div className="flex flex-wrap gap-1.5">
-                          {cat.items.map((item) => (
-                            <span key={item} className="font-mono text-[9px] tracking-widest px-2 py-1 border" style={{ borderColor: 'var(--b-border)', color: 'var(--b-text)' }}>{item}</span>
-                          ))}
-                        </div>
+                <div className="cv__block rv">
+                  <p className="eyebrow">Tools &amp; software</p>
+                  <div className="cv__tools">
+                    {toolGroups.map(g => (
+                      <div key={g.category}>
+                        <h3>{g.category}</h3>
+                        <div className="chips">{g.items.map(t => <span key={t}>{t}</span>)}</div>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* ── RIGHT SIDEBAR ── */}
-              <aside className="flex flex-col gap-6">
-
-                {/* Stats */}
-                <div className="border-2 p-6" style={{ borderColor: 'var(--b-border)' }}>
-                  <h3 className="font-bebas text-lg tracking-widest mb-5" style={{ color: 'var(--b-text)' }}>KEY NUMBERS</h3>
-                  <div className="grid grid-cols-2 gap-3">
-                    {stats.map((s) => (
-                      <div key={s.label} className="border p-4 text-center" style={{ borderColor: 'var(--b-border)' }}>
-                        <div className="font-bebas text-3xl leading-none" style={{ color: 'var(--b-text)' }}>{s.num}</div>
-                        <div className="font-mono text-[8px] tracking-widest mt-1 leading-relaxed" style={{ color: 'var(--b-muted)' }}>{s.label.toUpperCase()}</div>
-                      </div>
-                    ))}
-                  </div>
+              <aside className="cv__side">
+                <div className="aside-card aside-card--dark rv">
+                  <p className="eyebrow eyebrow--light">Key numbers</p>
+                  <ul className="cv__stats">
+                    {stats.map(s => <li key={s.label}><strong>{s.num}</strong><span>{s.label}</span></li>)}
+                  </ul>
                 </div>
-
-                {/* Skills */}
-                <div className="border-2 p-6" style={{ borderColor: 'var(--b-border)' }}>
-                  <h3 className="font-bebas text-lg tracking-widest mb-6" style={{ color: 'var(--b-text)' }}>CORE SKILLS</h3>
-                  <div className="flex flex-col gap-4">
-                    {skills.map((s) => (
-                      <div key={s.label}>
-                        <div className="flex justify-between mb-1.5">
-                          <span className="font-mono text-[9px] tracking-widest" style={{ color: 'var(--b-text)' }}>{s.label.toUpperCase()}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                <div className="aside-card rv">
+                  <p className="eyebrow">Core skills</p>
+                  <div className="chips">{skills.map(s => <span key={s.label}>{s.label}</span>)}</div>
                 </div>
-
-                {/* Languages */}
-                <div className="border-2 p-6" style={{ borderColor: 'var(--b-border)' }}>
-                  <h3 className="font-bebas text-lg tracking-widest mb-5" style={{ color: 'var(--b-text)' }}>LANGUAGES</h3>
-                  <div className="flex flex-col gap-4">
-                    {languages.map((l) => (
-                      <div key={l.lang} className="flex items-center justify-between">
-                        <span className="font-mono text-xs" style={{ color: 'var(--b-text)' }}>{l.lang}</span>
-                        <div className="flex gap-1">
-                          {Array(5).fill(0).map((_, i) => (
-                            <div key={i} className="w-2.5 h-2.5 border" style={{ borderColor: 'var(--b-border)', backgroundColor: i < l.level ? 'var(--b-text)' : 'transparent' }} />
-                          ))}
-                        </div>
-                      </div>
+                <div className="aside-card rv">
+                  <p className="eyebrow">Languages</p>
+                  <ul className="cv__langs">
+                    {languages.map(l => (
+                      <li key={l.lang}>
+                        <span>{l.lang}</span>
+                        <span className="cv__dots" aria-label={`${l.level} out of 5`}>
+                          {[1, 2, 3, 4, 5].map(n => <i key={n} className={n <= l.level ? 'on' : undefined} />)}
+                        </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-
-                {/* Platforms */}
-                <div className="border-2 p-6" style={{ borderColor: 'var(--b-border)' }}>
-                  <h3 className="font-bebas text-lg tracking-widest mb-5" style={{ color: 'var(--b-text)' }}>FIND ME ON</h3>
-                  <div className="flex flex-col gap-3">
-                    {[
-                      { name: 'Upwork',    detail: 'Top Rated Freelancer',  href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
-                      { name: 'LinkedIn',  detail: 'Connect with me',       href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
-                      { name: 'Fiverr',    detail: 'Verified Seller',       href: '#' },
-                      { name: 'Instagram', detail: '@muhammadkashif928',     href: 'https://instagram.com/muhammadkashif928' },
-                    ].map((p) => (
-                      <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer"
-                        className="flex justify-between items-center py-2 border-b transition-colors"
-                        style={{ borderColor: 'var(--b-border)', color: 'var(--b-text)' }}
-                      >
-                        <span className="font-mono text-xs tracking-widest">{p.name}</span>
-                        <span className="font-mono text-[9px]" style={{ color: 'var(--b-muted)' }}>{p.detail} ↗</span>
-                      </a>
+                <div className="aside-card rv">
+                  <p className="eyebrow">Find me on</p>
+                  <ul className="cv__profiles">
+                    {profiles.map(p => (
+                      <li key={p.label}><a href={p.href} target="_blank" rel="noopener"><strong>{p.label}</strong><span>{p.note}</span><Icon name="arrow-ur" /></a></li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-
               </aside>
             </div>
           </div>
-        </div>
+        </section>
       </main>
-      <Footer />
-    </>
+    </LxShell>
   )
 }
+

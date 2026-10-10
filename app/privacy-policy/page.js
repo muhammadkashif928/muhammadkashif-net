@@ -1,6 +1,4 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import PageHeader from '@/components/PageHeader'
+import LegalDoc from '@/components/lx/LegalDoc'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
@@ -126,46 +124,13 @@ WhatsApp: +92 342 4625 844`,
 
 export default function PrivacyPolicyPage() {
   return (
-    <>
-      <Navbar />
-      <main id="main-content" className="interior-page document-page">
-        <PageHeader
-          label="LEGAL"
-          title={<>PRIVACY<br />POLICY</>}
-          subtitle="Last updated: June 2025"
-        />
-
-        <div className="py-20" style={{ backgroundColor: 'var(--b-bg)' }}>
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="border-2 p-8 mb-8" style={{ borderColor: 'var(--b-border)', backgroundColor: 'var(--b-subtle)' }}>
-              <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--b-muted)' }}>
-                This Privacy Policy applies to the website muhammadkashif.net and all content, services, and information available on the site. Please read this policy carefully before using our Website.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-10">
-              {sections.map((section, i) => (
-                <div key={i} className="border-t pt-10" style={{ borderColor: 'var(--b-border)' }}>
-                  <h2 className="font-bebas text-2xl tracking-wide mb-5" style={{ color: 'var(--b-text)' }}>{section.title}</h2>
-                  <div className="font-mono text-sm leading-[1.9]" style={{ color: 'var(--b-muted)' }}>
-                    {section.content.split('\n').map((line, j) => {
-                      if (line.startsWith('**') && line.endsWith('**')) {
-                        return <p key={j} className="font-bold mt-4 mb-2" style={{ color: 'var(--b-text)' }}>{line.replace(/\*\*/g, '')}</p>
-                      }
-                      if (line.startsWith('- ')) {
-                        return <p key={j} className="flex gap-2 ml-4"><span>→</span>{line.slice(2)}</p>
-                      }
-                      if (line === '') return <br key={j} />
-                      return <p key={j} className="mb-2">{line}</p>
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <LegalDoc
+      watermark="PRIVACY"
+      crumb="Privacy Policy"
+      lines={['Privacy', 'policy.']}
+      updated="Last updated: June 2025"
+      intro="This Privacy Policy applies to the website muhammadkashif.net and all content, services, and information available on the site. Please read this policy carefully before using our Website."
+      sections={sections}
+    />
   )
 }

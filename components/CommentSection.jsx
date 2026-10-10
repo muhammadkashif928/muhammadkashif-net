@@ -1,6 +1,10 @@
 'use client'
-
+// Article comments. Talks to /api/comments: GET ?slug= lists them, POST takes exactly
+// { postSlug, name, email|null, message } (the API rejects any other keys).
+// Styled with the .lx design (styles/lumora-site.css, .cmt-*).
 import { useState, useEffect, useCallback } from 'react'
+
+const MAX = 1200
 
 function formatDate(iso) {
   try {
@@ -22,11 +26,9 @@ export default function CommentSection({ postSlug }) {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [formError, setFormError] = useState('')
-
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-
   const [captcha, setCaptcha] = useState({ a: 4, b: 7 })
   const [captchaInput, setCaptchaInput] = useState('')
 
@@ -57,17 +59,14 @@ export default function CommentSection({ postSlug }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setFormError('')
-
-    if (!name.trim()) { setFormError('Please enter your name.'); return }
+    if (name.trim().length < 2) { setFormError('Please enter your name.'); return }
     if (!message.trim()) { setFormError('Please enter a comment.'); return }
     if (message.trim().length < 10) { setFormError('Comment must be at least 10 characters.'); return }
-
     if (parseInt(captchaInput, 10) !== captcha.a + captcha.b) {
       setFormError(`Incorrect answer. ${captcha.a} + ${captcha.b} = ?`)
       refreshCaptcha()
       return
     }
-
     setSubmitting(true)
     try {
       const res = await fetch('/api/comments', {
@@ -75,15 +74,9 @@ export default function CommentSection({ postSlug }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ postSlug, name: name.trim(), email: email.trim() || null, message: message.trim() }),
       })
-
       if (!res.ok) throw new Error('submit failed')
-
       // Optimistic: add to local list
-      setComments(prev => [...prev, {
-        name: name.trim(),
-        message: message.trim(),
-        created_at: new Date().toISOString(),
-      }])
+      setComments(prev => [...prev, { name: name.trim(), message: message.trim(), created_at: new Date().toISOString() }])
       setName(''); setEmail(''); setMessage('')
       setSubmitted(true)
       refreshCaptcha()
@@ -96,168 +89,60 @@ export default function CommentSection({ postSlug }) {
   }
 
   return (
-    <div className="mt-16 border-t-2 border-[var(--a-border)] pt-12">
+    <section className="cmt" aria-labelledby="cmt-title">
+      <p className="eyebrow">Discussion</p>
+      <h2 id="cmt-title" className="cmt__title">Comments{comments.length > 0 && <span> ({comments.length})</span>}</h2>
 
-      {/* Heading */}
-      <div className="mb-8">
-        <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--a-muted)] mb-1">▶ DISCUSSION</p>
-        <h2 className="font-bebas text-[clamp(1.8rem,4vw,2.5rem)] text-[var(--a-text)] leading-tight">
-          COMMENTS {comments.length > 0 && <span className="text-[var(--a-muted)]">({comments.length})</span>}
-        </h2>
-      </div>
-
-      {/* Existing comments */}
       {loading ? (
-        <p className="font-mono text-xs text-[var(--a-muted)] mb-8">Loading comments…</p>
+        <p className="cmt__empty">Loading comments…</p>
       ) : comments.length === 0 ? (
-        <div className="border-2 border-[var(--a-border)] border-dashed p-6 text-center mb-10">
-          <p className="font-mono text-xs text-[var(--a-muted)]">No comments yet. Be the first to share your thoughts.</p>
-        </div>
+        <p className="cmt__empty">No comments yet. Be the first to share your thoughts.</p>
       ) : (
-        <div className="flex flex-col gap-4 mb-10">
+        <ul className="cmt__list">
           {comments.map((c, i) => (
-            <div key={i} className="border-2 border-[var(--a-border)] p-5 bg-white" style={{ boxShadow: '3px 3px 0 #0a0a0a' }}>
-              <div className="flex items-center justify-between gap-3 mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-[var(--a-subtle)] flex items-center justify-center shrink-0">
-                    <span className="font-bebas text-sm text-[var(--accent)] leading-none">
-                      {c.name.charAt(0).toUpperCase()}
-                    </span>
-                  </div>
-                  <span className="font-bebas text-base tracking-wide text-[var(--a-text)]">{c.name}</span>
-                </div>
-                <span className="font-mono text-[9px] text-[var(--a-muted)]">{formatDate(c.created_at)}</span>
+            <li key={i} className="cmt__item">
+              <span className="review__av" aria-hidden="true">{c.name.charAt(0).toUpperCase()}</span>
+              <div>
+                <p className="cmt__who"><strong>{c.name}</strong><time dateTime={c.created_at}>{formatDate(c.created_at)}</time></p>
+                <p className="cmt__msg">{c.message}</p>
               </div>
-              <p className="font-mono text-xs text-[var(--a-muted)] leading-relaxed pl-11">{c.message}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
 
-      {/* Comment form */}
-      <div className="border-2 border-[var(--a-border)] bg-[var(--a-bg)]" style={{ boxShadow: '5px 5px 0 #0a0a0a' }}>
-        <div className="bg-[var(--a-subtle)] px-5 py-3 flex items-center gap-2">
-          <span className="font-mono text-[9px] tracking-[0.25em] text-[var(--accent)]">▶ LEAVE A COMMENT</span>
-        </div>
-
+      <div className="cmt__form">
+        <p className="modal__kick">Leave a comment</p>
         {submitted ? (
-          <div className="p-6 text-center">
-            <p className="font-bebas text-xl tracking-wide text-[var(--a-text)] mb-1">COMMENT SUBMITTED!</p>
-            <p className="font-mono text-xs text-[var(--a-muted)]">Thank you for joining the discussion.</p>
+          <div className="cmt__done" role="status">
+            <strong>Comment posted.</strong>
+            <span>Thank you for joining the discussion.</span>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-5 sm:p-6 space-y-4" noValidate>
-            {/* Name + Email */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label className="font-mono text-[9px] tracking-widest text-[var(--a-muted)] block mb-1.5">
-                  NAME <span className="text-[var(--a-text)]">*</span>
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  placeholder="Your name"
-                  maxLength={80}
-                  required
-                  className="w-full font-mono text-xs text-[var(--a-text)] bg-white border-2 border-[var(--a-border)] px-3 py-2.5 placeholder:text-[var(--a-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-mono text-[9px] tracking-widest text-[var(--a-muted)] block mb-1.5">
-                  EMAIL <span className="text-[var(--a-muted)]">(optional, not published)</span>
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  maxLength={120}
-                  className="w-full font-mono text-xs text-[var(--a-text)] bg-white border-2 border-[var(--a-border)] px-3 py-2.5 placeholder:text-[var(--a-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                />
-              </div>
+          <form onSubmit={handleSubmit} className="mform" noValidate>
+            <div className="cmt__row">
+              <label><span>Name *</span><input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Your name" maxLength={80} required autoComplete="name" /></label>
+              <label><span>Email (optional, not published)</span><input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com" maxLength={160} autoComplete="email" /></label>
             </div>
-
-            {/* Message */}
-            <div>
-              <label className="font-mono text-[9px] tracking-widest text-[var(--a-muted)] block mb-1.5">
-                COMMENT <span className="text-[var(--a-text)]">*</span>
+            <label>
+              <span>Comment *</span>
+              <textarea value={message} onChange={e => setMessage(e.target.value.slice(0, MAX))} rows={5} placeholder="Share a question or what worked for you…" required />
+              <small className="cmt__count">{message.length}/{MAX}</small>
+            </label>
+            <div className="cmt__row cmt__row--end">
+              <label className="cmt__captcha">
+                <span>Quick check: what is {captcha.a} + {captcha.b}?</span>
+                <span className="cmt__captcha-in">
+                  <input type="text" inputMode="numeric" value={captchaInput} onChange={e => setCaptchaInput(e.target.value.replace(/[^0-9]/g, ''))} placeholder="Answer" maxLength={2} />
+                  <button type="button" onClick={refreshCaptcha} aria-label="New question">↻</button>
+                </span>
               </label>
-              <textarea
-                value={message}
-                onChange={e => setMessage(e.target.value)}
-                placeholder="Share your thoughts, questions, or feedback…"
-                rows={4}
-                maxLength={1200}
-                required
-                className="w-full font-mono text-xs text-[var(--a-text)] bg-white border-2 border-[var(--a-border)] px-3 py-2.5 placeholder:text-[var(--a-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
-              />
-              <p className="font-mono text-[8px] text-[var(--a-muted)] mt-1 text-right">{message.length}/1200</p>
+              <button type="submit" className="pill pill--dark" disabled={submitting}><span className="pill__in">{submitting ? 'Posting…' : 'Post comment'}</span></button>
             </div>
-
-            {/* Math CAPTCHA */}
-            <div className="border-2 border-[var(--a-border)] p-4 bg-white">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                <div className="flex items-center gap-3 flex-1">
-                  <div className="shrink-0">
-                    <span className="font-mono text-[9px] tracking-[0.2em] text-[var(--a-muted)] block mb-1">CAPTCHA — PROVE YOU'RE HUMAN</span>
-                    <div className="flex items-center gap-2">
-                      <div className="bg-[var(--a-subtle)] px-4 py-2 flex items-center gap-1.5">
-                        <span className="font-bebas text-2xl text-[var(--accent)] tracking-wider">{captcha.a}</span>
-                        <span className="font-bebas text-2xl text-[var(--a-text)]">+</span>
-                        <span className="font-bebas text-2xl text-[var(--accent)] tracking-wider">{captcha.b}</span>
-                        <span className="font-bebas text-2xl text-[var(--a-text)]">=</span>
-                        <span className="font-bebas text-2xl text-[var(--a-text)]">?</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <input
-                    type="number"
-                    value={captchaInput}
-                    onChange={e => setCaptchaInput(e.target.value)}
-                    placeholder="Answer"
-                    min={0}
-                    max={99}
-                    required
-                    className="w-24 font-bebas text-xl text-[var(--a-text)] bg-[var(--a-bg)] border-2 border-[var(--a-border)] px-3 py-2 text-center placeholder:text-[var(--a-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
-                  />
-                  <button
-                    type="button"
-                    onClick={refreshCaptcha}
-                    title="Get a new question"
-                    className="font-mono text-[9px] tracking-widest text-[var(--a-muted)] border border-[var(--a-border)] px-2 py-1.5 hover:border-[var(--a-border)] hover:text-[var(--a-text)] transition-all"
-                  >
-                    ↻ NEW
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Error */}
-            {formError && (
-              <div className="border-2 border-red-500 bg-red-50 px-4 py-2.5">
-                <p className="font-mono text-[10px] text-red-700">{formError}</p>
-              </div>
-            )}
-
-            {/* Submit */}
-            <div className="flex items-center justify-between gap-4 pt-1">
-              <p className="font-mono text-[9px] text-[var(--a-muted)] leading-relaxed max-w-xs">
-                Your email is never published. Comments are reviewed before display.
-              </p>
-              <button
-                type="submit"
-                disabled={submitting}
-                className="shrink-0 font-bebas text-sm tracking-widest px-6 py-3 bg-[var(--a-subtle)] text-[var(--accent)] border-2 border-[var(--a-border)] hover:bg-[var(--a-subtle)] hover:text-[var(--a-text)] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-              >
-                {submitting ? 'POSTING…' : 'POST COMMENT →'}
-              </button>
-            </div>
+            {formError && <p className="cmt__error" role="alert">{formError}</p>}
           </form>
         )}
       </div>
-    </div>
+    </section>
   )
 }

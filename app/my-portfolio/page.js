@@ -1,33 +1,24 @@
 import LxShell from '@/components/lx/LxShell'
-import { Icon } from '@/components/lx/Icons'
-import { FeaturedCards, FEATURED, PageHero, Facts, SecHead } from '@/components/lx/Sections'
+import { Pill } from '@/components/lx/Icons'
+import { FeaturedCards, FEATURED, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
-import { portfolioProjects, projectHref } from '@/data/portfolio'
 
 export const metadata = createMetadata({
   title: 'Amazon Design Portfolio — Case Studies | Muhammad Kashif',
-  description: 'Portfolio and case studies by Muhammad Kashif: Amazon A+ Content, product image optimization, brand identity, packaging design, AI retouching, and product photography — all built to convert browsers into buyers.',
+  description: 'Portfolio and case studies by Muhammad Kashif: Amazon main images, full listing sets and AI + Photoshop lifestyle composites — each built to win the click and answer the buyer’s next question.',
   path: '/my-portfolio/',
-  image: '/images/portfolio-1.webp',
-  imageAlt: 'Amazon design portfolio — A+ Content, product photography, and brand identity case studies',
+  image: '/images/lx/work/leather-hero-salve.webp',
+  imageAlt: 'Leather Hero Furniture Salve tin and brush on a dark wooden surface — a case study from Muhammad Kashif’s portfolio',
   keywords: [
     'Amazon design portfolio',
-    'A+ Content portfolio case study',
     'Amazon listing design case studies',
+    'Amazon main image case study',
     'product image optimization portfolio',
-    'brand identity packaging portfolio',
-    'AI product retouching portfolio',
+    'AI product lifestyle composite',
   ],
 })
 
-// Product shots on white read better shown whole than cropped.
-const CONTAIN = new Set(['perfume-oil-bottle-retouching', 'closetlux-image-restoration', 'leather-items-optimized'])
-const toTitleCase = s => s.toLowerCase().replace(/(^|\s|\/)(\S)/g, (m, sep, c) => sep + c.toUpperCase()).replace(/\bA\+/g, 'A+').replace(/\bAi\b/g, 'AI')
-
 export default function MyPortfolio() {
-  const featured = new Set(FEATURED.map(f => f.slug))
-  const archive = portfolioProjects.filter(p => !featured.has(p.slug))
-
   return (
     <LxShell>
       <main id="main-content">
@@ -35,9 +26,9 @@ export default function MyPortfolio() {
           watermark="WORK"
           crumb={[{ label: 'Work' }]}
           lines={['Selected work.', 'Proof over claims.']}
-          lead={`${portfolioProjects.length} projects across main images, full listing sets, lifestyle composites and retouching. Each one is built to win the click — then answer the buyer's next question.`}
+          lead="In-depth case studies across main images, full listing sets and lifestyle composites. Each one is built to win the click — then answer the buyer's next question."
           aside={<Facts items={[
-            ['Projects', `${portfolioProjects.length} case studies`],
+            ['Case studies', `${FEATURED.length} in depth`],
             ['Brands', '7+ major brands'],
             ['Products', '200+ designed'],
             ['Marketplace', 'Amazon US & beyond'],
@@ -46,31 +37,17 @@ export default function MyPortfolio() {
 
         <section className="section">
           <div className="shell section__in">
-            <SecHead eyebrow="Featured case studies" pill title="Recent work" lead="The brief, the decisions and the before-and-after for every image in the set." />
+            <SecHead eyebrow="Case studies" pill title="Recent work" lead="The brief, the decisions and the before-and-after for every image in the set." />
             <FeaturedCards />
           </div>
         </section>
 
         <section className="section">
           <div className="shell section__in section__in--tight">
-            <SecHead eyebrow="From the archive" title="Retouching, restoration & brand work" lead="Single-image fixes, catalogue clean-ups and brand systems — the craft behind every listing." />
-            <ul className="atiles">
-              {archive.map((p, i) => (
-                <li key={p.slug} className="rv" style={{ '--rd': `${(i % 3) * 90}ms` }}>
-                  <a className="atile" href={projectHref(p)}>
-                    <div className={`atile__img${CONTAIN.has(p.slug) ? ' atile__img--contain' : ''}`}>
-                      <img src={p.img} alt={p.title} loading="lazy" decoding="async" />
-                    </div>
-                    <div className="atile__body">
-                      <div className="atile__meta"><span>{toTitleCase(p.tag)}</span><span>{p.date?.slice(-4)}</span></div>
-                      <h3>{p.title}</h3>
-                      <p>{p.desc}</p>
-                      <div className="atile__foot"><span>Explore project</span><span className="atile__badge"><Icon name="arrow-ur" /></span></div>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <SecHead eyebrow="How every project runs" title="From brief to ready-to-upload.">
+              <div className="rv" style={{ '--ry': '12px', '--rd': '150ms' }}><Pill variant="outline" arrow="up-right" data-go="contact">Discuss your project</Pill></div>
+            </SecHead>
+            <Steps />
           </div>
         </section>
 

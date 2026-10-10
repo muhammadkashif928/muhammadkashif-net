@@ -34,10 +34,6 @@ const CONNECT = [
   { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100011667847244', external: true },
 ]
 
-// Runs while the HTML is still parsing, so a visitor who already saw the intro this
-// session never gets a flash of the loader on the next page.
-const LOADER_GATE = "try{if(sessionStorage.getItem('mk-intro-seen'))document.getElementById('lx-loader').hidden=true}catch(e){}"
-
 function ext(external) { return external ? { target: '_blank', rel: 'noopener' } : {} }
 
 export default function LxShell({ children }) {
@@ -61,7 +57,6 @@ export default function LxShell({ children }) {
           <div className="loader__row"><span>Loading</span><span className="loader__count" id="lx-loader-count">000</span></div>
         </div>
       </div>
-      <script dangerouslySetInnerHTML={{ __html: LOADER_GATE }} />
 
       {/* Header */}
       <header className="site-header rv" data-gate="">

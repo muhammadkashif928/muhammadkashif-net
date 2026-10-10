@@ -14,6 +14,12 @@ const nextConfig = {
         permanent: true,
       },
 
+      // ── Retired case studies (removed in the 2026 redesign) → the portfolio
+      ...[
+        'premium-a-content', 'ai-creative-retouching', 'brand-identity-packaging',
+        'leather-items-optimized', 'closetlux-image-restoration', 'perfume-oil-bottle-retouching',
+      ].map(slug => ({ source: `/blackdsn-portfolio/${slug}`, destination: '/my-portfolio/', permanent: true })),
+
       // ── Legacy WordPress media: images moved from /wp-content/uploads/ to /uploads/
       {
         source: '/wp-content/uploads/:path*',
