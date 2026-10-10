@@ -21,6 +21,10 @@ export function Sprite() {
       <symbol id="i-cal" viewBox="0 0 24 24"><g {...stroke} strokeWidth="1.6"><rect x="3.5" y="5" width="17" height="15" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></g></symbol>
       <symbol id="i-briefcase" viewBox="0 0 24 24"><g {...stroke} strokeWidth="1.6"><rect x="3" y="7" width="18" height="13" rx="2.5" /><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18" /></g></symbol>
       <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.4" /></g></symbol>
+      {/* Brand marks for the social links */}
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" /></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /></g><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor" /></symbol>
+      <symbol id="i-upwork" viewBox="0 0 24 24"><path fill="currentColor" d="M18.56 13.16c-1.1 0-2.14-.47-3.07-1.23l.23-1.08.01-.04c.2-1.14.85-3.06 2.84-3.06a2.7 2.7 0 0 1 0 5.4zm0-8.14c-2.54 0-4.51 1.65-5.31 4.37-1.22-1.84-2.15-4.04-2.69-5.9H7.83v7.11a2.55 2.55 0 0 1-5.09 0V3.49H0v7.11a5.29 5.29 0 0 0 10.56 0V9.41c.53 1.11 1.19 2.23 1.98 3.22l-1.67 7.88h2.8l1.21-5.71c1.06.68 2.28 1.11 3.68 1.11a5.44 5.44 0 0 0 0-10.89z" /></symbol>
       <symbol id="i-download" viewBox="0 0 24 24"><path {...stroke} strokeWidth="2" d="M12 4v11M7 10l5 5 5-5M5 20h14" /></symbol>
     </svg>
   )

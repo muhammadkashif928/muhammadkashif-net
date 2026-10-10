@@ -108,9 +108,9 @@ export default function Home() {
                 <div>
                   <p className="lbl">Find me online</p>
                   <div className="socials">
-                    <a className="soc soc--accent" href="https://www.linkedin.com/in/muhammad-kashif-228554243" target="_blank" rel="noopener" aria-label="LinkedIn"><span className="soc__i">in</span></a>
-                    <a className="soc" href="https://instagram.com/muhammadkashif928" target="_blank" rel="noopener" aria-label="Instagram"><span className="soc__i">ig</span></a>
-                    <a className="soc" href="https://www.upwork.com/freelancers/~016edc19243e405472" target="_blank" rel="noopener" aria-label="Upwork"><span className="soc__i">up</span></a>
+                    <a className="soc soc--accent" href="https://www.linkedin.com/in/muhammad-kashif-228554243" target="_blank" rel="noopener" aria-label="LinkedIn"><span className="soc__i"><Icon name="linkedin" /></span></a>
+                    <a className="soc" href="https://instagram.com/muhammadkashif928" target="_blank" rel="noopener" aria-label="Instagram"><span className="soc__i"><Icon name="instagram" /></span></a>
+                    <a className="soc" href="https://www.upwork.com/freelancers/~016edc19243e405472" target="_blank" rel="noopener" aria-label="Upwork"><span className="soc__i"><Icon name="upwork" /></span></a>
                   </div>
                 </div>
                 <Pill variant="outline" href="/about/">About me</Pill>

@@ -387,6 +387,11 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .legal-doc__sec:first-child > h2 { margin-top: 2.5rem; }
 .lx .legal-doc__intro { margin-top: 0; }
 
+/* Social link icons (home About block) */
+.lx .soc { width: 2.75rem; height: 2.75rem; font-size: 1.125rem; transition: background-color .25s, color .25s; }
+.lx .soc:not(.soc--accent):hover { background: #0a0a0a; color: #fff; }
+.lx .soc--accent:hover { background: #97501f; }
+
 /* Small additions for the Next.js pages */
 .lx .svc__order { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; }
 .lx .svc__fine { font-size: .8125rem; line-height: 1.5; color: rgba(17,17,17,.5); }
