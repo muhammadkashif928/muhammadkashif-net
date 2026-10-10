@@ -476,3 +476,46 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .hcard__title { max-width: none; font-size: .9375rem; }
 .lx .sale-chip { font-size: .75rem; }
 .lx .cv__edu { margin-top: .75rem; font-size: 1rem; font-weight: 500; line-height: 1.4; }
+
+/* ---------- Shopify packages (/services/shopify-store-design/) ---------- */
+.lx .tiers { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 1024px) { .lx .tiers { grid-template-columns: repeat(3, 1fr); align-items: stretch; } }
+.lx .tiers > li { display: flex; }
+.lx .tier { position: relative; display: flex; flex-direction: column; width: 100%; border-radius: 2rem; background: #f1f0ee; padding: 2rem; box-shadow: 0 0 0 1px #e6e5e2; }
+.lx .tier--feature { background: #0a0a0a; color: #fff; box-shadow: 0 0 0 1px rgba(255,255,255,.06); }
+.lx .tier__name { font-size: .8125rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #b15f2c; }
+.lx .tier--feature .tier__name { color: #cf8047; }
+.lx .tier__price { margin-top: .75rem; display: flex; flex-direction: column; font-size: 2.75rem; font-weight: 600; line-height: 1; letter-spacing: -.02em; }
+.lx .tier__price small { margin-bottom: .375rem; font-size: .8125rem; font-weight: 500; letter-spacing: 0; color: rgba(17,17,17,.55); }
+.lx .tier--feature .tier__price small { color: rgba(255,255,255,.6); }
+.lx .tier__fit { margin-top: .875rem; font-size: .9375rem; line-height: 1.5; color: rgba(17,17,17,.65); }
+.lx .tier--feature .tier__fit { color: rgba(255,255,255,.7); }
+.lx .tier__list { margin: 1.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid rgba(17,17,17,.1); display: flex; flex-direction: column; gap: .625rem; flex: 1; }
+.lx .tier--feature .tier__list { border-top-color: rgba(255,255,255,.14); }
+.lx .tier__list li { display: flex; gap: .625rem; align-items: flex-start; font-size: .9375rem; line-height: 1.45; }
+.lx .tier__list li .i { flex: none; width: 1rem; height: 1rem; margin-top: .15rem; color: #b15f2c; }
+.lx .tier--feature .tier__list li .i { color: #cf8047; }
+.lx .tier__list .tier__plus { font-weight: 600; }
+.lx .tier__meta { margin: 1.75rem 0 1.25rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+.lx .tier__meta span { border-radius: 9999px; padding: .35rem .8rem; font-size: .8125rem; background: #fff; box-shadow: 0 0 0 1px #e6e5e2; }
+.lx .tier--feature .tier__meta span { background: rgba(255,255,255,.08); box-shadow: 0 0 0 1px rgba(255,255,255,.14); }
+.lx .tier .pill { align-self: flex-start; }
+
+/* ---------- About: approach cards, education ---------- */
+.lx .statement__sub { margin-top: 1.75rem; max-width: 46rem; font-size: 1.0625rem; line-height: 1.6; color: rgba(17,17,17,.65); }
+.lx .approach { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 768px) { .lx .approach { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+.lx .approach .tool p { margin-top: 1rem; font-size: 1rem; line-height: 1.6; color: rgba(17,17,17,.75); }
+.lx .approach .tool ul.bul { margin-top: 1rem; display: flex; flex-direction: column; gap: .625rem; }
+.lx .approach .tool ul.bul li { position: relative; padding-left: 1.25rem; font-size: .9375rem; line-height: 1.55; color: rgba(17,17,17,.75); }
+.lx .approach .tool ul.bul li::before { content: ""; position: absolute; left: 0; top: .6em; width: .375rem; height: .375rem; border-radius: 9999px; background: #b15f2c; }
+.lx .edu { margin-top: 1.5rem; border-radius: 2rem; background: #0a0a0a; color: #fff; padding: 2rem; display: flex; flex-direction: column; gap: .5rem; }
+.lx .edu .eyebrow { color: rgba(255,255,255,.55); }
+.lx .edu h3 { margin-top: .5rem; font-size: 1.5rem; font-weight: 500; letter-spacing: -.01em; }
+.lx .edu .edu__org { font-weight: 500; color: #cf8047; }
+.lx .edu p:last-child { max-width: 40rem; color: rgba(255,255,255,.7); line-height: 1.6; }
+@media (min-width: 1024px) { .lx .edu { padding: 2.5rem 3rem; } }
+.lx .cv__edu span { display: block; margin-top: .25rem; font-size: .875rem; font-weight: 400; color: rgba(17,17,17,.6); }
+/* Month-and-year ranges ("Jan 2022 — Jan 2025") are longer than the original years */
+.lx .xp__years { font-size: 1.75rem; line-height: 1.1; }
+@media (min-width: 1024px) { .lx .xp__years { font-size: 2.125rem; } }

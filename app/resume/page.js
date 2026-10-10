@@ -7,30 +7,60 @@ export const metadata = createMetadata({
   title: 'Resume & CV | Muhammad Kashif — E-commerce Creative Designer',
   description: 'Resume and CV of Muhammad Kashif, e-commerce creative designer: Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design. 8+ years of experience, based in Kuching, Sarawak, Malaysia.',
   path: '/resume/',
-  keywords: ['Muhammad Kashif resume', 'Amazon brand designer CV', 'AI-powered creative specialist'],
+  keywords: ['Muhammad Kashif resume', 'e-commerce creative designer CV', 'Amazon designer CV', 'Shopify designer CV'],
 })
 
 const skills = [
-  { label: 'AI Concept Art' },
-  { label: 'Brand Identity' },
+  { label: 'E-commerce Design' },
+  { label: 'Amazon A+ Content' },
+  { label: 'Amazon Brand Store' },
+  { label: 'Shopify' },
+  { label: 'Brand Design' },
+  { label: 'Packaging Design' },
+  { label: 'Competitive Analysis' },
   { label: 'High-End Retouching' },
-  { label: 'Competitor Analysis' },
-  { label: 'Infographic Design' },
-  { label: 'A+ Content Strategy' },
+  { label: 'Video Editing' },
 ]
 
 const experience = [
   {
-    role: 'Creative Designer Specialist | Brand Strategist',
-    company: 'Designer Trends Inc. — U.S. Brand Portfolio',
-    period: '2018 – Present',
-    tags: ['A+ Content', 'Main Image Strategy', '8K Retouching', 'Brand Identity', 'E-commerce'],
+    role: 'Creative Designer / Digital Operations Specialist',
+    company: 'Designer Trends Inc. — Full-time · Remote, United States',
+    period: 'Oct 2022 – Present',
+    tags: ['Competitive Analysis', 'Packaging Design', 'A+ Content', 'Main Image Strategy', 'E-commerce'],
     points: [
+      'Permanent, full-time remote role. Joined in October 2022 as Remote Administrative and Creative Design Specialist; now Creative Designer / Digital Operations Specialist.',
       'Directed full visual strategy for 7+ leather & shoe care brands incl. Angelus, Tarrago, Eagle Shoe Care, Leather Hero, Lincoln, Silver & Fiamme across Amazon US.',
       'Engineered Main Image overhauls using psychological CTR triggers, achieving measurable uplift in click-through rates across 200+ product SKUs.',
-      'Designed immersive A+ Content & Enhanced Brand Content (EBC) that reduced customer objections and increased average order values.',
-      'Produced 8K lifestyle composites using AI-powered retouching, eliminating expensive studio shoots while exceeding professional quality benchmarks.',
-      'Built complete e-commerce websites for heritage brands, maintaining premium positioning in competitive U.S. marketplaces.',
+      'Designed A+ Content & Enhanced Brand Content (EBC) that reduced customer objections and increased average order values.',
+      'Produced 8K lifestyle composites using AI-powered retouching, and built complete e-commerce websites for heritage brands.',
+    ],
+  },
+  {
+    role: 'Account Manager',
+    company: 'Orbit Click Inc. — Contract',
+    period: 'Jan 2022 – Jan 2025',
+    tags: ['Account Management', 'Private Label', 'E-commerce'],
+    points: [
+      'Managed e-commerce account operations for a US-focused private-label business under a performance-based contract arrangement.',
+    ],
+  },
+  {
+    role: 'Senior Sales Account Manager',
+    company: 'ONE LUXE USA — Part-time · Remote, Florida, US',
+    period: 'Apr 2024 – Jul 2024',
+    tags: ['E-commerce', 'Sales Accounts'],
+    points: [
+      'Part-time remote sales account role in e-commerce.',
+    ],
+  },
+  {
+    role: 'Amazon Account Manager | Graphic Designer',
+    company: 'Supreme Commerce',
+    period: 'Feb 2021 – Jan 2022',
+    tags: ['Amazon', 'Graphic Design', 'Account Management'],
+    points: [
+      'Combined Amazon account management with graphic design for e-commerce clients.',
     ],
   },
   {
@@ -49,7 +79,7 @@ const experience = [
 const toolGroups = [
   { category: 'Design',    items: ['Photoshop', 'Illustrator', 'Figma', 'Lightroom', 'After Effects'] },
   { category: 'AI Tools',  items: ['Midjourney', 'DALL·E', 'Stable Diffusion', 'ComfyUI', 'ChatGPT', 'Claude AI'] },
-  { category: 'Platform',  items: ['Amazon Seller Central', 'Upwork', 'Fiverr'] },
+  { category: 'Platform',  items: ['Amazon Seller Central', 'Shopify', 'WordPress', 'Upwork', 'Fiverr'] },
 ]
 
 const languages = [
@@ -85,8 +115,8 @@ export default function ResumePage() {
         <PageHero
           watermark="RESUME"
           crumb={[{ label: 'Resume' }]}
-          lines={['Resume & CV.', 'Eight years, one focus.']}
-          lead="AI-powered Amazon brand designer and creative specialist — and a Malaysian approved digital nomad, working remotely with brands in the US, UK and Canada."
+          lines={['Resume & CV.', 'Eight years in e-commerce.']}
+          lead="E-commerce creative designer — Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design. A Malaysian approved digital nomad, working remotely with brands in the US, UK and Canada."
           aside={
             <div className="dl-stack">
               <Pill variant="dark" arrow="download" href="/Muhammad-Kashif-Resume.pdf" external>Download resume</Pill>
@@ -114,7 +144,7 @@ export default function ResumePage() {
 
                 <div className="cv__block rv">
                   <p className="eyebrow">Career objective</p>
-                  <p className="cv__lead">Results-driven e-commerce creative designer with 8+ years of experience helping U.S. private-label sellers dominate their categories through premium visual storytelling and data-led design strategy. I combine deep e-commerce expertise with advanced generative AI tools to deliver 8K-resolution assets, scroll-stopping main images and high-converting A+ Content — transforming everyday products into trusted, market-leading brands.</p>
+                  <p className="cv__lead">E-commerce creative designer with 8+ years of experience designing how brands and their products are presented online: Amazon listing images, A+ Content and Brand Stores, Shopify storefronts, and the brand and marketing creative around them. Every project starts with research — competitor listings, customer reviews and the questions buyers keep asking — and AI handles production work while design decisions, brand accuracy and final quality stay with me. Open to contract and retainer work with e-commerce brands and agencies.</p>
                 </div>
 
                 <div className="cv__block">
@@ -159,7 +189,7 @@ export default function ResumePage() {
                 </div>
                 <div className="aside-card rv">
                   <p className="eyebrow">Education</p>
-                  <p className="cv__edu">University of Agriculture, Faisalabad</p>
+                  <p className="cv__edu">Master’s degree in Chemistry<span>University of Agriculture, Faisalabad</span></p>
                 </div>
                 <div className="aside-card rv">
                   <p className="eyebrow">Languages</p>

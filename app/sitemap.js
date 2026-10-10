@@ -19,6 +19,7 @@ export default function sitemap() {
     route('/', 'monthly', 1),
     route('/about/', 'monthly', 0.9),
     route('/services/', 'monthly', 0.95),
+    route('/services/shopify-store-design/', 'monthly', 0.9, '2026-10-11'),
     route('/my-portfolio/', 'monthly', 0.9),
     route('/blog/', 'daily', 0.9, blogUpdated),
     route('/resume/', 'monthly', 0.75),

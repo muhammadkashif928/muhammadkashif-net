@@ -3,6 +3,7 @@
 import { services, priceLabel, onSale, regularLabel, savingsPercent } from '@/data/services'
 import { servicePresentation } from '@/data/service-presentation'
 import { questions } from '@/data/faqs'
+import { shopifyService } from '@/data/shopify'
 import { Icon, Pill, Stars } from './Icons'
 
 /* ---------- Four featured case studies (dark cards) ---------- */
@@ -128,6 +129,18 @@ export function ServiceRows({ hrefFor = s => `/services/${s.slug}/` }) {
           </a>
         </li>
       ))}
+      {/* Shopify packages are quoted, not checked out, so they live on their own page */}
+      <li className="rv" style={{ '--rd': `${services.length * 80}ms` }}>
+        <a className="srow-link" href={`/services/${shopifyService.slug}/`}>
+          <div className="srow">
+            <span className="srow__idx">{shopifyService.num}</span>
+            <h3>{shopifyService.title}</h3>
+            <p>{shopifyService.brief}</p>
+            <span className="srow__price">from ${shopifyService.fromUsd}<small>{shopifyService.unit}</small></span>
+            <span className="srow__badge"><Icon name="arrow-ur" /></span>
+          </div>
+        </a>
+      </li>
     </ul>
   )
 }
@@ -182,10 +195,10 @@ export const STEPS = [
   ['Deliver & launch', 'Receive your final assets sized for the agreed placements, ready for your listing or brand store.'],
 ]
 
-export function Steps() {
+export function Steps({ items = STEPS }) {
   return (
     <ol className="steps">
-      {STEPS.map(([title, text], i) => (
+      {items.map(([title, text], i) => (
         <li key={title} className="rv" style={{ '--rd': `${i * 120}ms` }}>
           <div className="step"><span className="step__n">{i + 1}</span><h3>{title}</h3><p>{text}</p></div>
         </li>
