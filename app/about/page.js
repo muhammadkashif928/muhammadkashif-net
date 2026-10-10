@@ -43,10 +43,11 @@ const personJsonLd = {
     'Amazon A+ Content Design', 'Amazon Listing Optimization', 'Product Infographics',
     'Brand Identity Design', 'Packaging Design', 'AI Product Lifestyle Images',
     'Product Image Optimization', 'E-commerce Product Photography',
-    'Private Label Brand Strategy', 'Shopify Store Design', 'Adobe Photoshop', 'Adobe Illustrator',
+    'Private Label Brand Strategy', 'Shopify Store Design', 'WordPress Websites', 'Video Editing', 'Ad Design', 'Adobe Photoshop', 'Adobe Illustrator',
     'Blender 3D Rendering', 'Midjourney AI', 'Amazon Seller Central', '3D Product Visualization',
   ],
   hasCredential: [
+    { '@type': 'EducationalOccupationalCredential', credentialCategory: 'degree', name: 'Master’s degree in Chemistry', recognizedBy: { '@type': 'CollegeOrUniversity', name: 'University of Agriculture, Faisalabad' } },
     { '@type': 'EducationalOccupationalCredential', name: '8+ Years Amazon Brand Design Experience' },
     { '@type': 'EducationalOccupationalCredential', name: '200+ Completed Client Projects' },
   ],
@@ -55,24 +56,72 @@ const personJsonLd = {
 }
 
 const VALUES = [
-  ['chat', 'Direct collaboration', 'Talk to the designer doing the work, from your first brief to final delivery.'],
-  ['logo', 'Product-first thinking', 'The visuals start with what your product does and what your customer needs to understand.'],
-  ['check', 'Craft with a purpose', 'Retouching, composition and AI-assisted imagery serve the story, with careful attention to product accuracy.'],
+  ['chat', 'Research first', 'Competitor listings, customer reviews and the questions buyers keep asking come before any design decision.'],
+  ['logo', 'One job per image', 'Each image or page section gets one job, in the order a buyer thinks — on Amazon, on a storefront, in a campaign.'],
+  ['check', 'AI for production, not decisions', 'AI handles cleanup, backgrounds, variations and early concepts. Design decisions, brand accuracy and final quality stay with me.'],
+]
+
+// The working method, in the words of the LinkedIn profile
+const APPROACH = [
+  ['Who I work with', 'p', 'Private-label and Amazon brands, DTC brands selling through their own stores, and the e-commerce and Amazon agencies that support them — selling in the US, UK and Canada.'],
+  ['Problems I understand', 'ul', [
+    'A listing has seconds to answer the buyer’s real questions: does it work, will it suit my use, what’s included, is it worth the price',
+    'Claims a shopper can’t verify get skipped; visible proof gets considered',
+    'A brand looks smaller than it is when its listing, A+ Content, storefront and packaging don’t match',
+    'Marketplace creative has rules, and good design works inside them',
+  ]],
+  ['What I design', 'ul', [
+    'Amazon listing images: main images, product infographics and full image sets',
+    'A+ Content, Brand Story and Amazon Brand Stores',
+    'Shopify and e-commerce store design, and WordPress websites',
+    'Product visualization, image editing and high-end retouching',
+    'Brand, packaging and digital marketing creative',
+    'Product video and content edits',
+  ]],
+  ['Open to', 'p', 'Contract and retainer work with e-commerce brands and agencies, and selected projects where creative quality affects how a product sells.'],
 ]
 
 const EXPERIENCE = [
   {
-    years: '2018 — Now',
-    org: 'Designer Trends Inc. — U.S. brand portfolio',
-    role: 'Creative Designer Specialist & Brand Strategist',
+    years: 'Oct 2022 — Now',
+    org: 'Designer Trends Inc. — full-time, remote (United States)',
+    role: 'Creative Designer / Digital Operations Specialist',
     points: [
-      'Direct the full visual strategy for 7+ leather and shoe care brands on Amazon US, including Angelus, Tarrago, Eagle Shoe Care, Leather Hero, Lincoln, Silver and Fiamme.',
+      'Permanent, full-time remote role. Joined in October 2022 as Remote Administrative and Creative Design Specialist; now Creative Designer / Digital Operations Specialist.',
+      'Direct the visual strategy for 7+ leather and shoe care brands on Amazon US, including Angelus, Tarrago, Eagle Shoe Care, Leather Hero, Lincoln, Silver and Fiamme.',
       'Main image overhauls built on click-through psychology, with measurable CTR uplift across 200+ product SKUs.',
       'A+ Content and Enhanced Brand Content that reduce customer objections and lift average order value.',
       '8K lifestyle composites with AI-powered retouching, replacing costly studio shoots without losing quality.',
       'Complete e-commerce websites for heritage brands, keeping their premium positioning.',
     ],
-    tags: ['A+ Content', 'Main Image Strategy', '8K Retouching', 'Brand Identity', 'E-commerce'],
+    tags: ['Competitive Analysis', 'Packaging Design', 'A+ Content', 'Main Image Strategy', 'E-commerce'],
+  },
+  {
+    years: 'Jan 2022 — Jan 2025',
+    org: 'Orbit Click Inc. — contract',
+    role: 'Account Manager',
+    points: [
+      'Managed e-commerce account operations for a US-focused private-label business under a performance-based contract arrangement.',
+    ],
+    tags: ['Account Management', 'Private Label', 'E-commerce'],
+  },
+  {
+    years: 'Apr 2024 — Jul 2024',
+    org: 'ONE LUXE USA — part-time, remote (Florida, US)',
+    role: 'Senior Sales Account Manager',
+    points: [
+      'Part-time remote sales account role in e-commerce, for a business based in Florida, US.',
+    ],
+    tags: ['E-commerce', 'Sales Accounts'],
+  },
+  {
+    years: 'Feb 2021 — Jan 2022',
+    org: 'Supreme Commerce',
+    role: 'Amazon Account Manager & Graphic Designer',
+    points: [
+      'Combined Amazon account management with graphic design for e-commerce clients.',
+    ],
+    tags: ['Amazon', 'Graphic Design', 'Account Management'],
   },
   {
     years: '2016 — 2018',
@@ -90,8 +139,8 @@ const EXPERIENCE = [
 const TOOLS = [
   ['Design', ['Photoshop', 'Illustrator', 'Figma', 'Lightroom', 'After Effects']],
   ['AI tools', ['Midjourney', 'DALL·E', 'Stable Diffusion', 'ComfyUI', 'ChatGPT', 'Claude']],
-  ['Core skills', ['AI concept art', 'Brand identity', 'High-end retouching', 'Competitor analysis', 'Infographic design', 'A+ strategy']],
-  ['Platforms & languages', ['Amazon Seller Central', 'Shopify', 'Upwork', 'Fiverr', 'English', 'Urdu', 'Punjabi']],
+  ['Core skills', ['E-commerce design', 'Amazon A+ Content', 'Amazon Brand Store', 'Shopify', 'Brand design', 'Packaging design', 'Ad design', 'Web design', 'Video editing', 'High-end retouching', 'Competitor analysis']],
+  ['Platforms & languages', ['Amazon Seller Central', 'Shopify', 'WordPress', 'Upwork', 'Fiverr', 'English', 'Urdu', 'Punjabi']],
 ]
 
 export default function AboutPage() {
@@ -119,7 +168,8 @@ export default function AboutPage() {
         <section className="section">
           <div className="shell section__in">
             <div className="rv" style={{ '--ry': '10px', marginBottom: '1.5rem' }}><span className="eyebrow">Designer &amp; creative partner</span></div>
-            <h2 className="statement words">I help U.S. private-label sellers lead their categories with premium visual storytelling and data-led design <span className="muted">— pairing deep e-commerce experience with generative AI to deliver scroll-stopping main images and high-converting A+ Content.</span></h2>
+            <h2 className="statement words">I design how e-commerce brands and their products are presented online <span className="muted">— Amazon listings, A+ Content and Brand Stores, Shopify storefronts, and the brand and marketing creative around them.</span></h2>
+            <p className="statement__sub rv">Most of my work starts with one question: what does a buyer need to see before they trust this product? The answer decides the order of listing images, the layout of a product page and what a brand asset needs to say.</p>
             <ul className="vals">
               {VALUES.map(([icon, title, text], i) => (
                 <li key={title} className="rv" style={{ '--rd': `${i * 120}ms` }}>
@@ -130,9 +180,31 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="section" id="approach">
+          <div className="shell section__in section__in--tight">
+            <SecHead eyebrow="How I work" title="Amazon is where my work is deepest." lead="Especially leather care, shoe care and footwear — and the same thinking carries to storefronts, brand assets and campaigns." />
+            <ul className="approach">
+              {APPROACH.map(([title, kind, body], i) => (
+                <li key={title} className="rv" style={{ '--rd': `${(i % 2) * 100}ms` }}>
+                  <div className="tool">
+                    <h3>{title}</h3>
+                    {kind === 'ul' ? <ul className="bul">{body.map(b => <li key={b}>{b}</li>)}</ul> : <p>{body}</p>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="edu rv">
+              <p className="eyebrow">Education</p>
+              <h3>Master’s degree in Chemistry</h3>
+              <p className="edu__org">University of Agriculture, Faisalabad</p>
+              <p>It helps when a product’s value depends on how its formula works, and the claim has to stay accurate.</p>
+            </div>
+          </div>
+        </section>
+
         <section className="section" id="experience">
           <div className="shell section__in section__in--tight">
-            <SecHead eyebrow="Experience" title="Eight years, one focus.">
+            <SecHead eyebrow="Experience" title="Eight years in e-commerce.">
               <div className="dl-row rv" style={{ '--ry': '12px', '--rd': '150ms', marginTop: 0 }}>
                 <Pill variant="outline" arrow="download" href="/Muhammad-Kashif-Resume.pdf" external>Resume (PDF)</Pill>
                 <Pill variant="outline" arrow="download" href="/Muhammad-Kashif-CV.pdf" external>CV (PDF)</Pill>

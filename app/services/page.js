@@ -2,11 +2,12 @@ import LxShell from '@/components/lx/LxShell'
 import { Pill } from '@/components/lx/Icons'
 import { ServiceRows, ServiceDetail, Faq, Steps, PageHero, Facts, SecHead } from '@/components/lx/Sections'
 import { services } from '@/data/services'
+import { shopifyService, shopifyPackages } from '@/data/shopify'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Amazon Listing Design Services | Muhammad Kashif',
-  description: 'Explore Amazon main image design, product infographics, A+ Content and Brand Store services. Compare scope, pricing and turnaround across all product categories.',
+  title: 'Amazon Listing Design & Shopify Store Services | Muhammad Kashif',
+  description: 'Amazon main images, product infographics, A+ Content and Brand Stores, plus Shopify store design packages from $500. Compare scope, pricing and turnaround.',
   path: '/services/',
   keywords: [
     'Amazon design services',
@@ -19,6 +20,7 @@ export const metadata = createMetadata({
     'hire Amazon A+ Content designer',
     'Amazon listing optimization service',
     'Amazon brand design Malaysia',
+    'Shopify store design service',
   ],
 })
 
@@ -32,9 +34,9 @@ export default function ServicesPage() {
           watermark="SERVICES"
           crumb={[{ label: 'Services' }]}
           lines={['Built for your product.', 'Designed for the decision.']}
-          lead="From the first image to a complete brand store. See the scope, the turnaround and what's included — then choose the support your next launch needs."
+          lead="From the first Amazon image to a complete brand store — and the Shopify storefront beside it. See the scope, the turnaround and what's included, then choose the support your next launch needs."
           aside={<Facts items={[
-            ['Services', `${services.length}, from $${lowest}`],
+            ['Services', `${services.length + 1}, from $${lowest}`],
             ['Turnaround', '2–14 business days'],
             ['Revisions', '2–3 rounds included'],
             ['Files', 'Seller Central-ready'],
@@ -55,7 +57,18 @@ export default function ServicesPage() {
             <div className="svcs">
               {services.map(s => <ServiceDetail key={s.slug} service={s} feature={s.slug === 'full-listing-design'} />)}
             </div>
-            <p className="note rv"><strong>Scope, revisions &amp; payment.</strong> Prices are in USD, per project, and include competitor analysis, the revision allowance listed above and Seller Central-ready files. A &ldquo;from&rdquo; price covers the scope shown; larger catalogs and additional work are quoted separately before work begins — never charged automatically. Card payments are handled securely by Stripe.</p>
+            <p className="note rv"><strong>Scope, revisions &amp; payment.</strong> Amazon service prices are in USD, per project, and include competitor analysis, the revision allowance listed above and Seller Central-ready files. A &ldquo;from&rdquo; price covers the scope shown; larger catalogs and additional work are quoted separately before work begins — never charged automatically. Card payments are handled securely by Stripe.</p>
+            <div className="ccta rv" style={{ marginTop: '3rem' }} id={shopifyService.slug}>
+              <div>
+                <p className="eyebrow eyebrow--light">{shopifyService.num} · Shopify store design</p>
+                <h2>Your own storefront, built the same way.</h2>
+                <p>Three packages — {shopifyPackages.map(p => `${p.name} ${p.from ? 'from ' : ''}$${p.priceUsd.toLocaleString('en-US')}`).join(', ')}. Theme setup and brand styling through to custom product pages and a full retail-and-wholesale store.</p>
+              </div>
+              <div className="ccta__actions">
+                <Pill variant="light" arrow="up-right" href={`/services/${shopifyService.slug}/`}>See the packages</Pill>
+                <Pill variant="outline" arrow={null} data-go="contact" data-service="Shopify Store Design" className="pill--on-dark">Discuss your store</Pill>
+              </div>
+            </div>
           </div>
         </section>
 

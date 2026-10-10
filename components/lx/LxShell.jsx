@@ -113,6 +113,7 @@ export default function LxShell({ children }) {
                 {services.map(s => (
                   <li key={s.slug}><a className="alink" href={`/services/${s.slug}/`}><span>{servicePresentation[s.slug]?.title || s.title}</span></a></li>
                 ))}
+                <li><a className="alink" href="/services/shopify-store-design/"><span>Shopify Store Design</span></a></li>
               </ul>
             </div>
             <div className="fcol">
