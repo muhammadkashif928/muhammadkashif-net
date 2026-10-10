@@ -10,7 +10,7 @@ export const metadata = createMetadata({
   description: 'Amazon listing design across all product categories: main images, infographics, A+ Content and Brand Stores that help your brand stand out.',
   path: '/',
   image: '/images/profile.avif',
-  imageAlt: 'Muhammad Kashif — Amazon Brand Designer and A+ Content Specialist in Kuching, Malaysia',
+  imageAlt: 'Muhammad Kashif — E-commerce Creative Designer for Amazon and Shopify brands, in Kuching, Malaysia',
 })
 
 const HIGHLIGHTS = [
@@ -36,7 +36,7 @@ export default function Home() {
 
           <div className="shell hero__grid">
             <div className="hero__left">
-              <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }}><span className="eyebrow">Muhammad Kashif · Amazon Brand Designer</span></div>
+              <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }}><span className="eyebrow">Muhammad Kashif · E-commerce Creative Designer</span></div>
               <h1 className="hero__h1 lines" data-gate="" data-delay="250" data-stagger="120" data-lines="Make your product|the one|they notice.">Make your product<br />the one<br />they notice.</h1>
               <div className="rating rv" data-gate="" style={{ '--ry': '10px', '--rd': '650ms' }}>
                 <span className="rating__stars" aria-label="5 stars"><Stars /></span>
@@ -105,12 +105,12 @@ export default function Home() {
               </div>
             </div>
             <div className="about__stmt">
-              <h2 className="about__h2 words">I&apos;m Kashif, an Amazon brand designer with 8+ years helping products <span className="muted">across every category look their best — with hands-on design craft and AI-assisted retouching in every image.</span></h2>
+              <h2 className="about__h2 words">I&apos;m Kashif, an e-commerce creative designer with 8+ years helping products <span className="muted">across every category look their best — with hands-on design craft and AI-assisted retouching in every image.</span></h2>
               <div className="about__foot rv">
                 <div>
                   <p className="lbl">Find me online</p>
                   <div className="socials">
-                    <a className="soc soc--accent" href="https://www.linkedin.com/in/muhammad-kashif-228554243" target="_blank" rel="noopener" aria-label="LinkedIn"><span className="soc__i"><Icon name="linkedin" /></span></a>
+                    <a className="soc soc--accent" href="https://www.linkedin.com/in/muhammadkashif928/" target="_blank" rel="noopener" aria-label="LinkedIn"><span className="soc__i"><Icon name="linkedin" /></span></a>
                     <a className="soc" href="https://instagram.com/muhammadkashif928" target="_blank" rel="noopener" aria-label="Instagram"><span className="soc__i"><Icon name="instagram" /></span></a>
                     <a className="soc" href="https://www.upwork.com/freelancers/~016edc19243e405472" target="_blank" rel="noopener" aria-label="Upwork"><span className="soc__i"><Icon name="upwork" /></span></a>
                   </div>

@@ -475,3 +475,4 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .hcard__cap { font-size: .75rem; color: rgba(17,17,17,.6); }
 .lx .hcard__title { max-width: none; font-size: .9375rem; }
 .lx .sale-chip { font-size: .75rem; }
+.lx .cv__edu { margin-top: .75rem; font-size: 1rem; font-weight: 500; line-height: 1.4; }

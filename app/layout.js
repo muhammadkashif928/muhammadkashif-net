@@ -57,7 +57,7 @@ export const metadata = {
         url: '/images/profile.avif',
         width: 1200,
         height: 1200,
-        alt: 'Muhammad Kashif — Amazon Brand Designer and A+ Content Specialist serving US, UK, and international private label sellers',
+        alt: 'Muhammad Kashif — E-commerce Creative Designer for Amazon and Shopify brands in the US, UK and worldwide',
       },
     ],
   },
