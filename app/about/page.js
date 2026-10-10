@@ -5,8 +5,8 @@ import { Reviews, PageHero, SecHead } from '@/components/lx/Sections'
 import { createMetadata, getBreadcrumbJsonLd, absoluteUrl, siteConfig } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'About Muhammad Kashif — Amazon Brand Designer & A+ Content Specialist',
-  description: 'Muhammad Kashif is an Amazon Brand Designer based in Kuching, Malaysia with 8+ years of experience and 200+ projects completed. He specializes in A+ Content, product infographics, brand identity, packaging, and AI-powered product photography for private label sellers worldwide.',
+  title: 'About Muhammad Kashif — E-commerce Creative Designer for Amazon & Shopify',
+  description: 'Muhammad Kashif is an e-commerce creative designer based in Kuching, Malaysia, with 8+ years of experience and 200+ projects completed: Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design for sellers worldwide.',
   path: '/about/',
   keywords: [
     'about Muhammad Kashif',
@@ -28,8 +28,8 @@ const personJsonLd = {
   familyName: 'Kashif',
   url: siteConfig.url,
   image: absoluteUrl(siteConfig.defaultImage),
-  jobTitle: 'Amazon Brand Designer & A+ Content Specialist',
-  description: 'Muhammad Kashif is an Amazon Brand Designer with 8+ years of experience helping private label sellers worldwide create high-converting listing visuals, A+ Content, brand identity, packaging, and AI-powered product photography.',
+  jobTitle: 'E-commerce Creative Designer',
+  description: 'Muhammad Kashif is an e-commerce creative designer with 8+ years of experience: Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design for sellers worldwide.',
   email: siteConfig.email,
   telephone: siteConfig.phone,
   address: {
@@ -43,14 +43,15 @@ const personJsonLd = {
     'Amazon A+ Content Design', 'Amazon Listing Optimization', 'Product Infographics',
     'Brand Identity Design', 'Packaging Design', 'AI Product Lifestyle Images',
     'Product Image Optimization', 'E-commerce Product Photography',
-    'Private Label Brand Strategy', 'Adobe Photoshop', 'Adobe Illustrator',
+    'Private Label Brand Strategy', 'Shopify Store Design', 'Adobe Photoshop', 'Adobe Illustrator',
     'Blender 3D Rendering', 'Midjourney AI', 'Amazon Seller Central', '3D Product Visualization',
   ],
   hasCredential: [
     { '@type': 'EducationalOccupationalCredential', name: '8+ Years Amazon Brand Design Experience' },
     { '@type': 'EducationalOccupationalCredential', name: '200+ Completed Client Projects' },
   ],
-  worksFor: { '@type': 'Organization', name: 'Designer Trends INC' },
+  worksFor: { '@type': 'Organization', name: 'Designer Trends Inc' },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Agriculture, Faisalabad' },
 }
 
 const VALUES = [
@@ -90,7 +91,7 @@ const TOOLS = [
   ['Design', ['Photoshop', 'Illustrator', 'Figma', 'Lightroom', 'After Effects']],
   ['AI tools', ['Midjourney', 'DALL·E', 'Stable Diffusion', 'ComfyUI', 'ChatGPT', 'Claude']],
   ['Core skills', ['AI concept art', 'Brand identity', 'High-end retouching', 'Competitor analysis', 'Infographic design', 'A+ strategy']],
-  ['Platforms & languages', ['Amazon Seller Central', 'Upwork', 'Fiverr', 'English', 'Urdu', 'Punjabi']],
+  ['Platforms & languages', ['Amazon Seller Central', 'Shopify', 'Upwork', 'Fiverr', 'English', 'Urdu', 'Punjabi']],
 ]
 
 export default function AboutPage() {
@@ -102,7 +103,7 @@ export default function AboutPage() {
           watermark="KASHIF"
           crumb={[{ label: 'About' }]}
           lines={['Your products.', 'My kind of detail.']}
-          lead="I'm Kashif — an Amazon brand designer with 8+ years of experience helping products across categories look their best. From everyday essentials to premium launches, I bring hands-on design craft and AI-assisted retouching to every image."
+          lead="I'm Kashif — an e-commerce creative designer with 8+ years of experience. Amazon listing images, A+ Content and Brand Stores come first; I also design Shopify stores and the brand and digital work around them, with hands-on craft and AI-assisted retouching in every image."
           aside={
             <figure className="portrait">
               <img src="/images/kashif-portrait-ivory-v1.webp" alt="Muhammad Kashif in a denim jacket, cream cap and sunglasses" decoding="async" width="800" height="1000" />
@@ -111,7 +112,7 @@ export default function AboutPage() {
           }
         >
           <div className="chips rv" data-gate="" style={{ '--ry': '12px', '--rd': '700ms', marginTop: 0 }}>
-            <span>Listing design</span><span>A+ Content</span><span>Brand stores</span><span>Product retouching</span>
+            <span>Amazon listing images</span><span>A+ Content &amp; Brand Stores</span><span>Shopify store design</span><span>Brand &amp; digital design</span>
           </div>
         </PageHero>
 
@@ -159,7 +160,7 @@ export default function AboutPage() {
               <h2 className="stats__h2 lines" data-delay="120">The work behind the portfolio.</h2>
               <ul className="stats__grid">
                 {[[8, 'Years of experience'], [7, 'Major brands managed'], [200, 'Products optimised'], [50, 'Freelance clients']].map(([n, label], i) => (
-                  <li key={label} className="rv stat" style={{ '--rd': `${i * 90}ms` }}><div className="stat__num"><span data-count={n}>0</span>+</div><p className="stat__lbl">{label}</p></li>
+                  <li key={label} className="rv stat" style={{ '--rd': `${i * 90}ms` }}><div className="stat__num" aria-hidden="true"><span data-count={n}>{n}</span>+</div><p className="stat__lbl"><span className="sr-only">{n}+ </span>{label}</p></li>
                 ))}
               </ul>
             </div>

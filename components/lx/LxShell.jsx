@@ -29,7 +29,7 @@ const CONNECT = [
   { label: 'WhatsApp', href: 'https://wa.me/60179152084', external: true },
   { label: 'Book a 10-min call', href: 'https://cal.com/kashifdesign/listing-teardown-call', external: true },
   { label: 'Upwork', href: 'https://www.upwork.com/freelancers/~016edc19243e405472', external: true },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhammad-kashif-228554243', external: true },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhammadkashif928/', external: true },
   { label: 'Instagram', href: 'https://instagram.com/muhammadkashif928', external: true },
   { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100011667847244', external: true },
 ]
@@ -78,7 +78,7 @@ export default function LxShell({ children }) {
               <span className="clock__sep" aria-hidden="true">•</span>
               <span className="clock__date" data-clock-date="" suppressHydrationWarning>12 March, 2025</span>
             </div>
-            <button type="button" className="chip menu-btn" data-action="nav-open" aria-label="Open menu" aria-haspopup="dialog">
+            <button type="button" className="chip menu-btn" data-action="nav-open" aria-label="Open menu" aria-haspopup="dialog" aria-controls="lx-navm" aria-expanded="false">
               <span><Icon name="grid" /><span className="hide-xs">Menu</span></span>
             </button>
           </div>

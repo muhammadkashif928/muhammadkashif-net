@@ -10,7 +10,7 @@ export const metadata = createMetadata({
   description: 'Amazon listing design across all product categories: main images, infographics, A+ Content and Brand Stores that help your brand stand out.',
   path: '/',
   image: '/images/profile.avif',
-  imageAlt: 'Muhammad Kashif — Amazon Brand Designer and A+ Content Specialist in Kuching, Malaysia',
+  imageAlt: 'Muhammad Kashif — E-commerce Creative Designer for Amazon and Shopify brands, in Kuching, Malaysia',
 })
 
 const HIGHLIGHTS = [
@@ -36,7 +36,7 @@ export default function Home() {
 
           <div className="shell hero__grid">
             <div className="hero__left">
-              <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }}><span className="eyebrow">Muhammad Kashif · Amazon Brand Designer</span></div>
+              <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }}><span className="eyebrow">Muhammad Kashif · E-commerce Creative Designer</span></div>
               <h1 className="hero__h1 lines" data-gate="" data-delay="250" data-stagger="120" data-lines="Make your product|the one|they notice.">Make your product<br />the one<br />they notice.</h1>
               <div className="rating rv" data-gate="" style={{ '--ry': '10px', '--rd': '650ms' }}>
                 <span className="rating__stars" aria-label="5 stars"><Stars /></span>
@@ -105,12 +105,12 @@ export default function Home() {
               </div>
             </div>
             <div className="about__stmt">
-              <h2 className="about__h2 words">I&apos;m Kashif, an Amazon brand designer with 8+ years helping products <span className="muted">across every category look their best — with hands-on design craft and AI-assisted retouching in every image.</span></h2>
+              <h2 className="about__h2 words">I&apos;m Kashif, an e-commerce creative designer with 8+ years helping products <span className="muted">across every category look their best — with hands-on design craft and AI-assisted retouching in every image.</span></h2>
               <div className="about__foot rv">
                 <div>
                   <p className="lbl">Find me online</p>
                   <div className="socials">
-                    <a className="soc soc--accent" href="https://www.linkedin.com/in/muhammad-kashif-228554243" target="_blank" rel="noopener" aria-label="LinkedIn"><span className="soc__i"><Icon name="linkedin" /></span></a>
+                    <a className="soc soc--accent" href="https://www.linkedin.com/in/muhammadkashif928/" target="_blank" rel="noopener" aria-label="LinkedIn"><span className="soc__i"><Icon name="linkedin" /></span></a>
                     <a className="soc" href="https://instagram.com/muhammadkashif928" target="_blank" rel="noopener" aria-label="Instagram"><span className="soc__i"><Icon name="instagram" /></span></a>
                     <a className="soc" href="https://www.upwork.com/freelancers/~016edc19243e405472" target="_blank" rel="noopener" aria-label="Upwork"><span className="soc__i"><Icon name="upwork" /></span></a>
                   </div>
@@ -182,14 +182,14 @@ export default function Home() {
               <span className="eyebrow eyebrow--light">Social proof</span>
               <h2 className="stats__h2 lines" data-delay="120">Good work. Lasting relationships.</h2>
               <ul className="stats__grid">
-                <li className="rv stat" style={{ '--rd': '0ms' }}><div className="stat__num"><span data-count="200">0</span>+</div><p className="stat__lbl">Products designed</p></li>
-                <li className="rv stat" style={{ '--rd': '90ms' }}><div className="stat__num"><span data-count="50">0</span>+</div><p className="stat__lbl">Happy clients</p></li>
-                <li className="rv stat" style={{ '--rd': '180ms' }}><div className="stat__num"><span data-count="8">0</span>+</div><p className="stat__lbl">Years of craft</p></li>
-                <li className="rv stat" style={{ '--rd': '270ms' }}><div className="stat__num"><span data-count="5" data-decimals="1">0.0</span></div><p className="stat__lbl">Average rating</p></li>
+                <li className="rv stat" style={{ '--rd': '0ms' }}><div className="stat__num" aria-hidden="true"><span data-count="200">200</span>+</div><p className="stat__lbl"><span className="sr-only">200+ </span>Products designed</p></li>
+                <li className="rv stat" style={{ '--rd': '90ms' }}><div className="stat__num" aria-hidden="true"><span data-count="50">50</span>+</div><p className="stat__lbl"><span className="sr-only">50+ </span>Happy clients</p></li>
+                <li className="rv stat" style={{ '--rd': '180ms' }}><div className="stat__num" aria-hidden="true"><span data-count="8">8</span>+</div><p className="stat__lbl"><span className="sr-only">8+ </span>Years of craft</p></li>
+                <li className="rv stat" style={{ '--rd': '270ms' }}><div className="stat__num" aria-hidden="true"><span data-count="5" data-decimals="1">5.0</span></div><p className="stat__lbl"><span className="sr-only">5.0 </span>Average rating</p></li>
               </ul>
               <ul className="quotes">
-                <li className="quote rv" style={{ '--rd': '0ms' }}><blockquote><p>“This is now my second time working with this guy. He went past my expectations and beyond!”</p><footer>Adrian Jallad — Upwork · Amazon Listing</footer></blockquote></li>
-                <li className="quote rv" style={{ '--rd': '90ms' }}><blockquote><p>“Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!”</p><footer>Ciro Rossi — Fiverr · Design Quality</footer></blockquote></li>
+                <li className="quote rv" style={{ '--rd': '0ms' }}><blockquote><p>“This is now my second time working with this guy. He went past my expectations and beyond!”</p><p className="quote__by">Adrian Jallad — Upwork · Amazon Listing</p></blockquote></li>
+                <li className="quote rv" style={{ '--rd': '90ms' }}><blockquote><p>“Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!”</p><p className="quote__by">Ciro Rossi — Fiverr · Design Quality</p></blockquote></li>
               </ul>
             </div>
           </div>

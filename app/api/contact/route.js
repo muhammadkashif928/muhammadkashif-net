@@ -65,15 +65,29 @@ function isRateLimited(ip) {
 }
 
 export async function POST(request) {
+  // The page script posts JSON. Without JavaScript the <form> itself posts here
+  // (method="post"), so the visitor's details never land in a URL; send them back
+  // to the contact page afterwards.
+  const isForm = /form-urlencoded|multipart/.test(request.headers.get('content-type') || '')
+  let body
+  if (isForm) {
+    const f = await request.formData()
+    body = { name: f.get('name') || '', email: f.get('email') || '', message: f.get('message') || '', honeypot: f.get('website') || '' }
+  } else {
+    try { body = await request.json() } catch {
+      return Response.json({ error: 'Invalid request' }, { status: 400 })
+    }
+  }
+  const res = await handleContact(request, body)
+  if (!isForm) return res
+  return Response.redirect(new URL(`/contact-me/?sent=${res.ok ? 1 : 0}`, request.url), 303)
+}
+
+async function handleContact(request, body) {
   // Rate limit
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 'unknown'
   if (isRateLimited(ip)) {
     return Response.json({ error: 'Too many requests. Please wait a minute.' }, { status: 429 })
-  }
-
-  let body
-  try { body = await request.json() } catch {
-    return Response.json({ error: 'Invalid request' }, { status: 400 })
   }
 
   const { name, email, message, honeypot } = body || {}

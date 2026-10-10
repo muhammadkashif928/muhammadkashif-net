@@ -5,7 +5,7 @@ import { Faq, PageHero, Facts } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Contact Muhammad Kashif | Hire an Amazon Brand Designer',
+  title: 'Contact Muhammad Kashif | Hire an E-commerce & Amazon Designer',
   description: "Let's grow your Amazon brand with high-converting main images, product infographics, A+ Content, and Brand Stores — for products across all categories. Contact Muhammad Kashif today.",
   path: '/contact-me/',
   keywords: ['hire Amazon brand designer', 'contact Amazon A+ Content designer', 'Muhammad Kashif contact'],

@@ -4,8 +4,8 @@ import { PageHero } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Resume & CV | Muhammad Kashif — Amazon Designer for Leather & Footwear Brands',
-  description: 'Professional resume and CV of Muhammad Kashif, Amazon brand designer working with brands across product categories, with 8+ years of experience. Based in Kuching, Sarawak, Malaysia.',
+  title: 'Resume & CV | Muhammad Kashif — E-commerce Creative Designer',
+  description: 'Resume and CV of Muhammad Kashif, e-commerce creative designer: Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design. 8+ years of experience, based in Kuching, Sarawak, Malaysia.',
   path: '/resume/',
   keywords: ['Muhammad Kashif resume', 'Amazon brand designer CV', 'AI-powered creative specialist'],
 })
@@ -74,7 +74,7 @@ const contact = [
 
 const profiles = [
   { label: 'Upwork', note: 'Top Rated freelancer', href: 'https://www.upwork.com/freelancers/~016edc19243e405472' },
-  { label: 'LinkedIn', note: 'Connect with me', href: 'https://www.linkedin.com/in/muhammad-kashif-228554243' },
+  { label: 'LinkedIn', note: 'Connect with me', href: 'https://www.linkedin.com/in/muhammadkashif928/' },
   { label: 'Instagram', note: '@muhammadkashif928', href: 'https://instagram.com/muhammadkashif928' },
 ]
 
@@ -101,7 +101,7 @@ export default function ResumePage() {
               <div className="cv__main">
                 <div className="cv__id rv">
                   <h2>Muhammad Kashif</h2>
-                  <p>AI-Powered Amazon Brand Designer · Creative Specialist</p>
+                  <p>E-commerce Creative Designer · Amazon · Shopify · Brand &amp; Digital</p>
                   <ul className="cv__contact">
                     {contact.map(c => (
                       <li key={c.label}>
@@ -114,7 +114,7 @@ export default function ResumePage() {
 
                 <div className="cv__block rv">
                   <p className="eyebrow">Career objective</p>
-                  <p className="cv__lead">Results-driven Amazon Brand Designer with 8+ years of experience helping U.S. private-label sellers dominate their categories through premium visual storytelling and data-led design strategy. I combine deep e-commerce expertise with advanced generative AI tools to deliver 8K-resolution assets, scroll-stopping main images and high-converting A+ Content — transforming everyday products into trusted, market-leading brands.</p>
+                  <p className="cv__lead">Results-driven e-commerce creative designer with 8+ years of experience helping U.S. private-label sellers dominate their categories through premium visual storytelling and data-led design strategy. I combine deep e-commerce expertise with advanced generative AI tools to deliver 8K-resolution assets, scroll-stopping main images and high-converting A+ Content — transforming everyday products into trusted, market-leading brands.</p>
                 </div>
 
                 <div className="cv__block">
@@ -156,6 +156,10 @@ export default function ResumePage() {
                 <div className="aside-card rv">
                   <p className="eyebrow">Core skills</p>
                   <div className="chips">{skills.map(s => <span key={s.label}>{s.label}</span>)}</div>
+                </div>
+                <div className="aside-card rv">
+                  <p className="eyebrow">Education</p>
+                  <p className="cv__edu">University of Agriculture, Faisalabad</p>
                 </div>
                 <div className="aside-card rv">
                   <p className="eyebrow">Languages</p>
