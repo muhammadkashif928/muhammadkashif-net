@@ -392,6 +392,25 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .soc:not(.soc--accent):hover { background: #0a0a0a; color: #fff; }
 .lx .soc--accent:hover { background: #97501f; }
 
+/* Hero card tile: the icon swaps with each highlight */
+.lx .hcard__tile { position: relative; }
+.lx .hcard__ic { position: absolute; inset: 0; margin: auto; width: 2.25rem; height: 2.25rem; opacity: 0; transform: scale(.6) rotate(-12deg); transition: opacity .35s var(--e-soft), transform .5s var(--e-spring); }
+.lx .hcard__ic.is-active { opacity: 1; transform: none; }
+
+/* ---------- Sale prices (data/services.js regularUsd) ---------- */
+.lx .srow__price .was { display: flex; align-items: center; justify-content: flex-end; gap: .375rem; margin-bottom: .125rem; }
+.lx .srow__price .was s, .lx .was-inline { font-size: .8125rem; font-weight: 400; color: rgba(17,17,17,.4); text-decoration-thickness: 1px; }
+.lx .sale-chip { border-radius: 9999px; background: linear-gradient(to bottom right, #cf8047, #97501f); padding: .125rem .4375rem; font-size: .6875rem; font-style: normal; font-weight: 600; color: #fff; }
+.lx .sale-flag { display: inline-flex; align-items: center; gap: .375rem; border-radius: 9999px; background: linear-gradient(to bottom right, #cf8047, #97501f); padding: .3125rem .75rem; font-size: .75rem; font-weight: 600; letter-spacing: .02em; color: #fff; }
+.lx .sale-flag::before { content: ""; width: .375rem; height: .375rem; border-radius: 9999px; background: #fff; }
+.lx .svc__was { font-size: 1.125rem; color: rgba(17,17,17,.4); text-decoration-thickness: 1.5px; }
+.lx .svc--feature .svc__was { color: rgba(255,255,255,.4); }
+.lx .osum__body .sale-flag { margin-top: .875rem; }
+.lx .osum__price { flex-wrap: wrap; }
+@media (max-width: 639px) {
+  .lx .srow__price .was { justify-content: flex-start; display: inline-flex; margin: 0 .5rem 0 0; }
+}
+
 /* Small additions for the Next.js pages */
 .lx .svc__order { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; }
 .lx .svc__fine { font-size: .8125rem; line-height: 1.5; color: rgba(17,17,17,.5); }

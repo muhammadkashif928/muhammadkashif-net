@@ -1,6 +1,6 @@
 // Sections shared by more than one Lumora-design page. Prices and scope always come
 // from data/services.js, the same catalogue the Stripe checkout charges from.
-import { services, priceLabel } from '@/data/services'
+import { services, priceLabel, onSale, regularLabel, savingsPercent } from '@/data/services'
 import { servicePresentation } from '@/data/service-presentation'
 import { questions } from '@/data/faqs'
 import { Icon, Pill, Stars } from './Icons'
@@ -98,6 +98,11 @@ const shortDesc = {
   'full-listing-design': 'One cohesive visual direction for your full listing.',
 }
 
+/* Price with the regular price struck through while a sale is on */
+export function PriceText({ service: s }) {
+  return <>{priceLabel(s)}{onSale(s) && <> <s className="was-inline">{regularLabel(s)}</s></>}</>
+}
+
 export function serviceName(s) {
   // data/services.js titles are upper-case for the old design; the presentation file has the display form.
   const t = servicePresentation[s.slug]?.title || s.title
@@ -114,7 +119,10 @@ export function ServiceRows({ hrefFor = s => `/services/${s.slug}/` }) {
               <span className="srow__idx">{s.num}</span>
               <h3>{serviceName(s)}</h3>
               <p>{shortDesc[s.slug] || servicePresentation[s.slug]?.brief}</p>
-              <span className="srow__price">{priceLabel(s)}<small>{s.unit}</small></span>
+              <span className="srow__price">
+                {onSale(s) && <span className="was"><s>{regularLabel(s)}</s><em className="sale-chip">−{savingsPercent(s)}%</em></span>}
+                {priceLabel(s)}<small>{s.unit}</small>
+              </span>
               <span className="srow__badge"><Icon name="arrow-ur" /></span>
             </div>
           </a>
@@ -133,7 +141,8 @@ export function ServiceDetail({ service: s, feature = false, headingLevel: H = '
         {feature && <span className="svc__flag">Everything, one direction</span>}
         <span className="svc__idx">{s.num}</span>
         <H className="svc__title">{serviceName(s)}</H>
-        <p className="svc__price"><strong>{priceLabel(s)}</strong><span>{s.unit}</span></p>
+        {onSale(s) && <span className="sale-flag">Sale · save {savingsPercent(s)}%</span>}
+        <p className="svc__price"><strong>{priceLabel(s)}</strong>{onSale(s) && <s className="svc__was">{regularLabel(s)}</s>}<span>{s.unit}</span></p>
         <span className="svc__time">{s.turnaround}</span>
       </div>
       <div className="svc__body">

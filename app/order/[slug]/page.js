@@ -5,7 +5,7 @@ import { serviceName } from '@/components/lx/Sections'
 import OrderForm from '@/components/OrderForm'
 import { servicePresentation } from '@/data/service-presentation'
 import JsonLd from '@/components/JsonLd'
-import { services, getService, priceLabel } from '@/data/services'
+import { services, getService, priceLabel, onSale, regularLabel, savingsPercent } from '@/data/services'
 import { createMetadata, getBreadcrumbJsonLd, absoluteUrl, siteConfig } from '@/lib/seo'
 
 export function generateStaticParams() {
@@ -89,7 +89,8 @@ export default async function OrderPage({ params }) {
                 <div className="osum__body">
                   <p className="eyebrow">{service.num} — Your order</p>
                   <h2>{name}</h2>
-                  <p className="osum__price"><strong>{priceLabel(service)}</strong><span>{service.unit}</span></p>
+                  {onSale(service) && <span className="sale-flag">Sale · save {savingsPercent(service)}%</span>}
+                  <p className="osum__price"><strong>{priceLabel(service)}</strong>{onSale(service) && <s className="svc__was">{regularLabel(service)}</s>}<span>{service.unit}</span></p>
                   <p className="osum__k">What you get</p>
                   <ul className="checks checks--one">
                     {service.deliverables.map((d) => <li key={d}><Icon name="check" />{d}</li>)}

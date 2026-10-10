@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import LxShell from '@/components/lx/LxShell'
 import JsonLd from '@/components/JsonLd'
 import { Icon, Pill } from '@/components/lx/Icons'
-import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName, FeaturedCard, FEATURED, SERVICE_PROOF } from '@/components/lx/Sections'
+import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName, FeaturedCard, FEATURED, SERVICE_PROOF, PriceText } from '@/components/lx/Sections'
 import { services, getService, priceLabel } from '@/data/services'
 import { servicePresentation } from '@/data/service-presentation'
 import { blogPosts } from '@/data/blog'
@@ -41,7 +41,7 @@ export default async function ServicePage({ params }) {
           lead={detail.brief}
           aside={<Facts items={[
             ['Service', name],
-            ['Price', priceLabel(service)],
+            ['Price', <PriceText key="p" service={service} />],
             ['Scope', service.unit],
             ['Turnaround', service.turnaround],
           ]} />}

@@ -14,9 +14,9 @@ export const metadata = createMetadata({
 })
 
 const HIGHLIGHTS = [
-  ['Main images', 'Crafted to convert.'],
-  ['Infographics', 'Benefits, made clear.'],
-  ['A+ & Brand Stores', 'Designed to last.'],
+  ['Main images', 'Crafted to convert.', 'frame'],
+  ['Infographics', 'Benefits, made clear.', 'chart'],
+  ['A+ & Brand Stores', 'Designed to last.', 'store'],
 ]
 const BRANDS = ['Angelus', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln']
 
@@ -52,7 +52,9 @@ export default function Home() {
               <div className="hcard-wrap rv" data-gate="" style={{ '--ry': '16px', '--rs': 0.96, '--rd': '400ms' }}>
                 <div className="hcard">
                   <div className="hcard__row" data-action="card-next" role="button" tabIndex={0} aria-label="Next highlight">
-                    <div className="hcard__tile"><Icon name="logo" /></div>
+                    <div className="hcard__tile" aria-hidden="true">
+                      {HIGHLIGHTS.map(([cap, , icon], i) => <Icon key={cap} name={icon} className={`i hcard__ic${i === 0 ? ' is-active' : ''}`} />)}
+                    </div>
                     <div className="hcard__panel">
                       <div className="hcard__slot" aria-live="polite">
                         {HIGHLIGHTS.map(([cap, title], i) => (
