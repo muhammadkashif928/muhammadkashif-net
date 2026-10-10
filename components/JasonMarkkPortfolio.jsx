@@ -36,7 +36,7 @@ export default function JasonMarkkPortfolio() {
 
         <CaseBlock eyebrow="Before vs after" title="Which one makes you click Buy?" lead="Context creates desire. The left is clarity; the right is a story. Tap any image to enlarge.">
           <div className="rv"><Gallery images={[COMPARE]} columns={1} showCaptions={false} aspect="1 / 1" className="gal--wide" /></div>
-          <div className="rv" style={{ marginTop: '1.5rem' }}><Gallery images={[BEFORE, AFTER]} columns={2} aspect="1 / 1" /></div>
+          <div className="rv" style={{ marginTop: '1.5rem' }}><Gallery images={[BEFORE, AFTER]} columns={2} aspect="1 / 1" className="gal--contain" /></div>
         </CaseBlock>
 
         <CaseBlock eyebrow="The process" title="AI + Photoshop compositing">

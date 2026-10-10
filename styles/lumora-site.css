@@ -221,6 +221,8 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .gal__btn img { width: 100%; height: auto; object-fit: cover; transition: transform .8s var(--e-soft); }
 .lx .gal--1 .gal__btn img { object-fit: contain; max-height: 80vh; background: #fff; }
 .lx .gal--wide .gal__btn img { aspect-ratio: auto !important; max-height: none; }
+.lx .gal--contain .gal__btn { background: #fff; }
+.lx .gal--contain .gal__btn img { object-fit: contain; padding: 1.25rem; }
 .lx .gal__zoom { position: absolute; right: .75rem; bottom: .75rem; width: 2.25rem; height: 2.25rem; display: grid; place-items: center; border-radius: 9999px; background: rgba(10,10,10,.75); color: #fff; font-size: .875rem; opacity: 0; transform: scale(.85); transition: opacity .3s, transform .4s var(--e-spring); }
 .lx .gal__flag { position: absolute; left: .75rem; top: .75rem; border-radius: 9999px; background: linear-gradient(to bottom right, #cf8047, #97501f); padding: .3rem .75rem; font-size: .6875rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #fff; }
 .lx .gal__cap p { font-size: .875rem; line-height: 1.55; color: rgba(17,17,17,.65); }
@@ -438,3 +440,32 @@ html:has(.lx) body.noise::before { display: none; }
 @media (min-width: 768px) { .lx .detail-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; } }
 .lx .journal { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 @media (min-width: 768px) { .lx .journal { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Phones: home hero ----------
+   Cover-fitting the photo to a tall stacked hero blew the face up ~4×. Below 1024px the
+   photo becomes its own band at the foot of the hero; the copy and card sit above it. */
+@media (max-width: 1023.98px) {
+  .lx .hero { --hero-photo: min(26rem, 92vw); background: linear-gradient(to bottom, var(--hero-from), var(--hero-wall) 60%); }
+  .lx .hero .liquid { top: auto; height: var(--hero-photo);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24%); mask-image: linear-gradient(to bottom, transparent, #000 24%); }
+  .lx .hero__vignette, .lx .hero__wm, .lx .hero .partners { display: none; }
+  .lx .hero__grid { gap: 1.75rem; padding-top: 6.5rem; padding-bottom: calc(var(--hero-photo) - 4rem); }
+  .lx .hero__left { gap: 1.25rem; }
+  .lx .hero .ctas { flex-direction: row; flex-wrap: wrap; gap: .5rem; }
+  .lx .hero__status { border-top-color: rgba(255,255,255,.18); color: rgba(255,255,255,.8); }
+}
+
+/* ---------- Phones: case-study cards ----------
+   Text laid over the photo read as clutter at phone width; stack photo, then copy. */
+@media (max-width: 639.98px) {
+  .lx .pcard { min-height: 0; padding: 0; display: flex; flex-direction: column; }
+  .lx .pcard__img { position: relative; inset: auto; height: auto !important; aspect-ratio: 4 / 3; }
+  .lx .pcard__shade { display: none; }
+  .lx .pcard__meta { position: absolute; inset: 1.25rem 1.25rem auto; font-size: .6875rem; }
+  .lx .pcard__meta > span:first-child { border-radius: 9999px; background: rgba(10,10,10,.55); padding: .35rem .7rem; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .lx .pcard__body { position: static; padding: 1.25rem 1.5rem 1.5rem; }
+  .lx .pcard__body h3 { font-size: 1.375rem; line-height: 1.2; }
+  .lx .pcard__body p { font-size: .875rem; line-height: 1.55; }
+  .lx .pcard .tags { margin-top: 1rem; gap: .375rem; }
+  .lx .pcard .tag { padding: .3rem .75rem; font-size: .75rem; }
+}
