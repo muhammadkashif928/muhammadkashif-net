@@ -469,3 +469,9 @@ html:has(.lx) body.noise::before { display: none; }
   .lx .pcard .tags { margin-top: 1rem; gap: .375rem; }
   .lx .pcard .tag { padding: .3rem .75rem; font-size: .75rem; }
 }
+
+/* ---------- Audit fixes (11 Oct) ---------- */
+.lx .quote .quote__by { margin-top: 1rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .025em; color: rgba(255,255,255,.55); }
+.lx .hcard__cap { font-size: .75rem; color: rgba(17,17,17,.6); }
+.lx .hcard__title { max-width: none; font-size: .9375rem; }
+.lx .sale-chip { font-size: .75rem; }

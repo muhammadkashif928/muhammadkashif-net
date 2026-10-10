@@ -78,7 +78,7 @@ export default function LxShell({ children }) {
               <span className="clock__sep" aria-hidden="true">•</span>
               <span className="clock__date" data-clock-date="" suppressHydrationWarning>12 March, 2025</span>
             </div>
-            <button type="button" className="chip menu-btn" data-action="nav-open" aria-label="Open menu" aria-haspopup="dialog">
+            <button type="button" className="chip menu-btn" data-action="nav-open" aria-label="Open menu" aria-haspopup="dialog" aria-controls="lx-navm" aria-expanded="false">
               <span><Icon name="grid" /><span className="hide-xs">Menu</span></span>
             </button>
           </div>

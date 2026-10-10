@@ -5,7 +5,7 @@ import { Pill } from './Icons'
 
 export default function ContactFields({ location, rows = 4, placeholder = 'Your product, your goals and what you need designed.' }) {
   return (
-    <form className="mform" data-contact-form={location} noValidate={false}>
+    <form className="mform" data-contact-form={location} method="post" action="/api/contact/" noValidate={false}>
       <label><span>Name</span><input type="text" name="name" required minLength={2} maxLength={100} placeholder="Your name" autoComplete="name" /></label>
       <label><span>Email</span><input type="email" name="email" required placeholder="you@company.com" autoComplete="email" /></label>
       <label><span>Project</span><textarea name="message" rows={rows} required minLength={10} maxLength={3000} placeholder={placeholder} /></label>

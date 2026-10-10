@@ -182,14 +182,14 @@ export default function Home() {
               <span className="eyebrow eyebrow--light">Social proof</span>
               <h2 className="stats__h2 lines" data-delay="120">Good work. Lasting relationships.</h2>
               <ul className="stats__grid">
-                <li className="rv stat" style={{ '--rd': '0ms' }}><div className="stat__num"><span data-count="200">0</span>+</div><p className="stat__lbl">Products designed</p></li>
-                <li className="rv stat" style={{ '--rd': '90ms' }}><div className="stat__num"><span data-count="50">0</span>+</div><p className="stat__lbl">Happy clients</p></li>
-                <li className="rv stat" style={{ '--rd': '180ms' }}><div className="stat__num"><span data-count="8">0</span>+</div><p className="stat__lbl">Years of craft</p></li>
-                <li className="rv stat" style={{ '--rd': '270ms' }}><div className="stat__num"><span data-count="5" data-decimals="1">0.0</span></div><p className="stat__lbl">Average rating</p></li>
+                <li className="rv stat" style={{ '--rd': '0ms' }}><div className="stat__num" aria-hidden="true"><span data-count="200">200</span>+</div><p className="stat__lbl"><span className="sr-only">200+ </span>Products designed</p></li>
+                <li className="rv stat" style={{ '--rd': '90ms' }}><div className="stat__num" aria-hidden="true"><span data-count="50">50</span>+</div><p className="stat__lbl"><span className="sr-only">50+ </span>Happy clients</p></li>
+                <li className="rv stat" style={{ '--rd': '180ms' }}><div className="stat__num" aria-hidden="true"><span data-count="8">8</span>+</div><p className="stat__lbl"><span className="sr-only">8+ </span>Years of craft</p></li>
+                <li className="rv stat" style={{ '--rd': '270ms' }}><div className="stat__num" aria-hidden="true"><span data-count="5" data-decimals="1">5.0</span></div><p className="stat__lbl"><span className="sr-only">5.0 </span>Average rating</p></li>
               </ul>
               <ul className="quotes">
-                <li className="quote rv" style={{ '--rd': '0ms' }}><blockquote><p>“This is now my second time working with this guy. He went past my expectations and beyond!”</p><footer>Adrian Jallad — Upwork · Amazon Listing</footer></blockquote></li>
-                <li className="quote rv" style={{ '--rd': '90ms' }}><blockquote><p>“Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!”</p><footer>Ciro Rossi — Fiverr · Design Quality</footer></blockquote></li>
+                <li className="quote rv" style={{ '--rd': '0ms' }}><blockquote><p>“This is now my second time working with this guy. He went past my expectations and beyond!”</p><p className="quote__by">Adrian Jallad — Upwork · Amazon Listing</p></blockquote></li>
+                <li className="quote rv" style={{ '--rd': '90ms' }}><blockquote><p>“Excellent job!!! Good communication. He was always willing to help me. He has good knowledge on Amazon. Super recommended!!!”</p><p className="quote__by">Ciro Rossi — Fiverr · Design Quality</p></blockquote></li>
               </ul>
             </div>
           </div>
