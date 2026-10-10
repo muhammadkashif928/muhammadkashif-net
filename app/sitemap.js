@@ -28,12 +28,6 @@ export default function sitemap() {
   const portfolioRoutes = [
     route('/portfolio/leather-hero-purse-care-kit/', 'monthly', 0.9, '2026-08-09'),
     route('/portfolio/leather-hero-furniture-salve/', 'monthly', 0.9, '2026-07-24'),
-    route('/blackdsn-portfolio/premium-a-content/', 'yearly', 0.75),
-    route('/blackdsn-portfolio/ai-creative-retouching/', 'yearly', 0.75),
-    route('/blackdsn-portfolio/brand-identity-packaging/', 'yearly', 0.75),
-    route('/blackdsn-portfolio/leather-items-optimized/', 'monthly', 0.8),
-    route('/blackdsn-portfolio/closetlux-image-restoration/', 'monthly', 0.8),
-    route('/blackdsn-portfolio/perfume-oil-bottle-retouching/', 'monthly', 0.8),
     route('/blackdsn-portfolio/jason-markk-lifestyle-composite/', 'monthly', 0.8),
     route('/blackdsn-portfolio/yara-lattafa-amazon-main-image/', 'monthly', 0.8),
   ]

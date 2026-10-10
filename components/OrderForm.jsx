@@ -1,8 +1,12 @@
 'use client'
-import { useMemo, useState } from 'react'
+// Two-step checkout: the project brief, then Stripe's Payment Element.
+// Contract with the API is unchanged: POST /api/checkout/payment-intent/ (trailing slash)
+// with { serviceSlug, name, email, honeypot, details, ...attribution }, then
+// confirmPayment → /order/success/?service=<slug>. The amount is set server-side.
+// Styled with the .lx design (styles/lumora-site.css, .ofm-*).
+import { useMemo, useRef, useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import { useTheme } from '@/components/ThemeProvider'
 import { orderFields, priceAmount } from '@/data/services'
 import { getAttribution } from '@/lib/attribution'
 import { gaEvent } from '@/lib/gtag'
@@ -13,7 +17,29 @@ const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 // on every keystroke.
 const stripePromise = PUBLISHABLE_KEY ? loadStripe(PUBLISHABLE_KEY) : null
 
-const label = 'font-mono text-[10px] tracking-[0.25em] uppercase block mb-2'
+// Payment fields in the site's palette and typeface.
+const appearance = {
+  theme: 'stripe',
+  variables: {
+    colorPrimary: '#0a0a0a',
+    colorBackground: '#ffffff',
+    colorText: '#111111',
+    colorTextSecondary: 'rgba(17,17,17,0.55)',
+    colorDanger: '#b42318',
+    fontFamily: 'Onest, Arial, sans-serif',
+    fontSizeBase: '15px',
+    borderRadius: '14px',
+    spacingUnit: '4px',
+  },
+  rules: {
+    '.Input': { border: '1px solid #e6e5e2', boxShadow: 'none', padding: '12px 14px' },
+    '.Input:focus': { border: '1px solid rgba(17,17,17,0.35)', boxShadow: 'none', outline: 'none' },
+    '.Tab': { border: '1px solid #e6e5e2', boxShadow: 'none' },
+    '.Tab--selected': { border: '1px solid #0a0a0a', boxShadow: 'none' },
+    '.Label': { fontSize: '12px', fontWeight: '500', letterSpacing: '0.03em', textTransform: 'uppercase', color: 'rgba(17,17,17,0.5)' },
+  },
+}
+const fonts = [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap' }]
 
 /* ── Step 2: card details ─────────────────────────────────────────────── */
 
@@ -45,39 +71,19 @@ function PaymentStep({ service, onBack }) {
   }
 
   return (
-    <form onSubmit={pay}>
+    <form onSubmit={pay} className="ofm">
       <PaymentElement options={{ layout: 'tabs' }} />
 
-      {status === 'error' && (
-        <p className="font-mono text-xs mt-5 p-3 border-2" style={{ color: 'var(--b-text)', borderColor: 'var(--b-text)' }}>
-          {errorMsg}
-        </p>
-      )}
+      {status === 'error' && <p className="ofm__error" role="alert">{errorMsg}</p>}
 
-      <div className="mt-8 flex flex-col sm:flex-row gap-3">
-        <button
-          type="submit"
-          disabled={!stripe || status === 'paying'}
-          className="btn-brutal font-bebas text-lg tracking-widest px-8 py-4 border-2 flex-1 disabled:opacity-50"
-          style={{ backgroundColor: 'var(--b-text)', color: 'var(--b-bg)', borderColor: 'var(--b-text)', boxShadow: '4px 4px 0px var(--b-border)' }}
-        >
-          {status === 'paying' ? 'PROCESSING…' : `PAY ${priceAmount(service)} →`}
+      <div className="ofm__actions">
+        <button type="submit" disabled={!stripe || status === 'paying'} className="pill pill--dark has-arrow">
+          <span className="pill__in">{status === 'paying' ? 'Processing…' : `Pay ${priceAmount(service)}`}<span className="pill__badge ur"><svg className="i" aria-hidden="true"><use href="#i-arrow-ur" /></svg></span></span>
         </button>
-        <button
-          type="button"
-          onClick={onBack}
-          disabled={status === 'paying'}
-          className="font-mono text-xs tracking-widest px-6 py-4 border-2 disabled:opacity-50"
-          style={{ color: 'var(--b-muted)', borderColor: 'var(--b-border)' }}
-        >
-          ← EDIT BRIEF
-        </button>
+        <button type="button" onClick={onBack} disabled={status === 'paying'} className="ofm__back">← Edit brief</button>
       </div>
 
-      <p className="font-mono text-[11px] leading-relaxed mt-5" style={{ color: 'var(--b-muted)' }}>
-        Payments are processed by Stripe. Card details are entered directly into
-        Stripe&apos;s hosted fields and never touch this server.
-      </p>
+      <p className="ofm__fine">Payments are processed by Stripe. Card details are entered directly into Stripe&apos;s hosted fields and never touch this server.</p>
     </form>
   )
 }
@@ -85,13 +91,19 @@ function PaymentStep({ service, onBack }) {
 /* ── Step 1 + shell ───────────────────────────────────────────────────── */
 
 export default function OrderForm({ service }) {
-  const { theme } = useTheme()
   const fields = useMemo(() => orderFields(service), [service])
+  const top = useRef(null)
 
   const [step, setStep] = useState('details') // details | payment
   const [clientSecret, setClientSecret] = useState('')
   const [status, setStatus] = useState('idle') // idle | submitting | error
   const [errorMsg, setErrorMsg] = useState('')
+
+  const scrollToTop = () => {
+    const el = top.current
+    if (!el) return
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 32, behavior: 'smooth' })
+  }
 
   const submitDetails = async (e) => {
     e.preventDefault()
@@ -131,55 +143,20 @@ export default function OrderForm({ service }) {
       setStep('payment')
       setStatus('idle')
       gaEvent('add_payment_info', { service: service.slug, value: service.priceUsd, currency: 'USD' })
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      scrollToTop()
     } catch {
       setStatus('error')
       setErrorMsg('Network error. Please email info@muhammadkashif.net and I will invoice you directly.')
     }
   }
 
-  // Payment fields share the site palette and readable typography.
-  const appearance = useMemo(
-    () => ({
-      theme: theme === 'dark' ? 'night' : 'stripe',
-      variables: {
-        colorPrimary: theme === 'dark' ? '#f0f0eb' : '#40513d',
-        colorBackground: theme === 'dark' ? '#141711' : '#faf8f4',
-        colorText: theme === 'dark' ? '#f0f0eb' : '#252820',
-        colorDanger: theme === 'dark' ? '#ff9b9b' : '#b00020',
-        fontFamily: 'Arial, sans-serif',
-        borderRadius: '6px',
-        spacingUnit: '4px',
-      },
-      rules: {
-        '.Input': { border: theme === 'dark' ? '1px solid #53584d' : '1px solid #deded4', boxShadow: 'none' },
-        '.Input:focus': { border: theme === 'dark' ? '1px solid #f0f0eb' : '1px solid #40513d', boxShadow: 'none', outline: 'none' },
-        '.Tab': { border: theme === 'dark' ? '1px solid #53584d' : '1px solid #deded4', boxShadow: 'none' },
-        '.Tab--selected': { border: theme === 'dark' ? '1px solid #f0f0eb' : '1px solid #40513d', boxShadow: 'none' },
-        '.Label': { fontSize: '12px', letterSpacing: '0.05em', textTransform: 'uppercase' },
-      },
-    }),
-    [theme]
-  )
-
-  const inputStyle = {
-    borderColor: 'var(--b-border)',
-    color: 'var(--b-text)',
-    backgroundColor: 'transparent',
-  }
-
   if (!PUBLISHABLE_KEY) {
     return (
-      <div className="p-6 border-2" style={{ borderColor: 'var(--b-text)' }}>
-        <h3 className="font-bebas text-2xl tracking-wide mb-2" style={{ color: 'var(--b-text)' }}>
-          LET’S CONFIRM YOUR PROJECT
-        </h3>
-        <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--b-muted)' }}>
-          To arrange this service, email{' '}
-          <a href="mailto:info@muhammadkashif.net" className="underline" style={{ color: 'var(--b-text)' }}>
-            info@muhammadkashif.net
-          </a>{' '}
-          and I will send you an invoice for this service directly.
+      <div className="ofm-card">
+        <p className="modal__kick">Let’s confirm your project</p>
+        <h2 className="ofm__title">Email me and I’ll invoice you.</h2>
+        <p className="ofm__fine">
+          To arrange this service, email <a href="mailto:info@muhammadkashif.net">info@muhammadkashif.net</a> and I will send you an invoice for this service directly.
         </p>
       </div>
     )
@@ -187,97 +164,63 @@ export default function OrderForm({ service }) {
 
   if (step === 'payment' && clientSecret) {
     return (
-      <div>
-        <p className={label} style={{ color: 'var(--b-muted)' }}>Step 2 of 2 — Payment</p>
-        <h2 className="font-bebas text-3xl sm:text-4xl tracking-wide mb-8" style={{ color: 'var(--b-text)' }}>
-          PAY &amp; BOOK YOUR SLOT
-        </h2>
-        <Elements stripe={stripePromise} options={{ clientSecret, appearance }}>
-          <PaymentStep service={service} onBack={() => setStep('details')} />
+      <div className="ofm-card" ref={top}>
+        <ol className="ofm__steps" aria-label="Checkout steps"><li className="done">Project brief</li><li className="on">Payment</li></ol>
+        <h2 className="ofm__title">Pay &amp; book your slot</h2>
+        <Elements stripe={stripePromise} options={{ clientSecret, appearance, fonts }}>
+          <PaymentStep service={service} onBack={() => { setStep('details'); scrollToTop() }} />
         </Elements>
       </div>
     )
   }
 
   return (
-    <div>
-      <p className={label} style={{ color: 'var(--b-muted)' }}>Step 1 of 2 — Project brief</p>
-      <h2 className="font-bebas text-3xl sm:text-4xl tracking-wide mb-8" style={{ color: 'var(--b-text)' }}>
-        TELL ME ABOUT THE PROJECT
-      </h2>
+    <div className="ofm-card" ref={top}>
+      <ol className="ofm__steps" aria-label="Checkout steps"><li className="on">Project brief</li><li>Payment</li></ol>
+      <h2 className="ofm__title">Tell me about the project</h2>
 
-      <form onSubmit={submitDetails} className="flex flex-col gap-6">
-
+      <form onSubmit={submitDetails} className="ofm mform">
         {/* Honeypot — hidden from people, irresistible to bots */}
-        <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
-          className="absolute opacity-0 pointer-events-none -z-10 h-0 w-0" />
+        <div className="hp-field" aria-hidden="true">
+          <label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" /></label>
+        </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="name" className={label} style={{ color: 'var(--b-muted)' }}>Your name *</label>
-            <input id="name" name="name" type="text" required maxLength={100}
-              className="w-full border-2 px-4 py-3 font-mono text-sm outline-none focus:border-current"
-              style={inputStyle} />
-          </div>
-          <div>
-            <label htmlFor="email" className={label} style={{ color: 'var(--b-muted)' }}>Email *</label>
-            <input id="email" name="email" type="email" required maxLength={200}
-              className="w-full border-2 px-4 py-3 font-mono text-sm outline-none focus:border-current"
-              style={inputStyle} />
-          </div>
+        <div className="ofm__row">
+          <label htmlFor="name"><span>Your name *</span>
+            <input id="name" name="name" type="text" required maxLength={100} autoComplete="name" placeholder="Your name" />
+          </label>
+          <label htmlFor="email"><span>Email *</span>
+            <input id="email" name="email" type="email" required maxLength={200} autoComplete="email" placeholder="you@company.com" />
+          </label>
         </div>
 
         {fields.map((field) => (
-          <div key={field.name}>
-            <label htmlFor={field.name} className={label} style={{ color: 'var(--b-muted)' }}>
-              {field.label}{field.required ? ' *' : ''}
-            </label>
-
+          <label key={field.name} htmlFor={field.name}>
+            <span>{field.label}{field.required ? ' *' : ''}</span>
             {field.type === 'select' ? (
-              <select id={field.name} name={field.name} required={field.required} defaultValue=""
-                className="w-full border-2 px-4 py-3 font-mono text-sm outline-none appearance-none"
-                style={inputStyle}>
+              <select id={field.name} name={field.name} required={field.required} defaultValue="">
                 <option value="" disabled>Choose one…</option>
                 {field.options.map((o) => <option key={o} value={o}>{o}</option>)}
               </select>
             ) : field.type === 'textarea' ? (
-              <textarea id={field.name} name={field.name} required={field.required} rows={4} maxLength={2000}
-                placeholder={field.placeholder}
-                className="w-full border-2 px-4 py-3 font-mono text-sm outline-none resize-none"
-                style={inputStyle} />
+              <textarea id={field.name} name={field.name} required={field.required} rows={4} maxLength={2000} placeholder={field.placeholder} />
             ) : (
-              <input id={field.name} name={field.name} type={field.type} required={field.required}
-                maxLength={2000} placeholder={field.placeholder}
-                className="w-full border-2 px-4 py-3 font-mono text-sm outline-none"
-                style={inputStyle} />
+              <input id={field.name} name={field.name} type={field.type} required={field.required} maxLength={2000} placeholder={field.placeholder} />
             )}
-
-            {field.help && (
-              <p className="font-mono text-[11px] mt-2 leading-relaxed" style={{ color: 'var(--b-muted)' }}>
-                {field.help}
-              </p>
-            )}
-          </div>
+            {field.help && <small className="ofm__help">{field.help}</small>}
+          </label>
         ))}
 
-        {status === 'error' && (
-          <p className="font-mono text-xs p-3 border-2" style={{ color: 'var(--b-text)', borderColor: 'var(--b-text)' }}>
-            {errorMsg}
-          </p>
-        )}
+        {status === 'error' && <p className="ofm__error" role="alert">{errorMsg}</p>}
 
-        <button
-          type="submit"
-          disabled={status === 'submitting'}
-          className="btn-brutal font-bebas text-lg tracking-widest px-8 py-4 border-2 disabled:opacity-50"
-          style={{ backgroundColor: 'var(--b-text)', color: 'var(--b-bg)', borderColor: 'var(--b-text)', boxShadow: '4px 4px 0px var(--b-border)' }}
-        >
-          {status === 'submitting' ? 'PREPARING CHECKOUT…' : 'CONTINUE TO PAYMENT →'}
-        </button>
+        <div className="ofm__actions">
+          <button type="submit" disabled={status === 'submitting'} className="pill pill--dark has-arrow">
+            <span className="pill__in">{status === 'submitting' ? 'Preparing checkout…' : 'Continue to payment'}<span className="pill__badge"><svg className="i" aria-hidden="true"><use href="#i-arrow" /></svg></span></span>
+          </button>
+        </div>
 
-        <p className="font-mono text-[11px] leading-relaxed" style={{ color: 'var(--b-muted)' }}>
-          Nothing is charged until the next step. Not ready to buy?{' '}
-          <a href="/contact-me/" className="underline" style={{ color: 'var(--b-text)' }}>Ask me a question first</a>.
+        <p className="ofm__fine">
+          Nothing is charged until the next step. Not ready to buy? <a href="/contact-me/">Ask me a question first</a>.
         </p>
       </form>
     </div>

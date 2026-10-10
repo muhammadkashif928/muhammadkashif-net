@@ -1,28 +1,76 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import PageHeader from '@/components/PageHeader'
-import ContentExplorer from '@/components/ContentExplorer'
-import ProjectCTA from '@/components/ProjectCTA'
+import LxShell from '@/components/lx/LxShell'
+import { Pill } from '@/components/lx/Icons'
+import { FeaturedCards, FEATURED, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
-import { portfolioProjects, projectHref } from '@/data/portfolio'
 
 export const metadata = createMetadata({
   title: 'Amazon Design Portfolio — Case Studies | Muhammad Kashif',
-  description: 'Portfolio and case studies by Muhammad Kashif: Amazon A+ Content, product image optimization, brand identity, packaging design, AI retouching, and product photography — all built to convert browsers into buyers.',
+  description: 'Portfolio and case studies by Muhammad Kashif: Amazon main images, full listing sets and AI + Photoshop lifestyle composites — each built to win the click and answer the buyer’s next question.',
   path: '/my-portfolio/',
-  image: '/images/portfolio-1.webp',
-  imageAlt: 'Amazon design portfolio — A+ Content, product photography, and brand identity case studies',
+  image: '/images/lx/work/leather-hero-salve.webp',
+  imageAlt: 'Leather Hero Furniture Salve tin and brush on a dark wooden surface — a case study from Muhammad Kashif’s portfolio',
   keywords: [
     'Amazon design portfolio',
-    'A+ Content portfolio case study',
     'Amazon listing design case studies',
+    'Amazon main image case study',
     'product image optimization portfolio',
-    'brand identity packaging portfolio',
-    'AI product retouching portfolio',
+    'AI product lifestyle composite',
   ],
 })
 
 export default function MyPortfolio() {
-  const items = portfolioProjects.map(project => ({ href: projectHref(project), title: project.title, description: project.desc, category: project.tag, date: project.date, image: project.img, alt: project.title }))
-  return <><Navbar /><main id="main-content" className="interior-page"><PageHeader label="SELECTED WORK" title={<>The details.<br />The difference.</>} subtitle="Explore real product transformations, listing design and brand projects. See the thinking behind the finished visuals." primary={{ label: 'Discuss your project', href: '/contact-me/' }} /><ContentExplorer items={items} kind="work" /><ProjectCTA /></main><Footer /></>
+  return (
+    <LxShell>
+      <main id="main-content">
+        <PageHero
+          watermark="WORK"
+          crumb={[{ label: 'Work' }]}
+          lines={['Selected work.', 'Proof over claims.']}
+          lead="In-depth case studies across main images, full listing sets and lifestyle composites. Each one is built to win the click — then answer the buyer's next question."
+          aside={<Facts items={[
+            ['Case studies', `${FEATURED.length} in depth`],
+            ['Brands', '7+ major brands'],
+            ['Products', '200+ designed'],
+            ['Marketplace', 'Amazon US & beyond'],
+          ]} />}
+        />
+
+        <section className="section">
+          <div className="shell section__in">
+            <SecHead eyebrow="Case studies" pill title="Recent work" lead="The brief, the decisions and the before-and-after for every image in the set." />
+            <FeaturedCards />
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="shell section__in section__in--tight">
+            <SecHead eyebrow="How every project runs" title="From brief to ready-to-upload.">
+              <div className="rv" style={{ '--ry': '12px', '--rd': '150ms' }}><Pill variant="outline" arrow="up-right" data-go="contact">Discuss your project</Pill></div>
+            </SecHead>
+            <Steps />
+          </div>
+        </section>
+
+        <section className="section" id="categories">
+          <div className="shell section__in section__in--tight section__in--flush">
+            <div className="sec-head">
+              <div className="rv" style={{ '--ry': '10px' }}><span className="eyebrow">One design partner. Every kind of product.</span></div>
+              <h2 className="sec-h2 lines" data-delay="120">Your category. A fresh perspective.</h2>
+            </div>
+          </div>
+          <div className="band">
+            <ul className="shell">
+              <li className="rv" style={{ '--rd': '0ms' }}><div className="tile tile--light">Beauty</div></li>
+              <li className="rv" style={{ '--rd': '120ms' }}><div className="tile tile--accent">Home</div></li>
+              <li className="rv" style={{ '--rd': '240ms' }}><div className="tile tile--dark">Tech</div></li>
+              <li className="rv" style={{ '--rd': '360ms' }}><div className="tile tile--ghost">&amp; more</div></li>
+            </ul>
+          </div>
+          <div className="shell">
+            <p className="sec-lead rv" style={{ '--ry': '12px', paddingBottom: '5rem' }}>Also welcoming health &amp; wellness, pet supplies, food, sports, toys, fashion and lifestyle. The visual approach is tailored to your product, your audience and your marketplace.</p>
+          </div>
+        </section>
+      </main>
+    </LxShell>
+  )
 }

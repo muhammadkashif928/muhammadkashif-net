@@ -6,9 +6,14 @@
  * body, so editing a number here is the only way to change what a customer
  * actually pays. Anything the browser sends about price is ignored.
  *
- * `fromPrice` only changes the label ("FROM $1,200" vs "$350"). Both charge
+ * `fromPrice` only changes the label ("from $800" vs "$125"). Both charge
  * the listed amount up front; anything beyond base scope is invoiced after
  * the discovery call.
+ *
+ * `regularUsd` (optional) is the usual price. When it is higher than
+ * `priceUsd` the service is on sale: pages show it struck through next to
+ * the sale price. It is display only — Stripe always charges `priceUsd`.
+ * Remove it (or set it equal) to end the sale.
  */
 
 // Questions every order asks, whatever the service.
@@ -27,7 +32,8 @@ export const services = [
     slug: 'main-image-optimization',
     num: '01',
     title: 'MAIN IMAGE OPTIMIZATION',
-    priceUsd: 350,
+    priceUsd: 125,
+    regularUsd: 350,
     fromPrice: false,
     unit: 'per product',
     desc: 'Your most important asset. I design and optimize Amazon main images with clean, compliant white backgrounds that maximize click-through rate from search results.',
@@ -47,7 +53,8 @@ export const services = [
     slug: 'product-infographics',
     num: '02',
     title: 'PRODUCT INFOGRAPHICS',
-    priceUsd: 1200,
+    priceUsd: 800,
+    regularUsd: 1200,
     fromPrice: true,
     unit: '7–9 image set',
     desc: 'Benefit-led side images that communicate features, scale, and value at a glance. Each infographic answers a buying question and handles an objection before it costs you the sale.',
@@ -68,7 +75,8 @@ export const services = [
     slug: 'a-plus-content',
     num: '03',
     title: 'A+ CONTENT',
-    priceUsd: 950,
+    priceUsd: 299,
+    regularUsd: 950,
     fromPrice: true,
     unit: '5–7 modules',
     desc: 'Immersive A+ Content (Enhanced Brand Content) that tells your brand story, explains value, and handles objections visually to lift conversion and reduce returns.',
@@ -108,7 +116,8 @@ export const services = [
     slug: 'amazon-brand-store',
     num: '05',
     title: 'AMAZON BRAND STORE',
-    priceUsd: 1400,
+    priceUsd: 999,
+    regularUsd: 1400,
     fromPrice: true,
     unit: 'multi-page',
     desc: 'A custom multi-page Amazon Brand Store (Storefront) that showcases your full catalog, strengthens brand identity, and gives your ads and shoppers a premium destination.',
@@ -129,16 +138,18 @@ export const services = [
     slug: 'full-listing-design',
     num: '06',
     title: 'FULL LISTING DESIGN',
-    priceUsd: 2800,
+    priceUsd: 1999,
+    regularUsd: 2800,
     fromPrice: true,
-    unit: 'everything above',
-    desc: 'The complete package — main images, infographics, A+ Content, Brand Story, and Brand Store designed as one cohesive, high-converting system from a single designer.',
+    unit: 'everything above + 5 lifestyles',
+    desc: 'The complete package — main images, infographics, A+ Content, Brand Story, Brand Store and five lifestyle images, designed as one cohesive, high-converting system from a single designer.',
     turnaround: '10–14 business days',
     deliverables: [
       'Main image + full 7–9 image gallery set',
       '5–7 module A+ Content',
       'Brand Story cross-sell carousel',
       'Multi-page Brand Store',
+      'Five lifestyle images',
       'Competitor analysis before design starts',
       'Three revision rounds across the whole system',
     ],
@@ -157,6 +168,21 @@ export function getService(slug) {
 export function priceLabel(service) {
   const amount = `$${service.priceUsd.toLocaleString('en-US')}`
   return service.fromPrice ? `from ${amount}` : amount
+}
+
+/** True while the service is discounted from its regular price. */
+export function onSale(service) {
+  return Boolean(service.regularUsd && service.regularUsd > service.priceUsd)
+}
+
+/** The regular (struck-through) price, e.g. "$350"; null when not on sale. */
+export function regularLabel(service) {
+  return onSale(service) ? `$${service.regularUsd.toLocaleString('en-US')}` : null
+}
+
+/** Percentage saved, rounded, e.g. 64; 0 when not on sale. */
+export function savingsPercent(service) {
+  return onSale(service) ? Math.round((1 - service.priceUsd / service.regularUsd) * 100) : 0
 }
 
 /** Just the number, for buttons that already say what the action is. */

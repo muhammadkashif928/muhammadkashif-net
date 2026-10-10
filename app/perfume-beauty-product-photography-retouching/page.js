@@ -57,9 +57,9 @@ export default function PerfumeBeautyProductPhotographyRetouching() {
 
         <h2>What This Looks Like in Practice</h2>
         <p>
-          The image at the top of this article is a real before-and-after from my own client work: a raw perfume oil bottle photo transformed into an Amazon-ready main image. You can see more fragrance and beauty retouching case studies in my portfolio, including a{' '}
-          <a href="/blackdsn-portfolio/perfume-oil-bottle-retouching/">perfume oil bottle retouching project</a> and a{' '}
-          <a href="/blackdsn-portfolio/yara-lattafa-amazon-main-image/">Yara Lattafa Amazon main image optimization</a>. The same workflow applies to serums, droppers, candles, skincare jars, and any product where glass or liquid is part of the presentation.
+          The image at the top of this article is a real before-and-after from my own client work: a raw perfume oil bottle photo transformed into an Amazon-ready main image. You can see the same approach in my{' '}
+          <a href="/blackdsn-portfolio/yara-lattafa-amazon-main-image/">Yara Lattafa Amazon main image optimization</a>{' '}
+          case study, and more work in the <a href="/my-portfolio/">portfolio</a>. The same workflow applies to serums, droppers, candles, skincare jars, and any product where glass or liquid is part of the presentation.
         </p>
 
         <h2>Amazon Compliance for Beauty Listings</h2>

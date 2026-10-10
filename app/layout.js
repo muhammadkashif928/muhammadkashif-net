@@ -3,11 +3,7 @@ import './brand.css'
 import Script from 'next/script'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import JsonLd from '@/components/JsonLd'
-import ScrollReveal from '@/components/ScrollReveal'
 import AttributionTracker from '@/components/AttributionTracker'
-import SocialDock from '@/components/SocialDock'
-import AnnouncementBar from '@/components/AnnouncementBar'
-import MobileContactBar from '@/components/MobileContactBar'
 import { getGlobalJsonLd, seoKeywords, siteConfig } from '@/lib/seo'
 import { GA_ID } from '@/lib/gtag'
 
@@ -101,7 +97,9 @@ export default function RootLayout({ children }) {
         {/* Apply saved theme before paint (default: light) to avoid flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.classList.toggle('theme-light',t!=='dark');}catch(e){document.documentElement.classList.add('theme-light');}})();`,
+            // Also marks a visitor who already saw the intro loader this session, so later
+            // pages hide it before the first paint (styles/lumora-site.css).
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.classList.toggle('theme-light',t!=='dark');}catch(e){document.documentElement.classList.add('theme-light');}try{if(sessionStorage.getItem('mk-intro-seen'))document.documentElement.classList.add('mk-intro-seen');}catch(e){}})();`,
           }}
         />
       </head>
@@ -116,14 +114,10 @@ export default function RootLayout({ children }) {
             gtag('config', '${GA_ID}');`}
         </Script>
         <JsonLd data={getGlobalJsonLd()} />
-        <ScrollReveal />
         <AttributionTracker />
-        <AnnouncementBar />
         <ThemeProvider>
           {children}
         </ThemeProvider>
-        <SocialDock />
-        <MobileContactBar />
       </body>
     </html>
   )
