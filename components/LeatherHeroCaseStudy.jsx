@@ -1,7 +1,7 @@
 // Leather Hero — Furniture Salve case study, in the Lumora design.
+// Laid out like the Purse Care Kit study: one before/after pair, then the set once.
 // Content lives in data/case-studies/leather-hero.js (results, images, copy).
 import LxShell from '@/components/lx/LxShell'
-import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import Gallery from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseResults, CaseNext } from '@/components/lx/Case'
@@ -12,7 +12,6 @@ import {
 const sentence = s => s.charAt(0) + s.slice(1).toLowerCase()
 
 export default function LeatherHeroCaseStudy() {
-  const feature = afterImages.find(i => i.feature) || afterImages[2]
   return (
     <LxShell>
       <main id="main-content">
@@ -33,36 +32,32 @@ export default function LeatherHeroCaseStudy() {
 
         <CaseText eyebrow="The problem" title="What the listing was costing them" paragraphs={problemParagraphs} />
 
-        <CaseBlock eyebrow="Before / after" title="The main image" lead="Drag the handle to compare the original with the redesign.">
-          <div className="cba rv">
-            <div className="cba__slider">
-              <BeforeAfterSlider before={beforeImages[0]} after={afterImages[0]} />
-            </div>
-            <p className="cba__note">Same three pieces, same white background, same Amazon policy. What changes is legibility at thumbnail size — the tin face turned toward the camera, the brush lifted clear of the pad instead of crossing it, and the pad given its own silhouette rather than sitting flat behind everything else.</p>
+        <CaseBlock eyebrow="Before / after" title="The main image, rebuilt">
+          <div className="cpair rv">
+            {[
+              { img: beforeImages[0], tag: 'Before', note: `The original — one of only ${beforeImages.length} images in the listing.` },
+              { img: afterImages[0], tag: 'After', note: `The redesign — slot 1 of a new ${afterImages.length}-image set.` },
+            ].map(({ img, tag, note }) => (
+              <figure key={tag} className="cpair__item">
+                <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
+                <figcaption><strong>{tag}</strong>{note}</figcaption>
+              </figure>
+            ))}
           </div>
-        </CaseBlock>
-
-        <CaseBlock eyebrow={`Coverage ${beforeImages.length} → ${afterImages.length}`} title="From four images to ten" lead="The originals first, the replacement set below. The point isn’t only that there are more of them — no two of the ten are doing the same job.">
-          <p className="gal__label rv">The original set — {beforeImages.length} images</p>
-          <div className="rv"><Gallery images={beforeImages.map(i => ({ ...i, slot: i.label }))} columns={4} showCaptions={false} /></div>
-          <p className="gal__label gal__label--on rv">The new set — {afterImages.length} images</p>
-          <div className="rv"><Gallery images={afterImages} columns={5} showCaptions={false} /></div>
-        </CaseBlock>
-
-        <CaseBlock eyebrow="The full set" title="What each slot is for" lead="Ten images, ten different objections. Every slot in a listing is a question the buyer hasn’t asked out loud yet.">
-          <div className="rv"><Gallery images={afterImages} columns={3} /></div>
+          <div className="prose rv" style={{ marginTop: '3rem' }}>
+            <p>Same three pieces, same white background, same Amazon policy. What changes is legibility at thumbnail size — the tin face turned toward the camera, the brush lifted clear of the pad instead of crossing it, and the pad given its own silhouette rather than sitting flat behind everything else.</p>
+          </div>
         </CaseBlock>
 
         <CaseBlock eyebrow="Three decisions" title="What changed, and why">
           <CaseSteps items={changes.map(c => ({ n: c.n, title: sentence(c.title), body: c.body }))} />
         </CaseBlock>
 
-        <CaseText eyebrow="The detail worth noticing" title="Slot 3 — the penetration cross-section" paragraphs={detailParagraphs}>
-          <figure>
-            <img src={feature.src} alt={feature.alt} width={feature.width} height={feature.height} loading="lazy" />
-            <figcaption>{feature.slot}</figcaption>
-          </figure>
-        </CaseText>
+        <CaseBlock eyebrow={`The set · ${beforeImages.length} → ${afterImages.length} images`} title="Ten images, ten jobs" lead="Every slot in a listing is a question the buyer has not asked out loud yet. Here is what each of the ten is for.">
+          <div className="rv"><Gallery images={afterImages} columns={3} /></div>
+        </CaseBlock>
+
+        <CaseText eyebrow="The detail worth noticing" title="Slot 3 — the penetration cross-section" paragraphs={detailParagraphs} />
 
         <CaseResults results={results} />
 
