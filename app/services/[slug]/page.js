@@ -63,13 +63,18 @@ export default async function ServicePage({ params }) {
         <section className="section">
           <div className="shell section__in section__in--tight">
             <SecHead eyebrow="See the approach in practice" title={proof ? 'From a real project' : 'What the work looks like'} />
-            <div className="detail-grid">
-              {proof && <div className="rv"><FeaturedCard project={proof} /></div>}
-              <figure className="concept rv" style={{ '--rd': '120ms' }}>
-                <img src={detail.image} alt={detail.alt} loading="lazy" decoding="async" />
-                <figcaption>{detail.caption}</figcaption>
-              </figure>
-            </div>
+            {proof && (
+              <div className="detail-grid">
+                <div className="rv"><FeaturedCard project={proof} /></div>
+                <div className="proof-copy rv" style={{ '--rd': '120ms' }}>
+                  <p className="eyebrow">{proof.meta}</p>
+                  <h3>{proof.title}</h3>
+                  <p>{proof.desc}</p>
+                  <div className="chips">{proof.tags.map(t => <span key={t}>{t}</span>)}</div>
+                  <Pill variant="dark" arrow="up-right" href={proof.href}>Read the case study</Pill>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 

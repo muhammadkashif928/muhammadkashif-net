@@ -392,6 +392,13 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .soc:not(.soc--accent):hover { background: #0a0a0a; color: #fff; }
 .lx .soc--accent:hover { background: #97501f; }
 
+/* Service page: case-study card + its summary */
+.lx .proof-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; align-self: center; }
+.lx .proof-copy h3 { font-size: 2rem; font-weight: 600; line-height: 1.1; letter-spacing: -.02em; }
+.lx .proof-copy > p:not(.eyebrow) { max-width: 32rem; font-size: 1.0625rem; line-height: 1.65; color: rgba(17,17,17,.65); }
+.lx .proof-copy .chips { margin: 0 0 .5rem; }
+@media (min-width: 1024px) { .lx .proof-copy { padding-left: 1.5rem; } .lx .proof-copy h3 { font-size: 2.5rem; } }
+
 /* Hero card tile: the icon swaps with each highlight */
 .lx .hcard__tile { position: relative; }
 .lx .hcard__ic { position: absolute; inset: 0; margin: auto; width: 2.25rem; height: 2.25rem; opacity: 0; transform: scale(.6) rotate(-12deg); transition: opacity .35s var(--e-soft), transform .5s var(--e-spring); }
