@@ -10,7 +10,7 @@ const categories = [
   { image: 'home', title: 'Home & everyday essentials', copy: 'Show the scale, materials and everyday possibilities.', alt: 'Ceramic mug, water bottle and kitchen utensils in a sage studio setting' },
   { image: 'electronics', title: 'Tech, fashion & lifestyle', copy: 'Make features clear and help shoppers picture the fit.', alt: 'Headphones, a portable speaker and a sneaker on pale stone plinths' },
 ]
-const questions = [
+export const questions = [
   ['Do you work with my product category?', 'Yes. I welcome brands across beauty, home, electronics, fashion, wellness, pet supplies and beyond. The visual approach is tailored to your product, audience and marketplace.'],
   ['What should I send to get started?', 'Send your product link or ASIN, current photos, brand assets and the goal for your project. If you are launching, share the product details and any available photography.'],
   ['Can you work with my existing product photos?', 'Yes. I can assess your photos for retouching, compositing and AI-assisted lifestyle work. If new photography is needed, we will clarify that before the design work begins.'],

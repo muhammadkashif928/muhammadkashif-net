@@ -1,0 +1,63 @@
+/*
+ * How the Lumora design (styles/lumora.css, scoped under .lx) sits inside this site.
+ *
+ * The redesigned pages wrap everything in <div class="lx">. These rules switch off
+ * the site-wide pieces the old design adds to every page (announcement bar, social
+ * dock, mobile contact bar, paper-noise overlay) — but only while a .lx page is on
+ * screen — and undo the few global element rules from globals.css / brand.css that
+ * would otherwise reach inside the new design.
+ */
+
+/* Onest comes from next/font (LxShell sets --font-onest). overflow-x: clip, not
+   hidden, so position: sticky inside the page keeps working. */
+.lx { font-family: var(--font-onest), 'Onest', sans-serif; overflow-x: clip; }
+
+/* The design gives the loader, menu and modal display:flex, which would beat the
+   browser's own [hidden] rule; hidden must always win. */
+.lx [hidden] { display: none !important; }
+
+/* Page chrome from the root layout that belongs to the old design */
+html:has(.lx) { scroll-behavior: auto; }
+html:has(.lx) body { background: #fff; color: #111; padding-top: 0; }
+html:has(.lx) .noise::before,
+html:has(.lx) body.noise::before { display: none; }
+html:has(.lx) .announce-bar,
+html:has(.lx) .social-dock,
+html:has(.lx) .contact-bar { display: none !important; }
+
+/* globals.css / brand.css element rules that would leak into the new footer */
+.lx footer { padding-bottom: 0; }
+.lx footer ul a { font-size: .875rem !important; line-height: inherit; }
+.lx .legal p { font-size: inherit; }
+.lx img { height: auto; }
+.lx .liquid img, .lx .pcard__img, .lx .atile__img img, .lx .about__photo img { height: 100%; }
+.lx .portrait img { height: auto; }
+
+/* Next renders links as <a>; keep the design's pill/nav buttons looking like buttons */
+.lx a.pill, .lx a.brand-btn { display: inline-block; }
+
+/* Contact form states (posted to /api/contact) */
+.lx .mform__error { display: none; font-size: .8125rem; color: #b42318; }
+.lx [data-form-host].is-error .mform__error { display: block; }
+.lx .hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Small additions for the Next.js pages */
+.lx .svc__order { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; }
+.lx .svc__fine { font-size: .8125rem; line-height: 1.5; color: rgba(17,17,17,.5); }
+.lx .svc--feature .svc__fine { color: rgba(255,255,255,.5); }
+.lx .svc__ask { font-size: .875rem; font-weight: 500; color: rgba(17,17,17,.6); text-decoration: underline; text-underline-offset: 3px; }
+.lx .svc__ask:hover { color: #111; }
+.lx .svc--feature .svc__ask { color: rgba(255,255,255,.65); }
+.lx .svc--feature .svc__ask:hover { color: #fff; }
+.lx .guides { display: flex; flex-direction: column; }
+.lx .guides li { border-top: 1px solid #e6e5e2; }
+.lx .guides li:last-child { border-bottom: 1px solid #e6e5e2; }
+.lx .guides a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; font-size: 1.0625rem; font-weight: 500; letter-spacing: -.01em; }
+.lx .guides a:hover { color: #b15f2c; }
+.lx .concept { border-radius: 2rem; overflow: hidden; background: #f1f0ee; }
+.lx .concept img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.lx .concept figcaption { padding: .875rem 1.25rem; font-size: .75rem; color: rgba(17,17,17,.5); }
+.lx .detail-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 768px) { .lx .detail-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; } }
+.lx .journal { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 768px) { .lx .journal { grid-template-columns: repeat(3, 1fr); } }

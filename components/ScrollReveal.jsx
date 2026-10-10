@@ -9,6 +9,8 @@ export default function ScrollReveal() {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    // Lumora-design pages (components/lx) run their own reveals.
+    if (document.querySelector('.lx')) return
 
     const sections = document.querySelectorAll('main section')
     if (!sections.length) return
