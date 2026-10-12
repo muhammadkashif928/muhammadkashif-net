@@ -30,7 +30,7 @@ export default function ContactMe() {
           aside={<Facts items={[
             ['Response', 'Within 24 hours'],
             ['Kuching time', <span key="t" data-clock-time="" suppressHydrationWarning>9:41am</span>],
-            ['Working with', 'US, UK & Canada'],
+            ['Working with', 'US, UK, Europe & Canada'],
             ['First call', '10 min, no pitch'],
           ]} />}
         />

@@ -4,10 +4,8 @@ import { FeaturedCards, ServiceRows } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  // 54 chars — Google shows ~60; keep under to avoid truncation (S-1)
-  title: 'Amazon Listing Design & A+ Content for Every Category',
-  // 142 chars — Google shows ~155 (S-2)
-  description: 'Amazon listing design across all product categories: main images, infographics, A+ Content and Brand Stores that help your brand stand out.',
+  title: 'Freelance Amazon Listing & A+ Content Designer',
+  description: 'Hire Muhammad Kashif for Amazon listing images, A+ Content, Brand Stores and Shopify design. Remote freelance support for US, UK and European brands.',
   path: '/',
   image: '/images/profile.avif',
   imageAlt: 'Muhammad Kashif — E-commerce Creative Designer for Amazon and Shopify brands, in Kuching, Malaysia',
@@ -36,7 +34,7 @@ export default function Home() {
 
           <div className="shell hero__grid">
             <div className="hero__left">
-              <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }}><span className="eyebrow">Muhammad Kashif · E-commerce Creative Designer</span></div>
+              <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }}><span className="eyebrow">Muhammad Kashif · Freelance E-commerce Designer</span></div>
               <h1 className="hero__h1 lines" data-gate="" data-delay="250" data-stagger="120" data-lines="Make your product|the one|they notice.">Make your product<br />the one<br />they notice.</h1>
               <div className="rating rv" data-gate="" style={{ '--ry': '10px', '--rd': '650ms' }}>
                 <span className="rating__stars" aria-label="5 stars"><Stars /></span>
@@ -82,7 +80,7 @@ export default function Home() {
 
           <div className="shell hero__status rv" data-gate="">
             <span>8+ years of craft</span>
-            <span className="mid">Kuching, Sarawak · working worldwide</span>
+            <span className="mid">Based in Kuching · working remotely with US, UK &amp; European brands</span>
             <span className="scroll">Scroll to explore <span aria-hidden="true">↓</span></span>
           </div>
         </section>

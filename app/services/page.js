@@ -58,6 +58,7 @@ export default function ServicesPage() {
               {services.map(s => <ServiceDetail key={s.slug} service={s} feature={s.slug === 'full-listing-design'} />)}
             </div>
             <p className="note rv"><strong>Scope, revisions &amp; payment.</strong> Amazon service prices are in USD, per project, and include competitor analysis, the revision allowance listed above and Seller Central-ready files. A &ldquo;from&rdquo; price covers the scope shown; larger catalogs and additional work are quoted separately before work begins — never charged automatically. Card payments are handled securely by Stripe.</p>
+            <p className="note rv"><strong>Hiring from the US, UK or Europe?</strong> I work remotely from Kuching, Malaysia with international brands and agencies. Read how I handle <a href="/international-amazon-design-services/">time zones, communication and multi-market projects</a>.</p>
             <div className="ccta rv" style={{ marginTop: '3rem' }} id={shopifyService.slug}>
               <div>
                 <p className="eyebrow eyebrow--light">{shopifyService.num} · Shopify store design</p>

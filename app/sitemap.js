@@ -2,7 +2,7 @@ import { blogPosts } from '@/data/blog'
 import { services } from '@/data/services'
 
 const baseUrl = 'https://muhammadkashif.net'
-const siteUpdated = '2026-09-22T03:00:00+08:00'
+const siteUpdated = '2026-10-12T22:00:00+08:00'
 
 function route(path, changeFrequency, priority, lastModified = siteUpdated) {
   return {
@@ -19,6 +19,7 @@ export default function sitemap() {
     route('/', 'monthly', 1),
     route('/about/', 'monthly', 0.9),
     route('/services/', 'monthly', 0.95),
+    route('/international-amazon-design-services/', 'monthly', 0.9),
     route('/services/shopify-store-design/', 'monthly', 0.9, '2026-10-11'),
     route('/my-portfolio/', 'monthly', 0.9),
     route('/blog/', 'daily', 0.9, blogUpdated),

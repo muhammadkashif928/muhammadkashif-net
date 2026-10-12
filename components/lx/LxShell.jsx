@@ -98,13 +98,14 @@ export default function LxShell({ children }) {
             <div>
               <div className="fbrand"><Icon name="logo" />Muhammad Kashif.</div>
               <p className="ftag">Turning products across every category into premium Amazon listings that help shoppers buy with confidence.</p>
-              <div className="floc"><span>Kuching, Sarawak, Malaysia</span><span>Working remotely with US, UK &amp; Canada brands</span></div>
+              <div className="floc"><span>Kuching, Sarawak, Malaysia</span><span>Working remotely with US, UK, European &amp; Canadian brands</span></div>
             </div>
             <div className="fcol">
               <h4>Navigate</h4>
               <ul>
                 {NAV.map(item => <li key={item.href}><a className="alink" href={item.href}><span>{item.label}</span></a></li>)}
                 <li><a className="alink" href="/resume/"><span>Resume</span></a></li>
+                <li><a className="alink" href="/international-amazon-design-services/"><span>International clients</span></a></li>
               </ul>
             </div>
             <div className="fcol">
