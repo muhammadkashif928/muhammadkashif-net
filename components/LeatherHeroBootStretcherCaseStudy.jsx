@@ -3,28 +3,12 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseText, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
-  results, meta, siblings, mainPrimary, mainAlt, galleryImages,
-  contextParagraphs, mainImageParagraphs,
+  results, meta, mainPrimary, mainAlt, galleryImages, mainImageParagraphs,
 } from '@/data/case-studies/leather-hero-boot-stretcher'
 
-// Swap each sibling's name in a paragraph for a link to its case study.
-function linkSiblings(text) {
-  return siblings.reduce(
-    (parts, s) => parts.flatMap((part) => {
-      if (typeof part !== 'string') return [part]
-      const [before, ...rest] = part.split(s.title)
-      if (!rest.length) return [part]
-      return [before, <a key={s.path} href={s.path}>{s.title}</a>, rest.join(s.title)]
-    }),
-    [text]
-  )
-}
-
 export default function LeatherHeroBootStretcherCaseStudy() {
-  const [firstContext, ...restContext] = contextParagraphs
-
   return (
     <LxShell>
       <main id="main-content">
@@ -40,13 +24,7 @@ export default function LeatherHeroBootStretcherCaseStudy() {
             ['Scope', meta.scope],
             ['Published', meta.published],
           ]}
-          image={{ src: '/images/lx/work/leather-hero-boot-stretcher.webp', alt: 'Leather Hero boot stretcher with an “Extra Heavy Duty” tag beside a tooled brown cowboy boot on a dark wood floor', width: 1536, height: 1024, style: { objectPosition: 'center 40%' } }}
         />
-
-        <CaseText eyebrow="The context" title="Third product, a different sell">
-          <p>{linkSiblings(firstContext)}</p>
-          {restContext.map((p, i) => <p key={i}>{p}</p>)}
-        </CaseText>
 
         <CaseBlock eyebrow="The main image" title="Two frames, one decision">
           <div className="rv">

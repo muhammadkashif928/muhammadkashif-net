@@ -3,10 +3,9 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseText, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
-  results, meta, mainPrimary, mainAlternates, galleryImages,
-  contextParagraphs, mainImageParagraphs,
+  results, meta, mainPrimary, mainAlternates, galleryImages, mainImageParagraphs,
 } from '@/data/case-studies/disposable-foot-socks'
 
 export default function DisposableFootSocksCaseStudy() {
@@ -25,12 +24,7 @@ export default function DisposableFootSocksCaseStudy() {
             ['Scope', meta.scope],
             ['Published', meta.published],
           ]}
-          image={{ src: '/images/lx/work/disposable-foot-socks.webp', alt: 'A hand pulling a sheer sock from a red 144-count “Foot” dispenser box on a dark, glossy wood table', width: 1536, height: 1024, style: { objectPosition: 'center 45%' } }}
         />
-
-        <CaseText eyebrow="The context" title="Making a commodity look considered">
-          {contextParagraphs.map((p, i) => <p key={i}>{p}</p>)}
-        </CaseText>
 
         <CaseBlock eyebrow="The main image" title="Three frames, one decision">
           <div className="rv">

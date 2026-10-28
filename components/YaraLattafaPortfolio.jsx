@@ -45,7 +45,6 @@ export default function YaraLattafaPortfolio() {
             ['Output', 'Amazon-compliant main image'],
             ['Published', 'Jun 27, 2026'],
           ]}
-          image={{ src: '/images/lx/work/yara.webp', alt: 'Yara by Lattafa perfume bottle lit on a dark surface', width: 1536, height: 1024 }}
         />
 
         <CaseBlock eyebrow="Before / after" title="From raw shots to the main image" lead="Two casual product shots — textured backgrounds, uneven angles, inconsistent lighting — became one Amazon-compliant main image. Tap to enlarge.">

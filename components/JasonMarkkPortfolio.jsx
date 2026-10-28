@@ -31,7 +31,6 @@ export default function JasonMarkkPortfolio() {
             ['Software', 'AI + Adobe Photoshop'],
             ['Published', 'Jun 27, 2026'],
           ]}
-          image={{ src: '/images/lx/work/jason-markk-repel.webp', alt: 'Jason Markk Repel spray beside a white sneaker on a dark surface', width: 1536, height: 1024 }}
         />
 
         <CaseBlock eyebrow="Before vs after" title="Which one makes you click Buy?" lead="Context creates desire. The left is clarity; the right is a story. Tap any image to enlarge.">

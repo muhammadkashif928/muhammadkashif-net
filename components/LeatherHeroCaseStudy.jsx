@@ -27,7 +27,6 @@ export default function LeatherHeroCaseStudy() {
             ['Scope', meta.scope],
             ['Published', meta.published],
           ]}
-          image={{ src: '/images/lx/work/leather-hero-salve.webp', alt: 'Leather Hero Furniture Salve tin, salve and wooden brush on a dark walnut surface', width: 1536, height: 1024 }}
         />
 
         <CaseText eyebrow="The problem" title="What the listing was costing them" paragraphs={problemParagraphs} />

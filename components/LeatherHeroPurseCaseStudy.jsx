@@ -3,17 +3,13 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseText, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
-  results, meta, sibling, mainPrimary, mainAlt, beforeAfter, galleryImages,
-  contextParagraphs, beforeAfterIntro, beforeAfterCaption, mainImageParagraphs,
+  results, meta, mainPrimary, mainAlt, beforeAfter, galleryImages,
+  beforeAfterIntro, beforeAfterCaption, mainImageParagraphs,
 } from '@/data/case-studies/leather-hero-purse'
 
 export default function LeatherHeroPurseCaseStudy() {
-  // The first context paragraph names the sibling study; link it.
-  const [firstContext, ...restContext] = contextParagraphs
-  const [beforeLink, afterLink] = firstContext.split('Furniture Salve')
-
   return (
     <LxShell>
       <main id="main-content">
@@ -29,15 +25,7 @@ export default function LeatherHeroPurseCaseStudy() {
             ['Scope', meta.scope],
             ['Published', meta.published],
           ]}
-          image={{ src: '/images/lx/work/leather-hero-purse.webp', alt: 'Leather Hero purse conditioner and cleaner bottles with a tan leather handbag on a dark surface', width: 1536, height: 1024 }}
         />
-
-        <CaseText eyebrow="The context" title="Second product, same brand">
-          <p>
-            {beforeLink}<a href={sibling.path}>Furniture Salve</a>{afterLink}
-          </p>
-          {restContext.map((p, i) => <p key={i}>{p}</p>)}
-        </CaseText>
 
         <CaseBlock eyebrow="Before / after" title="The bag, restored" lead={beforeAfterIntro}>
           <figure className="cfig rv">
