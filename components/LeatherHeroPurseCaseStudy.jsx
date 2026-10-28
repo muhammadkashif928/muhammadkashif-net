@@ -1,7 +1,7 @@
 // Leather Hero — Purse Care Kit case study, in the Lumora design.
 // Content lives in data/case-studies/leather-hero-purse.js.
 import LxShell from '@/components/lx/LxShell'
-import Gallery from '@/components/lx/Gallery'
+import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseText, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
@@ -47,16 +47,11 @@ export default function LeatherHeroPurseCaseStudy() {
         </CaseBlock>
 
         <CaseBlock eyebrow="The main image" title="Two frames, one decision">
-          <div className="cpair rv">
-            {[
+          <div className="rv">
+            <ZoomPair items={[
               { img: mainPrimary, tag: 'Primary', note: 'Leads with the bag — context wins the click.' },
               { img: mainAlt, tag: 'Alternate', note: 'Kit only — maximum clarity, second slot / A-B challenger.' },
-            ].map(({ img, tag, note }) => (
-              <figure key={tag} className="cpair__item">
-                <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
-                <figcaption><strong>{tag}</strong>{note}</figcaption>
-              </figure>
-            ))}
+            ]} />
           </div>
           <div className="prose rv" style={{ marginTop: '3rem' }}>
             {mainImageParagraphs.map((p, i) => <p key={i}>{p}</p>)}

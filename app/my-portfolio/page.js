@@ -40,7 +40,7 @@ export default function MyPortfolio() {
         <section className="section">
           <div className="shell section__in">
             <SecHead eyebrow="Case studies" pill title="Recent work" lead="The brief, the decisions and the before-and-after for every image in the set." />
-            <FeaturedCards projects={caseStudies} lead={caseStudies.length % 2 === 1} />
+            <FeaturedCards projects={caseStudies} />
           </div>
         </section>
 

@@ -243,6 +243,11 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .lbox__fig img { max-width: 100%; max-height: calc(100vh - 9rem); width: auto; height: auto; object-fit: contain; border-radius: 1rem; background: #fff; }
 .lx .lbox__fig figcaption { display: flex; gap: 1rem; font-size: .8125rem; color: rgba(255,255,255,.7); text-align: center; }
 .lx .lbox__count { color: rgba(255,255,255,.45); }
+.lx .lbox__hint { color: rgba(255,255,255,.45); }
+.lx .lbox__zoom { overflow: hidden; border-radius: 1rem; background: #fff; cursor: zoom-in; touch-action: none; }
+.lx .lbox__zoom.is-zoomed { cursor: zoom-out; }
+.lx .lbox__zoom img { display: block; transition: transform .35s var(--e-soft); }
+.lx .lbox__zoom.is-zoomed img { transition: transform .35s var(--e-soft), transform-origin .08s linear; }
 .lx .lbox__x { position: absolute; right: 1rem; top: 1rem; width: 2.75rem; height: 2.75rem; display: grid; place-items: center; border-radius: 9999px; background: rgba(255,255,255,.1); color: #fff; }
 .lx .lbox__nav { flex: none; width: 3rem; height: 3rem; display: grid; place-items: center; border-radius: 9999px; background: rgba(255,255,255,.1); color: #fff; transition: background-color .2s; }
 .lx .lbox__nav:hover, .lx .lbox__x:hover { background: rgba(255,255,255,.2); }
@@ -258,6 +263,8 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .cfig figcaption { margin-top: 1rem; max-width: 48rem; font-size: 1rem; line-height: 1.7; color: rgba(17,17,17,.7); }
 .lx .cpair { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 @media (min-width: 768px) { .lx .cpair { grid-template-columns: 1fr 1fr; } .lx .cpair--3 { grid-template-columns: repeat(3, 1fr); } }
+.lx .cpair__btn { position: relative; display: block; width: 100%; cursor: zoom-in; }
+@media (hover: hover) { .lx .cpair__btn:hover .gal__zoom { opacity: 1; transform: none; } }
 .lx .cpair__item img { width: 100%; height: auto; border-radius: 1.5rem; background: #fff; box-shadow: 0 0 0 1px #e6e5e2; }
 .lx .cpair__item figcaption { margin-top: .875rem; display: flex; flex-direction: column; gap: .25rem; font-size: .9375rem; color: rgba(17,17,17,.65); }
 .lx .cpair__item strong { font-size: .75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #b15f2c; }

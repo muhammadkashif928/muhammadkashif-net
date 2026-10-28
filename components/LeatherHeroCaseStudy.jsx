@@ -2,7 +2,7 @@
 // Laid out like the Purse Care Kit study: one before/after pair, then the set once.
 // Content lives in data/case-studies/leather-hero.js (results, images, copy).
 import LxShell from '@/components/lx/LxShell'
-import Gallery from '@/components/lx/Gallery'
+import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
@@ -33,16 +33,11 @@ export default function LeatherHeroCaseStudy() {
         <CaseText eyebrow="The problem" title="What the listing was costing them" paragraphs={problemParagraphs} />
 
         <CaseBlock eyebrow="Before / after" title="The main image, rebuilt">
-          <div className="cpair rv">
-            {[
+          <div className="rv">
+            <ZoomPair items={[
               { img: beforeImages[0], tag: 'Before', note: `The original — one of only ${beforeImages.length} images in the listing.` },
               { img: afterImages[0], tag: 'After', note: `The redesign — slot 1 of a new ${afterImages.length}-image set.` },
-            ].map(({ img, tag, note }) => (
-              <figure key={tag} className="cpair__item">
-                <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
-                <figcaption><strong>{tag}</strong>{note}</figcaption>
-              </figure>
-            ))}
+            ]} />
           </div>
           <div className="prose rv" style={{ marginTop: '3rem' }}>
             <p>Same three pieces, same white background, same Amazon policy. What changes is legibility at thumbnail size — the tin face turned toward the camera, the brush lifted clear of the pad instead of crossing it, and the pad given its own silhouette rather than sitting flat behind everything else.</p>

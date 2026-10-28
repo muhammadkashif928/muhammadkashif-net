@@ -1,7 +1,7 @@
 // Disposable Foot Socks case study, in the Lumora design.
 // Content lives in data/case-studies/disposable-foot-socks.js.
 import LxShell from '@/components/lx/LxShell'
-import Gallery from '@/components/lx/Gallery'
+import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseText, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
@@ -25,7 +25,7 @@ export default function DisposableFootSocksCaseStudy() {
             ['Scope', meta.scope],
             ['Published', meta.published],
           ]}
-          image={{ src: '/images/lx/work/disposable-foot-socks.webp', alt: 'A hand pulling a sheer beige sock from a red 144-count “Foot Socks” dispenser box', width: 1536, height: 1024, style: { objectPosition: 'center 30%' } }}
+          image={{ src: '/images/lx/work/disposable-foot-socks.webp', alt: 'A hand pulling a sheer sock from a red 144-count “Foot” dispenser box on a dark, glossy wood table', width: 1536, height: 1024, style: { objectPosition: 'center 45%' } }}
         />
 
         <CaseText eyebrow="The context" title="Making a commodity look considered">
@@ -33,17 +33,12 @@ export default function DisposableFootSocksCaseStudy() {
         </CaseText>
 
         <CaseBlock eyebrow="The main image" title="Three frames, one decision">
-          <div className="cpair cpair--3 rv">
-            {[
+          <div className="rv">
+            <ZoomPair className="cpair--3" items={[
               { img: mainPrimary, tag: 'Primary', note: 'Box alone — only what ships, readable at thumbnail size.' },
               { img: mainAlternates[0], tag: 'Alternate — worn', note: 'Feet in the socks — second slot, answers “how does it look on?”' },
               { img: mainAlternates[1], tag: 'Alternate — dispense', note: 'Hand pulling a sock — third slot, sells the tissue-box format.' },
-            ].map(({ img, tag, note }) => (
-              <figure key={tag} className="cpair__item">
-                <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
-                <figcaption><strong>{tag}</strong>{note}</figcaption>
-              </figure>
-            ))}
+            ]} />
           </div>
           <div className="prose rv" style={{ marginTop: '3rem' }}>
             {mainImageParagraphs.map((p, i) => <p key={i}>{p}</p>)}
