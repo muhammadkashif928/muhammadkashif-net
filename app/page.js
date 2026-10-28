@@ -1,6 +1,7 @@
 import LxShell from '@/components/lx/LxShell'
 import { Icon, Pill, Stars } from '@/components/lx/Icons'
 import { FeaturedCards, ServiceRows } from '@/components/lx/Sections'
+import { SOFTWARE } from '@/components/lx/Case'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
@@ -112,6 +113,11 @@ export default function Home() {
                     <a className="soc" href="https://instagram.com/muhammadkashif928" target="_blank" rel="noopener" aria-label="Instagram"><span className="soc__i"><Icon name="instagram" /></span></a>
                     <a className="soc" href="https://www.upwork.com/freelancers/~016edc19243e405472" target="_blank" rel="noopener" aria-label="Upwork"><span className="soc__i"><Icon name="upwork" /></span></a>
                   </div>
+                </div>
+                <div className="setup">
+                  <p className="lbl">My setup</p>
+                  <p className="setup__device">MacBook Pro M5 · 24 GB</p>
+                  <p className="setup__tools">{SOFTWARE}</p>
                 </div>
                 <Pill variant="outline" href="/about/">About me</Pill>
               </div>

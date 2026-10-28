@@ -3,7 +3,7 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseBlock, CaseResults, CaseNext, SOFTWARE } from '@/components/lx/Case'
 import {
   results, meta, mainPrimary, mainAlt, beforeAfter, galleryImages,
   beforeAfterIntro, beforeAfterCaption, mainImageParagraphs,
@@ -23,6 +23,7 @@ export default function LeatherHeroPurseCaseStudy() {
             ['Product', 'Purse cleaner & conditioner kit'],
             ['Marketplace', meta.marketplace],
             ['Scope', meta.scope],
+            ['Software', SOFTWARE],
             ['Published', meta.published],
           ]}
         />

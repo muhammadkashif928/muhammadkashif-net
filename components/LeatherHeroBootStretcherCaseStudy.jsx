@@ -3,7 +3,7 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseBlock, CaseResults, CaseNext, SOFTWARE } from '@/components/lx/Case'
 import {
   results, meta, mainPrimary, mainAlt, galleryImages, mainImageParagraphs,
 } from '@/data/case-studies/leather-hero-boot-stretcher'
@@ -22,6 +22,7 @@ export default function LeatherHeroBootStretcherCaseStudy() {
             ['Product', 'Heavy-duty calf & shaft boot stretcher'],
             ['Marketplace', meta.marketplace],
             ['Scope', meta.scope],
+            ['Software', SOFTWARE],
             ['Published', meta.published],
           ]}
         />

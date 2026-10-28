@@ -2,7 +2,7 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery from '@/components/lx/Gallery'
 import { Icon, Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseNext, SOFTWARE } from '@/components/lx/Case'
 
 const RESULT = { src: '/1776985426943.jpeg', width: 1280, height: 1918, alt: 'Yara by Lattafa Eau de Parfum — raw product shots transformed into an Amazon main image using AI and Photoshop', slot: 'Raw shots → Amazon main image' }
 
@@ -41,7 +41,7 @@ export default function YaraLattafaPortfolio() {
           meta={[
             ['Product', 'Yara Eau de Parfum, 100 ml'],
             ['Service', 'Main image redesign'],
-            ['Software', 'AI + Adobe Photoshop'],
+            ['Software', SOFTWARE],
             ['Output', 'Amazon-compliant main image'],
             ['Published', 'Jun 27, 2026'],
           ]}

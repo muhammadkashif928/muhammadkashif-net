@@ -4,7 +4,7 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseResults, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseResults, CaseNext, SOFTWARE } from '@/components/lx/Case'
 import {
   results, meta, beforeImages, afterImages, changes, problemParagraphs, detailParagraphs,
 } from '@/data/case-studies/leather-hero'
@@ -25,6 +25,7 @@ export default function LeatherHeroCaseStudy() {
             ['Product', meta.product],
             ['Marketplace', meta.marketplace],
             ['Scope', meta.scope],
+            ['Software', SOFTWARE],
             ['Published', meta.published],
           ]}
         />

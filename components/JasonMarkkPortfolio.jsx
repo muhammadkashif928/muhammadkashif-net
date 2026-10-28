@@ -2,7 +2,7 @@
 import LxShell from '@/components/lx/LxShell'
 import Gallery from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseNext } from '@/components/lx/Case'
+import { CaseHero, CaseText, CaseBlock, CaseSteps, CaseNext, SOFTWARE } from '@/components/lx/Case'
 
 const BEFORE = { src: '/1768694862919.jpeg', width: 607, height: 1440, alt: 'Before — the Jason Markk Repel spray as a clean white-background product shot', slot: 'Before — clean product shot', caption: 'Standard white-background product image. Clear and Amazon-compliant — but no story.' }
 const AFTER = { src: '/1768694867521.jpeg', width: 1536, height: 1536, alt: 'After — the Jason Markk Repel spray with a white HOKA sneaker composited behind it', slot: 'After — AI + Photoshop lifestyle composite', caption: 'A HOKA sneaker prop composited behind the spray bottle using AI generation and Photoshop retouching. Context creates desire.' }
@@ -28,7 +28,7 @@ export default function JasonMarkkPortfolio() {
             ['Product', 'Jason Markk Repel spray'],
             ['Prop', 'HOKA sneaker (AI-generated)'],
             ['Technique', 'Lifestyle composite'],
-            ['Software', 'AI + Adobe Photoshop'],
+            ['Software', SOFTWARE],
             ['Published', 'Jun 27, 2026'],
           ]}
         />

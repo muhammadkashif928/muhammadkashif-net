@@ -24,7 +24,7 @@ export const portfolioProjects = [
     img: '/case-studies/disposable-foot-socks/01-main-dispense.jpg',
     imgWidths: [320, 480, 640, 960],
     date: 'Oct 29, 2026',
-    software: ['Photoshop', 'Illustrator'],
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
   },
   {
     slug: 'leather-hero-boot-stretcher',
@@ -36,7 +36,7 @@ export const portfolioProjects = [
     img: '/case-studies/leather-hero-boot-stretcher/05-before-after.jpg',
     imgWidths: [320, 480, 640, 960],
     date: 'Oct 29, 2026',
-    software: ['Photoshop', 'Illustrator'],
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
   },
   {
     slug: 'leather-hero-purse-care-kit',
@@ -48,7 +48,7 @@ export const portfolioProjects = [
     img: '/case-studies/leather-hero-purse/04-before-after.jpg',
     imgWidths: [320, 480, 640, 960],
     date: 'Aug 9, 2026',
-    software: ['Photoshop', 'Illustrator'],
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
   },
   {
     slug: 'leather-hero-furniture-salve',
@@ -60,7 +60,7 @@ export const portfolioProjects = [
     img: '/case-studies/leather-hero/after/03-penetration.jpg',
     imgWidths: [320, 480, 640, 960],
     date: 'Jul 24, 2026',
-    software: ['Photoshop', 'Illustrator'],
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
   },
   {
     slug: 'yara-lattafa-amazon-main-image',
@@ -70,7 +70,7 @@ export const portfolioProjects = [
     img: '/1776985426943.jpeg',
     imgWidths: [320, 480, 640, 960],
     date: 'Jun 27, 2026',
-    software: ['AI', 'Photoshop'],
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
   },
   {
     slug: 'jason-markk-lifestyle-composite',
@@ -79,6 +79,6 @@ export const portfolioProjects = [
     desc: 'Jason Markk Shoe & Sneaker Protector Repel Spray transformed with AI prop generation + Photoshop compositing. A HOKA sneaker added as contextual prop — context creates desire.',
     img: '/1768694867521.jpeg',
     date: 'Jun 27, 2026',
-    software: ['AI Generation', 'Photoshop'],
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
   },
 ]

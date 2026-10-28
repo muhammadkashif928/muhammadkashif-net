@@ -527,3 +527,7 @@ html:has(.lx) body.noise::before { display: none; }
 /* Month-and-year ranges ("Jan 2022 — Jan 2025") are longer than the original years */
 .lx .xp__years { font-size: 1.75rem; line-height: 1.1; }
 @media (min-width: 1024px) { .lx .xp__years { font-size: 2.125rem; } }
+
+/* Homepage about: the device and tools I work with */
+.lx .setup__device { font-size: .9375rem; font-weight: 500; color: #111; }
+.lx .setup__tools { margin-top: .25rem; font-size: .8125rem; color: rgba(17,17,17,.55); }

@@ -3,6 +3,9 @@ import { Pill } from './Icons'
 import { FeaturedCards } from './Sections'
 
 /* Page hero: breadcrumb, headline, lead, project facts and the hero image */
+// The toolkit behind every case study — shown in each hero's facts box.
+export const SOFTWARE = 'Claude, ChatGPT, Gemini, Photoshop, Lightroom'
+
 export function CaseHero({ crumb, eyebrow, lines, lead, meta, image }) {
   return (
     <>
