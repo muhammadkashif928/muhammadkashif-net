@@ -59,7 +59,7 @@ export const mainAlt = {
   alt: 'Leather Hero boot stretcher alternate main image — the steel stretcher standing beside a tooled brown cowboy boot on a white background',
 }
 
-// The centerpiece before/after — a single pre-composed side-by-side frame.
+// The before/after frame — used as the page's social share image.
 export const beforeAfter = {
   src: `${DIR}/05-before-after.jpg`,
   width: 3000,
@@ -158,12 +158,6 @@ export const contextParagraphs = [
   'This is the third Leather Hero listing in this portfolio, after the Furniture Salve and the Purse Care Kit. The first two were care products — a salve and a cleaner-conditioner kit — where the job was proving the formula restores leather.',
   'A boot stretcher is a different kind of sell. It is a steel tool, not a formula, and most shoppers have never held one. So the set leans less on restoration and more on mechanism and fit: what the tool is, how it goes into a boot, what it changes, and which boots it works on. Same brand, same proof-first approach, a different question to answer.',
 ]
-
-export const beforeAfterIntro =
-  'The centerpiece of the set — one tooled cowboy boot shaft, shown before and after stretching in a single side-by-side frame.'
-
-export const beforeAfterCaption =
-  'Left, the shaft as it came: a narrow opening that pinches the calf. Right, the same boot after the stretcher: the opening visibly wider, the lining showing, the tooling and stitching untouched. This is the frame that makes “customizable fit” something the buyer can check rather than take on trust.'
 
 export const mainImageParagraphs = [
   'A main image has one job: win the click from a page of competitors. Here it came down to two versions of the same stretcher.',

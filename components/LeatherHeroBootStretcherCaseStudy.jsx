@@ -5,8 +5,8 @@ import Gallery from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseText, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
-  results, meta, siblings, mainPrimary, mainAlt, beforeAfter, galleryImages,
-  contextParagraphs, beforeAfterIntro, beforeAfterCaption, mainImageParagraphs,
+  results, meta, siblings, mainPrimary, mainAlt, galleryImages,
+  contextParagraphs, mainImageParagraphs,
 } from '@/data/case-studies/leather-hero-boot-stretcher'
 
 // Swap each sibling's name in a paragraph for a link to its case study.
@@ -47,13 +47,6 @@ export default function LeatherHeroBootStretcherCaseStudy() {
           <p>{linkSiblings(firstContext)}</p>
           {restContext.map((p, i) => <p key={i}>{p}</p>)}
         </CaseText>
-
-        <CaseBlock eyebrow="Before / after" title="The shaft, opened up" lead={beforeAfterIntro}>
-          <figure className="cfig rv">
-            <img src={beforeAfter.src} alt={beforeAfter.alt} width={beforeAfter.width} height={beforeAfter.height} loading="lazy" />
-            <figcaption>{beforeAfterCaption}</figcaption>
-          </figure>
-        </CaseBlock>
 
         <CaseBlock eyebrow="The main image" title="Two frames, one decision">
           <div className="cpair rv">
