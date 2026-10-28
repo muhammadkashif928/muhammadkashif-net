@@ -1,7 +1,8 @@
 'use client'
 // Image grid whose images open full screen (prev/next, arrow keys, Esc, swipe).
 // In the viewer, a click/tap on the image zooms in; moving the pointer pans.
-// images: [{ src, alt, width, height, caption?, slot?, feature? }]
+// images: [{ src, alt, width, height, thumb?, caption?, slot?, feature? }]
+// `thumb` is a smaller file for the grid; the viewer always loads `src`.
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Icon } from './Icons'
 
@@ -106,7 +107,7 @@ export default function Gallery({ images, columns = 3, showCaptions = true, aspe
         {images.map((im, i) => (
           <li key={im.src} className={`gal__item${im.feature ? ' gal__item--feature' : ''}`}>
             <button type="button" className="gal__btn" onClick={() => setOpen(i)} aria-label={`Enlarge: ${im.alt}`}>
-              <img src={im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy" decoding="async" style={{ aspectRatio: aspect }} />
+              <img src={im.thumb || im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy" decoding="async" style={{ aspectRatio: aspect }} />
               <span className="gal__zoom" aria-hidden="true"><Icon name="plus" /></span>
               {im.feature && <span className="gal__flag">The one</span>}
             </button>

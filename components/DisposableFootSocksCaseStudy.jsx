@@ -5,7 +5,7 @@ import Gallery, { ZoomPair } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
-  results, meta, mainPrimary, mainAlternates, galleryImages, mainImageParagraphs,
+  results, meta, mainPrimary, mainAlternates, galleryImages, knitImages, mainImageParagraphs,
 } from '@/data/case-studies/disposable-foot-socks'
 
 export default function DisposableFootSocksCaseStudy() {
@@ -41,6 +41,10 @@ export default function DisposableFootSocksCaseStudy() {
 
         <CaseBlock eyebrow="The set" title="Ten images, ten jobs" lead="Every slot in a listing is a question the buyer has not asked out loud yet. Here is what each of the ten is for.">
           <div className="rv"><Gallery images={galleryImages} columns={3} /></div>
+        </CaseBlock>
+
+        <CaseBlock eyebrow="Second version" title="The same set, in knit" lead="The listing rebuilt for the knit version of the sock — same slots, same order. Tap any image to enlarge.">
+          <div className="rv"><Gallery images={knitImages} columns={5} showCaptions={false} /></div>
         </CaseBlock>
 
         <CaseResults results={results} />

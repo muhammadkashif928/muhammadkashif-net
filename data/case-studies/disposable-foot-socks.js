@@ -160,3 +160,23 @@ export const mainImageParagraphs = [
   'The first shows the box alone, socks spilling from the opening. The second adds a pair of feet wearing the socks. The third has a hand pulling one out like a tissue.',
   'The call: lead with the box alone. Feet and hands are not in the box, and on a main image anything that does not ship invites confusion. The other two are not wasted — they take the next two slots, where “how it looks on” and “how it dispenses” are exactly the questions the buyer asks next.',
 ]
+
+// The same listing rebuilt for the knit version of the sock — shown as a
+// compact grid under the main set. `thumb` keeps the grid light.
+const knit = [
+  ['MAIN — DISPENSE', 'Knit foot socks main image — a hand pulling a sock from the red 144-count dispenser box'],
+  ['MAIN — WORN', 'Knit foot socks main image — the red box filled with socks beside two feet wearing low-cut knit socks'],
+  ['HIGH ELASTIC STRETCH', 'High elastic stretch material — two hands stretching the knit cuff of a sock against a dark background'],
+  ['HYGIENE & COMFORT', 'Premium hygiene and comfort — a magnifying glass over the knit weave, with protective barrier and soft feel icons'],
+  ['SOFT, BREATHABLE', 'Soft, breathable design — a foot in a knit sock with airflow arrows and moisture particles'],
+  ['VERSATILE USES', 'Versatile uses — four panels: sneakers, apple protection, spa, and a hair net'],
+  ['DISPOSABLE', 'Disposable and eco-friendly — a hand dropping a used knit sock into a grey bin'],
+  ['ONE SIZE', 'One size designed to fit most — two feet in low-cut knit socks, for both men and women'],
+  ['VALUE — 144 COUNT', 'Great value and assured quality — a neat stack of knit socks with a 144 count badge'],
+  ['CLINICS & SPAS', 'Perfect for clinics and spas — the red Foot Socks box on a wooden tray beside folded white towels and a frangipani'],
+]
+
+export const knitImages = knit.map(([slot, alt], i) => {
+  const n = String(i + 1).padStart(2, '0')
+  return { src: `${DIR}/knit-${n}.jpg`, thumb: `${DIR}/knit-${n}-640.webp`, width: 3000, height: 3000, slot, alt }
+})
