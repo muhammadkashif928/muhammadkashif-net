@@ -40,7 +40,7 @@ export default function LeatherHeroBootStretcherCaseStudy() {
             ['Scope', meta.scope],
             ['Published', meta.published],
           ]}
-          image={{ src: '/images/lx/work/leather-hero-boot-stretcher.webp', alt: 'Leather Hero boot stretcher with an “Extra Heavy Duty” tag beside a tooled brown cowboy boot on a dark wood floor', width: 1536, height: 1024 }}
+          image={{ src: '/images/lx/work/leather-hero-boot-stretcher.webp', alt: 'Leather Hero boot stretcher with an “Extra Heavy Duty” tag beside a tooled brown cowboy boot on a dark wood floor', width: 1536, height: 1024, style: { objectPosition: 'center 40%' } }}
         />
 
         <CaseText eyebrow="The context" title="Third product, a different sell">
