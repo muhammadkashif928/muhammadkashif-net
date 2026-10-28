@@ -54,6 +54,15 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'leather-hero-restoration-kit',
+    href: '/portfolio/leather-hero-restoration-kit/',
+    img: '/images/lx/work/leather-hero-restoration-kit.webp',
+    meta: 'Leather Care — Repeat client',
+    title: 'Leather Hero — Restoration Kit',
+    desc: "The brand's fourth product: an eleven-image set for a six-piece black leather kit, built on bag and sofa before-and-afters and a three-step routine.",
+    tags: ['11-Image Set', 'Infographics', 'Before / After'],
+  },
+  {
     slug: 'disposable-foot-socks',
     href: '/portfolio/disposable-foot-socks/',
     img: '/images/lx/work/disposable-foot-socks.webp',

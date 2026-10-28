@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'leather-hero-restoration-kit',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/leather-hero-restoration-kit/',
+    tag: 'AMAZON LISTING SET',
+    title: 'Leather Hero — Restoration Kit',
+    desc: 'Leather Hero’s fourth product — a six-piece clean, restore and protect kit for black leather. An eleven-image set built on bag and sofa before-and-afters and a three-step routine.',
+    img: '/case-studies/leather-hero-restoration-kit/03-sofa-before-after.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Oct 29, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'disposable-foot-socks',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/disposable-foot-socks/',
