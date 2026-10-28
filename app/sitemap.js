@@ -28,6 +28,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/disposable-foot-socks/', 'monthly', 0.9, '2026-10-29'),
     route('/portfolio/leather-hero-boot-stretcher/', 'monthly', 0.9, '2026-10-29'),
     route('/portfolio/leather-hero-purse-care-kit/', 'monthly', 0.9, '2026-08-09'),
     route('/portfolio/leather-hero-furniture-salve/', 'monthly', 0.9, '2026-07-24'),

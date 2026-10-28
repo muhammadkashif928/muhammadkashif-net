@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'disposable-foot-socks',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/disposable-foot-socks/',
+    tag: 'AMAZON LISTING SET',
+    title: 'Disposable Foot Socks',
+    desc: 'A 144-count box of disposable try-on socks. A full ten-image listing set — three main-image candidates plus infographics for stretch, hygiene, breathability, uses, fit and value.',
+    img: '/case-studies/disposable-foot-socks/01-main-dispense.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Oct 29, 2026',
+    software: ['Photoshop', 'Illustrator'],
+  },
+  {
     slug: 'leather-hero-boot-stretcher',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/leather-hero-boot-stretcher/',

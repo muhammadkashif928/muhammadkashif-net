@@ -257,7 +257,7 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .cfig img { width: 100%; height: auto; border-radius: 1.5rem; background: #f1f0ee; }
 .lx .cfig figcaption { margin-top: 1rem; max-width: 48rem; font-size: 1rem; line-height: 1.7; color: rgba(17,17,17,.7); }
 .lx .cpair { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-@media (min-width: 768px) { .lx .cpair { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { .lx .cpair { grid-template-columns: 1fr 1fr; } .lx .cpair--3 { grid-template-columns: repeat(3, 1fr); } }
 .lx .cpair__item img { width: 100%; height: auto; border-radius: 1.5rem; background: #fff; box-shadow: 0 0 0 1px #e6e5e2; }
 .lx .cpair__item figcaption { margin-top: .875rem; display: flex; flex-direction: column; gap: .25rem; font-size: .9375rem; color: rgba(17,17,17,.65); }
 .lx .cpair__item strong { font-size: .75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #b15f2c; }

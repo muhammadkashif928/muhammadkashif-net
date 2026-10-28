@@ -54,6 +54,15 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'disposable-foot-socks',
+    href: '/portfolio/disposable-foot-socks/',
+    img: '/images/lx/work/disposable-foot-socks.webp',
+    meta: 'Footwear Accessories — Full listing',
+    title: 'Disposable Foot Socks',
+    desc: 'A 144-count box of try-on socks made to read as a considered product: a full ten-image set, from three main-image candidates to stretch, hygiene and value.',
+    tags: ['10-Image Set', 'Main Image', 'Infographics'],
+  },
+  {
     slug: 'leather-hero-boot-stretcher',
     href: '/portfolio/leather-hero-boot-stretcher/',
     img: '/images/lx/work/leather-hero-boot-stretcher.webp',
