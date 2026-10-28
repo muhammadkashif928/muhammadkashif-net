@@ -17,7 +17,7 @@ const HIGHLIGHTS = [
   ['Infographics', 'Benefits, made clear.', 'chart'],
   ['A+ & Brand Stores', 'Designed to last.', 'store'],
 ]
-const BRANDS = ['Angelus', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln']
+const BRANDS = ['Angelus', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln', 'Fiamme', 'Tarrago', 'Saphir', 'Rayln', 'Silver', 'Toe Armor', 'Venetian']
 
 export default function Home() {
   return (
