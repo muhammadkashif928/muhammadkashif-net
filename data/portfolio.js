@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'leather-hero-boot-stretcher',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/leather-hero-boot-stretcher/',
+    tag: 'AMAZON LISTING SET',
+    title: 'Leather Hero — Boot Stretcher',
+    desc: 'Leather Hero’s third product, and the first tool rather than a formula — a heavy-duty calf & shaft boot stretcher. A nine-image infographic set built around mechanism, fit and a tooled cowboy boot shown before and after stretching.',
+    img: '/case-studies/leather-hero-boot-stretcher/05-before-after.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Oct 29, 2026',
+    software: ['Photoshop', 'Illustrator'],
+  },
+  {
     slug: 'leather-hero-purse-care-kit',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/leather-hero-purse-care-kit/',

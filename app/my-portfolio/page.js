@@ -1,6 +1,6 @@
 import LxShell from '@/components/lx/LxShell'
 import { Pill } from '@/components/lx/Icons'
-import { FeaturedCards, FEATURED, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
+import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
@@ -18,6 +18,8 @@ export const metadata = createMetadata({
   ],
 })
 
+const caseStudies = [...PORTFOLIO_ONLY, ...FEATURED]
+
 export default function MyPortfolio() {
   return (
     <LxShell>
@@ -28,7 +30,7 @@ export default function MyPortfolio() {
           lines={['Selected work.', 'Proof over claims.']}
           lead="In-depth case studies across main images, full listing sets and lifestyle composites. Each one is built to win the click — then answer the buyer's next question."
           aside={<Facts items={[
-            ['Case studies', `${FEATURED.length} in depth`],
+            ['Case studies', `${caseStudies.length} in depth`],
             ['Brands', '7+ major brands'],
             ['Products', '200+ designed'],
             ['Marketplace', 'Amazon US & beyond'],
@@ -38,7 +40,7 @@ export default function MyPortfolio() {
         <section className="section">
           <div className="shell section__in">
             <SecHead eyebrow="Case studies" pill title="Recent work" lead="The brief, the decisions and the before-and-after for every image in the set." />
-            <FeaturedCards />
+            <FeaturedCards projects={caseStudies} lead={caseStudies.length % 2 === 1} />
           </div>
         </section>
 

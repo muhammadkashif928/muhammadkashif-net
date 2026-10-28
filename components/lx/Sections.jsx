@@ -50,6 +50,20 @@ export const FEATURED = [
   },
 ]
 
+// Case studies listed on /my-portfolio/ only — kept out of FEATURED so the
+// homepage 2×2 grid and the "More case studies" rows stay at four cards.
+export const PORTFOLIO_ONLY = [
+  {
+    slug: 'leather-hero-boot-stretcher',
+    href: '/portfolio/leather-hero-boot-stretcher/',
+    img: '/images/lx/work/leather-hero-boot-stretcher.webp',
+    meta: 'Footwear Care — Repeat client',
+    title: 'Leather Hero — Boot Stretcher',
+    desc: "The brand's third product and first tool: a nine-image infographic set for a calf & shaft stretcher, led by a tooled cowboy boot shown before and after.",
+    tags: ['9-Image Set', 'Infographics', 'Before / After'],
+  },
+]
+
 // Which featured case study each service page points to as proof.
 export const SERVICE_PROOF = {
   'main-image-optimization': 'yara-lattafa-amazon-main-image',
@@ -77,10 +91,11 @@ export function FeaturedCard({ project: p }) {
   )
 }
 
-export function FeaturedCards({ exclude } = {}) {
+// `lead` makes the first card span the full row (used when the list is odd).
+export function FeaturedCards({ exclude, projects = FEATURED, lead = false } = {}) {
   return (
-    <ul className={`cards${exclude ? ' cards--3' : ''}`}>
-      {FEATURED.filter(p => p.slug !== exclude).map((p, i) => (
+    <ul className={`cards${exclude ? ' cards--3' : ''}${lead ? ' cards--lead' : ''}`}>
+      {projects.filter(p => p.slug !== exclude).map((p, i) => (
         <li key={p.slug} className="rv" style={{ '--rd': `${i * 90}ms` }}>
           <FeaturedCard project={p} />
         </li>

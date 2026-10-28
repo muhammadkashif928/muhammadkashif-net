@@ -209,6 +209,7 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .cards--3 { grid-template-columns: 1fr; }
 @media (min-width: 768px) { .lx .cards--3 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .lx .cards--3 { grid-template-columns: repeat(3, 1fr); } .lx .cards--3 .pcard { min-height: 28rem; } .lx .cards--3 .pcard__body h3 { font-size: 1.5rem; } }
+@media (min-width: 768px) { .lx .cards--lead > li:first-child { grid-column: 1 / -1; } .lx .cards--lead > li:first-child .pcard { min-height: 34rem; } }
 
 /* gallery */
 .lx .gal { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
