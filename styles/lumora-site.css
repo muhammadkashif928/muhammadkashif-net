@@ -270,14 +270,19 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .cpair__item strong { font-size: .75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #b15f2c; }
 /* brand store: full page beside the story, then modules stacked */
 .lx .store { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
-.lx .store__page { width: 100%; max-width: 26rem; margin-inline: auto; }
-.lx .store__list { margin-top: 2rem; counter-reset: mod; border-top: 1px solid #e6e5e2; }
+.lx .store__page { margin-top: 3.5rem; }
+.lx .store__list { counter-reset: mod; border-top: 1px solid #e6e5e2; }
 .lx .store__list li { counter-increment: mod; display: flex; gap: 1rem; border-bottom: 1px solid #e6e5e2; padding-block: .875rem; font-size: .8125rem; font-weight: 600; letter-spacing: .05em; color: #111; }
 .lx .store__list li::before { content: counter(mod, decimal-leading-zero); color: #b15f2c; }
 .lx .store__mods { gap: 3rem; }
+.lx .store__page .gal__btn:hover img { transform: none; }
+.lx .lbox__fig--tall { align-self: stretch; align-items: stretch; overflow-y: auto; width: min(100%, 72rem); }
+.lx .lbox__fig--tall .lbox__zoom { cursor: default; flex: none; }
+.lx .lbox__fig--tall img { width: 100%; max-height: none; }
+.lx .lbox__fig--tall figcaption { position: sticky; bottom: 0; padding: .5rem 1rem; border-radius: 9999px; background: rgba(10,10,10,.8); }
 @media (min-width: 900px) {
-  .lx .store { grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); gap: 4rem; align-items: start; }
-  .lx .store__text { position: sticky; top: 6rem; }
+  .lx .store { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
+  .lx .store__page { margin-top: 4.5rem; }
   .lx .store__mods { gap: 4rem; }
 }
 .lx .csplit { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }

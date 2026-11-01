@@ -41,10 +41,10 @@ const DIR = '/case-studies/fiamme-brand-store'
 // The whole store page, banner to last module, as one tall image.
 export const fullPage = {
   src: `${DIR}/00-full-page.jpg`,
-  thumb: `${DIR}/00-full-page-960.webp`,
+  thumb: `${DIR}/00-full-page-1800.webp`,
   width: 2423,
   height: 6403,
-  zoom: 5, // the page is tall and thin in the viewer, so zoom further in
+  tall: true, // the viewer shows it full width and scrolls instead of fitting it to the screen
   slot: 'THE FULL STORE PAGE',
   alt: 'The complete Fiamme Amazon Brand Store page — banner, hero, kit contents, why Fiamme, three steps, suede favourites and a portable-kit lifestyle module',
 }

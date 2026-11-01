@@ -27,17 +27,15 @@ export default function FiammeBrandStoreCaseStudy() {
 
         <CaseBlock eyebrow="The page" title="One scroll, brand to basket">
           <div className="store">
-            <div className="store__page rv">
-              <Gallery images={[fullPage]} columns={1} aspect="auto" showCaptions={false} className="gal--wide" />
+            <div className="prose rv">
+              {pageParagraphs.map((p, i) => <p key={i}>{p}</p>)}
             </div>
-            <div className="store__text">
-              <div className="prose rv">
-                {pageParagraphs.map((p, i) => <p key={i}>{p}</p>)}
-              </div>
-              <ol className="store__list rv">
-                {modules.map(m => <li key={m.src}>{m.slot.replace(/^\d+ — /, '')}</li>)}
-              </ol>
-            </div>
+            <ol className="store__list rv">
+              {modules.map(m => <li key={m.src}>{m.slot.replace(/^\d+ — /, '')}</li>)}
+            </ol>
+          </div>
+          <div className="store__page rv">
+            <Gallery images={[fullPage]} columns={1} aspect="auto" showCaptions={false} className="gal--wide" />
           </div>
         </CaseBlock>
 

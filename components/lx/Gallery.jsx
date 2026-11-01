@@ -3,7 +3,7 @@
 // In the viewer, a click/tap on the image zooms in; moving the pointer pans.
 // images: [{ src, alt, width, height, thumb?, caption?, slot?, feature? }]
 // `thumb` is a smaller file for the grid; the viewer always loads `src`.
-// `zoom` overrides the viewer's zoom level (e.g. for a very tall image).
+// `tall` images open full width in the viewer and scroll, with no click-zoom.
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Icon } from './Icons'
 
@@ -56,19 +56,19 @@ export function Lightbox({ images, open, setOpen }) {
     >
       <button type="button" className="lbox__x" onClick={close} aria-label="Close"><Icon name="x" /></button>
       {n > 1 && <button type="button" className="lbox__nav lbox__nav--prev" onClick={() => step(-1)} aria-label="Previous image"><Icon name="arrow" /></button>}
-      <figure className="lbox__fig">
+      <figure className={`lbox__fig${img.tall ? ' lbox__fig--tall' : ''}`}>
         <div
           className={`lbox__zoom${zoom ? ' is-zoomed' : ''}`}
-          onClick={e => setZoom(z => (z ? null : originAt(e, e)))}
+          onClick={e => { if (!img.tall) setZoom(z => (z ? null : originAt(e, e))) }}
           onMouseMove={e => { if (zoom) setZoom(originAt(e, e)) }}
           onTouchMove={e => { if (zoom) setZoom(originAt(e, e.touches[0])) }}
         >
-          <img src={img.src} alt={img.alt} draggable="false" style={zoom ? { transform: `scale(${img.zoom || ZOOM})`, transformOrigin: zoom } : undefined} />
+          <img src={img.src} alt={img.alt} draggable="false" style={zoom ? { transform: `scale(${ZOOM})`, transformOrigin: zoom } : undefined} />
         </div>
         <figcaption>
           <span>{img.slot || img.alt}</span>
           {n > 1 && <span className="lbox__count">{open + 1} / {n}</span>}
-          <span className="lbox__hint">{zoom ? 'Click to zoom out' : 'Click image to zoom'}</span>
+          <span className="lbox__hint">{img.tall ? 'Scroll to see the full page' : zoom ? 'Click to zoom out' : 'Click image to zoom'}</span>
         </figcaption>
       </figure>
       {n > 1 && <button type="button" className="lbox__nav" onClick={() => step(1)} aria-label="Next image"><Icon name="arrow" /></button>}
