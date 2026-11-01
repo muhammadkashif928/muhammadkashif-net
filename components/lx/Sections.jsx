@@ -54,6 +54,15 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'fiamme-brand-store',
+    href: '/portfolio/fiamme-brand-store/',
+    img: '/images/lx/work/fiamme-brand-store.webp',
+    meta: 'Amazon Brand Store — Case study',
+    title: 'Fiamme — Brand Store',
+    desc: 'A seven-module Amazon Brand Store for a luxury suede & nubuck kit: brand first, then the kit, the three-step routine and everything it is for.',
+    tags: ['Brand Store', '7 Modules', 'Leather Care'],
+  },
+  {
     slug: 'leather-hero-restoration-kit',
     href: '/portfolio/leather-hero-restoration-kit/',
     img: '/images/lx/work/leather-hero-restoration-kit.webp',
@@ -88,7 +97,7 @@ export const SERVICE_PROOF = {
   'product-infographics': 'leather-hero-furniture-salve',
   'a-plus-content': 'leather-hero-purse-care-kit',
   'amazon-brand-story': 'leather-hero-purse-care-kit',
-  'amazon-brand-store': 'leather-hero-furniture-salve',
+  'amazon-brand-store': 'fiamme-brand-store',
   'full-listing-design': 'leather-hero-furniture-salve',
 }
 

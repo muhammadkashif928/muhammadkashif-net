@@ -268,6 +268,18 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .cpair__item img { width: 100%; height: auto; border-radius: 1.5rem; background: #fff; box-shadow: 0 0 0 1px #e6e5e2; }
 .lx .cpair__item figcaption { margin-top: .875rem; display: flex; flex-direction: column; gap: .25rem; font-size: .9375rem; color: rgba(17,17,17,.65); }
 .lx .cpair__item strong { font-size: .75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #b15f2c; }
+/* brand store: full page beside the story, then modules stacked */
+.lx .store { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+.lx .store__page { width: 100%; max-width: 26rem; margin-inline: auto; }
+.lx .store__list { margin-top: 2rem; counter-reset: mod; border-top: 1px solid #e6e5e2; }
+.lx .store__list li { counter-increment: mod; display: flex; gap: 1rem; border-bottom: 1px solid #e6e5e2; padding-block: .875rem; font-size: .8125rem; font-weight: 600; letter-spacing: .05em; color: #111; }
+.lx .store__list li::before { content: counter(mod, decimal-leading-zero); color: #b15f2c; }
+.lx .store__mods { gap: 3rem; }
+@media (min-width: 900px) {
+  .lx .store { grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); gap: 4rem; align-items: start; }
+  .lx .store__text { position: sticky; top: 6rem; }
+  .lx .store__mods { gap: 4rem; }
+}
 .lx .csplit { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
 .lx .csplit__img { max-width: 30rem; width: 100%; margin-inline: auto; }
 .lx .csplit__notes { display: flex; flex-direction: column; }

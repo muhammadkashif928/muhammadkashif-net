@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import LxShell from '@/components/lx/LxShell'
 import JsonLd from '@/components/JsonLd'
 import { Icon, Pill } from '@/components/lx/Icons'
-import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName, FeaturedCard, FEATURED, SERVICE_PROOF, PriceText } from '@/components/lx/Sections'
+import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName, FeaturedCard, FEATURED, PORTFOLIO_ONLY, SERVICE_PROOF, PriceText } from '@/components/lx/Sections'
 import { services, getService, priceLabel } from '@/data/services'
 import { servicePresentation } from '@/data/service-presentation'
 import { blogPosts } from '@/data/blog'
@@ -26,7 +26,7 @@ export default async function ServicePage({ params }) {
   const seo = serviceSeo[slug]
   const guides = blogPosts.filter(post => post.service === slug || seo.articles.includes(post.slug)).slice(0, 3)
   const schema = { '@context': 'https://schema.org', '@type': 'Service', '@id': absoluteUrl(`/services/${slug}/#service`), name: seo.heading, description: seo.description, url: absoluteUrl(`/services/${slug}/`), image: absoluteUrl(detail.image), serviceType: detail.title, provider: { '@id': `${siteConfig.url}/#service` }, areaServed: 'Worldwide', offers: { '@type': 'Offer', url: absoluteUrl(`/order/${slug}/`), priceCurrency: 'USD', ...(service.fromPrice ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: service.priceUsd, priceCurrency: 'USD' } } : { price: service.priceUsd }) } }
-  const proof = FEATURED.find(p => p.slug === SERVICE_PROOF[slug])
+  const proof = [...FEATURED, ...PORTFOLIO_ONLY].find(p => p.slug === SERVICE_PROOF[slug])
   const name = serviceName(service)
 
   return (

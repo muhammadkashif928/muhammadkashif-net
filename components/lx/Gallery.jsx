@@ -3,6 +3,7 @@
 // In the viewer, a click/tap on the image zooms in; moving the pointer pans.
 // images: [{ src, alt, width, height, thumb?, caption?, slot?, feature? }]
 // `thumb` is a smaller file for the grid; the viewer always loads `src`.
+// `zoom` overrides the viewer's zoom level (e.g. for a very tall image).
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Icon } from './Icons'
 
@@ -62,7 +63,7 @@ export function Lightbox({ images, open, setOpen }) {
           onMouseMove={e => { if (zoom) setZoom(originAt(e, e)) }}
           onTouchMove={e => { if (zoom) setZoom(originAt(e, e.touches[0])) }}
         >
-          <img src={img.src} alt={img.alt} draggable="false" style={zoom ? { transform: `scale(${ZOOM})`, transformOrigin: zoom } : undefined} />
+          <img src={img.src} alt={img.alt} draggable="false" style={zoom ? { transform: `scale(${img.zoom || ZOOM})`, transformOrigin: zoom } : undefined} />
         </div>
         <figcaption>
           <span>{img.slot || img.alt}</span>

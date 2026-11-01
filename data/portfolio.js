@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'fiamme-brand-store',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/fiamme-brand-store/',
+    tag: 'AMAZON BRAND STORE',
+    title: 'Fiamme — Brand Store',
+    desc: 'A seven-module Amazon Brand Store for Fiamme Luxury Leather Care — a three-piece suede and nubuck kit sold brand first, then contents, routine and range.',
+    img: '/case-studies/fiamme-brand-store/02-hero.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 1, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'leather-hero-restoration-kit',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/leather-hero-restoration-kit/',
