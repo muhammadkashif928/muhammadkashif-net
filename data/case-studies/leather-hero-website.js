@@ -31,6 +31,8 @@ export const meta = {
   scope: 'Design + development — 89 pages',
   liveUrl: 'https://www.leatherherorestorer.com/',
   liveLabel: 'leatherherorestorer.com',
+  languages: 'HTML, CSS, JavaScript',
+  stack: 'Next.js (React), Tailwind CSS · hosted on Vercel',
   published: 'Nov 9, 2026',
   publishedISO: '2026-11-09',
   slug: 'leather-hero-website',

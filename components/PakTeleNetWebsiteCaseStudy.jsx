@@ -3,7 +3,7 @@
 import LxShell from '@/components/lx/LxShell'
 import { DeviceFrames } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseBlock, CaseResults, CaseNext, SOFTWARE } from '@/components/lx/Case'
+import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
   results, meta, heroDevices, phones, introParagraphs, features,
 } from '@/data/case-studies/pak-tele-net-website'
@@ -21,7 +21,8 @@ export default function PakTeleNetWebsiteCaseStudy() {
             ['Client', meta.client],
             ['Platform', meta.platform],
             ['Scope', meta.scope],
-            ['Software', SOFTWARE],
+            ['Languages', meta.languages],
+            ['Built with', meta.stack],
             ['Published', meta.published],
           ]}
         />

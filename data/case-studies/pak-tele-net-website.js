@@ -31,6 +31,8 @@ export const meta = {
   platform: 'Custom React web app',
   category: 'Fiber Internet Provider — Website',
   scope: 'Design + development — 5 pages',
+  languages: 'HTML, CSS, JavaScript',
+  stack: 'React, Tailwind CSS',
   published: 'Nov 9, 2026',
   publishedISO: '2026-11-09',
   slug: 'pak-tele-net-website',

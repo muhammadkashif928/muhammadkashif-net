@@ -28,6 +28,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/margilla-website/', 'monthly', 0.9, '2026-11-09'),
     route('/portfolio/pak-tele-net-website/', 'monthly', 0.9, '2026-11-09'),
     route('/portfolio/leather-hero-website/', 'monthly', 0.9, '2026-11-09'),
     route('/portfolio/fiamme-brand-store/', 'monthly', 0.9, '2026-11-01'),

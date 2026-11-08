@@ -66,6 +66,16 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'margilla-website',
+    category: 'websites',
+    href: '/portfolio/margilla-website/',
+    img: '/images/lx/work/margilla-website.webp',
+    meta: 'Website — Design + development',
+    title: 'Margilla — SaaS Website',
+    desc: 'The website for a TikTok Shop profit analytics tool — real dashboard screens, price up front, a live demo and a free profit calculator.',
+    tags: ['SaaS Website', 'React', 'Mobile-first'],
+  },
+  {
     slug: 'pak-tele-net-website',
     category: 'websites',
     href: '/portfolio/pak-tele-net-website/',

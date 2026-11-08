@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'margilla-website',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/margilla-website/',
+    tag: 'WEBSITE DESIGN + DEVELOPMENT',
+    title: 'Margilla — SaaS Website',
+    desc: 'The website for Margilla, a profit analytics tool for TikTok Shop sellers — real dashboard screens, pricing up front, a live demo and a free profit calculator.',
+    img: '/case-studies/margilla-website/desktop-home-hero.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 9, 2026',
+    software: ['HTML', 'CSS', 'JavaScript', 'React', 'TanStack', 'Tailwind CSS'],
+  },
+  {
     slug: 'pak-tele-net-website',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/pak-tele-net-website/',
@@ -24,7 +36,7 @@ export const portfolioProjects = [
     img: '/case-studies/pak-tele-net-website/desktop-home-hero.jpg',
     imgWidths: [320, 480, 640, 960],
     date: 'Nov 9, 2026',
-    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+    software: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS'],
   },
   {
     slug: 'leather-hero-website',
@@ -36,7 +48,7 @@ export const portfolioProjects = [
     img: '/case-studies/leather-hero-website/desktop-home-hero.jpg',
     imgWidths: [320, 480, 640, 960],
     date: 'Nov 9, 2026',
-    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+    software: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS'],
   },
   {
     slug: 'fiamme-brand-store',

@@ -3,7 +3,7 @@
 import LxShell from '@/components/lx/LxShell'
 import { DeviceFrames } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
-import { CaseHero, CaseBlock, CaseResults, CaseNext, SOFTWARE } from '@/components/lx/Case'
+import { CaseHero, CaseBlock, CaseResults, CaseNext } from '@/components/lx/Case'
 import {
   results, meta, heroDevices, phones, introParagraphs, features,
 } from '@/data/case-studies/leather-hero-website'
@@ -22,7 +22,8 @@ export default function LeatherHeroWebsiteCaseStudy() {
             ['Platform', meta.platform],
             ['Scope', meta.scope],
             ['Live site', <a key="live" href={meta.liveUrl} target="_blank" rel="noopener noreferrer" className="alink"><span>{meta.liveLabel}</span></a>],
-            ['Software', SOFTWARE],
+            ['Languages', meta.languages],
+            ['Built with', meta.stack],
             ['Published', meta.published],
           ]}
         />
