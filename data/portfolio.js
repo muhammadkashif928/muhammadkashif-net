@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'pak-tele-net-website',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/pak-tele-net-website/',
+    tag: 'WEBSITE DESIGN + DEVELOPMENT',
+    title: 'Pak Tele Net — Fiber Internet Website',
+    desc: 'A bilingual English and Urdu website for a fiber internet provider in Burewala — speed packages, a coverage map, WhatsApp-first contact and phone bill payment.',
+    img: '/case-studies/pak-tele-net-website/desktop-home-hero.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 9, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'leather-hero-website',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/leather-hero-website/',

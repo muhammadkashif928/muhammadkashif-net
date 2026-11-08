@@ -69,49 +69,8 @@ export const heroDevices = [
   },
 ]
 
-export const pages = [
-  {
-    ...desktop('shop', 5102, 'Leather Hero shop page — 24 products with category tabs, search and sorting'),
-    url: `${meta.liveLabel}/shop`,
-    tag: 'Shop',
-    note: 'All 24 products with category tabs, live search and sorting — each card linking to its own page and its Amazon listing.',
-  },
-  {
-    ...desktop('product', 2492, 'Leather Hero Purse Care Kit product page — hover-zoom photo, price, Buy at Amazon button, details and specifications'),
-    url: `${meta.liveLabel}/product/purse-care-kit`,
-    tag: 'Product page',
-    note: 'Hover-zoom photo, price, one Buy at Amazon button, then details, how-to-use and specs in tabs.',
-  },
-  {
-    ...desktop('category', 2010, 'Leather Hero boots category page'),
-    url: `${meta.liveLabel}/category/boots`,
-    tag: 'Category',
-    note: 'Seven categories — purse, boots, suede, stretchers, furniture, auto, accessories — so buyers shop by problem.',
-  },
-  {
-    ...desktop('blog', 3042, 'Leather Hero care journal — the blog index of leather-care guides'),
-    url: `${meta.liveLabel}/blog`,
-    tag: 'Care journal',
-    note: 'A 48-post blog of how-to guides that answer search questions and link to the right product.',
-  },
-  {
-    ...desktop('wholesale', 2004, 'Leather Hero wholesale page — a B2B application form beside tiered-pricing details'),
-    url: `${meta.liveLabel}/wholesale`,
-    tag: 'Wholesale',
-    note: 'A B2B application form for stockists and studios, with tiered pricing explained — so trade enquiries never get lost in support.',
-  },
-  {
-    ...desktop('story', 1649, 'Leather Hero our-story page'),
-    url: `${meta.liveLabel}/story`,
-    tag: 'Our story',
-    note: 'The brand page — why Leather Hero exists, in the same voice as the packaging.',
-  },
-]
-
 export const phones = [
-  { ...phone('home', 13094, 'Leather Hero homepage on a phone'), tag: 'Home' },
-  { ...phone('shop', 15462, 'Leather Hero shop page on a phone'), tag: 'Shop' },
-  { ...phone('product', 4831, 'Leather Hero product page on a phone'), tag: 'Product page' },
+  { ...phone('home', 13094, 'Leather Hero homepage on a phone — the same sections stacked for one-thumb scrolling'), tag: 'Homepage on a phone' },
 ]
 
 export const introParagraphs = [

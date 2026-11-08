@@ -54,6 +54,15 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'pak-tele-net-website',
+    href: '/portfolio/pak-tele-net-website/',
+    img: '/images/lx/work/pak-tele-net-website.webp',
+    meta: 'Website — Design + development',
+    title: 'Pak Tele Net — Fiber Internet Website',
+    desc: 'A bilingual English and Urdu website for a fiber internet provider — packages, coverage map, WhatsApp-first contact and phone bill payment.',
+    tags: ['Custom Website', 'English + Urdu', 'Mobile-first'],
+  },
+  {
     slug: 'leather-hero-website',
     href: '/portfolio/leather-hero-website/',
     img: '/images/lx/work/leather-hero-website.webp',

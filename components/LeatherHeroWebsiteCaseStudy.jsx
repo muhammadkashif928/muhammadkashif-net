@@ -5,7 +5,7 @@ import { DeviceFrames } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseBlock, CaseResults, CaseNext, SOFTWARE } from '@/components/lx/Case'
 import {
-  results, meta, heroDevices, pages, phones, introParagraphs, features,
+  results, meta, heroDevices, phones, introParagraphs, features,
 } from '@/data/case-studies/leather-hero-website'
 
 export default function LeatherHeroWebsiteCaseStudy() {
@@ -37,12 +37,8 @@ export default function LeatherHeroWebsiteCaseStudy() {
           </div>
         </CaseBlock>
 
-        <CaseBlock eyebrow="Key pages" title="Six pages, six jobs" lead="Every page type has one job in the buyer’s path to Amazon. Each one is shown in full — tap any page to see it larger.">
-          <div className="rv"><DeviceFrames items={pages} full className="devs--pages" /></div>
-        </CaseBlock>
-
-        <CaseBlock eyebrow="On a phone" title="Built for the thumb" lead="Most visits come from a phone, so every section has its own mobile layout — not a squeezed desktop. Tap a screen to scroll the full page.">
-          <div className="rv"><DeviceFrames items={phones} className="devs--phones" /></div>
+        <CaseBlock eyebrow="On a phone" title="Built for the thumb" lead="Most visits come from a phone, so every section has its own mobile layout — not a squeezed desktop. Tap the screen to scroll the full homepage.">
+          <div className="rv"><DeviceFrames items={phones} /></div>
         </CaseBlock>
 
         <CaseBlock eyebrow="Under the hood" title="What is built in">

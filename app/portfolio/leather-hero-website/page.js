@@ -1,7 +1,7 @@
 import LeatherHeroWebsiteCaseStudy from '@/components/LeatherHeroWebsiteCaseStudy'
 import JsonLd from '@/components/JsonLd'
 import { createMetadata, absoluteUrl, siteConfig, getBreadcrumbJsonLd } from '@/lib/seo'
-import { meta, pages, shareImage } from '@/data/case-studies/leather-hero-website'
+import { meta, shareImage } from '@/data/case-studies/leather-hero-website'
 
 const title =
   'Leather Hero Website — Custom Next.js Brand Site Case Study | Muhammad Kashif'
@@ -34,7 +34,7 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: 'Leather Hero Website — Custom Next.js Brand Site Case Study',
   description,
-  image: [shareImage, ...pages.slice(0, 3).map((p) => p.img)].map((img) => absoluteUrl(img.src)),
+  image: [absoluteUrl(shareImage.src)],
   datePublished: meta.publishedISO,
   dateModified: meta.publishedISO,
   author: {
