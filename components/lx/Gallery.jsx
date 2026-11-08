@@ -3,7 +3,8 @@
 // In the viewer, a click/tap on the image zooms in; moving the pointer pans.
 // images: [{ src, alt, width, height, thumb?, caption?, slot?, feature? }]
 // `thumb` is a smaller file for the grid; the viewer always loads `src`.
-// `tall` images open full width in the viewer and scroll, with no click-zoom.
+// `tall` images open full width in the viewer and scroll, with no click-zoom;
+// `phone` keeps a tall image at phone width.
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Icon } from './Icons'
 
@@ -56,7 +57,7 @@ export function Lightbox({ images, open, setOpen }) {
     >
       <button type="button" className="lbox__x" onClick={close} aria-label="Close"><Icon name="x" /></button>
       {n > 1 && <button type="button" className="lbox__nav lbox__nav--prev" onClick={() => step(-1)} aria-label="Previous image"><Icon name="arrow" /></button>}
-      <figure className={`lbox__fig${img.tall ? ' lbox__fig--tall' : ''}`}>
+      <figure key={open} className={`lbox__fig${img.tall ? ' lbox__fig--tall' : ''}${img.phone ? ' lbox__fig--phone' : ''}`}>
         <div
           className={`lbox__zoom${zoom ? ' is-zoomed' : ''}`}
           onClick={e => { if (!img.tall) setZoom(z => (z ? null : originAt(e, e))) }}
@@ -94,6 +95,32 @@ export function ZoomPair({ items, className = '' }) {
           </figure>
         ))}
       </div>
+      <Lightbox images={images} open={open} setOpen={setOpen} />
+    </>
+  )
+}
+
+// Website screenshots in a browser or phone frame; each opens the full page in the viewer.
+// items: [{ img, thumb, kind: 'desktop' | 'phone', url?, tag?, note? }]
+export function DeviceFrames({ items, className = '' }) {
+  const [open, setOpen] = useState(-1)
+  const images = items.map(({ img, tag }) => ({ ...img, slot: tag || img.slot }))
+  return (
+    <>
+      <ul className={`devs ${className}`.trim()}>
+        {items.map(({ img, thumb, kind, url, tag, note }, i) => (
+          <li key={img.src} className={`devs__item devs__item--${kind}`}>
+            <button type="button" className={`dev dev--${kind}`} onClick={() => setOpen(i)} aria-label={`View full page: ${img.alt}`}>
+              {kind === 'desktop' && (
+                <span className="dev__bar" aria-hidden="true"><i /><i /><i />{url && <span className="dev__url">{url}</span>}</span>
+              )}
+              <img src={thumb} alt={img.alt} loading="lazy" decoding="async" />
+              <span className="gal__zoom" aria-hidden="true"><Icon name="plus" /></span>
+            </button>
+            {(tag || note) && <p className="devs__cap">{tag && <strong>{tag}</strong>}{note}</p>}
+          </li>
+        ))}
+      </ul>
       <Lightbox images={images} open={open} setOpen={setOpen} />
     </>
   )

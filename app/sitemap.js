@@ -28,6 +28,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/leather-hero-website/', 'monthly', 0.9, '2026-11-09'),
     route('/portfolio/fiamme-brand-store/', 'monthly', 0.9, '2026-11-01'),
     route('/portfolio/leather-hero-restoration-kit/', 'monthly', 0.9, '2026-10-29'),
     route('/portfolio/disposable-foot-socks/', 'monthly', 0.9, '2026-10-29'),

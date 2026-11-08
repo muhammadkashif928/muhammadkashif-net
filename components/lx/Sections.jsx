@@ -54,6 +54,15 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'leather-hero-website',
+    href: '/portfolio/leather-hero-website/',
+    img: '/images/lx/work/leather-hero-website.webp',
+    meta: 'Website — Design + development',
+    title: 'Leather Hero — Brand Website',
+    desc: 'A fully custom 89-page Next.js site for a leather-care brand that sells on Amazon — every product ending in one tracked Buy at Amazon button.',
+    tags: ['Custom Website', 'Next.js', 'Mobile-first'],
+  },
+  {
     slug: 'fiamme-brand-store',
     href: '/portfolio/fiamme-brand-store/',
     img: '/images/lx/work/fiamme-brand-store.webp',

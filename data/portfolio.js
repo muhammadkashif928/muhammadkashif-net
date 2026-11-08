@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'leather-hero-website',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/leather-hero-website/',
+    tag: 'WEBSITE DESIGN + DEVELOPMENT',
+    title: 'Leather Hero — Brand Website',
+    desc: 'A fully custom 89-page Next.js website for Leather Hero — shop, product pages, categories, search, a 48-post blog and tracked Buy at Amazon buttons.',
+    img: '/case-studies/leather-hero-website/desktop-home-hero.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 9, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'fiamme-brand-store',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/fiamme-brand-store/',
