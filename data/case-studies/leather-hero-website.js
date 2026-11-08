@@ -40,14 +40,15 @@ export const meta = {
 const DIR = '/case-studies/leather-hero-website'
 
 // A full-page screenshot: `src` is the whole page (opens in the viewer and
-// scrolls), `thumb` is the first screen shown inside the frame.
+// scrolls), `thumb` is the first screen, `full` the whole page at display size.
 const desktop = (name, height, alt) => ({
   img: { src: `${DIR}/desktop-${name}.jpg`, width: 1440, height, alt, tall: true },
   thumb: `${DIR}/desktop-${name}-top.webp`,
+  full: `${DIR}/desktop-${name}-full.webp`,
   kind: 'desktop',
 })
 const phone = (name, height, alt) => ({
-  img: { src: `${DIR}/mobile-${name}.jpg`, width: 600, height, alt, tall: true, phone: true },
+  img: { src: `${DIR}/mobile-${name}.jpg`, width: 468, height, alt, tall: true, phone: true },
   thumb: `${DIR}/mobile-${name}-top.webp`,
   kind: 'phone',
 })
@@ -65,12 +66,6 @@ export const heroDevices = [
     ...desktop('home', 7647, 'Leather Hero homepage on desktop — product carousel, shop by category, three-step method, best sellers, blog, FAQ and contact'),
     url: meta.liveLabel,
     tag: 'Desktop',
-    note: 'The full homepage — tap to scroll through it.',
-  },
-  {
-    ...phone('home', 16787, 'Leather Hero homepage on a phone — the same sections stacked for one-thumb scrolling'),
-    tag: 'Phone',
-    note: 'The same page, rebuilt for one thumb.',
   },
 ]
 
@@ -114,9 +109,9 @@ export const pages = [
 ]
 
 export const phones = [
-  { ...phone('home', 16787, 'Leather Hero homepage on a phone'), tag: 'Home' },
-  { ...phone('shop', 19823, 'Leather Hero shop page on a phone'), tag: 'Shop' },
-  { ...phone('product', 6194, 'Leather Hero product page on a phone'), tag: 'Product page' },
+  { ...phone('home', 13094, 'Leather Hero homepage on a phone'), tag: 'Home' },
+  { ...phone('shop', 15462, 'Leather Hero shop page on a phone'), tag: 'Shop' },
+  { ...phone('product', 4831, 'Leather Hero product page on a phone'), tag: 'Product page' },
 ]
 
 export const introParagraphs = [

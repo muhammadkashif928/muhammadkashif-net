@@ -27,18 +27,18 @@ export default function LeatherHeroWebsiteCaseStudy() {
           ]}
         />
 
-        <CaseBlock eyebrow="The site" title="One build, every screen">
-          <div className="rv"><DeviceFrames items={heroDevices} className="devs--hero" /></div>
-          <div className="prose rv" style={{ marginTop: '3rem' }}>
+        <CaseBlock eyebrow="The site" title="The homepage, top to bottom">
+          <div className="prose rv" style={{ marginBottom: '3rem' }}>
             {introParagraphs.map((p, i) => <p key={i}>{p}</p>)}
           </div>
+          <div className="rv"><DeviceFrames items={heroDevices} full /></div>
           <div className="rv" style={{ marginTop: '2rem' }}>
             <Pill variant="dark" arrow="up-right" href={meta.liveUrl} external>Visit the live site</Pill>
           </div>
         </CaseBlock>
 
-        <CaseBlock eyebrow="Key pages" title="Six pages, six jobs" lead="Every page type has one job in the buyer’s path to Amazon. Tap any page to scroll through all of it.">
-          <div className="rv"><DeviceFrames items={pages} className="devs--pages" /></div>
+        <CaseBlock eyebrow="Key pages" title="Six pages, six jobs" lead="Every page type has one job in the buyer’s path to Amazon. Each one is shown in full — tap any page to see it larger.">
+          <div className="rv"><DeviceFrames items={pages} full className="devs--pages" /></div>
         </CaseBlock>
 
         <CaseBlock eyebrow="On a phone" title="Built for the thumb" lead="Most visits come from a phone, so every section has its own mobile layout — not a squeezed desktop. Tap a screen to scroll the full page.">

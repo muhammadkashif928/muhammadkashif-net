@@ -101,20 +101,21 @@ export function ZoomPair({ items, className = '' }) {
 }
 
 // Website screenshots in a browser or phone frame; each opens the full page in the viewer.
-// items: [{ img, thumb, kind: 'desktop' | 'phone', url?, tag?, note? }]
-export function DeviceFrames({ items, className = '' }) {
+// items: [{ img, thumb, full?, kind: 'desktop' | 'phone', url?, tag?, note? }]
+// `full` shows each page's whole length (item.full) instead of its first screen.
+export function DeviceFrames({ items, full = false, className = '' }) {
   const [open, setOpen] = useState(-1)
   const images = items.map(({ img, tag }) => ({ ...img, slot: tag || img.slot }))
   return (
     <>
-      <ul className={`devs ${className}`.trim()}>
-        {items.map(({ img, thumb, kind, url, tag, note }, i) => (
+      <ul className={`devs${full ? ' devs--full' : ''} ${className}`.trim()}>
+        {items.map(({ img, thumb, full: whole, kind, url, tag, note }, i) => (
           <li key={img.src} className={`devs__item devs__item--${kind}`}>
             <button type="button" className={`dev dev--${kind}`} onClick={() => setOpen(i)} aria-label={`View full page: ${img.alt}`}>
               {kind === 'desktop' && (
                 <span className="dev__bar" aria-hidden="true"><i /><i /><i />{url && <span className="dev__url">{url}</span>}</span>
               )}
-              <img src={thumb} alt={img.alt} loading="lazy" decoding="async" />
+              <img src={(full && whole) || thumb} alt={img.alt} loading="lazy" decoding="async" />
               <span className="gal__zoom" aria-hidden="true"><Icon name="plus" /></span>
             </button>
             {(tag || note) && <p className="devs__cap">{tag && <strong>{tag}</strong>}{note}</p>}

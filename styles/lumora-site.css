@@ -306,6 +306,11 @@ html:has(.lx) body.noise::before { display: none; }
 @media (min-width: 1024px) { .lx .devs--pages { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem 2rem; } }
 @media (max-width: 639px) { .lx .devs--phones .devs__item { max-width: 16rem; } }
 .lx .lbox__fig--phone { width: min(100%, 26rem); }
+.lx .devs--full .dev img { aspect-ratio: auto; height: auto; }
+@media (hover: hover) { .lx .devs--full .dev:hover img { transform: none; } }
+.lx .devs--full.devs--pages { display: block; columns: 1; column-gap: 2.5rem; }
+.lx .devs--full.devs--pages .devs__item { break-inside: avoid; margin-bottom: 3rem; }
+@media (min-width: 768px) { .lx .devs--full.devs--pages { columns: 2; } }
 .lx .feats { display: grid; grid-template-columns: 1fr; border-top: 1px solid #e6e5e2; }
 .lx .feats li { border-bottom: 1px solid #e6e5e2; padding-block: 1.5rem; }
 .lx .feats h3 { font-size: 1.0625rem; font-weight: 600; color: #111; }
