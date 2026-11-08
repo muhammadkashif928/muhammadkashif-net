@@ -7,7 +7,7 @@ export const metadata = {
 }
 
 const links = [
-  { href: '/my-portfolio/', label: 'Work', note: 'Case studies and before/afters' },
+  { href: '/my-portfolio/', label: 'Portfolio', note: 'Case studies and before/afters' },
   { href: '/services/', label: 'Services', note: 'Scope, prices and turnaround' },
   { href: '/blog/', label: 'Blog', note: 'Guides on listing design' },
   { href: '/contact-me/', label: 'Contact', note: 'Tell me about your product' },

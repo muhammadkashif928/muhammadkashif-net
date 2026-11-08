@@ -17,7 +17,7 @@ const onest = Onest({ subsets: ['latin'], weight: ['400', '500', '600', '700'], 
 
 export const NAV = [
   { label: 'Home', href: '/' },
-  { label: 'Work', href: '/my-portfolio/' },
+  { label: 'Portfolio', href: '/my-portfolio/' },
   { label: 'Services', href: '/services/' },
   { label: 'About', href: '/about/' },
   { label: 'Blog', href: '/blog/' },

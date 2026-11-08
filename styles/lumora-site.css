@@ -285,6 +285,15 @@ html:has(.lx) body.noise::before { display: none; }
   .lx .store__page { margin-top: 4.5rem; }
   .lx .store__mods { gap: 4rem; }
 }
+/* portfolio category tabs */
+.lx .wtabs { position: relative; display: flex; gap: .5rem; margin-bottom: 2rem; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: .25rem; }
+.lx .wtabs::-webkit-scrollbar { display: none; }
+.lx .wtab { flex: none; display: inline-flex; align-items: center; gap: .5rem; border-radius: 9999px; padding: .625rem 1rem; font-size: .875rem; font-weight: 500; color: #111; background: #fff; box-shadow: inset 0 0 0 1px #e6e5e2; transition: background-color .2s, color .2s, box-shadow .2s; }
+.lx .wtab:hover { box-shadow: inset 0 0 0 1px #111; }
+.lx .wtab[aria-pressed="true"] { background: #111; color: #fff; box-shadow: none; }
+.lx .wtab__n { min-width: 1.375rem; border-radius: 9999px; padding: .05rem .4rem; font-size: .75rem; text-align: center; background: rgba(17,17,17,.07); }
+.lx .wtab[aria-pressed="true"] .wtab__n { background: rgba(255,255,255,.18); }
+.lx .cards li[hidden] { display: none; }
 /* website case studies: browser and phone frames */
 .lx .devs { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
 .lx .devs__item { min-width: 0; }

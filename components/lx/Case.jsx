@@ -13,7 +13,7 @@ export function CaseHero({ crumb, eyebrow, lines, lead, meta, image }) {
         <div className="shell phero__in chero__in">
           <div className="phero__main">
             <nav className="phero__crumbs rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }} aria-label="Breadcrumb">
-              <a href="/">Home</a><span aria-hidden="true">/</span><a href="/my-portfolio/">Work</a><span aria-hidden="true">/</span><span>{crumb}</span>
+              <a href="/">Home</a><span aria-hidden="true">/</span><a href="/my-portfolio/">Portfolio</a><span aria-hidden="true">/</span><span>{crumb}</span>
             </nav>
             {eyebrow && <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '250ms' }}><span className="eyebrow">{eyebrow}</span></div>}
             <h1 className="phero__h1 lines" data-gate="" data-delay="300" data-stagger="120" data-lines={lines.join('|')}>

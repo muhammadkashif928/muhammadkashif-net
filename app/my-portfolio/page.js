@@ -1,11 +1,12 @@
 import LxShell from '@/components/lx/LxShell'
 import { Pill } from '@/components/lx/Icons'
-import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
+import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
+import WorkFilter from '@/components/lx/WorkFilter'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Amazon Design Portfolio — Case Studies | Muhammad Kashif',
-  description: 'Portfolio and case studies by Muhammad Kashif: Amazon main images, full listing sets and AI + Photoshop lifestyle composites — each built to win the click and answer the buyer’s next question.',
+  title: 'Portfolio — Amazon Design & Website Case Studies | Muhammad Kashif',
+  description: 'Portfolio and case studies by Muhammad Kashif: Amazon listing sets, main images, brand stores, lifestyle composites and custom-built websites — filter by category to see the work you need.',
   path: '/my-portfolio/',
   image: '/images/lx/work/leather-hero-salve.webp',
   imageAlt: 'Leather Hero Furniture Salve tin and brush on a dark wooden surface — a case study from Muhammad Kashif’s portfolio',
@@ -15,10 +16,12 @@ export const metadata = createMetadata({
     'Amazon main image case study',
     'product image optimization portfolio',
     'AI product lifestyle composite',
+    'website design portfolio',
   ],
 })
 
 const caseStudies = [...PORTFOLIO_ONLY, ...FEATURED]
+const categoryCounts = caseStudies.reduce((n, p) => ({ ...n, [p.category]: (n[p.category] || 0) + 1 }), {})
 
 export default function MyPortfolio() {
   return (
@@ -26,9 +29,9 @@ export default function MyPortfolio() {
       <main id="main-content">
         <PageHero
           watermark="WORK"
-          crumb={[{ label: 'Work' }]}
+          crumb={[{ label: 'Portfolio' }]}
           lines={['Selected work.', 'Proof over claims.']}
-          lead="In-depth case studies across main images, full listing sets and lifestyle composites. Each one is built to win the click — then answer the buyer's next question."
+          lead="In-depth case studies across Amazon listing sets, main images, brand stores and custom websites. Pick a category below to see just the work you need."
           aside={<Facts items={[
             ['Case studies', `${caseStudies.length} in depth`],
             ['Brands', '7+ major brands'],
@@ -40,7 +43,9 @@ export default function MyPortfolio() {
         <section className="section">
           <div className="shell section__in">
             <SecHead eyebrow="Case studies" pill title="Recent work" lead="The brief, the decisions and the before-and-after for every image in the set." />
-            <FeaturedCards projects={caseStudies} />
+            <WorkFilter categories={WORK_CATEGORIES} counts={categoryCounts} total={caseStudies.length}>
+              <FeaturedCards projects={caseStudies} />
+            </WorkFilter>
           </div>
         </section>
 

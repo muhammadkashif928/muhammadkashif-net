@@ -6,10 +6,19 @@ import { questions } from '@/data/faqs'
 import { shopifyService } from '@/data/shopify'
 import { Icon, Pill, Stars } from './Icons'
 
+// Portfolio filter tabs — each case study's `category` is one of these ids.
+export const WORK_CATEGORIES = [
+  { id: 'websites', label: 'Websites' },
+  { id: 'listings', label: 'Amazon listing sets' },
+  { id: 'brand-store', label: 'Amazon Brand Store' },
+  { id: 'main-images', label: 'Main images & composites' },
+]
+
 /* ---------- Four featured case studies (dark cards) ---------- */
 export const FEATURED = [
   {
     slug: 'yara-lattafa-amazon-main-image',
+    category: 'main-images',
     href: '/blackdsn-portfolio/yara-lattafa-amazon-main-image/',
     img: '/images/lx/work/yara.webp',
     imgStyle: { '--zoom': 1.3, '--zoom-at': '50% 44%' },
@@ -20,6 +29,7 @@ export const FEATURED = [
   },
   {
     slug: 'leather-hero-furniture-salve',
+    category: 'listings',
     href: '/portfolio/leather-hero-furniture-salve/',
     img: '/images/lx/work/leather-hero-salve.webp',
     imgStyle: { objectPosition: 'center 20%' },
@@ -30,6 +40,7 @@ export const FEATURED = [
   },
   {
     slug: 'leather-hero-purse-care-kit',
+    category: 'listings',
     href: '/portfolio/leather-hero-purse-care-kit/',
     img: '/images/lx/work/leather-hero-purse.webp',
     meta: 'Leather Care — Repeat client',
@@ -39,6 +50,7 @@ export const FEATURED = [
   },
   {
     slug: 'jason-markk-lifestyle-composite',
+    category: 'main-images',
     href: '/blackdsn-portfolio/jason-markk-lifestyle-composite/',
     img: '/images/lx/work/jason-markk-repel.webp',
     imgClass: 'pcard__img--inset',
@@ -55,6 +67,7 @@ export const FEATURED = [
 export const PORTFOLIO_ONLY = [
   {
     slug: 'pak-tele-net-website',
+    category: 'websites',
     href: '/portfolio/pak-tele-net-website/',
     img: '/images/lx/work/pak-tele-net-website.webp',
     meta: 'Website — Design + development',
@@ -64,6 +77,7 @@ export const PORTFOLIO_ONLY = [
   },
   {
     slug: 'leather-hero-website',
+    category: 'websites',
     href: '/portfolio/leather-hero-website/',
     img: '/images/lx/work/leather-hero-website.webp',
     meta: 'Website — Design + development',
@@ -73,6 +87,7 @@ export const PORTFOLIO_ONLY = [
   },
   {
     slug: 'fiamme-brand-store',
+    category: 'brand-store',
     href: '/portfolio/fiamme-brand-store/',
     img: '/images/lx/work/fiamme-brand-store.webp',
     meta: 'Amazon Brand Store — Case study',
@@ -82,6 +97,7 @@ export const PORTFOLIO_ONLY = [
   },
   {
     slug: 'leather-hero-restoration-kit',
+    category: 'listings',
     href: '/portfolio/leather-hero-restoration-kit/',
     img: '/images/lx/work/leather-hero-restoration-kit.webp',
     meta: 'Leather Care — Repeat client',
@@ -91,6 +107,7 @@ export const PORTFOLIO_ONLY = [
   },
   {
     slug: 'disposable-foot-socks',
+    category: 'listings',
     href: '/portfolio/disposable-foot-socks/',
     img: '/images/lx/work/disposable-foot-socks.webp',
     meta: 'Footwear Accessories — Full listing',
@@ -100,6 +117,7 @@ export const PORTFOLIO_ONLY = [
   },
   {
     slug: 'leather-hero-boot-stretcher',
+    category: 'listings',
     href: '/portfolio/leather-hero-boot-stretcher/',
     img: '/images/lx/work/leather-hero-boot-stretcher.webp',
     meta: 'Footwear Care — Repeat client',
@@ -141,7 +159,7 @@ export function FeaturedCards({ exclude, projects = FEATURED, lead = false } = {
   return (
     <ul className={`cards${exclude ? ' cards--3' : ''}${lead ? ' cards--lead' : ''}`}>
       {projects.filter(p => p.slug !== exclude).map((p, i) => (
-        <li key={p.slug} className="rv" style={{ '--rd': `${i * 90}ms` }}>
+        <li key={p.slug} className="rv" data-cat={p.category} style={{ '--rd': `${i * 90}ms` }}>
           <FeaturedCard project={p} />
         </li>
       ))}
