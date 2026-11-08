@@ -277,7 +277,8 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .store__mods { gap: 3rem; }
 .lx .store__page .gal__btn:hover img { transform: none; }
 .lx .lbox__fig--tall { align-self: stretch; align-items: stretch; overflow-y: auto; width: min(100%, 72rem); }
-.lx .lbox__fig--tall .lbox__zoom { cursor: default; flex: none; }
+.lx .lbox__fig--tall .lbox__zoom { cursor: default; flex: none; touch-action: pan-y; }
+.lx .lbox__fig--tall { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .lx .lbox__fig--tall img { width: 100%; max-height: none; }
 .lx .lbox__fig--tall figcaption { position: sticky; bottom: 0; padding: .5rem 1rem; border-radius: 9999px; background: rgba(10,10,10,.8); }
 @media (min-width: 900px) {
