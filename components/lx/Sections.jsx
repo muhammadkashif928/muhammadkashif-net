@@ -144,6 +144,7 @@ export const SERVICE_PROOF = {
   'a-plus-content': 'leather-hero-purse-care-kit',
   'amazon-brand-story': 'leather-hero-purse-care-kit',
   'amazon-brand-store': 'fiamme-brand-store',
+  'custom-website': 'leather-hero-website',
   'full-listing-design': 'leather-hero-furniture-salve',
 }
 
@@ -185,6 +186,7 @@ const shortDesc = {
   'amazon-brand-story': 'Connect your products with a memorable brand story.',
   'amazon-brand-store': 'Give your collection a considered home on Amazon.',
   'full-listing-design': 'One cohesive visual direction for your full listing.',
+  'custom-website': 'A fast, mobile-first website coded from scratch — no templates.',
 }
 
 /* Price with the regular price struck through while a sale is on */
@@ -281,6 +283,13 @@ export const STEPS = [
   ['Discover', 'We review your product, competitors and customer questions. Then agree on the scope and creative direction.'],
   ['Design & refine', 'I build the images and content as a coherent set. Your feedback shapes the agreed revision rounds.'],
   ['Deliver & launch', 'Receive your final assets sized for the agreed placements, ready for your listing or brand store.'],
+]
+
+// The same three steps for a website project.
+export const WEBSITE_STEPS = [
+  ['Discover', 'We go through your business, your customers and the sites you like, then agree the pages, features and direction.'],
+  ['Design & build', 'I design the pages and code them from scratch. Your feedback shapes the agreed revision rounds.'],
+  ['Launch', 'The site goes live on your domain — fast, mobile-ready and set up for Google.'],
 ]
 
 export function Steps({ items = STEPS }) {

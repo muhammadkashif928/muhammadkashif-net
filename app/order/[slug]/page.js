@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
     title,
     description: `${service.desc} ${priceLabel(service)}, ${service.unit}. Typical turnaround ${service.turnaround}. Secure card checkout.`,
     path: `/order/${service.slug}/`,
-    keywords: [`buy ${service.title.toLowerCase()}`, `${service.title.toLowerCase()} price`, 'hire Amazon designer'],
+    keywords: [`buy ${service.title.toLowerCase()}`, `${service.title.toLowerCase()} price`, service.slug === 'custom-website' ? 'hire website designer and developer' : 'hire Amazon designer'],
   })
 }
 

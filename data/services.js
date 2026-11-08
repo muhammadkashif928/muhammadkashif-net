@@ -27,6 +27,16 @@ export const baseFields = [
   { name: 'notes',       label: 'Anything else I should know', type: 'textarea', required: false, placeholder: 'Competitors you want to beat, features to highlight, brand guidelines...' },
 ]
 
+// Website orders ask about the business, not a marketplace listing.
+export const websiteBaseFields = [
+  { name: 'brand',      label: 'Business or brand name', type: 'text', required: true, placeholder: 'Your business name' },
+  { name: 'currentUrl', label: 'Current website (if any)', type: 'text', required: false, placeholder: 'https://...', help: 'Leave blank if this is your first website.' },
+  { name: 'examples',   label: 'Websites you like', type: 'textarea', required: false, placeholder: 'Links to 1–3 sites whose look or feel you like, and what you like about them.' },
+  { name: 'deadline',   label: 'Target launch date', type: 'date', required: false },
+  { name: 'assetsUrl',  label: 'Link to your logo, photos and text', type: 'text', required: false, placeholder: 'Google Drive, Dropbox or WeTransfer link' },
+  { name: 'notes',      label: 'Anything else I should know', type: 'textarea', required: false, placeholder: 'Your customers, competitors, must-have features...' },
+]
+
 export const services = [
   {
     slug: 'main-image-optimization',
@@ -158,6 +168,32 @@ export const services = [
       { name: 'features',  label: 'What is the product and who buys it?', type: 'textarea', required: true, placeholder: 'Product, buyer, and the competitor you most want to beat.' },
     ],
   },
+  {
+    slug: 'custom-website',
+    num: '07',
+    title: 'CUSTOM WEBSITE',
+    priceUsd: 499,
+    fromPrice: true,
+    unit: 'up to 5 pages',
+    desc: 'A fully custom website designed and coded from scratch — no template, no page builder. Fast, mobile-first and built around how your customers buy, then set up and live on your own domain.',
+    turnaround: '10–14 business days',
+    deliverables: [
+      'Custom design — no template or page builder',
+      'Up to 5 pages, hand-coded in HTML, CSS and JavaScript (React)',
+      'Mobile-first layout, checked on phone, tablet and desktop',
+      'Contact form plus WhatsApp, call or booking buttons',
+      'SEO setup — page titles, descriptions, sitemap and structured data',
+      'Speed-optimised and launched on your domain',
+      'Two revision rounds',
+    ],
+    baseFields: websiteBaseFields,
+    fields: [
+      { name: 'siteType',  label: 'What kind of website?', type: 'select', required: true, options: ['Business / service website', 'Brand / product website', 'SaaS / app website', 'Online store', 'Portfolio', 'Other'] },
+      { name: 'pageCount', label: 'How many pages?', type: 'select', required: true, options: ['1 (landing page)', '2–3', '4–5', '6+'], help: 'Checkout covers up to 5 pages. More pages are quoted separately after we confirm scope.' },
+      { name: 'domain',    label: 'Do you have a domain?', type: 'select', required: true, options: ['Yes — I have a domain', 'No — help me choose one', 'Yes — replacing an existing site'] },
+      { name: 'features',  label: 'What should the website do?', type: 'textarea', required: true, placeholder: 'e.g. show services and prices, take enquiries on WhatsApp, collect bookings, explain the product...' },
+    ],
+  },
 ]
 
 export function getService(slug) {
@@ -192,5 +228,6 @@ export function priceAmount(service) {
 
 /** Every field an order for this service should collect, in render order. */
 export function orderFields(service) {
+  if (service.baseFields) return [service.baseFields[0], ...(service.fields || []), ...service.baseFields.slice(1)]
   return [...baseFields.slice(0, 3), ...(service.fields || []), ...baseFields.slice(3)]
 }

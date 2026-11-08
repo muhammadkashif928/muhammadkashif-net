@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import LxShell from '@/components/lx/LxShell'
 import JsonLd from '@/components/JsonLd'
 import { Icon, Pill } from '@/components/lx/Icons'
-import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName, FeaturedCard, FEATURED, PORTFOLIO_ONLY, SERVICE_PROOF, PriceText } from '@/components/lx/Sections'
+import { ServiceDetail, Faq, Steps, PageHero, Facts, SecHead, serviceName, FeaturedCard, FEATURED, PORTFOLIO_ONLY, SERVICE_PROOF, WEBSITE_STEPS, PriceText } from '@/components/lx/Sections'
 import { services, getService, priceLabel } from '@/data/services'
 import { servicePresentation } from '@/data/service-presentation'
 import { blogPosts } from '@/data/blog'
@@ -28,6 +28,7 @@ export default async function ServicePage({ params }) {
   const schema = { '@context': 'https://schema.org', '@type': 'Service', '@id': absoluteUrl(`/services/${slug}/#service`), name: seo.heading, description: seo.description, url: absoluteUrl(`/services/${slug}/`), image: absoluteUrl(detail.image), serviceType: detail.title, provider: { '@id': `${siteConfig.url}/#service` }, areaServed: 'Worldwide', offers: { '@type': 'Offer', url: absoluteUrl(`/order/${slug}/`), priceCurrency: 'USD', ...(service.fromPrice ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: service.priceUsd, priceCurrency: 'USD' } } : { price: service.priceUsd }) } }
   const proof = [...FEATURED, ...PORTFOLIO_ONLY].find(p => p.slug === SERVICE_PROOF[slug])
   const name = serviceName(service)
+  const isWebsite = slug === 'custom-website'
 
   return (
     <LxShell>
@@ -82,7 +83,7 @@ export default async function ServicePage({ params }) {
           <div className="shell section__in section__in--tight">
             <div className="faq--split">
               <div className="sec-head" style={{ marginBottom: 0 }}>
-                <div className="rv" style={{ '--ry': '10px' }}><span className="eyebrow">Designed for your category</span></div>
+                <div className="rv" style={{ '--ry': '10px' }}><span className="eyebrow">{isWebsite ? 'Built for your business' : 'Designed for your category'}</span></div>
                 <h2 className="sec-h2 lines" data-delay="120">{seo.heading}</h2>
                 <p className="sec-lead rv" style={{ '--ry': '12px', '--rd': '150ms' }}>{seo.text}</p>
               </div>
@@ -104,10 +105,10 @@ export default async function ServicePage({ params }) {
 
         <section className="section">
           <div className="shell section__in section__in--tight">
-            <SecHead eyebrow="From brief to ready-to-upload" title="Good design. A straightforward process.">
+            <SecHead eyebrow={isWebsite ? 'From brief to launch' : 'From brief to ready-to-upload'} title="Good design. A straightforward process.">
               <div className="rv" style={{ '--ry': '12px', '--rd': '150ms' }}><Pill variant="outline" href="/services/">All services</Pill></div>
             </SecHead>
-            <Steps />
+            <Steps {...(isWebsite ? { items: WEBSITE_STEPS } : {})} />
           </div>
         </section>
       </main>

@@ -8,7 +8,7 @@
 
 export const shopifyService = {
   slug: 'shopify-store-design',
-  num: '07',
+  num: '08',
   title: 'Shopify Store Design',
   fromUsd: 500,
   unit: 'per store',

@@ -47,4 +47,12 @@ export const serviceSeo = {
     articles: ['amazon-listing-audit-checklist', 'how-to-hire-amazon-listing-designer'],
     faqs: [{ q: 'Is the full package suitable for a new product launch?', a: 'Yes. The brief can start before the listing is live if product details, imagery and packaging are available. We confirm asset readiness and account requirements before setting the project schedule.' }, { q: 'Can you refresh an existing listing instead?', a: 'Yes. Share the current listing and the questions or presentation problems you want to address. The scope can then be planned around the creative assets that need updating.' }],
   },
+  'custom-website': {
+    title: 'Custom Website Design & Development from $499 | Muhammad Kashif',
+    description: 'A fully custom website designed and coded from scratch — no templates. Mobile-first, fast and SEO-ready, launched on your domain. Up to 5 pages from $499.',
+    heading: 'A website built around how your customers buy',
+    text: 'Every site starts from your customers, not a theme. I plan the pages around the questions they ask and the action you want them to take — a call, a WhatsApp message, a booking or a sign-up — then design and code it from scratch. The result is fast on phones, easy to find on Google and yours to keep.',
+    articles: [],
+    faqs: [{ q: 'Is this really custom, or a template?', a: 'Custom. Every page is designed for your business and hand-coded — no theme, no page builder. You can see the same approach in the Leather Hero, Pak Tele Net and Margilla case studies.' }, { q: 'What does $499 include, and what costs extra?', a: 'Up to 5 pages, mobile-first design, a contact form with WhatsApp, call or booking buttons, SEO setup and launch on your domain, with two revision rounds. Extra pages, an online store, logins or other app features are quoted separately before work begins — never charged automatically.' }, { q: 'Do I need a domain and hosting?', a: 'You need a domain — I can help you choose and buy one if you do not have it yet. The site is set up on fast, low-cost hosting, and I walk you through what (if anything) it costs before launch.' }, { q: 'Can I update the website later?', a: 'Yes. You own the site and its code. Changes after launch can be quoted as you need them.' }],
+  },
 }
