@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'eagle-shoe-care-website',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/eagle-shoe-care-website/',
+    tag: 'SHOPIFY STORE + B2B WHOLESALE',
+    title: 'Eagle Shoe Care — Shopify Store',
+    desc: 'A fully custom Shopify theme for Eagle Shoe Care — a retail store with a product finder and Buy on Amazon buttons, plus a built-in B2B wholesale application and sign-in.',
+    img: '/case-studies/eagle-shoe-care-website/desktop-home-hero.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 20, 2026',
+    software: ['Shopify', 'Liquid', 'HTML', 'CSS', 'JavaScript'],
+  },
+  {
     slug: 'margilla-website',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/margilla-website/',

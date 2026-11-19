@@ -66,6 +66,16 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'eagle-shoe-care-website',
+    category: 'websites',
+    href: '/portfolio/eagle-shoe-care-website/',
+    img: '/images/lx/work/eagle-shoe-care-website.webp',
+    meta: 'Shopify — Design + development',
+    title: 'Eagle Shoe Care — Shopify Store',
+    desc: 'A fully custom Shopify theme for a shoe-care brand — one store that sells to shoppers and signs up the retailers that stock it.',
+    tags: ['Custom Shopify Theme', 'B2B Wholesale', 'Mobile-first'],
+  },
+  {
     slug: 'margilla-website',
     category: 'websites',
     href: '/portfolio/margilla-website/',
