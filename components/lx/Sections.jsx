@@ -17,15 +17,14 @@ export const WORK_CATEGORIES = [
 /* ---------- Four featured case studies (dark cards) ---------- */
 export const FEATURED = [
   {
-    slug: 'yara-lattafa-amazon-main-image',
-    category: 'main-images',
-    href: '/blackdsn-portfolio/yara-lattafa-amazon-main-image/',
-    img: '/images/lx/work/yara.webp',
-    imgStyle: { '--zoom': 1.3, '--zoom-at': '50% 44%' },
-    meta: 'Amazon Main Image — Case study',
-    title: 'Yara by Lattafa',
-    desc: 'Raw casual shots of the Yara EDP redesigned into a scroll-stopping main image — shape clarity, lighting and CTR in an AI + Photoshop workflow.',
-    tags: ['Main Image', 'Retouching', 'AI + Photoshop'],
+    slug: 'eagle-shoe-care-website',
+    category: 'websites',
+    href: '/portfolio/eagle-shoe-care-website/',
+    img: '/images/lx/work/eagle-shoe-care-website.webp',
+    meta: 'Shopify — Design + development',
+    title: 'Eagle Shoe Care — Shopify Store',
+    desc: 'A fully custom Shopify theme for a shoe-care brand — one store that sells to shoppers and signs up the retailers that stock it.',
+    tags: ['Custom Shopify Theme', 'B2B Wholesale', 'Mobile-first'],
   },
   {
     slug: 'leather-hero-furniture-salve',
@@ -66,14 +65,25 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
-    slug: 'eagle-shoe-care-website',
-    category: 'websites',
-    href: '/portfolio/eagle-shoe-care-website/',
-    img: '/images/lx/work/eagle-shoe-care-website.webp',
-    meta: 'Shopify — Design + development',
-    title: 'Eagle Shoe Care — Shopify Store',
-    desc: 'A fully custom Shopify theme for a shoe-care brand — one store that sells to shoppers and signs up the retailers that stock it.',
-    tags: ['Custom Shopify Theme', 'B2B Wholesale', 'Mobile-first'],
+    slug: 'eagle-shoe-care-shoe-cream',
+    category: 'listings',
+    href: '/portfolio/eagle-shoe-care-shoe-cream/',
+    img: '/images/lx/work/eagle-shoe-care-shoe-cream.webp',
+    meta: 'Shoe Care — Full listing',
+    title: 'Eagle Shoe Care — Shoe Cream',
+    desc: 'A ten-image set for a black shoe cream sold with its own brush and cloth — the bundle, a scuffed-boot before-and-after and a buff-to-shine routine.',
+    tags: ['10-Image Set', 'Infographics', 'Before / After'],
+  },
+  {
+    slug: 'yara-lattafa-amazon-main-image',
+    category: 'main-images',
+    href: '/blackdsn-portfolio/yara-lattafa-amazon-main-image/',
+    img: '/images/lx/work/yara.webp',
+    imgStyle: { '--zoom': 1.3, '--zoom-at': '50% 44%' },
+    meta: 'Amazon Main Image — Case study',
+    title: 'Yara by Lattafa',
+    desc: 'Raw casual shots of the Yara EDP redesigned into a scroll-stopping main image — shape clarity, lighting and CTR in an AI + Photoshop workflow.',
+    tags: ['Main Image', 'Retouching', 'AI + Photoshop'],
   },
   {
     slug: 'margilla-website',

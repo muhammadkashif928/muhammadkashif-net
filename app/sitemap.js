@@ -28,6 +28,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/eagle-shoe-care-shoe-cream/', 'monthly', 0.9, '2026-11-22'),
     route('/portfolio/eagle-shoe-care-website/', 'monthly', 0.9, '2026-11-20'),
     route('/portfolio/margilla-website/', 'monthly', 0.9, '2026-11-09'),
     route('/portfolio/pak-tele-net-website/', 'monthly', 0.9, '2026-11-09'),

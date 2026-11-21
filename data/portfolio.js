@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'eagle-shoe-care-shoe-cream',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/eagle-shoe-care-shoe-cream/',
+    tag: 'AMAZON LISTING SET',
+    title: 'Eagle Shoe Care — Premium Shoe Cream',
+    desc: 'A black carnauba shoe cream sold with its own brush and cloth. A ten-image set built on a scuffed-boot before-and-after, the bundle and a buff-to-shine routine.',
+    img: '/case-studies/eagle-shoe-care-shoe-cream/03-before-after.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 22, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'eagle-shoe-care-website',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/eagle-shoe-care-website/',

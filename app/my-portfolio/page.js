@@ -2,6 +2,7 @@ import LxShell from '@/components/lx/LxShell'
 import { Pill } from '@/components/lx/Icons'
 import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
 import WorkFilter from '@/components/lx/WorkFilter'
+import { portfolioProjects } from '@/data/portfolio'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
@@ -20,7 +21,10 @@ export const metadata = createMetadata({
   ],
 })
 
-const caseStudies = [...PORTFOLIO_ONLY, ...FEATURED]
+// Newest first, using the dated order in data/portfolio.js (unknown slugs go last).
+const order = portfolioProjects.map(p => p.slug)
+const rank = slug => (order.indexOf(slug) + 1) || order.length + 1
+const caseStudies = [...PORTFOLIO_ONLY, ...FEATURED].sort((a, b) => rank(a.slug) - rank(b.slug))
 const categoryCounts = caseStudies.reduce((n, p) => ({ ...n, [p.category]: (n[p.category] || 0) + 1 }), {})
 
 export default function MyPortfolio() {
