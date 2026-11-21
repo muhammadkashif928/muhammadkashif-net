@@ -172,7 +172,9 @@ export function FeaturedCard({ project: p }) {
   return (
     <a className="pcard-link" href={p.href}>
       <article className="pcard">
-        <img className={`pcard__img ${p.imgClass || ''}`} src={p.img} alt="" loading="lazy" decoding="async" style={p.imgStyle} />
+        <div className="pcard__frame">
+          <img className={`pcard__img ${p.imgClass || ''}`} src={p.img} alt="" loading="lazy" decoding="async" style={p.imgStyle} />
+        </div>
         <div className="pcard__shade" />
         <div className="pcard__meta"><span>{p.meta}</span><span className="pcard__badge"><Icon name="arrow-ur" /></span></div>
         <div className="pcard__body">

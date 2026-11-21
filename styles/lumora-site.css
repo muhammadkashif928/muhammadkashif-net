@@ -589,3 +589,36 @@ html:has(.lx) body.noise::before { display: none; }
 /* Homepage about: the device and tools I work with */
 .lx .setup__device { font-size: .9375rem; font-weight: 500; color: #111; }
 .lx .setup__tools { margin-top: .25rem; font-size: .8125rem; color: rgba(17,17,17,.55); }
+
+/* ---------- Case-study cards: light, matching the template ----------
+   Replaces the dark text-over-photo boxes with the template's light surface:
+   photo in its own rounded frame, then label, title, copy and outline tags.
+   Applies at every width (supersedes the phone-only stack above). */
+.lx .pcard { min-height: 0 !important; padding: .625rem !important; display: flex; flex-direction: column;
+  background: var(--surface); color: var(--foreground); box-shadow: 0 0 0 1px var(--line); }
+.lx .pcard__frame { position: relative; overflow: hidden; aspect-ratio: 3 / 2; border-radius: 1.5rem; background: #0a0a0a; }
+.lx .pcard__img { position: absolute; inset: 0; height: 100% !important; }
+.lx .pcard__img--inset { -webkit-mask-image: none; mask-image: none; --zoom: 1 !important; }
+.lx .pcard__shade { display: none; }
+.lx .pcard__meta { position: absolute; inset: 1.375rem 1.375rem auto; z-index: 2; color: #fff; font-size: .6875rem; }
+.lx .pcard__meta > span:first-child { border-radius: 9999px; background: rgba(10,10,10,.5); padding: .4rem .8rem;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.lx .pcard__badge { background: #fff; color: #0a0a0a; box-shadow: none; }
+.lx .pcard__body { position: static; inset: auto; padding: 1.25rem .875rem .875rem; }
+.lx .pcard__body h3 { font-size: 1.375rem; line-height: 1.2; color: var(--foreground); }
+.lx .pcard__body p { margin-top: .5rem; font-size: .875rem; line-height: 1.6; color: rgba(17,17,17,.6); }
+.lx .pcard .tags { margin-top: 1rem; gap: .375rem; }
+.lx .pcard .tag { border-color: var(--line); background: var(--background); color: rgba(17,17,17,.75); padding: .3rem .8rem; font-size: .75rem; }
+@media (min-width: 640px) {
+  .lx .pcard { padding: .75rem !important; }
+  .lx .pcard__meta { inset: 1.75rem 1.75rem auto; font-size: .75rem; }
+  .lx .pcard__body { padding: 1.5rem 1rem 1rem; }
+  .lx .pcard__body h3 { font-size: 1.625rem; }
+}
+@media (min-width: 1024px) {
+  .lx .cards--3 .pcard__body h3 { font-size: 1.375rem; }
+  .lx .cards--lead > li:first-child .pcard__frame { aspect-ratio: 21 / 9; }
+}
+@media (hover: hover) {
+  .lx .pcard-link:hover .pcard { transform: translateY(-6px); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -28px rgba(17,17,17,.35); }
+}
