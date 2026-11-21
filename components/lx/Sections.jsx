@@ -71,8 +71,8 @@ export const PORTFOLIO_ONLY = [
     img: '/images/lx/work/eagle-shoe-care-shoe-cream.webp',
     meta: 'Shoe Care — Full listing',
     title: 'Eagle Shoe Care — Shoe Cream',
-    desc: 'A ten-image set for a black shoe cream sold with its own brush and cloth — the bundle, a scuffed-boot before-and-after and a buff-to-shine routine.',
-    tags: ['10-Image Set', 'Infographics', 'Before / After'],
+    desc: 'A ten-image set and A+ Content for a black shoe cream sold with its own brush and cloth — the bundle, a scuffed-boot before-and-after and a buff-to-shine routine.',
+    tags: ['10-Image Set', 'A+ Content', 'Before / After'],
   },
   {
     slug: 'yara-lattafa-amazon-main-image',
@@ -161,7 +161,7 @@ export const PORTFOLIO_ONLY = [
 export const SERVICE_PROOF = {
   'main-image-optimization': 'yara-lattafa-amazon-main-image',
   'product-infographics': 'leather-hero-furniture-salve',
-  'a-plus-content': 'leather-hero-purse-care-kit',
+  'a-plus-content': 'eagle-shoe-care-shoe-cream',
   'amazon-brand-story': 'leather-hero-purse-care-kit',
   'amazon-brand-store': 'fiamme-brand-store',
   'custom-website': 'leather-hero-website',

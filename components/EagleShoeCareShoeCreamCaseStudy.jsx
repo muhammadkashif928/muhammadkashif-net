@@ -1,11 +1,12 @@
 // Eagle Shoe Care — Premium Shoe Cream listing case study, in the Lumora design.
 // Content lives in data/case-studies/eagle-shoe-care-shoe-cream.js.
 import LxShell from '@/components/lx/LxShell'
-import Gallery, { ZoomPair } from '@/components/lx/Gallery'
+import Gallery, { ZoomPair, DeviceFrames } from '@/components/lx/Gallery'
 import { Pill } from '@/components/lx/Icons'
 import { CaseHero, CaseBlock, CaseResults, CaseNext, SOFTWARE } from '@/components/lx/Case'
 import {
   results, meta, mainPrimary, mainAlt, galleryImages, mainImageParagraphs,
+  aplusDevices, aplusParagraphs,
 } from '@/data/case-studies/eagle-shoe-care-shoe-cream'
 
 export default function EagleShoeCareShoeCreamCaseStudy() {
@@ -16,7 +17,7 @@ export default function EagleShoeCareShoeCreamCaseStudy() {
           crumb="Eagle Shoe Care — Shoe Cream"
           eyebrow="Amazon listing design · Shoe care — cream & polish"
           lines={['Eagle Shoe Care', 'Premium Shoe Cream']}
-          lead="A black carnauba shoe cream sold with its own brush and buffing cloth. A ten-image set that shows the bundle, proves the result on a scuffed boot and walks the buyer from first coat to final shine."
+          lead="A black carnauba shoe cream sold with its own brush and buffing cloth. A ten-image set that shows the bundle, proves the result on a scuffed boot and walks the buyer from first coat to final shine — plus A+ Content built separately for desktop and mobile."
           meta={[
             ['Client', meta.client],
             ['Product', meta.product],
@@ -41,6 +42,13 @@ export default function EagleShoeCareShoeCreamCaseStudy() {
 
         <CaseBlock eyebrow="The set" title="Ten images, ten jobs" lead="Every slot in a listing is a question the buyer has not asked out loud yet. Here is what each of the ten is for.">
           <div className="rv"><Gallery images={galleryImages} columns={3} /></div>
+        </CaseBlock>
+
+        <CaseBlock eyebrow="A+ Content" title="Below the fold, built twice" lead="One story for desktop, rebuilt for the phone. Tap either screen to scroll the full module stack.">
+          <div className="prose rv" style={{ marginBottom: '3rem' }}>
+            {aplusParagraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
+          <div className="rv"><DeviceFrames items={aplusDevices} className="devs--hero" /></div>
         </CaseBlock>
 
         <CaseResults results={results} />

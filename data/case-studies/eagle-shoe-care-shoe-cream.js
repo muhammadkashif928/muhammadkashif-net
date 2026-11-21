@@ -29,7 +29,7 @@ export const meta = {
   product: 'Premium Shoe Cream — Black, with Applicator Brush & Buffing Cloth',
   category: 'Shoe Care — Leather Cream & Polish',
   marketplace: 'Amazon US',
-  scope: 'Full Listing Set — 10 Images',
+  scope: 'Full Listing Set — 10 Images + A+ Content',
   published: 'Nov 22, 2026',
   publishedISO: '2026-11-22',
   slug: 'eagle-shoe-care-shoe-cream',
@@ -132,4 +132,30 @@ export const mainImageParagraphs = [
   'Shoe cream is a commodity on Amazon. Most listings show a closed tin on white, and the buyer cannot tell one from the next. This one has three things to sell: the cream, the brush and the cloth.',
   'Both main images open the jar, so the buyer sees the cream itself. The first leans the lid against the jar and spreads the cloth out behind; the second stands the lid face-on, with the brush in front.',
   'The call: lead with the open jar and all three pieces in view. The bundle is the reason to pick this listing over a bare tin, so it has to be visible at thumbnail size. The face-on lid stays as the A/B challenger.',
+]
+
+// A+ Content — the same story below the fold, built twice: a desktop layout
+// and a separate mobile layout. Shown in device frames (tap to scroll).
+export const aplusDevices = [
+  {
+    img: { src: `${DIR}/aplus-desktop.jpg`, width: 1440, height: 3541, tall: true,
+      alt: 'Eagle Shoe Cream A+ Content on desktop — restore rich black colour and shine, the complete 3-piece kit, the natural carnauba wax formula, a dull-to-restored boot and four benefit tiles' },
+    thumb: `${DIR}/aplus-desktop-top.webp`,
+    full: `${DIR}/aplus-desktop-full.webp`,
+    kind: 'desktop',
+    tag: 'A+ Content — desktop',
+  },
+  {
+    img: { src: `${DIR}/aplus-mobile.jpg`, width: 600, height: 2700, tall: true, phone: true,
+      alt: 'Eagle Shoe Cream A+ Content on mobile — the same five modules rebuilt for a phone, with headlines in gold bars and the benefit tiles in a two-by-two grid' },
+    thumb: `${DIR}/aplus-mobile-top.webp`,
+    kind: 'phone',
+    tag: 'A+ Content — mobile',
+  },
+]
+
+export const aplusParagraphs = [
+  'The images sell the click; A+ Content sells the decision. It sits below the fold, where a buyer who is nearly convinced scrolls to check one last thing.',
+  'Five modules, in the order a buyer’s doubts arrive: what it does (restore black colour and shine), what comes in the box (cream, brush and cloth), what it is made of (natural carnauba wax), whether it works (a dull boot next to the same boot restored) and what it does over time (colour, softness, shine and protection).',
+  'Amazon shows a different layout on phones, so the mobile version is rebuilt, not shrunk: headlines move into gold bars, the problem list sits under the boots instead of beside them, and the four benefit tiles become a two-by-two grid that still reads at phone width.',
 ]

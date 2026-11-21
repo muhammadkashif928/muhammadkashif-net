@@ -7,7 +7,7 @@ const title =
   'Eagle Shoe Care Premium Shoe Cream — Amazon Listing Design Case Study | Muhammad Kashif'
 
 const description =
-  'Amazon listing design case study: Eagle Shoe Care Premium Shoe Cream — a black carnauba shoe cream with brush and buffing cloth. A ten-image set built on a scuffed-boot before-and-after, the bundle and a buff-to-shine routine.'
+  'Amazon listing design case study: Eagle Shoe Care Premium Shoe Cream — a black carnauba shoe cream with brush and buffing cloth. A ten-image set built on a scuffed-boot before-and-after, the bundle and a buff-to-shine routine, plus A+ Content for desktop and mobile.'
 
 export const metadata = createMetadata({
   title,
@@ -26,6 +26,7 @@ export const metadata = createMetadata({
     'Amazon infographic design shoe care',
     'Amazon main image design shoe cream',
     'shoe care Amazon listing designer',
+    'shoe care A+ Content design',
     'Eagle Shoe Care shoe cream case study',
   ],
 })
