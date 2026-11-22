@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer'
 import { enrichLead, scoreLead, saveLead, countPreviousLeads } from '@/lib/leads'
 import { notificationEmail, autoReplyEmail } from '@/lib/emails'
+import { checkSpam } from '@/lib/spam'
 
 // ── Hostinger SMTP — direct, no third-party service ──────────────────────
 // Required env vars in Vercel → Settings → Environment Variables:
@@ -72,7 +73,7 @@ export async function POST(request) {
   let body
   if (isForm) {
     const f = await request.formData()
-    body = { name: f.get('name') || '', email: f.get('email') || '', message: f.get('message') || '', honeypot: f.get('website') || '' }
+    body = { name: f.get('name') || '', email: f.get('email') || '', message: f.get('message') || '', honeypot: f.get('website') || '', isForm: true }
   } else {
     try { body = await request.json() } catch {
       return Response.json({ error: 'Invalid request' }, { status: 400 })
@@ -102,6 +103,19 @@ async function handleContact(request, body) {
     return Response.json({ error: 'Please enter a valid email address.' }, { status: 400 })
   if (!message?.trim() || message.trim().length < 10 || message.trim().length > 3000)
     return Response.json({ error: 'Message must be 10–3000 characters.' }, { status: 400 })
+
+  // Spam — pretend it worked so the bot moves on, but send nothing.
+  const spamCheck = checkSpam({
+    name: name.trim(),
+    email: email.trim(),
+    message: message.trim(),
+    elapsed: typeof body.elapsed === 'number' ? body.elapsed : undefined,
+    viaScript: !body.isForm,
+  })
+  if (spamCheck.spam) {
+    console.warn('[contact] spam dropped:', spamCheck.reasons.join(', '), '|', ip)
+    return Response.json({ success: true })
+  }
 
   // Check SMTP credentials are configured
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
