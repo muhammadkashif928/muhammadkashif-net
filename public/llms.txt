@@ -107,6 +107,7 @@ Three packages, quoted after a short scoping conversation (https://muhammadkashi
 
 | Project | URL | Description |
 |---------|-----|-------------|
+| Leather Hero — Leather Care Kit Carousel | https://muhammadkashif.net/portfolio/leather-hero-care-kit-carousel/ | Seven-slide 9:16 lifestyle carousel for a leather cleaner and conditioner kit, from the promise through four steps to a before-and-after |
 | Eagle Shoe Care — Premium Shoe Cream | https://muhammadkashif.net/portfolio/eagle-shoe-care-shoe-cream/ | Ten-image Amazon listing set for a black shoe cream with brush and buffing cloth |
 | Eagle Shoe Care — Shopify Store | https://muhammadkashif.net/portfolio/eagle-shoe-care-website/ | Fully custom Shopify theme for a shoe-care brand, with a built-in B2B wholesale application and sign-in |
 | Margilla — SaaS Website | https://muhammadkashif.net/portfolio/margilla-website/ | Website for a TikTok Shop profit analytics SaaS, built in React |

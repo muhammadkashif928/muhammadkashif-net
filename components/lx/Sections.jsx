@@ -65,6 +65,16 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'leather-hero-care-kit-carousel',
+    category: 'main-images',
+    href: '/portfolio/leather-hero-care-kit-carousel/',
+    img: '/images/lx/work/leather-hero-care-kit-carousel.webp',
+    meta: 'Leather Care — Lifestyle carousel',
+    title: 'Leather Hero — Care Kit Carousel',
+    desc: 'A cleaner and conditioner kit told as a seven-slide vertical carousel on one car seat — the promise, the kit, four steps and a split-seat before-and-after.',
+    tags: ['7-Slide Carousel', 'How-To Steps', 'Before / After'],
+  },
+  {
     slug: 'eagle-shoe-care-shoe-cream',
     category: 'listings',
     href: '/portfolio/eagle-shoe-care-shoe-cream/',

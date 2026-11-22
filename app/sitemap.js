@@ -28,6 +28,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/leather-hero-care-kit-carousel/', 'monthly', 0.9, '2026-11-23'),
     route('/portfolio/eagle-shoe-care-shoe-cream/', 'monthly', 0.9, '2026-11-22'),
     route('/portfolio/eagle-shoe-care-website/', 'monthly', 0.9, '2026-11-20'),
     route('/portfolio/margilla-website/', 'monthly', 0.9, '2026-11-09'),

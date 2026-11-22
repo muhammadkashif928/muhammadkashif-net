@@ -15,6 +15,17 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'leather-hero-care-kit-carousel',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/leather-hero-care-kit-carousel/',
+    tag: 'LIFESTYLE CAROUSEL',
+    title: 'Leather Hero — Leather Care Kit Carousel',
+    desc: 'A two-step cleaner and conditioner kit told as a seven-slide 9:16 carousel — one car seat, from dirty to clean, ending on a split-seat before-and-after.',
+    img: '/case-studies/leather-hero-care-kit-carousel/share.jpg',
+    date: 'Nov 23, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'eagle-shoe-care-shoe-cream',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/eagle-shoe-care-shoe-cream/',
