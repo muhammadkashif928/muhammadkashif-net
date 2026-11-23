@@ -1,4 +1,5 @@
 import LxShell from '@/components/lx/LxShell'
+import HeroWater from '@/components/lx/HeroWater'
 import { Pill } from '@/components/lx/Icons'
 import { ServiceRows, ServiceDetail, Faq, Steps, PageHero, Facts, SecHead } from '@/components/lx/Sections'
 import { services } from '@/data/services'
@@ -45,6 +46,7 @@ export default function ServicesPage() {
         />
 
         <section className="services">
+          <HeroWater />
           <div className="shell services__in">
             <div className="rv" style={{ '--ry': '10px' }}><span className="eyebrow">What I deliver</span></div>
             <h2 className="services__h2 lines" data-delay="120">Design at every touchpoint.</h2>

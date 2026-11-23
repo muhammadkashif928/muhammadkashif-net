@@ -664,3 +664,22 @@ html:has(.lx) body.noise::before { display: none; }
 .lx:has(.phero, .ahero) .site-header .clock__lbl { color: rgba(255,255,255,.5); }
 .lx:has(.phero, .ahero) .site-header .clock__time { color: #fff; }
 .lx:has(.phero, .ahero) .site-header .clock__sep { color: rgba(255,255,255,.3); }
+
+/* ---------- Home services: dark water panel ----------
+   Same dark backdrop and water surface as the inner-page heroes, with the rows in white. */
+.lx .services { position: relative; isolation: isolate; overflow: hidden; border-radius: 2rem; color: #fff;
+  background: radial-gradient(60rem 30rem at 85% 0%, rgba(207,128,71,.28), transparent 62%), linear-gradient(to bottom, #161514, #0a0a0a); }
+.lx .phero + .services { margin-top: .75rem; }
+.lx .services__in { position: relative; z-index: 2; }
+.lx .services .eyebrow { color: rgba(255,255,255,.75); }
+.lx .services .eyebrow::before { background: rgba(255,255,255,.6); }
+.lx .services .srows li { border-top-color: rgba(255,255,255,.12); }
+.lx .services .srow__idx { color: rgba(255,255,255,.45); }
+.lx .services .srow p { color: rgba(255,255,255,.65); }
+.lx .services .srow__price { color: #fff; }
+.lx .services .srow__price small { color: rgba(255,255,255,.5); }
+.lx .services .srow__price .was s { color: rgba(255,255,255,.45); }
+.lx .services .srow__badge { background: #fff; color: #0a0a0a; }
+.lx .services .pill--outline .pill__in { border-color: rgba(255,255,255,.3); color: #fff; }
+.lx .services .pill--outline .pill__badge { background: #fff; color: #0a0a0a; }
+@media (hover: hover) { .lx .services .srow-link:hover .srow { background: rgba(255,255,255,.08); } }

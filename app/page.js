@@ -25,12 +25,11 @@ export default function Home() {
     <LxShell>
       <main id="main-content">
 
-        {/* Hero: black-and-white portrait; the cursor paints in a warm copper-graded version with the gold logo */}
+        {/* Hero: black-and-white portrait that ripples like water under the cursor */}
         <section className="hero" id="home">
-          <div className="liquid" id="liquid" data-reveal="/images/lx/hero-reveal.jpg" data-reveal-tint="#c4632a" data-reveal-tint-strength="0.82">
+          <div className="liquid" id="liquid">
             <img src="/images/lx/hero.jpg" alt="Muhammad Kashif in a beige cap, round glasses and a black shirt, resting his chin on his hand" fetchPriority="high" decoding="async" width="2000" height="1333" />
             <HeroWater />
-            <canvas aria-hidden="true" />
           </div>
           <div className="hero__vignette" />
           <div className="hero__wm rv" data-gate="" aria-hidden="true">KASHIF</div>
@@ -153,6 +152,7 @@ export default function Home() {
 
         {/* Services */}
         <section className="services" id="what-i-deliver">
+          <HeroWater />
           <div className="shell services__in">
             <div className="rv" style={{ '--ry': '10px' }}><span className="eyebrow">What I deliver</span></div>
             <h2 className="services__h2 lines" data-delay="120">Design at every touchpoint.</h2>
