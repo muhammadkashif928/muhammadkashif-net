@@ -23,6 +23,7 @@ export default function Blog() {
         <PageHero
           watermark="JOURNAL"
           crumb={[{ label: 'Blog' }]}
+          path="/blog/"
           lines={['A sharper eye.', 'A stronger listing.']}
           lead="Practical guides on product imagery, A+ Content and brand design. Find an answer, explore an idea, or plan your next launch."
           aside={<Facts items={[

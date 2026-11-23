@@ -127,6 +127,7 @@ export default function PrivacyPolicyPage() {
     <LegalDoc
       watermark="PRIVACY"
       crumb="Privacy Policy"
+      path="/privacy-policy/"
       lines={['Privacy', 'policy.']}
       updated="Last updated: June 2025"
       intro="This Privacy Policy applies to the website muhammadkashif.net and all content, services, and information available on the site. Please read this policy carefully before using our Website."

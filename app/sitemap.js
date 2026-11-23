@@ -1,8 +1,9 @@
 import { blogPosts } from '@/data/blog'
 import { services } from '@/data/services'
+import { FEATURED, PORTFOLIO_ONLY } from '@/components/lx/Sections'
 
 const baseUrl = 'https://muhammadkashif.net'
-const siteUpdated = '2026-10-12T22:00:00+08:00'
+const siteUpdated = '2026-11-24T04:00:00+08:00'
 
 function route(path, changeFrequency, priority, lastModified = siteUpdated) {
   return {
@@ -28,6 +29,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/designer-trends-inc-website/', 'monthly', 0.9, '2026-11-24'),
     route('/portfolio/leather-hero-care-kit-carousel/', 'monthly', 0.9, '2026-11-23'),
     route('/portfolio/eagle-shoe-care-shoe-cream/', 'monthly', 0.9, '2026-11-22'),
     route('/portfolio/eagle-shoe-care-website/', 'monthly', 0.9, '2026-11-20'),
@@ -43,6 +45,10 @@ export default function sitemap() {
     route('/blackdsn-portfolio/jason-markk-lifestyle-composite/', 'monthly', 0.8),
     route('/blackdsn-portfolio/yara-lattafa-amazon-main-image/', 'monthly', 0.8),
   ]
+
+  // Attach each case study's cover so it is eligible for Google Images.
+  const covers = Object.fromEntries([...FEATURED, ...PORTFOLIO_ONLY].filter(p => p.img).map(p => [`${baseUrl}${p.href}`, `${baseUrl}${p.img}`]))
+  portfolioRoutes.forEach(r => { if (covers[r.url]) r.images = [covers[r.url]] })
 
   const blogRoutes = blogPosts.map((post) =>
     ({ ...route(

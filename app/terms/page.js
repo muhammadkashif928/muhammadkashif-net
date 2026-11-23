@@ -115,6 +115,7 @@ export default function TermsPage() {
     <LegalDoc
       watermark="TERMS"
       crumb="Terms of Service"
+      path="/terms/"
       lines={['Terms of', 'service.']}
       updated="Last updated: June 2025"
       intro="Please read these Terms of Service carefully before using muhammadkashif.net. These terms govern your use of the Website and any services provided. By accessing this Website, you agree to be bound by these terms."

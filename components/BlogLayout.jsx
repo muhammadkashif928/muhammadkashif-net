@@ -4,6 +4,7 @@
 // the signature stable. JSON-LD and metadata stay in each page (BlogStructuredData).
 import { useEffect, useRef, useState } from 'react'
 import LxShell from '@/components/lx/LxShell'
+import Bg3d from '@/components/lx/Bg3d'
 import { Icon, Pill } from '@/components/lx/Icons'
 import { blogPosts } from '@/data/blog'
 import CommentSection from '@/components/CommentSection'
@@ -55,6 +56,7 @@ export default function BlogLayout({ children, title, category, date, image, ima
     <LxShell>
       <main id="main-content">
         <section className="ahero">
+          <Bg3d />
           <div className="shell ahero__in">
             <nav className="phero__crumbs rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }} aria-label="Breadcrumb">
               <a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>{category}</span>

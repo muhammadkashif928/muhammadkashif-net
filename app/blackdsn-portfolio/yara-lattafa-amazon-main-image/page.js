@@ -1,5 +1,6 @@
 import YaraLattafaPortfolio from '@/components/YaraLattafaPortfolio'
-import { createMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { createMetadata, getBreadcrumbJsonLd } from '@/lib/seo'
 
 export const metadata = createMetadata({
   title: 'Yara by Lattafa — Amazon Main Image Redesign | AI + Photoshop | Muhammad Kashif',
@@ -23,5 +24,14 @@ export const metadata = createMetadata({
 })
 
 export default function YaraLattafaAmazonMainImagePage() {
-  return <YaraLattafaPortfolio />
+  return (
+    <>
+      <JsonLd data={getBreadcrumbJsonLd([
+        { name: 'Home', path: '/' },
+        { name: 'Portfolio', path: '/my-portfolio/' },
+        { name: 'Yara Lattafa Amazon Main Image', path: '/blackdsn-portfolio/yara-lattafa-amazon-main-image/' },
+      ])} />
+      <YaraLattafaPortfolio />
+    </>
+  )
 }

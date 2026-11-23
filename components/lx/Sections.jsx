@@ -5,6 +5,9 @@ import { servicePresentation } from '@/data/service-presentation'
 import { questions } from '@/data/faqs'
 import { shopifyService } from '@/data/shopify'
 import { Icon, Pill, Stars } from './Icons'
+import Bg3d from './Bg3d'
+import JsonLd from '@/components/JsonLd'
+import { getBreadcrumbJsonLd } from '@/lib/seo'
 
 // Portfolio filter tabs — each case study's `category` is one of these ids.
 export const WORK_CATEGORIES = [
@@ -64,6 +67,16 @@ export const FEATURED = [
 // Case studies listed on /my-portfolio/ only — kept out of FEATURED so the
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
+  {
+    slug: 'designer-trends-inc-website',
+    category: 'websites',
+    href: '/portfolio/designer-trends-inc-website/',
+    img: '/images/lx/work/designer-trends-inc-website.webp',
+    meta: 'Website — Design + development',
+    title: 'Designer Trends Inc. — Company Website',
+    desc: 'A fully custom company website for a footwear and leather-care group — four brands, a news journal and wholesale enquiries in one place.',
+    tags: ['Custom Website', 'Next.js', 'B2B Wholesale'],
+  },
   {
     slug: 'leather-hero-care-kit-carousel',
     category: 'main-images',
@@ -366,9 +379,13 @@ export function Reviews() {
 }
 
 /* ---------- Page hero for inner pages ---------- */
-export function PageHero({ watermark, crumb, lines, lead, aside, children }) {
+// Pass `path` (the page's own URL path) to also emit BreadcrumbList structured data
+// matching the visible breadcrumb.
+export function PageHero({ watermark, crumb, lines, lead, aside, path, children }) {
   return (
     <section className="phero">
+      {path && <JsonLd data={getBreadcrumbJsonLd([{ name: 'Home', path: '/' }, ...crumb.map(c => ({ name: c.label, path: c.href || path }))])} />}
+      <Bg3d />
       <div className="phero__wm rv" data-gate="" aria-hidden="true">{watermark}</div>
       <div className="shell phero__in">
         <div className="phero__main">

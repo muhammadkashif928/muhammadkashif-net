@@ -115,6 +115,7 @@ export default function ResumePage() {
         <PageHero
           watermark="RESUME"
           crumb={[{ label: 'Resume' }]}
+          path="/resume/"
           lines={['Resume & CV.', 'Eight years in e-commerce.']}
           lead="E-commerce creative designer — Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design. A Malaysian approved digital nomad, working remotely with brands in the US, UK and Canada."
           aside={

@@ -54,9 +54,9 @@ export const metadata = {
     gender: 'male',
     images: [
       {
-        url: '/images/profile.avif',
-        width: 1200,
-        height: 1200,
+        url: siteConfig.defaultImage,
+        width: 800,
+        height: 999,
         alt: 'Muhammad Kashif — E-commerce Creative Designer for Amazon and Shopify brands in the US, UK and worldwide',
       },
     ],
@@ -65,7 +65,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ['/images/profile.avif'],
+    images: [siteConfig.defaultImage],
     creator: '@muhammadkashif928',
   },
   icons: {

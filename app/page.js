@@ -8,7 +8,7 @@ export const metadata = createMetadata({
   title: 'Freelance Amazon Listing & A+ Content Designer',
   description: 'Hire Muhammad Kashif for Amazon listing images, A+ Content, Brand Stores and Shopify design. Remote freelance support for US, UK and European brands.',
   path: '/',
-  image: '/images/profile.avif',
+  image: '/images/profile-2026.jpg',
   imageAlt: 'Muhammad Kashif — E-commerce Creative Designer for Amazon and Shopify brands, in Kuching, Malaysia',
 })
 

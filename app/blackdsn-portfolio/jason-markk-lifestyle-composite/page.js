@@ -1,5 +1,6 @@
 import JasonMarkkPortfolio from '@/components/JasonMarkkPortfolio'
-import { createMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { createMetadata, getBreadcrumbJsonLd } from '@/lib/seo'
 
 export const metadata = createMetadata({
   title: 'Jason Markk Repel Spray — AI + Photoshop Lifestyle Composite | Muhammad Kashif',
@@ -23,5 +24,14 @@ export const metadata = createMetadata({
 })
 
 export default function JasonMarkkLifeStyleCompositePage() {
-  return <JasonMarkkPortfolio />
+  return (
+    <>
+      <JsonLd data={getBreadcrumbJsonLd([
+        { name: 'Home', path: '/' },
+        { name: 'Portfolio', path: '/my-portfolio/' },
+        { name: 'Jason Markk Lifestyle Composite', path: '/blackdsn-portfolio/jason-markk-lifestyle-composite/' },
+      ])} />
+      <JasonMarkkPortfolio />
+    </>
+  )
 }

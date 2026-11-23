@@ -31,11 +31,11 @@ function Content({ text }) {
   })
 }
 
-export default function LegalDoc({ watermark = 'LEGAL', crumb, lines, updated, intro, sections }) {
+export default function LegalDoc({ watermark = 'LEGAL', crumb, path, lines, updated, intro, sections }) {
   return (
     <LxShell>
       <main id="main-content">
-        <PageHero watermark={watermark} crumb={[{ label: crumb }]} lines={lines} lead={updated} />
+        <PageHero watermark={watermark} crumb={[{ label: crumb }]} path={path} lines={lines} lead={updated} />
         <section className="section">
           <div className="shell section__in">
             <div className="agrid legal-doc">

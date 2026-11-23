@@ -1,5 +1,6 @@
 // Building blocks for the case-study pages, in the Lumora design.
 import { Pill } from './Icons'
+import Bg3d from './Bg3d'
 import { FeaturedCards } from './Sections'
 
 /* Page hero: breadcrumb, headline, lead, project facts and the hero image */
@@ -10,6 +11,7 @@ export function CaseHero({ crumb, eyebrow, lines, lead, meta, image }) {
   return (
     <>
       <section className="phero chero">
+        <Bg3d />
         <div className="shell phero__in chero__in">
           <div className="phero__main">
             <nav className="phero__crumbs rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }} aria-label="Breadcrumb">

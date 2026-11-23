@@ -1,4 +1,5 @@
 import LxShell from '@/components/lx/LxShell'
+import Bg3d from '@/components/lx/Bg3d'
 import { Icon, Pill } from '@/components/lx/Icons'
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function NotFound() {
     <LxShell>
       <main id="main-content">
         <section className="phero nf">
+          <Bg3d />
           <div className="phero__wm rv" data-gate="" aria-hidden="true">404</div>
           <div className="shell phero__in">
             <div className="phero__main">

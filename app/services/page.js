@@ -33,6 +33,7 @@ export default function ServicesPage() {
         <PageHero
           watermark="SERVICES"
           crumb={[{ label: 'Services' }]}
+          path="/services/"
           lines={['Built for your product.', 'Designed for the decision.']}
           lead="From the first Amazon image to a complete brand store — and the Shopify storefront beside it. See the scope, the turnaround and what's included, then choose the support your next launch needs."
           aside={<Facts items={[

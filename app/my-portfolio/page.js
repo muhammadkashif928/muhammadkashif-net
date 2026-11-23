@@ -3,7 +3,8 @@ import { Pill } from '@/components/lx/Icons'
 import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
 import WorkFilter from '@/components/lx/WorkFilter'
 import { portfolioProjects } from '@/data/portfolio'
-import { createMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { createMetadata, absoluteUrl, siteConfig } from '@/lib/seo'
 
 export const metadata = createMetadata({
   title: 'Portfolio — Amazon Design & Website Case Studies | Muhammad Kashif',
@@ -27,13 +28,37 @@ const rank = slug => (order.indexOf(slug) + 1) || order.length + 1
 const caseStudies = [...PORTFOLIO_ONLY, ...FEATURED].sort((a, b) => rank(a.slug) - rank(b.slug))
 const categoryCounts = caseStudies.reduce((n, p) => ({ ...n, [p.category]: (n[p.category] || 0) + 1 }), {})
 
+// Tells search engines this page is a collection, and lists every case study on it in order.
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': absoluteUrl('/my-portfolio/#collection'),
+  url: absoluteUrl('/my-portfolio/'),
+  name: 'Portfolio — Amazon Design & Website Case Studies',
+  isPartOf: { '@id': `${siteConfig.url}/#website` },
+  author: { '@id': `${siteConfig.url}/#person` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: caseStudies.length,
+    itemListElement: caseStudies.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: absoluteUrl(p.href),
+      name: p.title,
+      ...(p.img ? { image: absoluteUrl(p.img) } : {}),
+    })),
+  },
+}
+
 export default function MyPortfolio() {
   return (
     <LxShell>
+      <JsonLd data={collectionJsonLd} />
       <main id="main-content">
         <PageHero
           watermark="WORK"
           crumb={[{ label: 'Portfolio' }]}
+          path="/my-portfolio/"
           lines={['Selected work.', 'Proof over claims.']}
           lead="In-depth case studies across Amazon listing sets, main images, brand stores and custom websites. Pick a category below to see just the work you need."
           aside={<Facts items={[

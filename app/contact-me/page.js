@@ -25,6 +25,7 @@ export default function ContactMe() {
         <PageHero
           watermark="HELLO"
           crumb={[{ label: 'Contact' }]}
+          path="/contact-me/"
           lines={['Tell me about', 'your product.']}
           lead="Share your product, your goals and what you need designed. I'll help you choose the right scope for your next step. No complex forms — just one message away."
           aside={<Facts items={[

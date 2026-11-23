@@ -117,6 +117,7 @@ export default function DisclaimerPage() {
     <LegalDoc
       watermark="LEGAL"
       crumb="Disclaimer"
+      path="/disclaimer/"
       lines={['Disclaimer.']}
       updated="Last updated: June 2025"
       intro="Please read this Disclaimer carefully. By using muhammadkashif.net, you acknowledge that you have read, understood, and agree to be bound by this Disclaimer. If you do not agree, please discontinue use of this Website."
