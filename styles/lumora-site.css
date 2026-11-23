@@ -521,21 +521,6 @@ html:has(.lx) body.noise::before { display: none; }
   .lx .hero__status { border-top-color: rgba(255,255,255,.18); color: rgba(255,255,255,.8); }
 }
 
-/* ---------- Phones: case-study cards ----------
-   Text laid over the photo read as clutter at phone width; stack photo, then copy. */
-@media (max-width: 639.98px) {
-  .lx .pcard { min-height: 0; padding: 0; display: flex; flex-direction: column; }
-  .lx .pcard__img { position: relative; inset: auto; height: auto !important; aspect-ratio: 4 / 3; }
-  .lx .pcard__shade { display: none; }
-  .lx .pcard__meta { position: absolute; inset: 1.25rem 1.25rem auto; font-size: .6875rem; }
-  .lx .pcard__meta > span:first-child { border-radius: 9999px; background: rgba(10,10,10,.55); padding: .35rem .7rem; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-  .lx .pcard__body { position: static; padding: 1.25rem 1.5rem 1.5rem; }
-  .lx .pcard__body h3 { font-size: 1.375rem; line-height: 1.2; }
-  .lx .pcard__body p { font-size: .875rem; line-height: 1.55; }
-  .lx .pcard .tags { margin-top: 1rem; gap: .375rem; }
-  .lx .pcard .tag { padding: .3rem .75rem; font-size: .75rem; }
-}
-
 /* ---------- Audit fixes (11 Oct) ---------- */
 .lx .quote .quote__by { margin-top: 1rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .025em; color: rgba(255,255,255,.55); }
 .lx .hcard__cap { font-size: .75rem; color: rgba(17,17,17,.6); }
@@ -590,37 +575,55 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .setup__device { font-size: .9375rem; font-weight: 500; color: #111; }
 .lx .setup__tools { margin-top: .25rem; font-size: .8125rem; color: rgba(17,17,17,.55); }
 
-/* ---------- Case-study cards: light, matching the template ----------
-   Replaces the dark text-over-photo boxes with the template's light surface:
-   photo in its own rounded frame, then label, title, copy and outline tags.
-   Applies at every width (supersedes the phone-only stack above). */
-.lx .pcard { min-height: 0 !important; padding: .625rem !important; display: flex; flex-direction: column;
-  background: var(--surface); color: var(--foreground); box-shadow: 0 0 0 1px var(--line); }
-.lx .pcard__frame { position: relative; overflow: hidden; aspect-ratio: 3 / 2; border-radius: 1.5rem; background: #0a0a0a; }
-.lx .pcard__img { position: absolute; inset: 0; height: 100% !important; }
+/* ---------- Case-study cards: photo, dark overlay, bold title ----------
+   The photo fills the card under a dark overlay; the brand name sits on it in bold with a
+   soft copper glow. On hover the overlay lifts, the tags fade in and the photo ripples
+   (lib/lumora/runtime.js moves one shared water canvas into the hovered card). */
+.lx .pcard { min-height: 0; aspect-ratio: 4 / 3; padding: 1.25rem; isolation: isolate; box-shadow: 0 0 0 1px rgba(17,17,17,.08);
+  transition: transform .6s var(--e-spring-md), box-shadow .6s ease; }
+.lx .pcard__frame { position: absolute; inset: 0; z-index: 0; overflow: hidden; border-radius: inherit; background: #0a0a0a; }
+.lx .pcard__frame .water { z-index: 1; transition-duration: .45s; }
 .lx .pcard__img--inset { -webkit-mask-image: none; mask-image: none; --zoom: 1 !important; }
-.lx .pcard__shade { display: none; }
-.lx .pcard__meta { position: absolute; inset: 1.375rem 1.375rem auto; z-index: 2; color: #fff; font-size: .6875rem; }
+.lx .pcard__shade { z-index: 1; transition: opacity .7s ease;
+  background: linear-gradient(to bottom, rgba(10,10,10,.6) 0%, rgba(10,10,10,.3) 30%, rgba(10,10,10,.5) 55%, rgba(10,10,10,.94) 100%); }
+.lx .pcard__meta { z-index: 2; color: #fff; font-size: .6875rem; }
 .lx .pcard__meta > span:first-child { border-radius: 9999px; background: rgba(10,10,10,.5); padding: .4rem .8rem;
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .lx .pcard__badge { background: #fff; color: #0a0a0a; box-shadow: none; }
-.lx .pcard__body { position: static; inset: auto; padding: 1.25rem .875rem .875rem; }
-.lx .pcard__body h3 { font-size: 1.375rem; line-height: 1.2; color: var(--foreground); }
-.lx .pcard__body p { margin-top: .5rem; font-size: .875rem; line-height: 1.6; color: rgba(17,17,17,.6); }
-.lx .pcard .tags { margin-top: 1rem; gap: .375rem; }
-.lx .pcard .tag { border-color: var(--line); background: var(--background); color: rgba(17,17,17,.75); padding: .3rem .8rem; font-size: .75rem; }
+.lx .pcard__body { z-index: 2; inset-inline: 1.25rem; bottom: 1.25rem; }
+.lx .pcard__body h3 { display: flex; flex-direction: column; gap: .5rem; font-size: 1.875rem; font-weight: 700; line-height: 1; letter-spacing: -.03em;
+  text-shadow: 0 0 1.5rem rgba(207,128,71,.5), 0 2px 14px rgba(0,0,0,.55); transition: text-shadow .7s ease; }
+.lx .pcard__body h3 small { font-size: .875rem; font-weight: 500; line-height: 1.3; letter-spacing: 0; color: rgba(255,255,255,.75); text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+.lx .pcard .tags { display: none; margin-top: .875rem; gap: .375rem; }
+.lx .pcard .tag { padding: .3rem .8rem; font-size: .75rem; background: rgba(10,10,10,.35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 @media (min-width: 640px) {
-  .lx .pcard { padding: .75rem !important; }
-  .lx .pcard__meta { inset: 1.75rem 1.75rem auto; font-size: .75rem; }
-  .lx .pcard__body { padding: 1.5rem 1rem 1rem; }
-  .lx .pcard__body h3 { font-size: 1.625rem; }
+  .lx .pcard { aspect-ratio: 3 / 2; padding: 1.75rem; }
+  .lx .pcard__meta { font-size: .75rem; }
+  .lx .pcard__body { inset-inline: 1.75rem; bottom: 1.75rem; }
+  .lx .pcard__body h3 { font-size: 2.5rem; }
+  .lx .pcard__body h3 small { font-size: 1rem; }
+  .lx .pcard .tags { display: flex; }
+  .lx .cards--lead > li:first-child .pcard { min-height: 0; }
 }
+@media (min-width: 640px) and (hover: hover) { .lx .pcard__body { transform: translateY(2.5rem); } }
 @media (min-width: 1024px) {
-  .lx .cards--3 .pcard__body h3 { font-size: 1.375rem; }
-  .lx .cards--lead > li:first-child .pcard__frame { aspect-ratio: 21 / 9; }
+  .lx .pcard__body h3 { font-size: 2.75rem; }
+  .lx .cards--3 .pcard { min-height: 0; aspect-ratio: 4 / 3; padding: 1.25rem; }
+  .lx .cards--3 .pcard__body { inset-inline: 1.25rem; bottom: 1.25rem; }
+  .lx .cards--3 .pcard__body h3 { font-size: 1.75rem; }
+  .lx .cards--3 .pcard__body h3 small { font-size: .875rem; }
+  .lx .cards--lead > li:first-child .pcard { min-height: 0; aspect-ratio: 21 / 9; }
 }
 @media (hover: hover) {
-  .lx .pcard-link:hover .pcard { transform: translateY(-6px); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -28px rgba(17,17,17,.35); }
+  /* The tags stay folded below the title until the card is hovered. */
+  .lx .pcard .tags { opacity: 0; transition: opacity .5s ease; }
+  .lx .pcard-link:hover .pcard .tags, .lx .pcard-link:focus-visible .pcard .tags { opacity: 1; }
+  .lx .pcard__body { transition: transform .6s var(--e-spring-md); }
+  .lx .pcard-link:hover .pcard__body, .lx .pcard-link:focus-visible .pcard__body { transform: none; }
+  .lx .pcard-link:hover .pcard { transform: translateY(-6px);
+    box-shadow: 0 0 0 1px rgba(207,128,71,.55), 0 0 2.5rem -.25rem rgba(207,128,71,.45), 0 24px 48px -28px rgba(17,17,17,.5); }
+  .lx .pcard-link:hover .pcard__shade { opacity: .72; }
+  .lx .pcard-link:hover .pcard__body h3 { text-shadow: 0 0 1rem rgba(255,214,180,.55), 0 0 2.75rem rgba(207,128,71,.95), 0 2px 14px rgba(0,0,0,.55); }
 }
 
 /* ---------- Dark water hero (components/lx/HeroWater.jsx) ----------

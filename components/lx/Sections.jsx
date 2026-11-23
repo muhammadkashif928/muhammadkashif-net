@@ -191,7 +191,10 @@ export const SERVICE_PROOF = {
   'full-listing-design': 'leather-hero-furniture-salve',
 }
 
+// Full-bleed photo under a dark overlay: brand name in bold, one short line under it.
+// The description stays in the data (search and JSON-LD use it) but is not shown on the card.
 export function FeaturedCard({ project: p }) {
+  const [name, ...rest] = p.title.split(' — ')
   return (
     <a className="pcard-link" href={p.href}>
       <article className="pcard">
@@ -201,8 +204,7 @@ export function FeaturedCard({ project: p }) {
         <div className="pcard__shade" />
         <div className="pcard__meta"><span>{p.meta}</span><span className="pcard__badge"><Icon name="arrow-ur" /></span></div>
         <div className="pcard__body">
-          <h3>{p.title}</h3>
-          <p>{p.desc}</p>
+          <h3>{name}{rest.length > 0 && <small>{rest.join(' — ')}</small>}</h3>
           <div className="tags">{p.tags.map(t => <span key={t} className="tag">{t}</span>)}</div>
         </div>
       </article>
