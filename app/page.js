@@ -27,9 +27,11 @@ export default function Home() {
 
         {/* Hero: black-and-white portrait that ripples like water under the cursor */}
         <section className="hero" id="home">
-          <div className="liquid" id="liquid">
+          <div className="liquid" id="liquid" data-reveal="/images/lx/hero-reveal.jpg">
             <img src="/images/lx/hero.jpg" alt="Muhammad Kashif in a beige cap, round glasses and a black shirt, resting his chin on his hand" fetchPriority="high" decoding="async" width="2000" height="1333" />
             <HeroWater />
+            {/* The cursor paints in the second photo (same pose, logo on the wall), in its own colours */}
+            <canvas aria-hidden="true" />
           </div>
           <div className="hero__vignette" />
           <div className="hero__wm rv" data-gate="" aria-hidden="true">KASHIF</div>
