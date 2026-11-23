@@ -107,6 +107,7 @@ Three packages, quoted after a short scoping conversation (https://muhammadkashi
 
 | Project | URL | Description |
 |---------|-----|-------------|
+| Designer Trends Inc. — Company Website | https://muhammadkashif.net/portfolio/designer-trends-inc-website/ | Fully custom Next.js company website for a footwear and leather-care brand group, built to bring in wholesale and distribution partners |
 | Leather Hero — Leather Care Kit Carousel | https://muhammadkashif.net/portfolio/leather-hero-care-kit-carousel/ | Seven-slide 9:16 lifestyle carousel for a leather cleaner and conditioner kit, from the promise through four steps to a before-and-after |
 | Eagle Shoe Care — Premium Shoe Cream | https://muhammadkashif.net/portfolio/eagle-shoe-care-shoe-cream/ | Ten-image Amazon listing set for a black shoe cream with brush and buffing cloth |
 | Eagle Shoe Care — Shopify Store | https://muhammadkashif.net/portfolio/eagle-shoe-care-website/ | Fully custom Shopify theme for a shoe-care brand, with a built-in B2B wholesale application and sign-in |

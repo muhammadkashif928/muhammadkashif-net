@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'designer-trends-inc-website',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/designer-trends-inc-website/',
+    tag: 'WEBSITE DESIGN + DEVELOPMENT',
+    title: 'Designer Trends Inc. — Company Website',
+    desc: 'A fully custom company website for the group behind Eagle, Leather Hero, Fiammé and ToeArmor — brand portfolio, news and wholesale enquiries, built in Next.js.',
+    img: '/case-studies/designer-trends-inc-website/desktop-home-hero.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 24, 2026',
+    software: ['HTML', 'CSS', 'JavaScript', 'Next.js', 'Tailwind CSS'],
+  },
+  {
     slug: 'leather-hero-care-kit-carousel',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/leather-hero-care-kit-carousel/',
