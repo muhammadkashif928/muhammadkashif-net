@@ -1,3 +1,4 @@
+import HeroWater from '@/components/lx/HeroWater'
 import LxShell from '@/components/lx/LxShell'
 import { Icon, Pill, Stars } from '@/components/lx/Icons'
 import { FeaturedCards, ServiceRows } from '@/components/lx/Sections'
@@ -28,6 +29,7 @@ export default function Home() {
         <section className="hero" id="home">
           <div className="liquid" id="liquid" data-reveal="/images/lx/hero-reveal.jpg" data-reveal-tint="#c4632a" data-reveal-tint-strength="0.82">
             <img src="/images/lx/hero.jpg" alt="Muhammad Kashif in a beige cap, round glasses and a black shirt, resting his chin on his hand" fetchPriority="high" decoding="async" width="2000" height="1333" />
+            <HeroWater />
             <canvas aria-hidden="true" />
           </div>
           <div className="hero__vignette" />
