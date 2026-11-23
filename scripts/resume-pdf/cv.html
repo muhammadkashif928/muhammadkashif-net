@@ -8,35 +8,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="pdf.css">
 <style>
-  body { font-size: 8.4pt; }
+  body { font-size: 8.3pt; }
   .cols { flex: 1; display: grid; grid-template-columns: 62mm 1fr; min-height: 0; }
-  .side { padding: 11mm 7mm 6mm; }
+  .side { position: relative; padding: 11mm 7mm 6mm; overflow: hidden;
+    background: radial-gradient(70mm 60mm at 50% 0%, rgba(201,138,90,.3), transparent 70%), var(--ink); }
   .main { padding: 11mm 11mm 6mm 9mm; }
   .id { text-align: center; margin-bottom: 7mm; }
-  .photo { width: 34mm; height: 34mm; margin: 0 auto; }
-  .name { margin-top: 4mm; font-size: 22pt; }
-  .role { margin-top: 2mm; font-size: 6.2pt; line-height: 1.7; }
-  .id .nomad { margin-top: 3mm; }
-  .side2 .name { font-size: 15pt; margin: 0 0 1mm; }
+  .photo { width: 36mm; height: 36mm; margin: 0 auto; }
+  .name { margin-top: 5mm; font-size: 25pt; }
+  .role { margin-top: 2.2mm; font-size: 6.2pt; line-height: 1.7; }
+  .id .nomad { margin-top: 3.4mm; }
+  .side2 .name { font-size: 16pt; margin: 0 0 1.2mm; }
   .side2 .role { margin: 0 0 7mm; }
   .block + .block { margin-top: 6mm; }
-  .job + .job { margin-top: 4.2mm; }
+  .job + .job { margin-top: 4mm; }
   .big { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4mm; }
-  .big li { border-radius: 1.6mm; background: var(--ink); text-align: center; padding: 3.4mm 1mm 3mm; }
-  .big strong { display: block; font-family: 'Bebas Neue', Impact, sans-serif; font-size: 19pt; line-height: 1; letter-spacing: .04em; color: var(--cream); }
-  .big span { display: block; margin-top: 1mm; font-size: 5.6pt; letter-spacing: .14em; text-transform: uppercase; color: #8b8780; }
-  .proj li { padding: 2.6mm 3mm; }
-  .proj strong { font-size: 8.6pt; }
-  .proj span { font-size: 7.4pt; }
+  .big li { border-radius: 1.8mm; background: var(--ink); text-align: center; padding: 3.2mm 1mm 2.8mm; border-bottom: .8mm solid var(--copper); }
+  .big strong { display: block; font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 20pt; line-height: 1; letter-spacing: .04em; color: var(--cream); }
+  .big span { display: block; margin-top: 1mm; font-size: 5.5pt; letter-spacing: .13em; text-transform: uppercase; color: #9a968e; }
+  .proj div { padding: 2mm 2.6mm 2.4mm; }
+  .proj strong { font-size: 8pt; }
+  .proj span { font-size: 6.9pt; }
   .svc { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.4mm; }
-  .svc li { border-left: .8mm solid #e7ddcf; background: #f8f6f2; padding: 2.6mm 3mm; }
-  .svc strong { display: block; font-size: 8.4pt; }
-  .svc span { display: block; margin-top: .6mm; font-size: 7.2pt; line-height: 1.45; color: #5e5a54; }
-  .links li { padding: 1.2mm 0; border-bottom: 1px solid #242321; }
-  .links b { display: block; font-size: 6pt; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: #77736c; }
+  .svc li { border-radius: 1.8mm; border: 1px solid var(--line); border-top: .8mm solid var(--copper); background: var(--paper); padding: 2.2mm 2.8mm; }
+  .svc strong { display: block; font-size: 8pt; }
+  .svc span { display: block; margin-top: .5mm; font-size: 6.9pt; line-height: 1.4; color: #5e5a54; }
+  .links li { padding: 1.2mm 0; border-bottom: 1px solid #242321; color: #f3efe8; }
+  .links li:last-child { border-bottom: 0; }
+  .links b { display: block; font-size: 5.8pt; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: #85817a; }
 </style>
 </head>
 <body>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l1.5 5-2.5 1.5a12 12 0 0 0 5.5 5.5L16 12.5l5 1.5v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+</svg>
 
 <!-- Page 1 -->
 <div class="page">
@@ -46,15 +54,15 @@
         <div class="photo"></div>
         <h1 class="name">Muhammad<br>Kashif</h1>
         <p class="role">E-commerce Creative Designer<br>Web Developer</p>
-        <span class="nomad">Malaysian approved digital nomad</span>
+        <span class="nomad">Approved digital nomad · MY</span>
       </div>
       <section class="block">
         <h2 class="h">Contact</h2>
         <ul class="contact">
-          <li><b>Email</b>info@muhammadkashif.net</li>
-          <li><b>Phone</b>+60 17-915 2084</li>
-          <li><b>Web</b>muhammadkashif.net</li>
-          <li><b>Based</b>Kuching, Sarawak, Malaysia</li>
+          <li><i class="ic"><svg><use href="#i-mail"/></svg></i>info@muhammadkashif.net</li>
+          <li><i class="ic"><svg><use href="#i-phone"/></svg></i>+60 17-915 2084</li>
+          <li><i class="ic"><svg><use href="#i-globe"/></svg></i>muhammadkashif.net</li>
+          <li><i class="ic"><svg><use href="#i-pin"/></svg></i>Kuching, Sarawak, Malaysia</li>
         </ul>
       </section>
       <section class="block">
@@ -88,7 +96,7 @@
     <main class="main">
       <section class="block">
         <h2 class="h">Professional summary</h2>
-        <p>E-commerce creative designer and web developer with <b>8+ years of experience</b> designing how brands and their products are presented online: <b>Amazon listing images, A+ Content and Brand Stores</b>, and the brand creative around them. I also build the websites — from <b>custom Shopify themes</b> to hand-coded <b>Next.js company sites and online stores</b>. Every project starts with research: competitor listings, customer reviews and the questions buyers keep asking. AI handles production work while design decisions, brand accuracy and final quality stay with me. Open to contract and retainer work with e-commerce brands and agencies.</p>
+        <p class="lead">E-commerce creative designer and web developer with <b>8+ years of experience</b> designing how brands and their products are presented online: <b>Amazon listing images, A+ Content and Brand Stores</b>, and the brand creative around them. I also build the websites — from <b>custom Shopify themes</b> to hand-coded <b>Next.js company sites and online stores</b>. Every project starts with research: competitor listings, customer reviews and the questions buyers keep asking. AI handles production work while design decisions, brand accuracy and final quality stay with me. Open to contract and retainer work with e-commerce brands and agencies.</p>
       </section>
 
       <section class="block">
@@ -103,45 +111,51 @@
 
       <section class="block">
         <h2 class="h">Work experience</h2>
+        <div class="jobs">
+          <div class="job">
+            <div class="job__top"><span class="job__co">Designer Trends Inc. <small>· Full-time · Remote, United States</small></span><span class="job__when">Oct 2022 – Present</span></div>
+            <p class="job__role">Creative Designer / Digital Operations Specialist</p>
+            <ul>
+              <li>Permanent, full-time remote role. Joined in October 2022 as Remote Administrative and Creative Design Specialist; now Creative Designer / Digital Operations Specialist.</li>
+              <li>Directed full visual strategy for <b>7+ leather and shoe-care brands</b> incl. Angelus, Tarrago, Eagle Shoe Care, Leather Hero, Lincoln, Silver and Fiamme across Amazon US.</li>
+              <li>Engineered <b>Main Image overhauls</b> using psychological CTR triggers, achieving measurable uplift in click-through rates across <b>200+ product SKUs</b>.</li>
+              <li>Designed <b>A+ Content and Enhanced Brand Content (EBC)</b> that reduced customer objections and increased average order values.</li>
+              <li><b>Designed and built the group’s websites</b> from scratch: the Designer Trends Inc. company site and the 89-page Leather Hero brand site (both custom Next.js), and the Eagle Shoe Care <b>Shopify store</b> on a custom theme with a wholesale application built in.</li>
+              <li>Produced <b>8K lifestyle composites</b> using AI-powered retouching, cutting the need for studio shoots.</li>
+            </ul>
+          </div>
 
-        <div class="job">
-          <div class="job__top"><span class="job__co">Designer Trends Inc. — Full-time · Remote, United States</span><span class="job__when">Oct 2022 – Present</span></div>
-          <p class="job__role">Creative Designer / Digital Operations Specialist</p>
-          <ul>
-            <li>Permanent, full-time remote role. Joined in October 2022 as Remote Administrative and Creative Design Specialist; now Creative Designer / Digital Operations Specialist.</li>
-            <li>Directed full visual strategy for <b>7+ leather and shoe-care brands</b> incl. Angelus, Tarrago, Eagle Shoe Care, Leather Hero, Lincoln, Silver and Fiamme across Amazon US.</li>
-            <li>Engineered <b>Main Image overhauls</b> using psychological CTR triggers, achieving measurable uplift in click-through rates across <b>200+ product SKUs</b>.</li>
-            <li>Designed <b>A+ Content and Enhanced Brand Content (EBC)</b> that reduced customer objections and increased average order values.</li>
-            <li><b>Designed and built the group’s websites</b> from scratch: the Designer Trends Inc. company site and the 89-page Leather Hero brand site (both custom Next.js), and the Eagle Shoe Care <b>Shopify store</b> on a custom theme with a wholesale application built in.</li>
-            <li>Produced <b>8K lifestyle composites</b> using AI-powered retouching, cutting the need for studio shoots.</li>
-          </ul>
-          <div class="tags"><span>Competitive Analysis</span><span>Packaging Design</span><span>A+ Content</span><span>Main Image Strategy</span><span>Web Development</span><span>E-commerce</span></div>
-        </div>
+          <div class="job">
+            <div class="job__top"><span class="job__co">Orbit Click Inc. <small>· Contract</small></span><span class="job__when">Jan 2022 – Jan 2025</span></div>
+            <p class="job__role">Account Manager</p>
+            <ul><li>Managed e-commerce account operations for a US-focused private-label business under a performance-based contract arrangement.</li></ul>
+          </div>
 
-        <div class="job">
-          <div class="job__top"><span class="job__co">Orbit Click Inc. — Contract</span><span class="job__when">Jan 2022 – Jan 2025</span></div>
-          <p class="job__role">Account Manager</p>
-          <ul><li>Managed e-commerce account operations for a US-focused private-label business under a performance-based contract arrangement.</li></ul>
-          <div class="tags"><span>Account Management</span><span>Private Label</span><span>E-commerce</span></div>
-        </div>
+          <div class="job">
+            <div class="job__top"><span class="job__co">ONE LUXE USA <small>· Part-time · Remote, Florida, US</small></span><span class="job__when">Apr 2024 – Jul 2024</span></div>
+            <p class="job__role">Senior Sales Account Manager</p>
+            <ul><li>Part-time remote sales account role in e-commerce.</li></ul>
+          </div>
 
-        <div class="job">
-          <div class="job__top"><span class="job__co">ONE LUXE USA — Part-time · Remote, Florida, US</span><span class="job__when">Apr 2024 – Jul 2024</span></div>
-          <p class="job__role">Senior Sales Account Manager</p>
-          <ul><li>Part-time remote sales account role in e-commerce.</li></ul>
-          <div class="tags"><span>E-commerce</span><span>Sales Accounts</span></div>
-        </div>
+          <div class="job">
+            <div class="job__top"><span class="job__co">Supreme Commerce</span><span class="job__when">Feb 2021 – Jan 2022</span></div>
+            <p class="job__role">Amazon Account Manager &amp; Graphic Designer</p>
+            <ul><li>Combined Amazon account management with graphic design for e-commerce clients.</li></ul>
+          </div>
 
-        <div class="job">
-          <div class="job__top"><span class="job__co">Supreme Commerce</span><span class="job__when">Feb 2021 – Jan 2022</span></div>
-          <p class="job__role">Amazon Account Manager &amp; Graphic Designer</p>
-          <ul><li>Combined Amazon account management with graphic design for e-commerce clients.</li></ul>
-          <div class="tags"><span>Amazon</span><span>Graphic Design</span><span>Account Management</span></div>
+          <div class="job">
+            <div class="job__top"><span class="job__co">Freelance <small>· Upwork &amp; Fiverr</small></span><span class="job__when">2016 – 2018</span></div>
+            <p class="job__role">Amazon Brand &amp; Graphic Designer</p>
+            <ul>
+              <li>Delivered end-to-end Amazon listing design for <b>50+ private-label clients</b> across health, beauty, home goods and lifestyle; <b>Top Rated</b> on Upwork with consistent 5-star reviews.</li>
+              <li>Specialised in product photo retouching, infographic systems, logo design and packaging artwork for brand launches.</li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
   </div>
-  <footer class="foot"><span>© 2026 Muhammad Kashif — Curriculum Vitae · Page 1 of 2</span><span>info@muhammadkashif.net · muhammadkashif.net</span></footer>
+  <footer class="foot"><span>Curriculum Vitae · Page 1 of 2</span><span>info@muhammadkashif.net · muhammadkashif.net</span></footer>
 </div>
 
 <!-- Page 2 -->
@@ -179,40 +193,26 @@
 
     <main class="main">
       <section class="block">
-        <h2 class="h">Work experience, continued</h2>
-        <div class="job">
-          <div class="job__top"><span class="job__co">Freelance — Upwork &amp; Fiverr</span><span class="job__when">2016 – 2018</span></div>
-          <p class="job__role">Amazon Brand &amp; Graphic Designer</p>
-          <ul>
-            <li>Delivered end-to-end Amazon listing design for <b>50+ private-label clients</b> across health, beauty, home goods and lifestyle categories.</li>
-            <li>Maintained <b>Top Rated</b> status on Upwork with consistent 5-star reviews for speed, quality and strategic communication.</li>
-            <li>Specialised in product photo retouching, infographic systems, logo design and packaging artwork for brand launches.</li>
-          </ul>
-          <div class="tags"><span>Upwork</span><span>Fiverr</span><span>Product Photography</span><span>Packaging Design</span></div>
-        </div>
-      </section>
-
-      <section class="block">
         <h2 class="h">Selected projects — websites</h2>
         <ul class="proj">
-          <li><em>Next.js · Tailwind CSS · Vercel</em><strong>Designer Trends Inc. — Company Website</strong><span>Custom company site for a footwear and leather-care group: four brands, a 36-article journal and wholesale enquiries. designertrendsinc.com</span></li>
-          <li><em>Shopify · Custom theme</em><strong>Eagle Shoe Care — Shopify Store</strong><span>Fully custom Shopify theme that sells to shoppers and signs up the retailers that stock the brand, with a wholesale application built in.</span></li>
-          <li><em>Next.js</em><strong>Leather Hero — Brand Website</strong><span>Fully custom 89-page brand website for a leather-care brand that sells on Amazon.</span></li>
-          <li><em>Custom store · Stripe · Vercel</em><strong>Ventara ONE — Online Store</strong><span>Custom-coded grocery and essentials store shipped from Chicago: 13 departments, 165 products and Stripe checkout. ventaraone.com</span></li>
-          <li><em>React</em><strong>Margilla — SaaS Website</strong><span>Website for a TikTok Shop profit analytics SaaS.</span></li>
-          <li><em>Bilingual website</em><strong>Pak Tele Net — Fiber Internet Website</strong><span>English and Urdu website for a fiber internet provider in Burewala.</span></li>
+          <li><img src="img/dti.jpg" alt=""><div><em>Next.js · Tailwind CSS</em><strong>Designer Trends Inc. — Company Website</strong><span>Custom site for a footwear and leather-care group: four brands, a 36-article journal and wholesale enquiries.</span></div></li>
+          <li><img src="img/eagle-site.jpg" alt=""><div><em>Shopify · Custom theme</em><strong>Eagle Shoe Care — Shopify Store</strong><span>Custom theme that sells to shoppers and signs up retailers, with a wholesale application built in.</span></div></li>
+          <li><img src="img/lh-site.jpg" alt=""><div><em>Next.js</em><strong>Leather Hero — Brand Website</strong><span>Fully custom 89-page brand website for a leather-care brand that sells on Amazon.</span></div></li>
+          <li><img src="img/ventara.jpg" alt=""><div><em>Custom store · Stripe</em><strong>Ventara ONE — Online Store</strong><span>Custom-coded grocery and essentials store: 13 departments, 165 products and Stripe checkout.</span></div></li>
+          <li><img src="img/margilla.jpg" alt=""><div><em>React</em><strong>Margilla — SaaS Website</strong><span>Website for a TikTok Shop profit analytics SaaS.</span></div></li>
+          <li><img src="img/ptn.jpg" alt=""><div><em>Bilingual website</em><strong>Pak Tele Net — Fiber Internet</strong><span>English and Urdu website for a fiber internet provider in Burewala.</span></div></li>
         </ul>
       </section>
 
       <section class="block">
         <h2 class="h">Selected projects — Amazon &amp; brand creative</h2>
         <ul class="proj">
-          <li><em>Amazon · Listing set</em><strong>Leather Hero — Furniture Salve</strong><span>Four near-identical images rebuilt into a ten-image set led by before-and-after proof.</span></li>
-          <li><em>Amazon · Listing set</em><strong>Eagle Shoe Care — Premium Shoe Cream</strong><span>Ten-image listing set for a black shoe cream with brush and buffing cloth.</span></li>
-          <li><em>Amazon · Brand Store</em><strong>Fiamme — Brand Store</strong><span>Seven-module Amazon Brand Store for a luxury suede and nubuck cleaning kit.</span></li>
-          <li><em>Amazon · Listing set</em><strong>Leather Hero — Purse Care Kit</strong><span>Eight-image set led by one aged crossbody, restored in a single split frame.</span></li>
-          <li><em>Amazon · Infographics</em><strong>Leather Hero — Boot Stretcher</strong><span>Nine-image infographic set for a calf and shaft boot stretcher.</span></li>
-          <li><em>Social · Carousel</em><strong>Leather Hero — Care Kit Carousel</strong><span>Seven-slide vertical carousel that takes one car seat from dirty to clean.</span></li>
+          <li><img src="img/salve.jpg" alt=""><div><em>Amazon · Listing set</em><strong>Leather Hero — Furniture Salve</strong><span>Four near-identical images rebuilt into a ten-image set led by before-and-after proof.</span></div></li>
+          <li><img src="img/cream.jpg" alt=""><div><em>Amazon · Listing set</em><strong>Eagle Shoe Care — Shoe Cream</strong><span>Ten-image listing set for a black shoe cream with brush and buffing cloth.</span></div></li>
+          <li><img src="img/fiamme.jpg" alt=""><div><em>Amazon · Brand Store</em><strong>Fiamme — Brand Store</strong><span>Seven-module Brand Store for a luxury suede and nubuck cleaning kit.</span></div></li>
+          <li><img src="img/purse.jpg" alt=""><div><em>Amazon · Listing set</em><strong>Leather Hero — Purse Care Kit</strong><span>Eight-image set led by one aged crossbody, restored in a single split frame.</span></div></li>
+          <li><img src="img/boot.jpg" alt=""><div><em>Amazon · Infographics</em><strong>Leather Hero — Boot Stretcher</strong><span>Nine-image infographic set for a calf and shaft boot stretcher.</span></div></li>
+          <li><img src="img/carousel.jpg" alt=""><div><em>Social · Carousel</em><strong>Leather Hero — Care Kit Carousel</strong><span>Seven-slide vertical carousel that takes one car seat from dirty to clean.</span></div></li>
         </ul>
       </section>
 
@@ -226,7 +226,7 @@
       </section>
     </main>
   </div>
-  <footer class="foot"><span>© 2026 Muhammad Kashif — Curriculum Vitae · Page 2 of 2</span><span>info@muhammadkashif.net · muhammadkashif.net</span></footer>
+  <footer class="foot"><span>Curriculum Vitae · Page 2 of 2</span><span>info@muhammadkashif.net · muhammadkashif.net</span></footer>
 </div>
 </body>
 </html>
