@@ -1,5 +1,5 @@
 import LxShell from '@/components/lx/LxShell'
-import Bg3d from '@/components/lx/Bg3d'
+import HeroWater from '@/components/lx/HeroWater'
 import { Pill } from '@/components/lx/Icons'
 import { serviceName } from '@/components/lx/Sections'
 import { getStripe } from '@/lib/stripe'
@@ -71,7 +71,7 @@ export default async function OrderSuccessPage({ searchParams }) {
     <LxShell>
       <main id="main-content">
         <section className="phero osuccess">
-          <Bg3d />
+          <HeroWater />
           <div className="shell phero__in">
             <div className="phero__main">
               <div className="rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }}><span className={`eyebrow osuccess__k osuccess__k--${key}`}>{state.kicker}</span></div>

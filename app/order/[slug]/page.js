@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import LxShell from '@/components/lx/LxShell'
-import Bg3d from '@/components/lx/Bg3d'
+import HeroWater from '@/components/lx/HeroWater'
 import { Icon } from '@/components/lx/Icons'
 import { serviceName } from '@/components/lx/Sections'
 import OrderForm from '@/components/OrderForm'
@@ -69,7 +69,7 @@ export default async function OrderPage({ params }) {
       />
       <main id="main-content">
         <section className="ahero ohero">
-          <Bg3d />
+          <HeroWater />
           <div className="shell ahero__in">
             <nav className="phero__crumbs rv" data-gate="" style={{ '--ry': '10px', '--rd': '200ms' }} aria-label="Breadcrumb">
               <a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><a href={`/services/${service.slug}/`}>{name}</a><span aria-hidden="true">/</span><span>Order</span>

@@ -623,58 +623,39 @@ html:has(.lx) body.noise::before { display: none; }
   .lx .pcard-link:hover .pcard { transform: translateY(-6px); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -28px rgba(17,17,17,.35); }
 }
 
-/* ---------- 3D hero backdrop (components/lx/Bg3d.jsx) ----------
-   Sized in em so one font-size scales the whole scene per breakpoint.
-   Only transform/translate animate, so everything stays on the compositor. */
-.lx .ahero { isolation: isolate; }
+/* ---------- Dark water hero (components/lx/HeroWater.jsx) ----------
+   Inner-page heroes are dark with white text. The canvas is a WebGL water surface started by
+   lib/lumora/runtime.js; it paints the same backdrop (and the watermark word) so they ripple. */
+.lx .phero, .lx .ahero { isolation: isolate; color: #fff; background: #0a0a0a; }
+.lx .phero::before, .lx .ahero::before { z-index: 0;
+  background: radial-gradient(60rem 30rem at 85% 0%, rgba(207,128,71,.28), transparent 62%), radial-gradient(40rem 24rem at 0% 100%, rgba(255,255,255,.05), transparent 70%), linear-gradient(to bottom, #161514, #0a0a0a); }
 .lx .ahero__in { z-index: 2; }
-.lx .bg3d { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; font-size: 8px;
-  perspective: 1100px; perspective-origin: 70% 35%; --px: 0; --py: 0; }
-.lx .bg3d__floor { position: absolute; left: -30%; right: -30%; bottom: -6%; height: 75%; transform-origin: 50% 100%; transform: rotateX(66deg);
-  background-image: linear-gradient(rgba(17,17,17,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,17,.1) 1px, transparent 1px);
-  background-size: 4.5rem 4.5rem; background-position: 50% 100%;
-  -webkit-mask-image: radial-gradient(ellipse 55% 90% at 50% 100%, #000 5%, transparent 72%); mask-image: radial-gradient(ellipse 55% 90% at 50% 100%, #000 5%, transparent 72%); }
-.lx .bg3d__s { position: absolute; display: block; border-radius: 50%; transform-style: preserve-3d;
-  translate: calc(var(--px) * var(--d, 16) * 1px) calc(var(--py) * var(--d, 16) * 1px);
-  animation: bg3d-float var(--t, 14s) ease-in-out infinite alternate; }
-.lx .bg3d.is-off * { animation-play-state: paused; }
-.lx .bg3d__s--pearl { --d: 14; --t: 16s; width: 24em; height: 24em; right: -5em; top: -7em;
-  background: radial-gradient(circle at 30% 24%, #fff 0%, #fbfaf9 22%, #e4e2df 55%, #c4c1bc 85%, #b5b2ad 100%);
-  box-shadow: inset -1.5em -2em 3.5em rgba(17,17,17,.1), 0 3em 4em -2em rgba(17,17,17,.28); }
-.lx .bg3d__s--copper { --d: 34; --t: 11s; width: 8.5em; height: 8.5em; right: 4em; bottom: 6em; display: none;
-  background: radial-gradient(circle at 32% 26%, #ffe9d6 0%, #eeb083 16%, #cf8047 46%, #9a5526 78%, #6f3a17 100%);
-  box-shadow: inset -.6em -.9em 1.6em rgba(70,30,8,.35), 0 2.2em 2.6em -1.2em rgba(120,62,24,.45); }
-.lx .bg3d__s--ink { --d: 24; --t: 9s; width: 3.25em; height: 3.25em; right: 23em; top: 11em;
-  background: radial-gradient(circle at 32% 26%, #9a9a9a 0%, #3a3a3a 20%, #141414 52%, #050505 100%);
-  box-shadow: 0 1.2em 1.4em -.7em rgba(17,17,17,.5); }
-.lx .bg3d__s--ring { --d: 14; --t: 16s; width: 36em; height: 36em; right: -11em; top: -13em; border-radius: 0; }
-.lx .bg3d__ring { position: absolute; inset: 0; transform: rotateX(74deg) rotateY(-16deg); transform-style: preserve-3d; }
-.lx .bg3d__ring i { position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(207,128,71,.8); animation: bg3d-orbit 38s linear infinite; }
-.lx .bg3d__ring i::after { content: ""; position: absolute; left: 50%; top: -.6em; width: 1.2em; height: 1.2em; margin-left: -.6em; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #ffe9d6, #cf8047 55%, #7d431c); }
-.lx .bg3d__s--cube { --d: 44; --t: 12s; right: 31em; bottom: 5em; border-radius: 0; display: none; }
-.lx .bg3d__cube { --s: 5.5em; display: block; position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: bg3d-spin 40s linear infinite; }
-.lx .bg3d__cube i { position: absolute; inset: 0; border-radius: .7em;
-  background: linear-gradient(135deg, rgba(255,255,255,.82), rgba(255,255,255,.2));
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.95), inset 0 0 1.6em rgba(207,128,71,.16); }
-.lx .bg3d__cube i:nth-child(1) { transform: translateZ(calc(var(--s) / 2)); }
-.lx .bg3d__cube i:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
-.lx .bg3d__cube i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
-.lx .bg3d__cube i:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); }
-.lx .bg3d__cube i:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }
-.lx .bg3d__cube i:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }
-@keyframes bg3d-float { from { transform: translate3d(0, -.7em, 0); } to { transform: translate3d(0, .9em, 0); } }
-@keyframes bg3d-orbit { to { transform: rotateZ(360deg); } }
-@keyframes bg3d-spin { from { transform: rotateZ(14deg) rotateX(-26deg) rotateY(0); } to { transform: rotateZ(14deg) rotateX(-26deg) rotateY(360deg); } }
-@media (min-width: 640px) { .lx .bg3d { font-size: 11px; } }
-@media (min-width: 1024px) {
-  .lx .bg3d { font-size: 16px; }
-  .lx .bg3d__s--copper, .lx .bg3d__s--cube { display: block; }
-}
-/* Shorter article / order heroes: tuck the scene into the top-right corner. */
-.lx .ahero .bg3d { perspective-origin: 75% 20%; }
-.lx .ahero .bg3d__s--pearl { width: 19em; height: 19em; right: -4em; top: -6em; }
-.lx .ahero .bg3d__s--ring { width: 29em; height: 29em; right: -9em; top: -11em; }
-.lx .ahero .bg3d__s--copper { width: 6.5em; height: 6.5em; right: 15em; bottom: 7em; }
-.lx .ahero .bg3d__s--cube { right: 5em; bottom: 6.5em; }
-.lx .ahero .bg3d__cube { --s: 4.25em; }
+.lx .water { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity .7s ease; }
+.lx .phero__wm { color: rgba(255,255,255,.1); }
+.lx .is-water .phero__wm { visibility: hidden; }
+.lx .phero__crumbs { color: rgba(255,255,255,.5); }
+.lx .phero__crumbs a { color: rgba(255,255,255,.75); }
+.lx .phero__crumbs a:hover { color: #fff; }
+.lx .phero__lead { color: rgba(255,255,255,.7); }
+.lx :is(.phero, .ahero) .eyebrow { color: rgba(255,255,255,.75); }
+.lx :is(.phero, .ahero) .eyebrow:not(.osuccess__k)::before { background: rgba(255,255,255,.6); }
+.lx .phero .facts { background: rgba(255,255,255,.07); box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 1px 2px rgba(0,0,0,.3); }
+.lx .phero .facts li + li { border-top-color: rgba(255,255,255,.1); }
+.lx .phero .facts .k { color: rgba(255,255,255,.5); }
+.lx :is(.phero, .ahero) .pill--dark .pill__in { background: #fff; color: #0a0a0a; }
+.lx :is(.phero, .ahero) .pill--dark .pill__badge { background: #0a0a0a; color: #fff; }
+.lx :is(.phero, .ahero) .pill--outline .pill__in { border-color: rgba(255,255,255,.3); color: #fff; }
+.lx :is(.phero, .ahero) .pill--outline .pill__badge { background: #fff; color: #0a0a0a; }
+.lx .phero .chips span { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: #fff; }
+.lx .ahero .byline a { color: #fff; }
+.lx .ahero .byline small { color: rgba(255,255,255,.6); }
+.lx .ahero .byline img { box-shadow: 0 0 0 2px rgba(255,255,255,.25); }
+/* The header sits on top of the hero, so it turns light on pages that have a dark one. */
+.lx:has(.phero, .ahero) .site-header { color: #fff; }
+.lx:has(.phero, .ahero) .site-header .brand .i { color: #cf8047; }
+.lx:has(.phero, .ahero) .site-header .chip { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.08); }
+.lx:has(.phero, .ahero) .site-header .menu-btn:hover { background: rgba(255,255,255,.18); }
+.lx:has(.phero, .ahero) .site-header .clock { color: rgba(255,255,255,.7); }
+.lx:has(.phero, .ahero) .site-header .clock__lbl { color: rgba(255,255,255,.5); }
+.lx:has(.phero, .ahero) .site-header .clock__time { color: #fff; }
+.lx:has(.phero, .ahero) .site-header .clock__sep { color: rgba(255,255,255,.3); }

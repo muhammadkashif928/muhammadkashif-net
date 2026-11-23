@@ -5,7 +5,7 @@ import { servicePresentation } from '@/data/service-presentation'
 import { questions } from '@/data/faqs'
 import { shopifyService } from '@/data/shopify'
 import { Icon, Pill, Stars } from './Icons'
-import Bg3d from './Bg3d'
+import HeroWater from './HeroWater'
 import JsonLd from '@/components/JsonLd'
 import { getBreadcrumbJsonLd } from '@/lib/seo'
 
@@ -385,7 +385,7 @@ export function PageHero({ watermark, crumb, lines, lead, aside, path, children 
   return (
     <section className="phero">
       {path && <JsonLd data={getBreadcrumbJsonLd([{ name: 'Home', path: '/' }, ...crumb.map(c => ({ name: c.label, path: c.href || path }))])} />}
-      <Bg3d />
+      <HeroWater />
       <div className="phero__wm rv" data-gate="" aria-hidden="true">{watermark}</div>
       <div className="shell phero__in">
         <div className="phero__main">
