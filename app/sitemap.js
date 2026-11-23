@@ -29,6 +29,7 @@ export default function sitemap() {
   ]
 
   const portfolioRoutes = [
+    route('/portfolio/ventara-one-website/', 'monthly', 0.9, '2026-11-24'),
     route('/portfolio/designer-trends-inc-website/', 'monthly', 0.9, '2026-11-24'),
     route('/portfolio/leather-hero-care-kit-carousel/', 'monthly', 0.9, '2026-11-23'),
     route('/portfolio/eagle-shoe-care-shoe-cream/', 'monthly', 0.9, '2026-11-22'),

@@ -374,6 +374,14 @@ html:has(.lx) body.noise::before { display: none; }
 @media (min-width: 640px) { .lx .cv__contact { grid-template-columns: 1fr 1fr; } }
 .lx .cv__lead { margin-top: 1rem; font-size: 1.25rem; line-height: 1.55; letter-spacing: -.01em; color: rgba(17,17,17,.85); }
 .lx .cv__block > .eyebrow { margin-bottom: 1rem; }
+.lx .cv__projects { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+.lx .cv__projects a { position: relative; display: flex; flex-direction: column; gap: .375rem; height: 100%; border-radius: 1.25rem; background: #f1f0ee; padding: 1.25rem 3.25rem 1.25rem 1.25rem; transition: background-color .2s; }
+.lx .cv__projects a:hover { background: #e9e8e5; }
+.lx .cv__projects strong { font-size: 1.0625rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+.lx .cv__ptype { font-size: .6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: #b15f2c; }
+.lx .cv__pnote { font-size: .875rem; line-height: 1.5; color: rgba(17,17,17,.6); }
+.lx .cv__projects .i { position: absolute; top: 1.25rem; right: 1.25rem; font-size: 1rem; color: rgba(17,17,17,.45); }
+@media (min-width: 640px) { .lx .cv__projects { grid-template-columns: 1fr 1fr; } }
 .lx .cv__tools { margin-top: 1rem; display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 .lx .cv__tools h3 { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: rgba(17,17,17,.45); }
 .lx .cv__tools .chips { margin-top: .75rem; }

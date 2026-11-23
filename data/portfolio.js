@@ -15,6 +15,18 @@ export function projectHref(project) {
 
 export const portfolioProjects = [
   {
+    slug: 'ventara-one-website',
+    // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
+    path: '/portfolio/ventara-one-website/',
+    tag: 'WEBSITE DESIGN + DEVELOPMENT',
+    title: 'Ventara ONE — Online Store',
+    desc: 'A custom-coded online store for groceries and everyday essentials shipped from Chicago — 13 departments, 165 products and Stripe checkout.',
+    img: '/case-studies/ventara-one-website/desktop-home-hero.jpg',
+    imgWidths: [320, 480, 640, 960],
+    date: 'Nov 24, 2026',
+    software: ['HTML', 'CSS', 'JavaScript', 'Stripe', 'Vercel'],
+  },
+  {
     slug: 'designer-trends-inc-website',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/designer-trends-inc-website/',

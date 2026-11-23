@@ -68,6 +68,17 @@ export const FEATURED = [
 // homepage 2×2 grid and the "More case studies" rows stay at four cards.
 export const PORTFOLIO_ONLY = [
   {
+    slug: 'ventara-one-website',
+    category: 'websites',
+    href: '/portfolio/ventara-one-website/',
+    img: '/images/lx/work/ventara-one-website.webp',
+    imgStyle: { objectPosition: 'center top' },
+    meta: 'Online store — Design + development',
+    title: 'Ventara ONE — Online Store',
+    desc: 'A custom-coded online store for groceries and everyday essentials — 13 departments, 165 products and Stripe checkout.',
+    tags: ['Custom Store', 'Stripe Checkout', 'Mobile-first'],
+  },
+  {
     slug: 'designer-trends-inc-website',
     category: 'websites',
     href: '/portfolio/designer-trends-inc-website/',

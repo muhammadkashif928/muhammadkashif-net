@@ -4,17 +4,18 @@ import { PageHero } from '@/components/lx/Sections'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
-  title: 'Resume & CV | Muhammad Kashif — E-commerce Creative Designer',
-  description: 'Resume and CV of Muhammad Kashif, e-commerce creative designer: Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design. 8+ years of experience, based in Kuching, Sarawak, Malaysia.',
+  title: 'Resume & CV | Muhammad Kashif — E-commerce Designer & Web Developer',
+  description: 'Resume and CV of Muhammad Kashif, e-commerce creative designer and web developer: Amazon listing images, A+ Content and Brand Stores, custom Shopify and Next.js websites, and brand design. 8+ years of experience, based in Kuching, Malaysia.',
   path: '/resume/',
-  keywords: ['Muhammad Kashif resume', 'e-commerce creative designer CV', 'Amazon designer CV', 'Shopify designer CV'],
+  keywords: ['Muhammad Kashif resume', 'e-commerce creative designer CV', 'Amazon designer CV', 'Shopify designer CV', 'web developer CV'],
 })
 
 const skills = [
   { label: 'E-commerce Design' },
   { label: 'Amazon A+ Content' },
   { label: 'Amazon Brand Store' },
-  { label: 'Shopify' },
+  { label: 'Web Design & Development' },
+  { label: 'Shopify Theme Development' },
   { label: 'Brand Design' },
   { label: 'Packaging Design' },
   { label: 'Competitive Analysis' },
@@ -27,13 +28,14 @@ const experience = [
     role: 'Creative Designer / Digital Operations Specialist',
     company: 'Designer Trends Inc. — Full-time · Remote, United States',
     period: 'Oct 2022 – Present',
-    tags: ['Competitive Analysis', 'Packaging Design', 'A+ Content', 'Main Image Strategy', 'E-commerce'],
+    tags: ['Competitive Analysis', 'Packaging Design', 'A+ Content', 'Main Image Strategy', 'Web Development', 'E-commerce'],
     points: [
       'Permanent, full-time remote role. Joined in October 2022 as Remote Administrative and Creative Design Specialist; now Creative Designer / Digital Operations Specialist.',
       'Directed full visual strategy for 7+ leather & shoe care brands incl. Angelus, Tarrago, Eagle Shoe Care, Leather Hero, Lincoln, Silver & Fiamme across Amazon US.',
       'Engineered Main Image overhauls using psychological CTR triggers, achieving measurable uplift in click-through rates across 200+ product SKUs.',
       'Designed A+ Content & Enhanced Brand Content (EBC) that reduced customer objections and increased average order values.',
-      'Produced 8K lifestyle composites using AI-powered retouching, and built complete e-commerce websites for heritage brands.',
+      'Designed and built the group’s websites from scratch: the Designer Trends Inc. company site and the 89-page Leather Hero brand site (both custom Next.js), and the Eagle Shoe Care Shopify store on a custom theme with a wholesale application built in.',
+      'Produced 8K lifestyle composites using AI-powered retouching, cutting the need for studio shoots.',
     ],
   },
   {
@@ -76,8 +78,21 @@ const experience = [
   },
 ]
 
+// Shown under "Selected projects"; each links to its case study on this site.
+const projects = [
+  { name: 'Designer Trends Inc. — Company Website', type: 'Website · Next.js', href: '/portfolio/designer-trends-inc-website/', note: 'Custom company site for a footwear and leather-care group: four brands, a 36-article journal and wholesale enquiries.' },
+  { name: 'Eagle Shoe Care — Shopify Store', type: 'Website · Shopify', href: '/portfolio/eagle-shoe-care-website/', note: 'Fully custom Shopify theme that sells to shoppers and signs up the retailers that stock the brand.' },
+  { name: 'Leather Hero — Brand Website', type: 'Website · Next.js', href: '/portfolio/leather-hero-website/', note: 'Custom 89-page brand site for a leather-care brand that sells on Amazon.' },
+  { name: 'Ventara ONE — Online Store', type: 'Website · Custom store', href: '/portfolio/ventara-one-website/', note: 'Custom-coded grocery and essentials store: 13 departments, 165 products and Stripe checkout.' },
+  { name: 'Leather Hero — Furniture Salve', type: 'Amazon · Listing set', href: '/portfolio/leather-hero-furniture-salve/', note: 'Four near-identical images rebuilt into a ten-image set led by before-and-after proof.' },
+  { name: 'Eagle Shoe Care — Shoe Cream', type: 'Amazon · Listing set', href: '/portfolio/eagle-shoe-care-shoe-cream/', note: 'Ten-image listing set for a black shoe cream with brush and buffing cloth.' },
+  { name: 'Fiamme — Brand Store', type: 'Amazon · Brand Store', href: '/portfolio/fiamme-brand-store/', note: 'Seven-module Amazon Brand Store for a luxury suede and nubuck cleaning kit.' },
+  { name: 'Leather Hero — Care Kit Carousel', type: 'Social · Carousel', href: '/portfolio/leather-hero-care-kit-carousel/', note: 'Seven-slide vertical carousel that takes one car seat from dirty to clean.' },
+]
+
 const toolGroups = [
   { category: 'Design',    items: ['Photoshop', 'Illustrator', 'Figma', 'Lightroom', 'After Effects'] },
+  { category: 'Web',       items: ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Tailwind CSS', 'Shopify Liquid', 'Stripe', 'Vercel'] },
   { category: 'AI Tools',  items: ['Midjourney', 'DALL·E', 'Stable Diffusion', 'ComfyUI', 'ChatGPT', 'Claude AI'] },
   { category: 'Platform',  items: ['Amazon Seller Central', 'Shopify', 'WordPress', 'Upwork', 'Fiverr'] },
 ]
@@ -117,7 +132,7 @@ export default function ResumePage() {
           crumb={[{ label: 'Resume' }]}
           path="/resume/"
           lines={['Resume & CV.', 'Eight years in e-commerce.']}
-          lead="E-commerce creative designer — Amazon listing images, A+ Content and Brand Stores, Shopify store design, and brand and digital design. A Malaysian approved digital nomad, working remotely with brands in the US, UK and Canada."
+          lead="E-commerce creative designer and web developer — Amazon listing images, A+ Content and Brand Stores, custom Shopify and Next.js websites, and brand design. A Malaysian approved digital nomad, working remotely with brands in the US, UK and Canada."
           aside={
             <div className="dl-stack">
               <Pill variant="dark" arrow="download" href="/Muhammad-Kashif-Resume.pdf" external>Download resume</Pill>
@@ -132,7 +147,7 @@ export default function ResumePage() {
               <div className="cv__main">
                 <div className="cv__id rv">
                   <h2>Muhammad Kashif</h2>
-                  <p>E-commerce Creative Designer · Amazon · Shopify · Brand &amp; Digital</p>
+                  <p>E-commerce Creative Designer &amp; Web Developer · Amazon · Shopify · Next.js</p>
                   <ul className="cv__contact">
                     {contact.map(c => (
                       <li key={c.label}>
@@ -145,7 +160,7 @@ export default function ResumePage() {
 
                 <div className="cv__block rv">
                   <p className="eyebrow">Career objective</p>
-                  <p className="cv__lead">E-commerce creative designer with 8+ years of experience designing how brands and their products are presented online: Amazon listing images, A+ Content and Brand Stores, Shopify storefronts, and the brand and marketing creative around them. Every project starts with research — competitor listings, customer reviews and the questions buyers keep asking — and AI handles production work while design decisions, brand accuracy and final quality stay with me. Open to contract and retainer work with e-commerce brands and agencies.</p>
+                  <p className="cv__lead">E-commerce creative designer with 8+ years of experience designing how brands and their products are presented online: Amazon listing images, A+ Content and Brand Stores, and the brand creative around them — and I build the websites too, from custom Shopify themes to hand-coded Next.js sites and online stores. Every project starts with research — competitor listings, customer reviews and the questions buyers keep asking — and AI handles production work while design decisions, brand accuracy and final quality stay with me. Open to contract and retainer work with e-commerce brands and agencies.</p>
                 </div>
 
                 <div className="cv__block">
@@ -162,6 +177,22 @@ export default function ResumePage() {
                       </li>
                     ))}
                   </ol>
+                </div>
+
+                <div className="cv__block">
+                  <p className="eyebrow rv">Selected projects</p>
+                  <ul className="cv__projects">
+                    {projects.map(p => (
+                      <li key={p.href} className="rv">
+                        <a href={p.href}>
+                          <span className="cv__ptype">{p.type}</span>
+                          <strong>{p.name}</strong>
+                          <span className="cv__pnote">{p.note}</span>
+                          <Icon name="arrow-ur" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="cv__block rv">
