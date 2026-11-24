@@ -11,13 +11,13 @@ import { getBreadcrumbJsonLd } from '@/lib/seo'
 
 // Portfolio filter tabs — each case study's `category` is one of these ids.
 export const WORK_CATEGORIES = [
-  { id: 'websites', label: 'Websites', unit: 'project', blurb: 'Shopify stores and custom-coded sites', img: '/images/lx/work/eagle-shoe-care-website.webp' },
-  { id: 'listings', label: 'Amazon listing sets', unit: 'project', blurb: 'Full image sets for one product', img: '/images/lx/work/leather-hero-salve.webp' },
-  { id: 'brand-store', label: 'Amazon Brand Store', unit: 'project', blurb: 'Storefronts built module by module', img: '/images/lx/work/fiamme-brand-store.webp' },
-  { id: 'main-images', label: 'Main images & composites', unit: 'project', blurb: 'Search-result images and lifestyle scenes', img: '/images/lx/work/jason-markk-repel.webp' },
+  { id: 'websites', icon: 'globe', label: 'Websites', unit: 'project', blurb: 'Shopify stores and custom-coded sites', img: '/images/lx/work/eagle-shoe-care-website.webp' },
+  { id: 'listings', icon: 'grid', label: 'Amazon listing sets', unit: 'project', blurb: 'Full image sets for one product', img: '/images/lx/work/leather-hero-salve.webp' },
+  { id: 'brand-store', icon: 'store', label: 'Amazon Brand Store', unit: 'project', blurb: 'Storefronts built module by module', img: '/images/lx/work/fiamme-brand-store.webp' },
+  { id: 'main-images', icon: 'frame', label: 'Main images & composites', unit: 'project', blurb: 'Search-result images and lifestyle scenes', img: '/images/lx/work/jason-markk-repel.webp' },
 ]
 // AI ad videos have their own page, so this card is a link rather than a filter.
-export const VIDEO_CATEGORY = { id: 'ad-videos', label: 'AI ad videos', unit: 'video', blurb: 'Short product ads in 4K', img: '/videos/ads/eagle-mink-oil-kit.jpg', href: '/ai-ad-videos/' }
+export const VIDEO_CATEGORY = { id: 'ad-videos', icon: 'play', label: 'AI ad videos', unit: 'video', blurb: 'Short product ads in 4K', img: '/videos/ads/eagle-mink-oil-kit.jpg', href: '/ai-ad-videos/' }
 
 /* ---------- Four featured case studies (dark cards) ---------- */
 export const FEATURED = [
