@@ -500,6 +500,7 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .svc--feature .svc__fine { color: rgba(255,255,255,.5); }
 .lx .svc__ask { font-size: .875rem; font-weight: 500; color: rgba(17,17,17,.6); text-decoration: underline; text-underline-offset: 3px; }
 .lx .svc__ask:hover { color: #111; }
+.lx button.svc__ask { padding: 0; }
 .lx .svc--feature .svc__ask { color: rgba(255,255,255,.65); }
 .lx .svc--feature .svc__ask:hover { color: #fff; }
 .lx .guides { display: flex; flex-direction: column; }

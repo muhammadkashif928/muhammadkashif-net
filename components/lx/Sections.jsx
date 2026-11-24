@@ -315,7 +315,7 @@ export function ServiceDetail({ service: s, feature = false, headingLevel: H = '
         <div className="svc__order">
           <Pill variant={feature ? 'light' : 'dark'} arrow="up-right" href={`/order/${s.slug}/`}>Order · {priceLabel(s)}</Pill>
           {showDetailsLink && <a className="svc__ask" href={`/services/${s.slug}/`}>Details &amp; examples</a>}
-          <button type="button" className="svc__ask" data-go="contact" data-service={serviceName(s)} style={{ background: 'none', border: 0, cursor: 'pointer', padding: 0 }}>Ask first</button>
+          <button type="button" className="svc__ask" data-go="contact" data-service={serviceName(s)} style={{ background: 'none', border: 0, cursor: 'pointer' }}>Ask first</button>
         </div>
       </div>
     </article>
