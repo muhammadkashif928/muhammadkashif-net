@@ -743,3 +743,8 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .stats__panel { position: relative; isolation: isolate; overflow: hidden;
   background: radial-gradient(60rem 30rem at 85% 0%, rgba(207,128,71,.28), transparent 62%), linear-gradient(to bottom, #161514, #0a0a0a); }
 .lx .stats__panel > :not(.water) { position: relative; z-index: 1; }
+
+/* ---------- Home: hero and about joined ----------
+   The about panel's rounded top slides up over a square-bottomed hero, so there is no white gap. */
+.lx .hero { border-radius: 0; padding-bottom: 2rem; }
+.lx .hero + .about { margin-top: -2rem; z-index: 3; }
