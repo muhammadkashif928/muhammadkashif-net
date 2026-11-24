@@ -2,6 +2,7 @@
 // Page shell for the Lumora-design pages: loader, header, menu overlay, footer and the
 // contact pop-up, wrapped in the .lx root that styles/lumora.css is scoped to.
 // The page's own content is passed in as children (server components).
+import HeroWater from '@/components/lx/HeroWater'
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { Onest } from 'next/font/google'
@@ -89,6 +90,7 @@ export default function LxShell({ children }) {
 
       {/* Footer */}
       <footer className="footer">
+        <HeroWater />
         <div className="shell footer__in">
           <div className="footer__cta">
             <h2 className="footer__h2 lines" data-stagger="100">Let&apos;s build your next first impression.</h2>
