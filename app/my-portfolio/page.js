@@ -1,9 +1,9 @@
 import LxShell from '@/components/lx/LxShell'
 import { Pill } from '@/components/lx/Icons'
-import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
+import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, VIDEO_CATEGORY, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
 import WorkFilter from '@/components/lx/WorkFilter'
 import AdVideos from '@/components/lx/AdVideos'
-import { adVideos } from '@/data/ad-videos'
+import { adVideos, verticalAd } from '@/data/ad-videos'
 import { portfolioProjects } from '@/data/portfolio'
 import JsonLd from '@/components/JsonLd'
 import { createMetadata, absoluteUrl, siteConfig } from '@/lib/seo'
@@ -73,8 +73,8 @@ export default function MyPortfolio() {
 
         <section className="section">
           <div className="shell section__in">
-            <SecHead eyebrow="Case studies" pill title="Recent work" lead="The brief, the decisions and the before-and-after for every image in the set." />
-            <WorkFilter categories={WORK_CATEGORIES} counts={categoryCounts} total={caseStudies.length}>
+            <SecHead eyebrow="Browse by type" pill title="What are you looking for?" lead="Pick a type of work to see every project in it. Each one opens a case study with the brief, the decisions and the finished result." />
+            <WorkFilter categories={WORK_CATEGORIES} counts={categoryCounts} total={caseStudies.length} extra={[{ ...VIDEO_CATEGORY, n: adVideos.length + (verticalAd ? 1 : 0) }]}>
               <FeaturedCards projects={caseStudies} />
             </WorkFilter>
           </div>

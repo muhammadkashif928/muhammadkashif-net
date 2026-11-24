@@ -1,7 +1,9 @@
 import HeroWater from '@/components/lx/HeroWater'
 import LxShell from '@/components/lx/LxShell'
 import { Icon, Pill, Stars } from '@/components/lx/Icons'
-import { FeaturedCards, ServiceRows } from '@/components/lx/Sections'
+import { FeaturedCards, ServiceRows, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, VIDEO_CATEGORY } from '@/components/lx/Sections'
+import WorkCats from '@/components/lx/WorkCats'
+import { adVideos } from '@/data/ad-videos'
 import { SOFTWARE } from '@/components/lx/Case'
 import { createMetadata } from '@/lib/seo'
 
@@ -17,6 +19,11 @@ const HIGHLIGHTS = [
   ['Main images', 'Crafted to convert.', 'frame'],
   ['Infographics', 'Benefits, made clear.', 'chart'],
   ['A+ & Brand Stores', 'Designed to last.', 'store'],
+]
+const ALL_WORK = [...FEATURED, ...PORTFOLIO_ONLY]
+const WORK_CATS = [
+  ...WORK_CATEGORIES.map(c => ({ ...c, n: ALL_WORK.filter(p => p.category === c.id).length })),
+  { ...VIDEO_CATEGORY, n: adVideos.length + 1 },
 ]
 const BRANDS = ['Angelus', 'Eagle Shoe Care', 'Leather Hero', 'Lincoln', 'Fiamme', 'Tarrago', 'Saphir', 'Rayln', 'Silver', 'Toe Armor', 'Venetian']
 
@@ -147,6 +154,10 @@ export default function Home() {
               <h2 className="works__h2 lines" data-delay="120">Selected work</h2>
             </div>
             <FeaturedCards />
+            <div className="works__cats">
+              <h3 className="works__h3 rv">Browse all work by type</h3>
+              <WorkCats items={WORK_CATS} />
+            </div>
             <div className="works__more rv">
               <Pill variant="outline" href="/my-portfolio/">View all work</Pill>
             </div>
