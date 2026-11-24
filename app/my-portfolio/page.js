@@ -2,7 +2,6 @@ import LxShell from '@/components/lx/LxShell'
 import { Pill } from '@/components/lx/Icons'
 import { FeaturedCards, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, VIDEO_CATEGORY, PageHero, Facts, SecHead, Steps } from '@/components/lx/Sections'
 import WorkFilter from '@/components/lx/WorkFilter'
-import AdVideos from '@/components/lx/AdVideos'
 import { adVideos, verticalAd } from '@/data/ad-videos'
 import { portfolioProjects } from '@/data/portfolio'
 import JsonLd from '@/components/JsonLd'
@@ -73,19 +72,10 @@ export default function MyPortfolio() {
 
         <section className="section">
           <div className="shell section__in">
-            <SecHead eyebrow="Browse by type" pill title="What are you looking for?" lead="Pick a type of work to see every project in it. Each one opens a case study with the brief, the decisions and the finished result." />
-            <WorkFilter categories={WORK_CATEGORIES} counts={categoryCounts} total={caseStudies.length} extra={[{ ...VIDEO_CATEGORY, n: adVideos.length + (verticalAd ? 1 : 0) }]}>
+            <SecHead eyebrow="Browse by type" pill title="What are you looking for?" lead="Pick a type of work to open every project in it. Each project is a case study with the brief, the decisions and the finished result." />
+            <WorkFilter categories={WORK_CATEGORIES} counts={categoryCounts} extra={[{ ...VIDEO_CATEGORY, n: adVideos.length + (verticalAd ? 1 : 0) }]}>
               <FeaturedCards projects={caseStudies} />
             </WorkFilter>
-          </div>
-        </section>
-
-        <section className="section" id="ad-videos">
-          <div className="shell section__in section__in--tight">
-            <SecHead eyebrow="AI ad videos" pill title="Product ads in motion" lead="Short AI-made video ads for leather and shoe-care brands: the problem, the product, how to use it and the result.">
-              <div className="rv" style={{ '--ry': '12px', '--rd': '150ms' }}><Pill variant="outline" href="/ai-ad-videos/">See all ad videos</Pill></div>
-            </SecHead>
-            <AdVideos videos={adVideos.slice(0, 4)} />
           </div>
         </section>
 

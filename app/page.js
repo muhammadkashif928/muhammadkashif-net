@@ -1,7 +1,7 @@
 import HeroWater from '@/components/lx/HeroWater'
 import LxShell from '@/components/lx/LxShell'
 import { Icon, Pill, Stars } from '@/components/lx/Icons'
-import { FeaturedCards, ServiceRows, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, VIDEO_CATEGORY } from '@/components/lx/Sections'
+import { ServiceRows, FEATURED, PORTFOLIO_ONLY, WORK_CATEGORIES, VIDEO_CATEGORY } from '@/components/lx/Sections'
 import WorkCats from '@/components/lx/WorkCats'
 import { adVideos } from '@/data/ad-videos'
 import { SOFTWARE } from '@/components/lx/Case'
@@ -150,16 +150,12 @@ export default function Home() {
         <section className="works" id="work">
           <div className="shell works__in">
             <div className="works__head">
-              <div className="rv" style={{ '--ry': '10px' }}><span className="eyebrow eyebrow--pill">Case studies</span></div>
-              <h2 className="works__h2 lines" data-delay="120">Selected work</h2>
+              <div className="rv" style={{ '--ry': '10px' }}><span className="eyebrow eyebrow--pill">Browse work by type</span></div>
+              <h2 className="works__h2 lines" data-delay="120">What are you looking for?</h2>
             </div>
-            <FeaturedCards />
-            <div className="works__cats">
-              <h3 className="works__h3 rv">Browse all work by type</h3>
-              <WorkCats items={WORK_CATS} />
-            </div>
+            <WorkCats items={WORK_CATS} />
             <div className="works__more rv">
-              <Pill variant="outline" href="/my-portfolio/">View all work</Pill>
+              <Pill variant="outline" href="/my-portfolio/">Open the portfolio</Pill>
             </div>
           </div>
         </section>

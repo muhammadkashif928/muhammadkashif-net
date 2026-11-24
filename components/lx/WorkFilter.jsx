@@ -1,22 +1,23 @@
 'use client'
-// Category tabs for the portfolio grid. The cards are rendered on the server
-// with `data-cat`; this hides the ones outside the chosen category and keeps
-// the choice in the URL hash (e.g. /my-portfolio/#websites) so it can be linked.
+// Portfolio browser. Visitors see category cards first; choosing one opens that
+// category's case studies underneath. The project cards are rendered on the server
+// with `data-cat` and stay hidden until a category is chosen. The choice is kept in
+// the URL hash (e.g. /my-portfolio/#websites) so it can be linked from other pages.
 import { useEffect, useRef, useState } from 'react'
 import WorkCats from './WorkCats'
 
-export default function WorkFilter({ categories, counts, total, extra = [], children }) {
-  const [active, setActive] = useState('all')
+export default function WorkFilter({ categories, counts, extra = [], children }) {
+  const [active, setActive] = useState(null)
   const grid = useRef(null)
-  const tabRow = useRef(null)
+  const results = useRef(null)
+  const wantScroll = useRef(false)
 
   useEffect(() => {
     const fromHash = () => {
       const id = decodeURIComponent(location.hash.slice(1))
       const ok = categories.some(c => c.id === id)
-      setActive(ok ? id : 'all')
-      // Arriving from a category card on another page: bring the filtered grid into view.
-      if (ok) setTimeout(toGrid, 400)
+      if (ok) wantScroll.current = true
+      setActive(ok ? id : null)
     }
     fromHash()
     addEventListener('hashchange', fromHash)
@@ -24,37 +25,36 @@ export default function WorkFilter({ categories, counts, total, extra = [], chil
   }, [categories])
 
   useEffect(() => {
-    grid.current?.querySelectorAll('li[data-cat]').forEach(li => {
-      li.hidden = active !== 'all' && li.dataset.cat !== active
-    })
-    // On a phone the tab row scrolls sideways — bring the chosen tab into view.
-    const row = tabRow.current, tab = row?.querySelector('[aria-pressed="true"]')
-    if (tab) row.scrollTo({ left: tab.offsetLeft - (row.clientWidth - tab.offsetWidth) / 2, behavior: 'smooth' })
+    grid.current?.querySelectorAll('li[data-cat]').forEach(li => { li.hidden = li.dataset.cat !== active })
+    if (!active || !wantScroll.current) return
+    wantScroll.current = false
+    const t = setTimeout(() => {
+      const el = results.current
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 96, behavior: 'smooth' })
+    }, 350)
+    return () => clearTimeout(t)
   }, [active])
 
-  const toGrid = () => {
-    const row = tabRow.current
-    if (row) window.scrollTo({ top: row.getBoundingClientRect().top + window.pageYOffset - 96, behavior: 'smooth' })
-  }
-  const pickCard = id => { pick(id); toGrid() }
-
+  // Choosing the open category again closes it.
   const pick = id => {
-    setActive(id)
-    history.replaceState(null, '', id === 'all' ? location.pathname + location.search : `#${id}`)
+    const next = id === active ? null : id
+    wantScroll.current = !!next
+    setActive(next)
+    history.replaceState(null, '', next ? `#${next}` : location.pathname + location.search)
   }
 
-  const tabs = [{ id: 'all', label: 'All work', n: total }, ...categories.map(c => ({ ...c, n: counts[c.id] || 0 })).filter(c => c.n)]
+  const cats = categories.map(c => ({ ...c, n: counts[c.id] || 0 })).filter(c => c.n)
+  const open = cats.find(c => c.id === active)
   return (
     <>
-      <WorkCats items={[...tabs.slice(1), ...extra]} active={active} onPick={pickCard} />
-      <div ref={tabRow} className="wtabs rv" role="group" aria-label="Filter case studies by category">
-        {tabs.map(t => (
-          <button key={t.id} type="button" className="wtab" aria-pressed={active === t.id} onClick={() => pick(t.id)}>
-            {t.label}<span className="wtab__n">{t.n}</span>
-          </button>
-        ))}
+      <WorkCats items={[...cats, ...extra]} active={active} onPick={pick} />
+      <div ref={results} className="wresults" hidden={!open}>
+        <div className="wresults__head">
+          <h3>{open?.label}<span>{open?.n} {open?.n === 1 ? 'project' : 'projects'}</span></h3>
+          <button type="button" className="wresults__close" onClick={() => pick(active)}>Close</button>
+        </div>
+        <div ref={grid}>{children}</div>
       </div>
-      <div ref={grid}>{children}</div>
     </>
   )
 }

@@ -1,6 +1,6 @@
-// Category cards for the portfolio: one card per type of work, with a cover image and a
-// project count. With `onPick` (portfolio page) a card filters the grid in place; without
-// it (home page) each card links to its filtered view of the portfolio.
+// Category cards for the portfolio: one text-only card per type of work, with a project
+// count. With `onPick` (portfolio page) a card opens its projects in place; without it
+// (home page) each card links to that category on the portfolio page.
 import { Icon } from './Icons'
 
 export default function WorkCats({ items, active, onPick }) {
@@ -9,8 +9,6 @@ export default function WorkCats({ items, active, onPick }) {
       {items.map((c, i) => {
         const inner = (
           <>
-            <img className="wcat__img" src={c.img} alt="" loading="lazy" decoding="async" />
-            <span className="wcat__shade" />
             <span className="wcat__top"><span className="wcat__n">{c.n} {c.n === 1 ? c.unit : `${c.unit}s`}</span><span className="wcat__badge"><Icon name="arrow-ur" /></span></span>
             <span className="wcat__body"><strong>{c.label}</strong><small>{c.blurb}</small></span>
           </>
