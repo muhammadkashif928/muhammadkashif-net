@@ -188,6 +188,7 @@ export default function Home() {
         <section className="stats" id="reviews" aria-label="Social proof">
           <div className="shell stats__in">
             <div className="stats__panel rv">
+              <HeroWater />
               <span className="eyebrow eyebrow--light">Social proof</span>
               <h2 className="stats__h2 lines" data-delay="120">Good work. Lasting relationships.</h2>
               <ul className="stats__grid">
