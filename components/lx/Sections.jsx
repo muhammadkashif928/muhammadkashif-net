@@ -14,6 +14,7 @@ export const WORK_CATEGORIES = [
   { id: 'websites', icon: 'globe', label: 'Websites', unit: 'project', blurb: 'Shopify stores and custom-coded sites', img: '/images/lx/work/eagle-shoe-care-website.webp' },
   { id: 'listings', icon: 'grid', label: 'Amazon listing sets', unit: 'project', blurb: 'Full image sets for one product', img: '/images/lx/work/leather-hero-salve.webp' },
   { id: 'brand-store', icon: 'store', label: 'Amazon Brand Store', unit: 'project', blurb: 'Storefronts built module by module', img: '/images/lx/work/fiamme-brand-store.webp' },
+  { id: 'carousels', icon: 'slides', label: 'Carousels', unit: 'project', blurb: 'Swipeable how-to slides for social and listings', img: '/images/lx/work/eagle-saddle-soap-kit-carousel.webp' },
   { id: 'main-images', icon: 'frame', label: 'Main images & composites', unit: 'project', blurb: 'Search-result images and lifestyle scenes', img: '/images/lx/work/jason-markk-repel.webp' },
 ]
 // AI ad videos have their own page, so this card is a link rather than a filter.
@@ -91,8 +92,18 @@ export const PORTFOLIO_ONLY = [
     tags: ['Custom Website', 'Next.js', 'B2B Wholesale'],
   },
   {
+    slug: 'eagle-saddle-soap-kit-carousel',
+    category: 'carousels',
+    href: '/portfolio/eagle-saddle-soap-kit-carousel/',
+    img: '/images/lx/work/eagle-saddle-soap-kit-carousel.webp',
+    meta: 'Shoe Care — Lifestyle carousel',
+    title: 'Eagle Shoe Care — Saddle Soap Kit Carousel',
+    desc: 'A three-piece saddle soap kit told as a five-slide vertical carousel on one work boot — the before-and-after, three steps and the clean pair.',
+    tags: ['5-Slide Carousel', 'How-To Steps', 'Before / After'],
+  },
+  {
     slug: 'leather-hero-care-kit-carousel',
-    category: 'main-images',
+    category: 'carousels',
     href: '/portfolio/leather-hero-care-kit-carousel/',
     img: '/images/lx/work/leather-hero-care-kit-carousel.webp',
     meta: 'Leather Care — Lifestyle carousel',

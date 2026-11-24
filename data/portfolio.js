@@ -39,6 +39,16 @@ export const portfolioProjects = [
     software: ['HTML', 'CSS', 'JavaScript', 'Next.js', 'Tailwind CSS'],
   },
   {
+    slug: 'eagle-saddle-soap-kit-carousel',
+    path: '/portfolio/eagle-saddle-soap-kit-carousel/',
+    tag: 'LIFESTYLE CAROUSEL',
+    title: 'Eagle Shoe Care — Saddle Soap Kit Carousel',
+    desc: 'A three-piece saddle soap kit told as a five-slide 9:16 carousel — one work boot, from dusty to clean, in three steps.',
+    img: '/case-studies/eagle-saddle-soap-kit-carousel/share.jpg',
+    date: 'Nov 25, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'leather-hero-care-kit-carousel',
     // Lives under /portfolio/ rather than the legacy /blackdsn-portfolio/ prefix.
     path: '/portfolio/leather-hero-care-kit-carousel/',

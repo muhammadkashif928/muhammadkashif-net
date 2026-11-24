@@ -12,7 +12,9 @@ export default function WorkCats({ items, active, onPick }) {
             <span className="wcat__glow" aria-hidden="true" />
             <span className="wcat__num" aria-hidden="true">{String(c.n).padStart(2, '0')}</span>
             <span className="wcat__top">
-              <span className="wcat__ic">{c.icon === 'play' ? <svg className="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none" /></svg> : <Icon name={c.icon} />}</span>
+              <span className="wcat__ic">{c.icon === 'play' ? <svg className="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none" /></svg>
+                : c.icon === 'slides' ? <svg className="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="8" y="4" width="8" height="16" rx="2" /><path d="M4 7v10M20 7v10" /></svg>
+                : <Icon name={c.icon} />}</span>
               <span className="wcat__badge"><Icon name="arrow-ur" /></span>
             </span>
             <span className="wcat__body">

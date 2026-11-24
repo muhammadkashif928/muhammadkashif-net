@@ -850,7 +850,7 @@ html:has(.lx) body.noise::before { display: none; }
   .lx .wcat__num { font-size: 9rem; right: .75rem; top: 3.5rem; }
   .lx .wcat__body strong { font-size: 1.875rem; }
 }
-@media (min-width: 1200px) { .lx .wcats { grid-template-columns: repeat(5, 1fr); } .lx .wcat { min-height: 24rem; } }
+@media (min-width: 1200px) { .lx .wcat { min-height: 20rem; padding: 1.5rem; } .lx .wcat__body strong { font-size: 2.25rem; } .lx .wcat__num { font-size: 12rem; top: 2rem; right: 1.25rem; } }
 /* Projects of the chosen category, opened under the cards */
 .lx .wresults { margin-top: 3.5rem; }
 .lx .wresults__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.75rem; border-top: 1px solid #e6e5e2; padding-top: 1.75rem; }
