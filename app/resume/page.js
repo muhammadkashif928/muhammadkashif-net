@@ -20,6 +20,7 @@ const skills = [
   { label: 'Packaging Design' },
   { label: 'Competitive Analysis' },
   { label: 'High-End Retouching' },
+  { label: 'AI Video Ads' },
   { label: 'Video Editing' },
 ]
 
@@ -36,6 +37,7 @@ const experience = [
       'Designed A+ Content & Enhanced Brand Content (EBC) that reduced customer objections and increased average order values.',
       'Designed and built the group’s websites from scratch: the Designer Trends Inc. company site and the 89-page Leather Hero brand site (both custom Next.js), and the Eagle Shoe Care Shopify store on a custom theme with a wholesale application built in.',
       'Produced 8K lifestyle composites using AI-powered retouching, cutting the need for studio shoots.',
+      'Created AI video ads for Eagle Shoe Care, Leather Hero and Fiamme: 40-second product spots that take each kit from the problem to the finished result, plus vertical cuts for phones.',
     ],
   },
   {

@@ -702,10 +702,19 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .about__grid { position: relative; z-index: 2; }
 .lx .about__bigglobe { color: rgba(255,255,255,.16); }
 /* Portrait and globe sit in the middle of their column instead of hugging the left edge */
-.lx .about__orb { left: 50%; width: 15rem; height: 15rem; transform: translate(-50%, -50%); }
-@media (max-width: 639.98px) { .lx .about__globe { min-height: 27rem; } }
-@media (min-width: 640px) { .lx .about__orb { width: 20rem; height: 20rem; } }
-@media (min-width: 1024px) { .lx .about__orb { width: 27rem; height: 27rem; } .lx .about__globe { min-height: 34rem; } }
+/* Portrait column: label, portrait and location note in one centred stack, with thin rings behind the photo */
+.lx .about__globe { min-height: 0; align-items: center; justify-content: center; gap: 2.75rem; text-align: center; }
+.lx .about__globe .eyebrow { order: 1; }
+.lx .about__orb { order: 2; position: relative; left: auto; top: auto; transform: none; width: min(100%, 19rem); height: auto; aspect-ratio: 1; }
+.lx .about__note { order: 3; text-align: left; }
+.lx .about__note span { max-width: 17rem; }
+.lx .about__bigglobe { display: none; }
+.lx .about__orb::before, .lx .about__orb::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.lx .about__orb::before { inset: 0; border: 1px solid rgba(255,255,255,.16); background: radial-gradient(closest-side, rgba(207,128,71,.2), transparent 72%); }
+.lx .about__orb::after { inset: -7%; border: 1px dashed rgba(255,255,255,.12); }
+.lx .about__photo { width: 62%; }
+@media (min-width: 640px) { .lx .about__orb { width: 23rem; } }
+@media (min-width: 1024px) { .lx .about__orb { width: min(100%, 26rem); } }
 .lx .about .eyebrow { color: rgba(255,255,255,.75); }
 .lx .about .eyebrow::before { background: rgba(255,255,255,.6); }
 .lx .about__note { color: rgba(255,255,255,.7); }
