@@ -1,4 +1,5 @@
 import LxShell from '@/components/lx/LxShell'
+import HeroWater from '@/components/lx/HeroWater'
 import { Pill } from '@/components/lx/Icons'
 import { PageHero, Facts, SecHead } from '@/components/lx/Sections'
 import AdVideos, { AdVideo } from '@/components/lx/AdVideos'
@@ -72,6 +73,7 @@ export default function AiAdVideos() {
         <section className="section">
           <div className="shell section__in section__in--tight">
             <div className="advsplit">
+              <HeroWater />
               <div>
                 <SecHead eyebrow="Vertical" title="Re-cut for phones." split={false} lead="The same ad is delivered in 9:16 for Reels, TikTok and Shorts. This cut has no on-screen text, so captions can be written for each platform." />
                 <div className="rv" style={{ '--ry': '12px', '--rd': '150ms', marginTop: '2rem' }}><Pill variant="dark" arrow="up-right" data-go="contact">Ask about an ad for your product</Pill></div>

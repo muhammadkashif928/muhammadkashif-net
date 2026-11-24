@@ -520,9 +520,9 @@ html:has(.lx) body.noise::before { display: none; }
    Cover-fitting the photo to a tall stacked hero blew the face up ~4×. Below 1024px the
    photo becomes its own band at the foot of the hero; the copy and card sit above it. */
 @media (max-width: 1023.98px) {
-  .lx .hero { --hero-photo: min(26rem, 92vw); background: linear-gradient(to bottom, var(--hero-from), var(--hero-wall) 60%); }
+  .lx .hero { --hero-photo: min(36rem, 130vw); background: linear-gradient(to bottom, var(--hero-from), var(--hero-wall) 60%); }
   .lx .hero .liquid { top: auto; height: var(--hero-photo);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24%); mask-image: linear-gradient(to bottom, transparent, #000 24%); }
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%); mask-image: linear-gradient(to bottom, transparent, #000 18%); }
   .lx .hero__vignette, .lx .hero__wm, .lx .hero .partners { display: none; }
   .lx .hero__grid { gap: 1.75rem; padding-top: 6.5rem; padding-bottom: calc(var(--hero-photo) - 4rem); }
   .lx .hero__left { gap: 1.25rem; }
@@ -773,6 +773,16 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .advid__brand { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: #b15f2c; }
 .lx .advid__title { margin-top: .3rem; font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; }
 .lx .advid__text { margin-top: .45rem; max-width: 34rem; font-size: .9375rem; line-height: 1.55; color: rgba(17,17,17,.62); }
-.lx .advsplit { display: grid; grid-template-columns: 1fr; align-items: center; gap: 3rem; padding-bottom: 5rem; }
+.lx .advsplit { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: 1fr; align-items: center; gap: 3rem;
+  margin-bottom: 5rem; border-radius: 2rem; padding: 3rem 1.5rem; color: #fff;
+  background: radial-gradient(60rem 30rem at 85% 0%, rgba(207,128,71,.28), transparent 62%), linear-gradient(to bottom, #161514, #0a0a0a); }
+.lx .advsplit > :not(.water) { position: relative; z-index: 1; }
+.lx .advsplit .eyebrow { color: rgba(255,255,255,.75); }
+.lx .advsplit .eyebrow::before { background: rgba(255,255,255,.6); }
+.lx .advsplit .sec-lead { color: rgba(255,255,255,.7); }
+.lx .advsplit .advid__brand { color: #e0a070; }
+.lx .advsplit .pill--dark .pill__in { background: #fff; color: #0a0a0a; }
+.lx .advsplit .pill--dark .pill__badge { background: #0a0a0a; color: #fff; }
+@media (min-width: 768px) { .lx .advsplit { padding: 4rem; } }
 .lx .advsplit .advid { max-width: 21rem; margin-inline: auto; }
 @media (min-width: 900px) { .lx .advsplit { grid-template-columns: 1.1fr .9fr; } }
