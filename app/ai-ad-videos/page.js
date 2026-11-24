@@ -65,8 +65,11 @@ export default function AiAdVideos() {
 
         <section className="section">
           <div className="shell section__in">
-            <SecHead eyebrow="Watch" pill title="The ads" lead="Press play on any of them. Sound is on, and starting one pauses the others." />
-            <AdVideos videos={adVideos} />
+            <div className="advpanel">
+              <HeroWater />
+              <SecHead eyebrow="Watch" title="The ads" lead="Press play on any of them. Sound is on, and starting one pauses the others." />
+              <AdVideos videos={adVideos} />
+            </div>
           </div>
         </section>
 
