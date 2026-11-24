@@ -91,6 +91,7 @@ export default function Home() {
 
         {/* About */}
         <section className="about" id="about">
+          <HeroWater />
           <div className="shell about__grid">
             <div className="about__globe">
               <div className="about__orb">

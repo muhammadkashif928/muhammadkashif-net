@@ -694,3 +694,41 @@ html:has(.lx) body.noise::before { display: none; }
 .lx .services .pill--outline .pill__in { border-color: rgba(255,255,255,.3); color: #fff; }
 .lx .services .pill--outline .pill__badge { background: #fff; color: #0a0a0a; }
 @media (hover: hover) { .lx .services .srow-link:hover .srow { background: rgba(255,255,255,.08); } }
+
+/* ---------- Home about: dark water panel ---------- */
+.lx .about { position: relative; isolation: isolate; overflow: hidden; border-radius: 2rem; margin-top: .75rem; color: #fff;
+  background: radial-gradient(60rem 30rem at 85% 0%, rgba(207,128,71,.28), transparent 62%), linear-gradient(to bottom, #161514, #0a0a0a); }
+.lx .about__grid { position: relative; z-index: 2; }
+.lx .about__bigglobe { color: rgba(255,255,255,.1); }
+.lx .about .eyebrow { color: rgba(255,255,255,.75); }
+.lx .about .eyebrow::before { background: rgba(255,255,255,.6); }
+.lx .about__note { color: rgba(255,255,255,.7); }
+.lx .about__note .i { color: #fff; }
+.lx .about__h2 .muted { color: rgba(255,255,255,.55); }
+.lx .about__foot { border-top-color: rgba(255,255,255,.14); }
+.lx .about__foot .lbl { color: rgba(255,255,255,.5); }
+.lx .about .soc:not(.soc--accent) { background: rgba(255,255,255,.1); color: #fff; }
+.lx .about .setup__device { color: #fff; }
+.lx .about .setup__tools { color: rgba(255,255,255,.6); }
+.lx .about .pill--outline .pill__in { border-color: rgba(255,255,255,.3); color: #fff; }
+.lx .about .pill--outline .pill__badge { background: #fff; color: #0a0a0a; }
+
+/* ---------- Phones: finger-sized tap targets ----------
+   Padding grows the touch area; the matching negative margin keeps the layout where it was. */
+@media (max-width: 767.98px) {
+  .lx .brand-btn { padding-block: .5rem; margin-block: -.5rem; }
+  .lx .hcard__ctrl button { width: 2.5rem; height: 2.5rem; }
+  .lx .footer .fcol .alink { padding-block: .5rem; margin-block: -.25rem; }
+  .lx .legal nav .alink { padding-block: .75rem; margin-block: -.75rem; }
+  .lx .phero__crumbs a { padding-block: .625rem; margin-block: -.625rem; }
+  .lx .svc__ask, .lx button.svc__ask, .lx .svc__more { padding-block: .625rem; margin-block: -.375rem; }
+  .lx .byline a { display: inline-block; padding-block: .5rem; margin-block: -.5rem; }
+  .lx .cv__contact a { display: inline-block; padding-block: .375rem; }
+  .lx .facts .v .alink, .lx span.v > .alink { padding-block: .5rem; margin-block: -.5rem; }
+  .lx .facts .k { font-size: .6875rem; }
+  /* Footer: link lists sit side by side so the footer is about half as long */
+  .lx .footer__cols { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; padding-block: 3rem; }
+  .lx .footer__cols > :first-child, .lx .footer__cols > :nth-child(4) { grid-column: 1 / -1; }
+  .lx .footer__cols > :nth-child(4) ul { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 1.25rem; }
+  .lx .footer__cols > :nth-child(4) li:first-child { grid-column: 1 / -1; }
+}

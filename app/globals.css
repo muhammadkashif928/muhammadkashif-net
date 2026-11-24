@@ -409,7 +409,7 @@ html.theme-light .social-dock {
   }
   /* Keep the bar (48px target + 1px border) clear of the end of the
      document and of the back-to-top button */
-  body { padding-bottom: calc(49px + env(safe-area-inset-bottom)); }
+  body:has(.contact-bar) { padding-bottom: calc(49px + env(safe-area-inset-bottom)); }
   .back-to-top {
     bottom: calc(49px + env(safe-area-inset-bottom) + 1rem);
     transition: bottom 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease,
