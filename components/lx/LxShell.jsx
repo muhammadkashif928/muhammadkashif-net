@@ -106,6 +106,7 @@ export default function LxShell({ children }) {
               <h4>Navigate</h4>
               <ul>
                 {NAV.map(item => <li key={item.href}><a className="alink" href={item.href}><span>{item.label}</span></a></li>)}
+                <li><a className="alink" href="/ai-ad-videos/"><span>AI ad videos</span></a></li>
                 <li><a className="alink" href="/resume/"><span>Resume</span></a></li>
                 <li><a className="alink" href="/international-amazon-design-services/"><span>International clients</span></a></li>
               </ul>

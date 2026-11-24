@@ -107,6 +107,7 @@ Three packages, quoted after a short scoping conversation (https://muhammadkashi
 
 | Project | URL | Description |
 |---------|-----|-------------|
+| AI Product Ad Videos | https://muhammadkashif.net/ai-ad-videos/ | Seven short AI-made product ad videos for Eagle Shoe Care, Leather Hero and Fiamme (boot care kit, mink oil, saddle soap, suede protector, suede and nubuck kit, purse care kit) |
 | Ventara ONE — Online Store | https://muhammadkashif.net/portfolio/ventara-one-website/ | Custom-coded online store for groceries and everyday essentials shipped from Chicago, with 13 departments, 165 products and Stripe checkout |
 | Designer Trends Inc. — Company Website | https://muhammadkashif.net/portfolio/designer-trends-inc-website/ | Fully custom Next.js company website for a footwear and leather-care brand group, built to bring in wholesale and distribution partners |
 | Leather Hero — Leather Care Kit Carousel | https://muhammadkashif.net/portfolio/leather-hero-care-kit-carousel/ | Seven-slide 9:16 lifestyle carousel for a leather cleaner and conditioner kit, from the promise through four steps to a before-and-after |

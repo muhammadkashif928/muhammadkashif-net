@@ -748,3 +748,22 @@ html:has(.lx) body.noise::before { display: none; }
    The about panel's rounded top slides up over a square-bottomed hero, so there is no white gap. */
 .lx .hero { border-radius: 0; padding-bottom: 2rem; }
 .lx .hero + .about { margin-top: -2rem; z-index: 3; }
+
+/* ---------- AI ad videos ---------- */
+.lx .advids { display: grid; grid-template-columns: 1fr; gap: 2.5rem 1.5rem; }
+@media (min-width: 768px) { .lx .advids { grid-template-columns: 1fr 1fr; gap: 3rem 1.5rem; } }
+.lx .advid__frame { position: relative; overflow: hidden; border-radius: 1.5rem; background: #0a0a0a; aspect-ratio: 16 / 9; }
+.lx .advid--tall .advid__frame { aspect-ratio: 9 / 16; }
+.lx .advid__v { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lx .advid__play { position: absolute; inset: 0; display: grid; place-items: center; width: 100%; padding: 0; background: linear-gradient(to top, rgba(0,0,0,.45), transparent 45%); }
+.lx .advid__btn { display: grid; place-items: center; width: 4.5rem; height: 4.5rem; border-radius: 9999px; background: rgba(255,255,255,.95); color: #0a0a0a; box-shadow: 0 0 0 .5rem rgba(255,255,255,.18), 0 1rem 2.5rem rgba(0,0,0,.35); transition: transform .5s var(--e-spring, ease); }
+.lx .advid__btn svg { width: 1.6rem; height: 1.6rem; fill: currentColor; transform: translateX(1px); }
+.lx .advid__len { position: absolute; right: 1rem; bottom: 1rem; border-radius: 9999px; background: rgba(0,0,0,.6); padding: .2rem .65rem; font-size: .75rem; font-weight: 500; color: #fff; }
+@media (hover: hover) { .lx .advid__play:hover .advid__btn { transform: scale(1.1); } }
+.lx .advid__meta { padding: 1.1rem .25rem 0; }
+.lx .advid__brand { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: #b15f2c; }
+.lx .advid__title { margin-top: .3rem; font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; }
+.lx .advid__text { margin-top: .45rem; max-width: 34rem; font-size: .9375rem; line-height: 1.55; color: rgba(17,17,17,.62); }
+.lx .advsplit { display: grid; grid-template-columns: 1fr; align-items: center; gap: 3rem; padding-bottom: 5rem; }
+.lx .advsplit .advid { max-width: 21rem; margin-inline: auto; }
+@media (min-width: 900px) { .lx .advsplit { grid-template-columns: 1.1fr .9fr; } }
