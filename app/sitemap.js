@@ -32,6 +32,7 @@ export default function sitemap() {
     route('/ai-ad-videos/', 'monthly', 0.9, '2026-11-24'),
     route('/portfolio/ventara-one-website/', 'monthly', 0.9, '2026-11-24'),
     route('/portfolio/designer-trends-inc-website/', 'monthly', 0.9, '2026-11-24'),
+    route('/portfolio/eagle-leather-care-kit-carousel/', 'monthly', 0.9, '2026-11-25'),
     route('/portfolio/eagle-saddle-soap-kit-carousel/', 'monthly', 0.9, '2026-11-25'),
     route('/portfolio/leather-hero-care-kit-carousel/', 'monthly', 0.9, '2026-11-23'),
     route('/portfolio/eagle-shoe-care-shoe-cream/', 'monthly', 0.9, '2026-11-22'),

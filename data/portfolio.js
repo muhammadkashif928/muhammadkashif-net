@@ -39,6 +39,16 @@ export const portfolioProjects = [
     software: ['HTML', 'CSS', 'JavaScript', 'Next.js', 'Tailwind CSS'],
   },
   {
+    slug: 'eagle-leather-care-kit-carousel',
+    path: '/portfolio/eagle-leather-care-kit-carousel/',
+    tag: 'LIFESTYLE CAROUSEL',
+    title: 'Eagle Shoe Care — Boot Care Kit Carousel',
+    desc: 'A five-piece leather care kit told as a six-slide 9:16 carousel — one western boot, from faded grey to deep black, in four steps.',
+    img: '/case-studies/eagle-leather-care-kit-carousel/share.jpg',
+    date: 'Nov 25, 2026',
+    software: ['Claude', 'ChatGPT', 'Gemini', 'Photoshop', 'Lightroom'],
+  },
+  {
     slug: 'eagle-saddle-soap-kit-carousel',
     path: '/portfolio/eagle-saddle-soap-kit-carousel/',
     tag: 'LIFESTYLE CAROUSEL',

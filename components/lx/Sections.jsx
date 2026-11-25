@@ -92,6 +92,16 @@ export const PORTFOLIO_ONLY = [
     tags: ['Custom Website', 'Next.js', 'B2B Wholesale'],
   },
   {
+    slug: 'eagle-leather-care-kit-carousel',
+    category: 'carousels',
+    href: '/portfolio/eagle-leather-care-kit-carousel/',
+    img: '/images/lx/work/eagle-leather-care-kit-carousel.webp',
+    meta: 'Shoe Care — Lifestyle carousel',
+    title: 'Eagle Shoe Care — Boot Care Kit Carousel',
+    desc: 'A five-piece leather care kit told as a six-slide vertical carousel on one western boot — the before-and-after, four steps and the restored pair.',
+    tags: ['6-Slide Carousel', 'How-To Steps', 'Before / After'],
+  },
+  {
     slug: 'eagle-saddle-soap-kit-carousel',
     category: 'carousels',
     href: '/portfolio/eagle-saddle-soap-kit-carousel/',
