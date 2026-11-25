@@ -37,7 +37,7 @@ const listJsonLd = {
         description: v.text,
         thumbnailUrl: absoluteUrl(`/videos/ads/${v.slug}.jpg`),
         contentUrl: absoluteUrl(`/videos/ads/${v.slug}.mp4`),
-        uploadDate: '2026-11-24',
+        uploadDate: '2026-11-24T09:00:00+08:00',
         duration: `PT${v.seconds}S`,
       },
     })),
