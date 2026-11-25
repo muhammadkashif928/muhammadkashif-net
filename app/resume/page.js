@@ -21,6 +21,7 @@ const skills = [
   { label: 'Competitive Analysis' },
   { label: 'High-End Retouching' },
   { label: 'AI Video Ads' },
+  { label: 'Social Carousels' },
   { label: 'Video Editing' },
 ]
 
@@ -38,6 +39,7 @@ const experience = [
       'Designed and built the group’s websites from scratch: the Designer Trends Inc. company site and the 89-page Leather Hero brand site (both custom Next.js), and the Eagle Shoe Care Shopify store on a custom theme with a wholesale application built in.',
       'Produced 8K lifestyle composites using AI-powered retouching, cutting the need for studio shoots.',
       'Created AI video ads for Eagle Shoe Care, Leather Hero and Fiamme: 40-second product spots that take each kit from the problem to the finished result, plus vertical cuts for phones.',
+      'Designed step-by-step social carousels for the Eagle Shoe Care Saddle Soap Kit and Boot Care Kit and the Leather Hero Care Kit.',
     ],
   },
   {
@@ -90,6 +92,8 @@ const projects = [
   { name: 'Eagle Shoe Care — Shoe Cream', type: 'Amazon · Listing set', href: '/portfolio/eagle-shoe-care-shoe-cream/', note: 'Ten-image listing set for a black shoe cream with brush and buffing cloth.' },
   { name: 'Fiamme — Brand Store', type: 'Amazon · Brand Store', href: '/portfolio/fiamme-brand-store/', note: 'Seven-module Amazon Brand Store for a luxury suede and nubuck cleaning kit.' },
   { name: 'Leather Hero — Care Kit Carousel', type: 'Social · Carousel', href: '/portfolio/leather-hero-care-kit-carousel/', note: 'Seven-slide vertical carousel that takes one car seat from dirty to clean.' },
+  { name: 'Eagle Shoe Care — Saddle Soap Kit Carousel', type: 'Social · Carousel', href: '/portfolio/eagle-saddle-soap-kit-carousel/', note: 'Five-slide carousel: brush, scrub and wipe a muddy boot clean.' },
+  { name: 'Eagle Shoe Care — Boot Care Kit Carousel', type: 'Social · Carousel', href: '/portfolio/eagle-leather-care-kit-carousel/', note: 'Six-slide carousel for the five-piece kit, from brushing to mink oil.' },
 ]
 
 const toolGroups = [
